@@ -1,0 +1,44 @@
+
+ROSのコントローラーが起動しているかを確認する方法
+
+1. **コントローラーの状態を確認するコマンド**
+   ```bash
+   rosservice call /controller_manager/list_controllers
+   ```
+   - このコマンドを実行すると、現在ロードされているすべてのコントローラーのリストが表示されます。
+   - **output:** 各コントローラーの名前と状態が含まれます。
+     - `running`: コントローラーが正常に動作中
+     - `stopped`: コントローラーが停止状態
+     - `uninitialized`: 初期化されていない
+
+2. **特定のコントローラーをチェック**
+   - 必要に応じて、リストの中から目的のコントローラーが含まれているかを確認します。
+   - 例: `vehicle1_front_left_trans` や `vehicle2_carrier_vertex_trans` など。
+
+3. **エラーログの確認**
+   ```bash
+   roslaunch your_package your_launch_file.launch
+   ```
+   - launchファイルを実行後、ログにエラーが表示されていないか確認します。
+   - 必要であれば別ターミナルで以下を実行:
+     ```bash
+     rostopic list
+     ```
+     - コントローラー関連のトピックが存在しているか確認します。
+
+4. **動作確認用トピックのモニタリング**
+   ```bash
+   rostopic echo /your_controller_name/command
+   ```
+   - 特定のトピックに対して正しいデータが流れているかをリアルタイムで確認します。
+   - 実際に指令を送る際は以下を使います:
+     ```bash
+     rostopic pub /your_controller_name/command std_msgs/Float64 "data: 1.0"
+     ```
+
+5. **RQTを使用してGUIで状態確認**
+   - 以下のコマンドでRQTを起動し、`controller_manager`や`トピック`の状態を視覚的に確認:
+     ```bash
+     rqt
+     ```
+   - RQTプラグインから`Joint State`や`Controller`を選択します。

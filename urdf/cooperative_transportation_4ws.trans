@@ -1,0 +1,334 @@
+<?xml version="1.0" ?>
+<robot name="cooperative_transportation_4ws" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="v1_rear_right_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v1_rear_right_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v1_rear_right_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v1_rear_right_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v1_rear_right_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v1_rear_right_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v1_front_right_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v1_front_right_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v1_front_right_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v1_front_left_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v1_front_left_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v1_front_left_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v1_rear_left_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v1_rear_left_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v1_rear_left_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v1_front_right_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v1_front_right_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v1_front_right_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v1_front_left_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v1_front_left_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v1_front_left_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v1_rear_left_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v1_rear_left_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v1_rear_left_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="linkage1_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="linkage1_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="linkage1_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="linkage2_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="linkage2_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="linkage2_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="linkage3_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="linkage3_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="linkage3_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v2_front_right_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v2_front_right_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v2_front_right_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v2_rear_right_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v2_rear_right_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v2_rear_right_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v2_front_left_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v2_front_left_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v2_front_left_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v2_rear_left_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v2_rear_left_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v2_rear_left_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v2_front_right_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v2_front_right_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v2_front_right_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v2_rear_right_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v2_rear_right_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v2_rear_right_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v2_front_left_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v2_front_left_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v2_front_left_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v2_rear_left_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v2_rear_left_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v2_rear_left_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v3_front_right_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v3_front_right_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v3_front_right_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v3_rear_right_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v3_rear_right_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v3_rear_right_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v3_front_left_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v3_front_left_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v3_front_left_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v3_rear_left_steering_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v3_rear_left_steering">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v3_rear_left_steering_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v3_front_right_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v3_front_right_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v3_front_right_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v3_rear_right_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v3_rear_right_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v3_rear_right_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v3_front_left_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v3_front_left_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v3_front_left_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="v3_rear_left_wheel_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="v3_rear_left_wheel_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="v3_rear_left_wheel_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="linkage_point_to_v1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="linkage_point_to_v1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="linkage_point_to_v1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="linkage_point_to_v2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="linkage_point_to_v2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="linkage_point_to_v2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="linkage_point_to_v3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="linkage_point_to_v3">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="linkage_point_to_v3_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

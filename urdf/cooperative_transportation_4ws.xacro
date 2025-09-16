@@ -1,0 +1,1474 @@
+<?xml version="1.0" ?>
+<robot name="cooperative_transportation_4ws" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:property name="PI" value="3.1415926535897932384626433832795028841971" />
+<xacro:property name="gravitational_acceleration" value="9.8" />
+<xacro:property name="vehicle1_Yaw" value="0" />
+<!-- <xacro:property name="vehicle2_Yaw" value="${-PI/8}" />
+<xacro:property name="vehicle3_Yaw" value="${PI/6}" /> -->
+<xacro:property name="vehicle2_Yaw" value="${-PI/8}" />
+<xacro:property name="vehicle3_Yaw" value="${PI/6}" />
+<xacro:property name="wheel_joint_damping" value="0.1" />
+<xacro:property name="wheel_joint_mu" value="0.001" />
+<xacro:property name="wheel_joint_friction" value="${wheel_joint_mu * 0.0}" /> <!-- 横方向に垂直抗力は生まれないため0.0 -->
+
+
+<!--各リンクの質量と慣性をfusionから変換 -->
+<xacro:property name="fusion_carrier_mass" value="2052.2363345901408" /> 
+<xacro:property name="sim_carrier_mass" value="100" /> 
+<xacro:property name="carrier_inertia_coef" value="${sim_carrier_mass/fusion_carrier_mass}" /> 
+
+<xacro:property name="fusion_vehicle_body_mass" value="2113.272311120373" /> 
+<xacro:property name="sim_body_mass" value="100" /> 
+<xacro:property name="vehicle_inertia_coef" value="${sim_body_mass/fusion_vehicle_body_mass}" /> 
+
+
+<!-- 荷台と連結点のmass -->
+<xacro:property name="carrier_mass" value="2052.2363345901408" /> 
+<xacro:property name="linkage_point_mass" value="16.301253040579397" /> 
+<xacro:property name="vehicle_body_mass" value="2113.272311120373" /> 
+<xacro:property name="sliding_mechanism_mass" value="36.58325703660448" /> 
+
+<!-- friction and damping of sliding mechanism -->
+<xacro:property name="sliding_mechanism_damping" value="${0.5*2*sqrt(100000*(carrier_mass/3 + linkage_point_mass))}" /> <!-- ばね定数：1000~10000, 割合：50%-->
+<xacro:property name="sliding_mechanism_mu" value="0.003" />
+<xacro:property name="sliding_mechanism_friction" value="${sliding_mechanism_mu*gravitational_acceleration*(carrier_mass/3 + linkage_point_mass)}" />
+<!-- friction and damping of steering -->
+<xacro:property name="steering_damping" value="5.0" />
+<xacro:property name="steering_mu" value="0.001" />
+<xacro:property name="steering_friction" value="${steering_mu * gravitational_acceleration * 0.25*(carrier_mass/3 + linkage_point_mass + sliding_mechanism_mass + vehicle_body_mass)}" />
+<!-- friction and damping of rotational joint -->
+<xacro:property name="rotational_joint_damping" value="0.1" />
+<xacro:property name="rotational_joint_mu" value="0.001" />
+<xacro:property name="rotational_joint_friction" value="${rotational_joint_mu * gravitational_acceleration * carrier_mass/3}" />
+
+<!-- wheelの接地面の摩擦などを定義 -->
+<xacro:property name="wheel_surface_mu1" value="0.8"/>
+<xacro:property name="wheel_surface_mu2" value="0.6" />
+<xacro:property name="wheel_kp" value="5e4" /> 
+<xacro:property name="wheel_kd" value="1.0" />
+<xacro:property name="wheel_minDepth" value="0.01" />
+<xacro:property name="wheel_maxVel" value="1.0" />
+
+<xacro:include filename="$(find cooperative_transportation_4ws_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find cooperative_transportation_4ws_description)/urdf/cooperative_transportation_4ws.trans" />
+<xacro:include filename="$(find cooperative_transportation_4ws_description)/urdf/cooperative_transportation_4ws.gazebo" />
+
+<link name="base_link"/>
+
+
+<!-- <link name="carrier">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="2052.2363345901408"/>
+    <inertia ixx="586.219446" iyy="586.234405" izz="1171.807086" ixy="0.007184" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 -0.6559999999999989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 -0.6559999999999989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link> -->
+
+<link name="carrier">
+  <inertial>
+    <origin xyz="-0.00038139052519531075 0.05527097122796802 0.0" rpy="0 0 0"/>
+    <mass value="${sim_carrier_mass}"/>
+    <inertia ixx="${carrier_inertia_coef*586.219446}" iyy="${carrier_inertia_coef*586.234405}" izz="${carrier_inertia_coef*1171.807086}" ixy="${carrier_inertia_coef*0.007184}" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 -0.6559999999999989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_newwheel_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 -0.6559999999999989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_newwheel_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_rear_right_wheel_1">
+  <inertial>
+    <origin xyz="1.7798855900252875e-07 2.54069273286639e-07 -3.1158354278637557e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.150031 0.34248 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_rear_right_hinge_1">
+  <inertial>
+    <origin xyz="-4.066709265670987e-05 2.540692417563051e-07 -0.12265052259028478" rpy="0 0 0"/>
+    <mass value="3.4982376613637274"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.15045 0.34248 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.15045 0.34248 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_front_right_hinge_1">
+  <inertial>
+    <origin xyz="-4.066709265915236e-05 2.54069169425275e-07 -0.12265052259028525" rpy="0 0 0"/>
+    <mass value="3.498237661363729"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.05045 0.34248 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.05045 0.34248 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_front_left_hinge_1">
+  <inertial>
+    <origin xyz="-4.066709265915236e-05 2.5406916914771926e-07 -0.12265052259028628" rpy="0 0 0"/>
+    <mass value="3.4982376613637256"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="-0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.05045 -0.45752 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.05045 -0.45752 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_rear_left_hinge_1">
+  <inertial>
+    <origin xyz="-4.0667092656931914e-05 2.5406924086812666e-07 -0.12265052259028578" rpy="0 0 0"/>
+    <mass value="3.498237661363729"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="-0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.15045 -0.45752 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.15045 -0.45752 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_body_1">
+  <inertial>
+    <origin xyz="0.0009614087301266228 -8.103821973019787e-06 -0.13737493498310355" rpy="0 0 0"/>
+    <mass value="${vehicle_body_mass}"/>
+    <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.60045 -0.05752 -0.421" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v1_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="body_red"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.60045 -0.05752 -0.421" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v1_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_rear_1">
+  <inertial>
+    <origin xyz="2.5142643989006785e-07 2.5406923826604144e-07 -0.014912246259013051" rpy="0 0 0"/>
+    <mass value="12.646385127140846"/>
+    <inertia ixx="0.752015" iyy="0.005192" izz="0.755318" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.15045 -0.05752 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v1_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.15045 -0.05752 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v1_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_front_1">
+  <inertial>
+    <origin xyz="2.514264378916664e-07 2.5406916610154484e-07 -0.014912246259013162" rpy="0 0 0"/>
+    <mass value="12.64638512714101"/>
+    <inertia ixx="0.752015" iyy="0.005192" izz="0.755318" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.05045 -0.05752 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v1_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.05045 -0.05752 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v1_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v1_front_right_wheel_1">
+  <inertial>
+    <origin xyz="1.779885572261719e-07 2.540692008445866e-07 -3.1158354346638717e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.050031 0.34248 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v1_front_left_wheel_1">
+  <inertial>
+    <origin xyz="1.7798855633799349e-07 2.540691992902744e-07 -3.1158354452109904e-07" rpy="0 0 0"/>
+    <mass value="20.14917454001241"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.050031 -0.45752 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v1_rear_left_wheel_1">
+  <inertial>
+    <origin xyz="1.7798855966866256e-07 2.540692710661929e-07 -3.1158354392435417e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.150031 -0.45752 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="linkage_point1_1">
+  <inertial>
+    <origin xyz="2.514264050290649e-07 7.029564128707699e-08 -0.11791981845688482" rpy="0 0 0"/>
+    <mass value="16.301253040579397"/>
+    <inertia ixx="0.104905" iyy="0.104905" izz="0.020865" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.60045 -0.057547 -0.681" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/linkage_point1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.60045 -0.057547 -0.681" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/linkage_point1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="linkage_point2_1">
+  <inertial>
+    <origin xyz="3.2372278280234923e-07 -1.568761989201306e-07 -0.11791981845688582" rpy="0 0 0"/>
+    <mass value="16.30125304057939"/>
+    <inertia ixx="0.104905" iyy="0.104905" izz="0.020865" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.799387 -1.443222 -0.681" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/linkage_point2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.799387 -1.443222 -0.681" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/linkage_point2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="linkage_point3_1">
+  <inertial>
+    <origin xyz="-2.1871393585115584e-14 -1.837735197351975e-07 -0.11791981845688337" rpy="0 0 0"/>
+    <mass value="16.301253040579386"/>
+    <inertia ixx="0.104905" iyy="0.104905" izz="0.020865" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.8 1.329973 -0.681" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/linkage_point3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.8 1.329973 -0.681" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/linkage_point3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2body_1">
+  <inertial>
+    <origin xyz="0.0009614810265025087 -8.330993812588616e-06 -0.13737493498310416" rpy="0 0 0"/>
+    <mass value="${vehicle_body_mass}"/>
+    <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.799387 -1.443195 -0.421" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v2body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="body_red"/>
+  </visual>
+  <collision>
+    <origin xyz="0.799387 -1.443195 -0.421" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v2body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2_rear_1">
+  <inertial>
+    <origin xyz="3.2372281477677234e-07 2.689739853067863e-08 -0.014912246259013773" rpy="0 0 0"/>
+    <mass value="12.646385127140846"/>
+    <inertia ixx="0.752015" iyy="0.005192" izz="0.755318" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.249387 -1.443195 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v2_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="1.249387 -1.443195 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v2_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2_front_1">
+  <inertial>
+    <origin xyz="3.237228147212612e-07 2.6897325255959004e-08 -0.014912246259013828" rpy="0 0 0"/>
+    <mass value="12.64638512714101"/>
+    <inertia ixx="0.752015" iyy="0.005192" izz="0.755318" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.349387 -1.443195 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v2_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.349387 -1.443195 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v2_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2_front_right_hinge_1">
+  <inertial>
+    <origin xyz="-4.059479628210072e-05 2.6897330362984917e-08 -0.12265052259028594" rpy="0 0 0"/>
+    <mass value="3.498237661363729"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.349387 -1.043195 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_11.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.349387 -1.043195 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_11.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2_rear_right_hinge_1">
+  <inertial>
+    <origin xyz="-4.0594796281379075e-05 2.6897401417258493e-08 -0.12265052259028517" rpy="0 0 0"/>
+    <mass value="3.4982376613637274"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.249387 -1.043195 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_12.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="1.249387 -1.043195 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_12.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2_front_left_hinge_1">
+  <inertial>
+    <origin xyz="-4.05947962824893e-05 2.6897327698449658e-08 -0.1226505225902865" rpy="0 0 0"/>
+    <mass value="3.4982376613637256"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.349387 -1.843195 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_10.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.349387 -1.843195 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_10.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2_rear_left_hinge_1">
+  <inertial>
+    <origin xyz="-4.0594796281379075e-05 2.6897399196812444e-08 -0.12265052259028655" rpy="0 0 0"/>
+    <mass value="3.498237661363729"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.249387 -1.843195 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_7.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="1.249387 -1.843195 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_7.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2_front_right_wheel_1">
+  <inertial>
+    <origin xyz="2.5028493444434474e-07 2.689736211536342e-08 -3.1158354371618735e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.349806 -1.043195 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_12.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v2_rear_right_wheel_1">
+  <inertial>
+    <origin xyz="2.5028493433332244e-07 2.6897433391681602e-08 -3.1158354339699823e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.249806 -1.043195 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_11.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v2_front_left_wheel_1">
+  <inertial>
+    <origin xyz="2.5028493316758826e-07 2.6897359006738952e-08 -3.1158354495131046e-07" rpy="0 0 0"/>
+    <mass value="20.14917454001241"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.349806 -1.843195 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_7.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v2_rear_left_wheel_1">
+  <inertial>
+    <origin xyz="2.5028493477741165e-07 2.6897427618521874e-08 -3.115835443545656e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.249806 -1.843195 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_10.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v3_body_1">
+  <inertial>
+    <origin xyz="0.000961157303698057 -8.357891134291862e-06 -0.13737493498310205" rpy="0 0 0"/>
+    <mass value="${vehicle_body_mass}"/>
+    <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.8 1.33 -0.421" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v3_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="body_red"/>
+  </visual>
+  <collision>
+    <origin xyz="0.8 1.33 -0.421" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v3_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v3_rear_1">
+  <inertial>
+    <origin xyz="1.0880185641326534e-14 7.682743330406083e-14 -0.014912246259012052" rpy="0 0 0"/>
+    <mass value="12.646385127140846"/>
+    <inertia ixx="0.752015" iyy="0.005192" izz="0.755318" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.25 1.33 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v3_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="1.25 1.33 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v3_rear_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v3_front_1">
+  <inertial>
+    <origin xyz="9.658940314238862e-15 4.6629367034256575e-15 -0.014912246259011386" rpy="0 0 0"/>
+    <mass value="12.64638512714101"/>
+    <inertia ixx="0.752015" iyy="0.005192" izz="0.755318" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.35 1.33 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v3_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.35 1.33 -0.336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v3_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v3_front_right_hinge_1">
+  <inertial>
+    <origin xyz="-4.0918519092103534e-05 7.327471962526033e-15 -0.12265052259028283" rpy="0 0 0"/>
+    <mass value="3.498237661363729"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="-0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.35 1.73 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_5.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.35 1.73 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_5.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v3_rear_right_hinge_1">
+  <inertial>
+    <origin xyz="-4.0918519089272465e-05 8.01581023779363e-14 -0.12265052259028333" rpy="0 0 0"/>
+    <mass value="3.4982376613637274"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.25 1.73 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_6.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="1.25 1.73 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_6.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v3_front_left_hinge_1">
+  <inertial>
+    <origin xyz="-4.0918519092103534e-05 7.771561172376096e-15 -0.12265052259028397" rpy="0 0 0"/>
+    <mass value="3.4982376613637256"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="-0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.35 0.93 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_9.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.35 0.93 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_9.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v3_rear_left_hinge_1">
+  <inertial>
+    <origin xyz="-4.091851908949451e-05 7.793765632868599e-14 -0.12265052259028442" rpy="0 0 0"/>
+    <mass value="3.498237661363729"/>
+    <inertia ixx="0.018836" iyy="0.022349" izz="0.007588" ixy="-0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.25 0.93 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_8.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="1.25 0.93 -0.316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_hinge_8.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v3_front_right_wheel_1">
+  <inertial>
+    <origin xyz="-7.343787561397974e-08 3.930189507173054e-14 -3.1158354107940767e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.350419 1.73 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_5.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v3_rear_right_wheel_1">
+  <inertial>
+    <origin xyz="-7.343787356006715e-08 1.1191048088221578e-13 -3.1158354157900803e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.250419 1.73 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_6.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v3_front_left_wheel_1">
+  <inertial>
+    <origin xyz="-7.343787644664701e-08 3.808064974464287e-14 -3.115835421757529e-07" rpy="0 0 0"/>
+    <mass value="20.14917454001241"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.350419 0.93 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_8.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v3_rear_left_wheel_1">
+  <inertial>
+    <origin xyz="-7.343787289393333e-08 1.0891287871572786e-13 -3.1158354246718645e-07" rpy="0 0 0"/>
+    <mass value="20.149174540012407"/>
+    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.250419 0.93 -0.110215" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/new_wheel_9.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder radius="0.153" length="0.05"/>
+    </geometry>
+
+    <surface>
+      <friction>
+        <ode>
+          <mu>${wheel_surface_mu1}</mu>
+          <mu2>${wheel_surface_mu2}</mu2>
+        </ode>
+      </friction>
+      <contact>
+        <ode>
+          <kp>${wheel_kp}</kp>
+          <kd>${wheel_kd}</kd>
+          <minDepth>${wheel_minDepth}</minDepth>
+          <maxVel>${wheel_maxVel}</maxVel>
+        </ode>
+      </contact>
+    </surface>
+  </collision>
+</link>
+
+<link name="v1_sliding_machine_1">
+  <inertial>
+    <origin xyz="2.5142640325270804e-07 1.907761446520717e-05 0.041991976946951504" rpy="0 0 0"/>
+    <mass value="36.58325703660448"/>
+    <inertia ixx="1.847079" iyy="0.153042" izz="1.920404" ixy="-0.0" iyz="-1.3e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.60045 -0.057547 -0.431" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v1_sliding_machine_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.60045 -0.057547 -0.431" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v1_sliding_machine_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v2_sliding_machine_1">
+  <inertial>
+    <origin xyz="3.2372277880554634e-07 1.8850442625728547e-05 0.04199197694695089" rpy="0 0 0"/>
+    <mass value="36.58325703660448"/>
+    <inertia ixx="1.847079" iyy="0.153042" izz="1.920404" ixy="-0.0" iyz="-1.3e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.799387 -1.443222 -0.431" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v2_sliding_machine_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"/>
+  </visual>
+  <collision>
+    <origin xyz="0.799387 -1.443222 -0.431" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v2_sliding_machine_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="v3_sliding_machine_1">
+  <inertial>
+    <origin xyz="-2.55351295663786e-14 1.8823545304025302e-05 0.04199197694695295" rpy="0 0 0"/>
+    <mass value="36.58325703660448"/>
+    <inertia ixx="1.847079" iyy="0.153042" izz="1.920404" ixy="-0.0" iyz="-1.3e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.8 1.329973 -0.431" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v3_sliding_machine_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"/>
+  </visual>
+  <collision>
+    <origin xyz="0.8 1.329973 -0.431" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://cooperative_transportation_4ws_description/meshes/v3_sliding_machine_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<!-- <joint name="carrier" type="fixed">
+  <origin xyz="-0.00038139052519531075 0.05527097122796802 0.6559999999999989" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="carrier"/>
+</joint> -->
+
+<joint name="carrier" type="fixed">
+  <origin xyz="0 0 0.6559999999999989" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="carrier"/>
+</joint>
+
+<joint name="v1_rear_right_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v1_rear_right_hinge_1"/>
+  <child link="v1_rear_right_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v1_rear_right_steering" type="revolute">
+  <origin xyz="0.0 -0.4 -0.02" rpy="0 0 ${-vehicle1_Yaw}"/>
+  <parent link="v1_rear_1"/>
+  <child link="v1_rear_right_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v1_front_right_steering" type="revolute">
+  <origin xyz="0.0 -0.4 -0.02" rpy="0 0 ${-vehicle1_Yaw}"/>
+  <parent link="v1_front_1"/>
+  <child link="v1_front_right_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v1_front_left_steering" type="revolute">
+  <origin xyz="0.0 0.4 -0.02" rpy="0 0 ${-vehicle1_Yaw}"/>
+  <parent link="v1_front_1"/>
+  <child link="v1_front_left_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v1_rear_left_steering" type="revolute">
+  <origin xyz="0.0 0.4 -0.02" rpy="0 0 ${-vehicle1_Yaw}"/>
+  <parent link="v1_rear_1"/>
+  <child link="v1_rear_left_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v1_sliding_machine_to_body" type="fixed">
+  <origin xyz="0.0 -2.7e-05 -0.01" rpy="0 0 0"/>
+  <parent link="v1_sliding_machine_1"/>
+  <child link="v1_body_1"/>
+</joint>
+
+<joint name="v1_body_to_rear" type="fixed">
+  <origin xyz="-0.45 0.0 -0.085" rpy="0 0 0"/>
+  <parent link="v1_body_1"/>
+  <child link="v1_rear_1"/>
+</joint>
+
+<joint name="v1_body_to_front" type="fixed">
+  <origin xyz="0.45 0.0 -0.085" rpy="0 0 0"/>
+  <parent link="v1_body_1"/>
+  <child link="v1_front_1"/>
+</joint>
+
+<joint name="v1_front_right_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v1_front_right_hinge_1"/>
+  <child link="v1_front_right_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v1_front_left_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v1_front_left_hinge_1"/>
+  <child link="v1_front_left_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v1_rear_left_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v1_rear_left_hinge_1"/>
+  <child link="v1_rear_left_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<!-- <joint name="linkage1_rotation" type="continuous">
+  <origin xyz="1.60045 0.057547 0" rpy="0 0 ${vehicle1_Yaw}"/>
+  <parent link="carrier"/>
+  <child link="linkage_point1_1"/>
+  <dynamics damping="${rotational_joint_damping}" friction="${rotational_joint_friction}"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="linkage2_rotation" type="continuous">
+  <origin xyz="-0.799387 1.443222 0" rpy="0 0 ${vehicle2_Yaw}"/>
+  <parent link="carrier"/>
+  <child link="linkage_point2_1"/>
+  <dynamics damping="${rotational_joint_damping}" friction="${rotational_joint_friction}"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="linkage3_rotation" type="continuous">
+  <origin xyz="-0.8 -1.329973 0" rpy="0 0 ${vehicle3_Yaw}"/>
+  <parent link="carrier"/>
+  <child link="linkage_point3_1"/>
+  <dynamics damping="${rotational_joint_damping}" friction="${rotational_joint_friction}"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint> -->
+
+<joint name="linkage1_rotation" type="continuous">
+  <origin xyz="1.60045 0.057547 0.025" rpy="0 0 ${vehicle1_Yaw}"/>
+  <parent link="carrier"/>
+  <child link="linkage_point1_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="linkage2_rotation" type="continuous">
+  <origin xyz="-0.799387 1.443222 0.025" rpy="0 0 ${vehicle2_Yaw}"/>
+  <parent link="carrier"/>
+  <child link="linkage_point2_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+
+<joint name="linkage3_rotation" type="continuous">
+  <origin xyz="-0.8 -1.329973 0.025" rpy="0 0 ${vehicle3_Yaw}"/>
+  <parent link="carrier"/>
+  <child link="linkage_point3_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="v2_sliding_machine_to_body" type="fixed">
+  <origin xyz="0.0 -2.7e-05 -0.01" rpy="0 0 0"/>
+  <parent link="v2_sliding_machine_1"/>
+  <child link="v2body_1"/>
+</joint>
+
+<joint name="v2_body_to_rear" type="fixed">
+  <origin xyz="-0.45 0.0 -0.085" rpy="0 0 0"/>
+  <parent link="v2body_1"/>
+  <child link="v2_rear_1"/>
+</joint>
+
+<joint name="v2_body_to_front" type="fixed">
+  <origin xyz="0.45 0.0 -0.085" rpy="0 0 0"/>
+  <parent link="v2body_1"/>
+  <child link="v2_front_1"/>
+</joint>
+
+<joint name="v2_front_right_steering" type="revolute">
+  <origin xyz="0.0 -0.4 -0.02" rpy="0 0 0"/>
+  <parent link="v2_front_1"/>
+  <child link="v2_front_right_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v2_rear_right_steering" type="revolute">
+  <origin xyz="0.0 -0.4 -0.02" rpy="0 0 0"/>
+  <parent link="v2_rear_1"/>
+  <child link="v2_rear_right_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v2_front_left_steering" type="revolute">
+  <origin xyz="0.0 0.4 -0.02" rpy="0 0 0"/>
+  <parent link="v2_front_1"/>
+  <child link="v2_front_left_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v2_rear_left_steering" type="revolute">
+  <origin xyz="0.0 0.4 -0.02" rpy="0 0 0"/>
+  <parent link="v2_rear_1"/>
+  <child link="v2_rear_left_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v2_front_right_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v2_front_right_hinge_1"/>
+  <child link="v2_front_right_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v2_rear_right_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v2_rear_right_hinge_1"/>
+  <child link="v2_rear_right_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v2_front_left_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v2_front_left_hinge_1"/>
+  <child link="v2_front_left_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v2_rear_left_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v2_rear_left_hinge_1"/>
+  <child link="v2_rear_left_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v3_sliding_machine_to_body" type="fixed">
+  <origin xyz="0.0 -2.7e-05 -0.01" rpy="0 0 0"/>
+  <parent link="v3_sliding_machine_1"/>
+  <child link="v3_body_1"/>
+</joint>
+
+<joint name="v3_body_to_rear" type="fixed">
+  <origin xyz="-0.45 0.0 -0.085" rpy="0 0 0"/>
+  <parent link="v3_body_1"/>
+  <child link="v3_rear_1"/>
+</joint>
+
+<joint name="v3_body_to_front" type="fixed">
+  <origin xyz="0.45 0.0 -0.085" rpy="0 0 0"/>
+  <parent link="v3_body_1"/>
+  <child link="v3_front_1"/>
+</joint>
+
+<joint name="v3_front_right_steering" type="revolute">
+  <origin xyz="0.0 -0.4 -0.02" rpy="0 0 0"/>
+  <parent link="v3_front_1"/>
+  <child link="v3_front_right_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v3_rear_right_steering" type="revolute">
+  <origin xyz="0.0 -0.4 -0.02" rpy="0 0 0"/>
+  <parent link="v3_rear_1"/>
+  <child link="v3_rear_right_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v3_front_left_steering" type="revolute">
+  <origin xyz="0.0 0.4 -0.02" rpy="0 0 0"/>
+  <parent link="v3_front_1"/>
+  <child link="v3_front_left_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v3_rear_left_steering" type="revolute">
+  <origin xyz="0.0 0.4 -0.02" rpy="0 0 0"/>
+  <parent link="v3_rear_1"/>
+  <child link="v3_rear_left_hinge_1"/>
+  <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="v3_front_right_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v3_front_right_hinge_1"/>
+  <child link="v3_front_right_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v3_rear_right_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v3_rear_right_hinge_1"/>
+  <child link="v3_rear_right_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v3_front_left_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v3_front_left_hinge_1"/>
+  <child link="v3_front_left_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="v3_rear_left_wheel_rotation" type="continuous">
+  <origin xyz="-0.000419 0.0 -0.205785" rpy="0 0 0"/>
+  <parent link="v3_rear_left_hinge_1"/>
+  <child link="v3_rear_left_wheel_1"/>
+  <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="linkage_point_to_v1" type="prismatic">
+  <origin xyz="0.0 0.0 -0.25" rpy="0 0 0"/>
+  <parent link="linkage_point1_1"/>
+  <child link="v1_sliding_machine_1"/>
+  <dynamics damping="${sliding_mechanism_damping}" friction="${sliding_mechanism_friction}"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+  <limit upper="0.2" lower="-0.2" effort="10" velocity="10"/>
+</joint>
+
+<joint name="linkage_point_to_v2" type="prismatic">
+  <origin xyz="0.0 0.0 -0.25" rpy="0 0 0"/>
+  <parent link="linkage_point2_1"/>
+  <child link="v2_sliding_machine_1"/>
+  <dynamics damping="${sliding_mechanism_damping}" friction="${sliding_mechanism_friction}"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+  <limit upper="0.2" lower="-0.2" effort="10" velocity="10"/>
+</joint>
+
+<joint name="linkage_point_to_v3" type="prismatic">
+  <origin xyz="0.0 0.0 -0.25" rpy="0 0 0"/>
+  <parent link="linkage_point3_1"/>
+  <child link="v3_sliding_machine_1"/>
+  <dynamics damping="${sliding_mechanism_damping}" friction="${sliding_mechanism_friction}"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+  <limit upper="0.2" lower="-0.2" effort="10" velocity="10"/>
+</joint>
+
+<plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+      <frameName>base_link</frameName>
+      <bodyName>carrier</bodyName>
+      <topicName>/tracker</topicName>
+      <updateRate>10.0</updateRate>
+    </plugin>
+
+
+<!-- <gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <jointName>carrier, v1_rear_right_wheel_rotation, v1_rear_left_wheel_rotation, v1_front_right_wheel_rotation, v1_front_left_wheel_rotation,
+                 v1_rear_right_steering, v1_rear_left_steering, v1_front_right_steering, v1_front_left_steering, 
+                 v2_rear_right_wheel_rotation, v2_rear_left_wheel_rotation, v2_front_right_wheel_rotation, v2_front_left_wheel_rotation,
+                 v2_rear_right_steering, v2_rear_left_steering, v2_front_right_steering, v2_front_left_steering, 
+                 v3_rear_right_wheel_rotation, v3_rear_left_wheel_rotation, v3_front_right_wheel_rotation, v3_front_left_wheel_rotation,
+                 v3_rear_right_steering, v3_rear_left_steering, v3_front_right_steering, v3_front_left_steering,
+                 linkage1_rotation, linkage2_rotation, linkage3_rotation,
+                 linkage_point_to_v1, linkage_point_to_v2, linkage_point_to_v3</jointName>
+      <updateRate>1</updateRate>
+    </plugin>
+  </gazebo> -->
+
+</robot>

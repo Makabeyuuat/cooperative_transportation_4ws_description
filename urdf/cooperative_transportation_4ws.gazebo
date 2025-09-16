@@ -1,0 +1,392 @@
+<?xml version="1.0" ?>
+<robot name="cooperative_transportation_4ws" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+
+<xacro:property name="body_color" value="Gazebo/Red" />
+<xacro:property name="carrier" value="Gazebo/Yellow" />
+<xacro:property name="hinge" value="Gazebo/Silver" />
+<xacro:property name="sliding_machine" value="Gazebo/Orange" />
+<xacro:property name="wheel" value="Gazebo/Gray" />
+<!-- <xacro:property name="body_color" value="Gazebo/Silver" /> -->
+
+<!-- <gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo> -->
+
+<gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <legacyModeNS>true</legacyModeNS>
+    </plugin>
+</gazebo>
+
+<!-- 各リンクの絶対座標を取得するためのプラグイン -->
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>base_link</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_base_link</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>carrier</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_carrier</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>linkage_point1_1</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_linkage_point1</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>linkage_point2_1</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_linkage_point2</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>linkage_point3_1</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_linkage_point3</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>v1_rear_left_hinge_1</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_v1_rear</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>v1_front_left_hinge_1</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_v1_front</topicName>
+  </plugin>
+</gazebo>
+
+
+
+<gazebo reference="carrier">
+  <material>${carrier}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="v1_rear_right_wheel_1">
+  <material>${wheel}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_rear_right_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_front_right_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_front_left_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_rear_left_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_body_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_rear_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_front_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_front_right_joint_1">
+  <material>${wheel}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_front_right_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_front_left_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_rear_left_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="linkage_point1_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="linkage_point2_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="linkage_point3_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2body_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_rear_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_front_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_front_right_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_rear_right_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_front_left_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_rear_left_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_front_right_joint_1">
+  <material>${wheel}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_rear_right_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_front_right_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_front_left_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_rear_left_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_body_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_rear_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_front_1">
+  <material>${body_color}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_front_right_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_rear_right_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_front_left_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_rear_left_hinge_1">
+  <material>${hinge}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_front_right_joint_1">
+  <material>${wheel}</material>
+  <!--<mu1>0.5</mu1>-->
+  <!--<mu2>0.5</mu2>-->
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_rear_right_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_front_left_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_rear_left_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_front_right_wheel_1">
+  <material>${wheel}</material>
+  <mu1>${wheel_surface_mu1}</mu1>
+  <mu2>${wheel_surface_mu2}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v1_sliding_machine_1">
+  <material>${sliding_machine}</material>
+  <mu1>0.003</mu1>
+  <mu2>0.003</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v2_sliding_machine_1">
+  <material>${sliding_machine}</material>
+  <mu1>0.003</mu1>
+  <mu2>0.003</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="v3_sliding_machine_1">
+  <material>${sliding_machine}</material>
+  <mu1>0.003</mu1>
+  <mu2>0.003</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+</robot>

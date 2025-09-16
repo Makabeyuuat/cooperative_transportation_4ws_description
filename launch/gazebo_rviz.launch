@@ -1,0 +1,55 @@
+<launch>
+  <!-- 1) URDF -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro $(find cooperative_transportation_4ws_description)/urdf/cooperative_transportation_4ws.xacro"/>
+
+  <!-- 2) Gazeboを先に起動 -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="true"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- 3) モデルをスポーン（ここで初期関節角を -J で与える） -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description
+              -model cooperative_transportation_4ws
+              -urdf
+              -x -6.5 -y -1.0 -z 0.070 -R 0 -P 0 -Y 0
+              -J v1_front_right_steering 0.0
+              -J v1_front_left_steering  0.0
+              -J v1_rear_right_steering  0.0
+              -J v1_rear_left_steering   0.0
+              -J v2_front_right_steering 0.3926990817
+              -J v2_front_left_steering  0.3926990817
+              -J v2_rear_right_steering  0.3926990817
+              -J v2_rear_left_steering   0.3926990817
+              -J v3_front_right_steering -0.5235987756
+              -J v3_front_left_steering  -0.5235987756
+              -J v3_rear_right_steering  -0.5235987756
+              -J v3_rear_left_steering   -0.5235987756" />
+
+  <!-- 4) コントローラ起動（スポーン後） -->
+  <rosparam file="$(find cooperative_transportation_4ws_description)/config/controller.yaml" command="load"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" ns="/cooperative_transportation_4ws"
+        args="joint_state_controller
+              v1_rear_right_wheel_rotation_velocity_controller v1_rear_left_wheel_rotation_velocity_controller v1_front_right_wheel_rotation_velocity_controller v1_front_left_wheel_rotation_velocity_controller
+              v1_rear_right_steering_position_controller v1_rear_left_steering_position_controller v1_front_right_steering_position_controller v1_front_left_steering_position_controller
+              v2_rear_right_wheel_rotation_velocity_controller v2_rear_left_wheel_rotation_velocity_controller v2_front_right_wheel_rotation_velocity_controller v2_front_left_wheel_rotation_velocity_controller
+              v2_rear_right_steering_position_controller v2_rear_left_steering_position_controller v2_front_right_steering_position_controller v2_front_left_steering_position_controller
+              v3_rear_right_wheel_rotation_velocity_controller v3_rear_left_wheel_rotation_velocity_controller v3_front_right_wheel_rotation_velocity_controller v3_front_left_wheel_rotation_velocity_controller
+              v3_rear_right_steering_position_controller v3_rear_left_steering_position_controller v3_front_right_steering_position_controller v3_front_left_steering_position_controller
+              linkage1_rotation_velocity_controller linkage2_rotation_velocity_controller linkage3_rotation_velocity_controller
+              linkage_point_to_v1_velocity_controller linkage_point_to_v2_velocity_controller linkage_point_to_v3_velocity_controller"/>
+
+  <!-- TF/RS/P RViz はそのまま -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="/cooperative_transportation_4ws/joint_states" />
+  </node>
+
+  <arg name="rvizconfig" default="$(find cooperative_transportation_4ws_description)/rviz/sim.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>

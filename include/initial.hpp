@@ -1,0 +1,256 @@
+#ifndef INITIAL_HPP
+#define INITIAL_HPP
+#include <cmath>  // sqrt関数を使うために必要
+#include <vector>
+
+
+#define DIM 23
+#define Q_sample 100001  //曲線の分割数
+#define PSdist 300
+#define PAI 3.14159265358979323846
+inline constexpr int BEZIER_ORDER = 3; 
+inline constexpr double RAD2DEG = 180.0 / PAI;
+inline constexpr double DEG2RAD = PAI / 180.0;
+
+ constexpr int sign(double A){ 
+        if (A >= 0) return 1;
+        else return -1;
+    }
+
+//係数
+typedef struct {
+	double a0t;
+	double a1n1;
+	double a1t1;
+	double a1n2;
+	double a1t2;
+	double a1n3;
+	double a1t3;
+	double a2n;
+	double a2t;
+	double a3n;
+	double a3t;
+	double V3n;
+	double V3t;
+	double a4n;
+	double a4t;
+	double a5n;
+	double a5t;
+	double a6n;
+	double a6t;
+	double V6n;
+	double V6t;
+	double a7n;
+	double a7t;
+	double a8n;
+	double a8t;
+	double a9n;
+	double a9t;
+	double V9n;
+	double V9t;
+	double a10n;
+	double a10t;
+} Coefficient;
+
+//探索用の構造体
+typedef struct {
+	double d;
+	double Cs;
+	double Cs1;
+	double Cs2;
+	int j;
+	double Psx;
+	double Psy;
+	double thp;
+
+}Search;
+
+
+
+
+inline Coefficient ai;
+inline Search sr;
+
+
+//経路情報
+//３次のベジェ曲線
+inline double Bx[BEZIER_ORDER + 1] = { -6.5, 3.0, -3.0, 6.5 };
+inline double By[BEZIER_ORDER + 1] = { -1.0, -1.0, 1.0, 1.0 };
+//曲率の配列を保存
+inline double cs[Q_sample][4] = {};
+inline double R[Q_sample][2] = {};
+inline double dRdq[Q_sample][2] = {};
+inline double d2Rdq2[Q_sample][2] = {};
+inline double d3Rdq3[Q_sample][2] = {};
+inline double d4Rdq4[Q_sample][2] = {};
+inline double qs[Q_sample] = {};
+inline double s[Q_sample];
+inline double t_max;
+
+//callback時に入れる変数
+inline double true_carrier_pos[2] = {0, 0};
+inline double true_carrier_yaw = 0.0;
+inline double true_vehicle_yaw[3] = {0, 0, 0};
+inline double true_vehicle1_steering_yaw[2] = {0};
+inline double true_vehicle2_steering_yaw[2] = {0};
+inline double true_vehicle3_steering_yaw[2] = {0};
+//各車両の後輪の相対操舵角
+inline double relative_steering_rear[3] = {0, 0, 0}; 
+inline double delta_pos[3] = {0.0, 0.0, 0.0};
+//コールバックのフラグ変数
+inline bool got_body_pos = false;
+inline std::vector<double> x_old = std::vector<double>(DIM+ 1, 0.0);
+inline std::vector<double> x_new = std::vector<double>(DIM + 1, 0.0);
+inline std::vector<double> x_input = std::vector<double>(DIM + 1, 0.0);
+
+//input
+//制御入力
+inline double  w1;
+inline double a0 = 0.3;
+inline double u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12;
+//制御入力用行列
+//行列計算
+inline double u4_a[3][3];
+inline double u4_inv_a[3][3];
+inline double u7_a[3][3];
+inline double u7_inv_a[3][3];
+inline double u10_a[3][3];
+inline double u10_inv_a[3][3];
+
+
+//フィードバック関数
+inline double k1 = 2.0;
+inline double k2 = 2.0;
+inline double k3 = 2.0;
+inline double k4 = 2.0;
+inline double k5 = 16.0;
+inline double k6 = 16.0;
+inline double k7 = 16.0;
+inline double k8 = 16.0;
+inline double k9 = 16.0;
+inline double k10 = 16.0;
+inline double k11 = 16.0;
+inline double k12 = 16.0;
+inline double k13 = 16.0;
+inline double k14 = 16.0;
+inline double k15 = 16.0;
+inline double k16 = 16.0;
+inline double k17 = 16.0;
+inline double k18 = 16.0;
+inline double k19 = 16.0;
+inline double k20 = 16.0;
+inline double k21 = 16.0;
+inline double k22 = 16.0;
+
+
+//制御入力の係数
+inline double z21, z22, z31, z32, z41, z42, z51, z52 ,z61, z62, z71, z72, z81, z82, z91, z92, z101, z102, z111, z112, z121, z122;
+inline double alpha21, alpha22;
+inline double alpha31, alpha32, alpha33;
+inline double alpha41,alpha42, alpha43, alpha44;
+inline double alpha51, alpha52, alpha53, alpha54, alpha55;
+inline double alpha61, alpha62, alpha63, alpha64, alpha65, alpha66;
+inline double alpha71, alpha72, alpha73, alpha76, alpha77;
+inline double alpha81, alpha82, alpha83, alpha87, alpha88;
+inline double alpha91, alpha92, alpha93, alpha97, alpha98, alpha99;
+inline double alpha101, alpha102, alpha103, alpha109, alpha1010;
+inline double alpha111, alpha112, alpha113, alpha1110, alpha1111;
+inline double alpha121, alpha122, alpha123, alpha1210, alpha1211, alpha1212;
+
+
+
+//重心の目標相対位置関数
+inline double d0d, dd0d, ddd0d;
+inline double theta1d, dtheta1d, ddtheta1d;
+
+inline double thetap2d;
+inline double dthetap2d;
+inline double K21, K22, K23, K24;
+
+inline double thetap3d, dthetap3d;
+inline double K31, K32, K33, K34;
+
+inline double theta4d, dtheta4d, ddtheta4d;
+
+inline double thetap5d,dthetap5d;
+inline double K51, K52, K53, K54;
+
+inline double thetap6d , dthetap6d;
+inline double K61, K62, K63, K64;
+
+inline double theta7d, dtheta7d, ddtheta7d;
+
+inline double thetap8d, dthetap8d;
+inline double K81, K82, K83, K84;
+
+inline double thetap9d, dthetap9d;
+inline double K91, K92, K93, K94;
+
+inline double theta10d, dtheta10d, ddtheta10d;
+
+//摺動機構の目標関数とその微分
+inline double delta1d = 0.0, Ddelta1d = 0.0, DDdelta1d = 0.0;
+inline double delta2d = 0.0, Ddelta2d = 0.0, DDdelta2d = 0.0;
+inline double delta3d = 0.0, Ddelta3d = 0.0, DDdelta3d = 0.0;
+
+
+inline double thetaT = 0.0;
+inline double Thetap[11] = {0.0};
+inline double Phi[4] = {0.0};    // Phi[1]～Phi[3]（Phi[0] は使わない想定）
+
+inline double x1 = 0.0, Y1 = 0.0;
+inline double x2 = 0.0, y2 = 0.0;
+inline double x3 = 0.0, y3 = 0.0;
+
+inline double Trix[4];     // Trix[1]～Trix[3]
+inline double Triy[4];     // Triy[1]～Triy[3]
+
+//各ステアリングの座標
+inline double dx1, dy1;
+inline double dx2, dy2;
+inline double dx3, dy3;
+inline double dx4, dy4;
+inline double dx5, dy5;
+inline double dx6, dy6;
+inline double dx7, dy7;
+inline double dx8, dy8;
+inline double dx9, dy9;
+inline double dx10, dy10;
+
+//非ホロ
+inline double nh1 = 0.0;
+inline double nh2 = 0.0;
+inline double nh3 = 0.0;
+inline double nh4 = 0.0;
+inline double nh5 = 0.0;
+inline double nh6 = 0.0;
+inline double nh7 = 0.0;
+inline double nh8 = 0.0;
+inline double nh9 = 0.0;
+inline double nh10 = 0.0;
+
+
+//各リンクの長さ
+inline double lv = 1.0;
+inline double l1 = 0.8;
+inline double l2 = (sqrt(2) / 8) * lv;
+inline double l3 = (sqrt(2) / 4) * lv;
+//摺動機構の仮想リンク
+inline double VEHICLE1_SLIDING_MECHANISM_SLOPE = PAI / 4.0;
+inline double VEHICLE2_SLIDING_MECHANISM_SLOPE = PAI / 4.0;
+inline double VEHICLE3_SLIDING_MECHANISM_SLOPE = PAI / 4.0;
+inline int VEHICLE1_SLIDING_MECHANISM_SIGN = sign(VEHICLE1_SLIDING_MECHANISM_SLOPE);
+inline int VEHICLE2_SLIDING_MECHANISM_SIGN = sign(VEHICLE2_SLIDING_MECHANISM_SLOPE);
+inline int VEHICLE3_SLIDING_MECHANISM_SIGN = sign(VEHICLE3_SLIDING_MECHANISM_SLOPE);
+
+//各車両の速度
+inline double v1, v2, v3;
+inline double v1f, v2f, v3f, v1r, v2r, v3r;
+
+// 初期値設定関数
+// 引数: t, dt, x0, x_new
+void initial(double &t, double &dt, std::vector<double> &x0, std::vector<double> &x_new, std::vector<double> &x_input);
+
+
+
+#endif // INITIAL_HPP

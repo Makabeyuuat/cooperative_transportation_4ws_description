@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+material Custom/BlueSteel
+{
+  technique
+  {
+    pass
+    {
+      ambient 0.2 0.4 0.6 1
+      diffuse 0.2 0.4 0.6 1
+      specular 0.5 0.5 0.5 1
+      emissive 0 0 0 1
+    }
+  }
+}
+
+material Custom/RedSteel
+{
+  technique
+  {
+    pass
+    {
+      ambient 0.8 0.0 0.0 1
+      diffuse 0.8 0.0 0.0 1
+      specular 0.5 0.5 0.5 1
+      emissive 1.0 0.0 0.0 1
+    }
+  }
+}
