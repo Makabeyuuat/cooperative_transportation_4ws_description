@@ -225,6 +225,7 @@ int main(int argc, char** argv)
 
 
 
+		logger.logData();
 		loop_rate.sleep();
 
 	}

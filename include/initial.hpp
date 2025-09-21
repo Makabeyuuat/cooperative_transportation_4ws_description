@@ -106,7 +106,7 @@ inline std::vector<double> x_input = std::vector<double>(DIM + 1, 0.0);
 //input
 //制御入力
 inline double  w1;
-inline double a0 = 0.3;
+inline double a0 = 0.2;
 inline double u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12;
 //制御入力用行列
 //行列計算
@@ -119,28 +119,28 @@ inline double u10_inv_a[3][3];
 
 
 //フィードバック関数
-inline double k1 = 2.0;
-inline double k2 = 2.0;
-inline double k3 = 2.0;
-inline double k4 = 2.0;
-inline double k5 = 16.0;
-inline double k6 = 16.0;
-inline double k7 = 16.0;
-inline double k8 = 16.0;
-inline double k9 = 16.0;
-inline double k10 = 16.0;
-inline double k11 = 16.0;
-inline double k12 = 16.0;
-inline double k13 = 16.0;
-inline double k14 = 16.0;
-inline double k15 = 16.0;
-inline double k16 = 16.0;
-inline double k17 = 16.0;
-inline double k18 = 16.0;
-inline double k19 = 16.0;
-inline double k20 = 16.0;
-inline double k21 = 16.0;
-inline double k22 = 16.0;
+inline double k1 = 0.5;
+inline double k2 = 0.5;
+inline double k3 = 0.5;
+inline double k4 = 0.5;
+inline double k5 = 4.0;
+inline double k6 = 4.0;
+inline double k7 = 4.0;
+inline double k8 = 4.0;
+inline double k9 = 4.0;
+inline double k10 = 4.0;
+inline double k11 = 4.0;
+inline double k12 = 4.0;
+inline double k13 = 4.0;
+inline double k14 = 4.0;
+inline double k15 = 4.0;
+inline double k16 = 4.0;
+inline double k17 = 4.0;
+inline double k18 = 4.0;
+inline double k19 = 4.0;
+inline double k20 = 4.0;
+inline double k21 = 4.0;
+inline double k22 = 4.0;
 
 
 //制御入力の係数
@@ -231,7 +231,7 @@ inline double nh10 = 0.0;
 
 
 //各リンクの長さ
-inline double lv = 1.0;
+inline double lv = 0.9;
 inline double l1 = 0.8;
 inline double l2 = (sqrt(2) / 8) * lv;
 inline double l3 = (sqrt(2) / 4) * lv;

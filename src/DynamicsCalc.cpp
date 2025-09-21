@@ -93,7 +93,7 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
 	ROS_INFO_THROTTLE(0.1,"DynamicsCalc:thetav2=%.3f, thetav3=%.3f, thetav5=%.3f, thetav6=%.3f, thetav8=%.3f, thetav9=%.3f",
       thetav2, thetav3, thetav5, thetav6, thetav8, thetav9);
 
-    //
+    //仮想リンクを計算
     // v1
     double th2 = thetav2 - (3.0/2.0)*PAI  + theta4;
     double th3 = thetav3 + 0.5*PAI - theta4;

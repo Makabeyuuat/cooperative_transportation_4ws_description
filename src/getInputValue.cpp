@@ -96,8 +96,8 @@ void getInputValue::getU(std::vector<double>& x_old, int sr_j) {
     U7_U8_U9(x_old, sr_j);
     U10_U11_U12(x_old, sr_j);
 
-	// ROS_INFO_THROTTLE(0.1,"getU: u1=%.3f, u2=%.3f, u3=%.3f, ...u12=%.3f",
-    //        u1, u2, u3, u12);
+	ROS_INFO_THROTTLE(0.1,"getU: u1=%.3f, u2=%.3f, u3=%.3f, ...u12=%.3f",
+           u1, u2, u3, u12);
 
 
 }
