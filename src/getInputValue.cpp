@@ -5666,2249 +5666,3055 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 
 
 	//拘束条件
-	thetap8d = PAI/2.0+ ArcTan(4*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))),(lv + 2*l3*Cos(Thetap[10] - Thetap[9]))/l2) + Thetap[10];
+	thetap8d = Pi/2.0+ ArcTan(4*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))),(lv + 2*l3*Cos(Thetap[9] - Thetap[10]))/l2) + Thetap[10];
 
 
-	dthetap8d = w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-          ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-             Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-         Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv) - 
-   (l3*Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)*Sin(Thetap[10] - Thetap[9])*(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
-           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*Sin(Thetap[10] - Thetap[9])*
-      (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))));
+	dthetap8d = w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+      (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+             Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+          ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+             Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+             Tan(x[20])))/lv) - (l3*Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)*Sin(Thetap[9] - Thetap[10])*
+      (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv)))/
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) - 
+   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*Sin(Thetap[9] - Thetap[10])*
+      (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv)))/
+    (l2*(Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))));
 
 
 
 
-	K81 = (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] - Thetap[10] + Thetap[9])*(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-            (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) + 
-           (-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*
-            Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-              2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-           (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+
+	K81 = (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] + Thetap[9] - Thetap[10])*
+         (Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+               Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+               Sin(x[18] - Thetap[0] + Thetap[8])) + (-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*
+            Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+            (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+              2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+           (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
                Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                 2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
-              Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-        Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) + 
-           (-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*
-            Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-              2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-           (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+                 2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
+              Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+            Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+         (Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+               Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+               Sin(x[18] - Thetap[0] + Thetap[8])) + (-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*
+            Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+            (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+              2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+           (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
                Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                 2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
-              Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))))/lv - 
-   (l3*Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)*Sin(Thetap[10] - Thetap[9])*(-((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap[0])*
-             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                  2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
-               Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3) + 
-        (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] - Thetap[10] + Thetap[9])*(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) + 
-                (-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                   2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                      2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
-                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-             Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) + 
-                (-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                   2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                      2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
-                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*Sin(Thetap[10] - Thetap[9])*
-      (-((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap[0])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                  2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
-               Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3) + 
-        (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] - Thetap[10] + Thetap[9])*(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) + 
-                (-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                   2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                      2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
-                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-             Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) + 
-                (-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                   2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
-                      2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
-                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
-                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))));
+               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+                 2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
+              Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+            Tan(x[20]))))/lv - (l3*Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)*Sin(Thetap[9] - Thetap[10])*
+      ((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap[0])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+              Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+                2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
+             Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3\
+         - (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] + Thetap[9] - Thetap[10])*
+              (Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                    Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                    Sin(x[18] - Thetap[0] + Thetap[8])) + (-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       Sin(x[18] - Thetap[0] + Thetap[8])) - 2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Power(Sec(x[18]),2)*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+                      2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                         2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
+                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+              (Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                    Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                    Sin(x[18] - Thetap[0] + Thetap[8])) + (-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       Sin(x[18] - Thetap[0] + Thetap[8])) - 2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Power(Sec(x[18]),2)*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+                      2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                         2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
+                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20]))))/lv))/
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) - 
+   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*Sin(Thetap[9] - Thetap[10])*
+      ((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap[0])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+              Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+                2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
+             Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3\
+         - (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] + Thetap[9] - Thetap[10])*
+              (Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                    Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                    Sin(x[18] - Thetap[0] + Thetap[8])) + (-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       Sin(x[18] - Thetap[0] + Thetap[8])) - 2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Power(Sec(x[18]),2)*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+                      2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                         2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
+                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+              (Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                    Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                    Sin(x[18] - Thetap[0] + Thetap[8])) + (-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       Sin(x[18] - Thetap[0] + Thetap[8])) - 2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-(Cos(x[18] - Thetap[0] + Thetap[8])*
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Power(Sec(x[18]),2)*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])) - 
+                      2*(-(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))) + 
+                         2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) + 
+                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20]))))/lv))/
+    (l2*(Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))));
 
 
 
-	K82 = (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] - Thetap[10] + Thetap[9])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))
-             + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-           Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-              Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))) - 
-           (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+	K82 = (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] + Thetap[9] - Thetap[10])*
+         (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                 Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                 Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+           Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+              Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))) - 
+           (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-               (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-        Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-           Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-              Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))) - 
-           (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+               (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+            Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+         (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                 Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                 Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+           Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+              Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))) - 
+           (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-               (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) + 
-        Cos(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-           Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-           (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-              Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) + 
-        Sin(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-           Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-           (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-              Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))))/lv - 
-   (l3*Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)*Sin(Thetap[10] - Thetap[9])*(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
-           ((Sec(x[20])*(-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
-                  Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3 + 
-             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))/l3)) + 
-        (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] - Thetap[10] + Thetap[9])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))) - 
-                (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
-                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-             Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))) - 
-                (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
-                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) + 
-             Cos(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) + 
-             Sin(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*Sin(Thetap[10] - Thetap[9])*
-      (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((Sec(x[20])*(-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
-                  Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3 + 
-             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))/l3)) + 
-        (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(Sin(x[20] - Thetap[10] + Thetap[9])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))) - 
-                (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
-                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-             Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))) - 
-                (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
-                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) + 
-             Cos(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) + 
-             Sin(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))));
+               (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+            Tan(x[20])) + Cos(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+               Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+               Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+           Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+           (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                    Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                    Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+               (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+            Tan(x[20])) + Sin(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+         ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+            Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+           (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                    Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                    Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+               (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                 2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+            Tan(x[20]))))/lv - (l3*Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)*Sin(Thetap[9] - Thetap[10])*
+      (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((Sec(x[20])*(-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
+                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3 + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+              Tan(x[20]))/l3) - (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+           (Sin(x[20] + Thetap[9] - Thetap[10])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                      (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   ) - (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                      Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
+                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+              (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                      (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   ) - (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                      Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
+                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20])) + Cos(x[20] + Thetap[9] - Thetap[10])*
+              ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                         Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                         Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                    (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20])) + Sin(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+              ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                         Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                         Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                    (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20]))))/lv))/
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) - 
+   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*Sin(Thetap[9] - Thetap[10])*
+      (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((Sec(x[20])*(-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
+                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3 + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+              Tan(x[20]))/l3) - (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+           (Sin(x[20] + Thetap[9] - Thetap[10])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                      (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   ) - (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                      Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
+                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+              (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                      (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   ) - (-((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                      Sin(x[18] - x[20] + Thetap[8] - Thetap[9])) - 
+                   Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20])) + Cos(x[20] + Thetap[9] - Thetap[10])*
+              ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                         Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                         Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                    (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20])) + Sin(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+              ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                         Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                         Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                    (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                      2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))
+                   )*Tan(x[20]))))/lv))/
+    (l2*(Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))));
+
+    
 
 
 
 
 
+	K83 = -((w1*Cos(x[20] + Thetap[9] - Thetap[10])*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap[0])*
+        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                   Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                   Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+           Tan(x[20])))/lv) - (l3*w1*Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)*Cos(x[20] + Thetap[9] - Thetap[10])*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*
+      Sec(Thetap[0])*Sin(Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+            Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+            Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+        Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+           2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+        (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                 Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                 Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+         Tan(x[20])))/(2.*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) - 
+   (8*l3*w1*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*Cos(x[20] + Thetap[9] - Thetap[10])*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*
+      Sec(Thetap[0])*Sin(Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+            Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+            Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+        Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+           2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+        (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                 Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                 Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+         Tan(x[20])))/(l2*lv*(Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))));
 
-	K83 = -((w1*Cos(x[20] - Thetap[10] + Thetap[9])*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap[0])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv) + 
-   (l3*w1*Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)*Cos(x[20] - Thetap[10] + Thetap[9])*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap[0])*Sin(Thetap[10] - Thetap[9])*
-      ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-         Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-           2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-            Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/
-    (2.*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) + 
-   (8*l3*w1*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*Cos(x[20] - Thetap[10] + Thetap[9])*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap[0])*Sin(Thetap[10] - Thetap[9])*
-      ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-         Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-           2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-            Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/
-    (l2*lv*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))));
-
-
-	K84 = -(l3*Cos(Thetap[10] - Thetap[9])*Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)*Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
-            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                      (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                      2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-         w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-                ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                  Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                  (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                     Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-               Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                  Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                  (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                     Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Cos(Thetap[10] - Thetap[9])*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*
-      Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) + 
-   (Power(l3,2)*Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),3)*Power(Sin(Thetap[10] - Thetap[9]),2)*Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
-           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (16.*Power(l2,5)*Power(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)),1.5)*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) + 
-   (Power(l3,2)*(lv + 2*l3*Cos(Thetap[10] - Thetap[9]))*Power(Sin(Thetap[10] - Thetap[9]),2)*Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
-           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) + 
-   w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-          ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-             Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-         Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)*Tan(Thetap[0]) + 
-   w1*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-         Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) + 
-   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-          (Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-               2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-               Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-               2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-               Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                  2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                  2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))) + 
-            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-               2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-               Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                  2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                  2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-               2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                  2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                  Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                  2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                  Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                     2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*
-                Tan(x[18])) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-             (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-               w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                     (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                       Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                          2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                          2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-             (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-               w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                     (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                       Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                          2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                          2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))))
-                 + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                   Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                  2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                  Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                     2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-                  2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                     2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                     Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                     2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                     Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                         (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                        2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                         (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                        2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                        (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                          Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-               Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                        (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                          Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)))*Tan(x[20])) - 
-         Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-               2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-               Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-               2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-               Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                  2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                  2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))) + 
-            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-               2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-               Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                  2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                  2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-               2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                  2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                  Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                  2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                  Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                     2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*
-                Tan(x[18])) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-             (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-               w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                     (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                       Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                          2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                          2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-             (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-               w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                     (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                       Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                          2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                          2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))))
-                 + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                   Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                  2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                  Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                     2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-                  2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                     2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                     Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                     2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                     Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                         (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                        2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                         (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                        2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                        (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                          Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-               Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                        (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                          Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)))*Tan(x[20])) + 
-         Cos(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))*
-          (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3) - 
-            w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-                   ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                     Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                     (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                        Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                           2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-                  Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                     Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                     (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                        Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                           2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)) + 
-         Sin(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))*
-          (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3) - 
-            w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-                   ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                     Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                     (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                        Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                           2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-                  Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                     Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                     (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                        Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                           2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
+	K84 = -(l3*Cos(Thetap[9] - Thetap[10])*Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)*
+       Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+            (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))
+              /l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+            (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                  Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                     2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                   - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                     Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                         Tan(x[18])))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+                ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                   Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                     2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                   - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                     Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                         Tan(x[18])))*Tan(x[20])))/lv),2))/
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) - 
+   (8*l3*Cos(Thetap[9] - Thetap[10])*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*
+      Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv),2))/
+    (l2*(Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) + 
+   (Power(l3,2)*Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),3)*Power(Sin(Thetap[9] - Thetap[10]),2)*
+      Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv),2))/
+    (16.*Power(l2,5)*Power(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)),1.5)*
+      (Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) + 
+   (Power(l3,2)*(lv + 2*l3*Cos(Thetap[9] - Thetap[10]))*Power(Sin(Thetap[9] - Thetap[10]),2)*
+      Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv),2))/
+    (Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) + 
+   w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+      (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+             Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+          ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+             Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+             Tan(x[20])))/lv)*Tan(Thetap[0]) + w1*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+      (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+             Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+          ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+             Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+             Tan(x[20])))/lv)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) + 
+   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + 
+      (Sin(x[20] + Thetap[9] - Thetap[10])*(Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+             (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+               2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+               Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+               2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+               Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                  2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                  2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))) + 
+            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+               2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+               Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                  2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                  2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+               2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                  2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                  Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                  2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                  Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                     2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                     2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                Sin(x[18] - Thetap[0] + Thetap[8]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+               w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                  (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                       Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                        (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                          2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                          2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Tan(x[18]))))/l3)) - Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+             (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                  (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+               w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                  (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                       Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                        (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                          2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                          2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Tan(x[18]))))/l3)) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
+               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                  2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+                  Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                     2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                     2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                  2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                     2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                     Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                      + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                      - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                     Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                         (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                        2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                         (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                        2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                     (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                          Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18]))))/l3)) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+                (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                     (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                          Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18]))))/l3)))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+          (Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*
+                Sin(x[4] - Thetap[0] + Thetap[1])*(u2 - w1*sr.Cs - 
+                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+               2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+               Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+               2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+               Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                  2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                  2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))) + 
+            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+               2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+               Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                  2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                  2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+               2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                  2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                  Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                  2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                  Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                     2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                     2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+            Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                Sin(x[18] - Thetap[0] + Thetap[8]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+               w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                  (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                       Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                        (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                          2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                          2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Tan(x[18]))))/l3)) - Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+             (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                  (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+               w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                  (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                       Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                        (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                          2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                          2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Tan(x[18]))))/l3)) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
+               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                   (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                   (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                      (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                        (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                  2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+                  Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                     2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                     2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                  2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                     2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                     Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                      + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                      - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                     Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                         (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                        2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                         (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                        2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                   (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                        (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                     (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                          Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18]))))/l3)) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+                (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                     (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                     (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                          Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18]))))/l3)))*Tan(x[20])) + Cos(x[20] + Thetap[9] - Thetap[10])*
+          ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+             Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+             Tan(x[20]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+               (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       )))/l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap[9] - Thetap[10])*
+                   ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                      Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                     Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                         Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                        Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                         (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                           2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                            Tan(x[18])))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+                   ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                      Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                     Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                         Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                        Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                         (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                           2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                            Tan(x[18])))*Tan(x[20])))/lv)) + Sin(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+          ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+             Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
+            (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*
+             Tan(x[20]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+               (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       )))/l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap[9] - Thetap[10])*
+                   ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                      Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                     Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                         Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                        Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                         (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                           2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                            Tan(x[18])))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+                   ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                      Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                     Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                        2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                        2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                         Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                        Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                         (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                           2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                           2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                            Tan(x[18])))*Tan(x[20])))/lv)))/lv - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
       (sr.Cs*Cos(Thetap[0])*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) - 
-   (l3*Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)*Sin(Thetap[10] - Thetap[9])*(-(w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
-           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)*Tan(Thetap[0])) + 
-        w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-           (Sin(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)*Tan(Thetap[0]) - 
-        w1*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) + 
-        w1*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) - 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + (Sec(x[20])*
-              (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                     2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                     Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                     2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                     Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                         (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                        2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                         (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                        2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                    (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                    Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                    (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                         (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                    (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                         (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                   2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                   Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                      2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                         w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-                   2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                      2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                       (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                      Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                       (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                            (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                       (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                            (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                      2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                      Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                         2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                         2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                 (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                         (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                         (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                 (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                         (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                         (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3))))/l3 - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
-           (sr.Cs*Cos(Thetap[0])*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               (Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))\
-                  + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                     Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))\
-                     - 2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                       Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                       Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                         2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                         Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                         2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                         Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                             (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                            2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                             (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                            2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                       Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-                       2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                          2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                          Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                          2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                          2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                          Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                              (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                             2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                              (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                             2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-                    Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                     (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                  (-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))\
-                  + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                     Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))\
-                     - 2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                       Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                       Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                         2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                         Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                         2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                         Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                             (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                            2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                             (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                            2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                       Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-                       2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                          2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                          Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                          2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                          2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                          Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                              (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                             2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                              (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                             2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-                    Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                     (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)))*Tan(x[20])) + 
-              Cos(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))*
-               (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                       (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                         Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                            2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3) - 
-                 w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-                       Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)) + 
-              Sin(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))*
-               (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                       (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                         Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                            2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3) - 
-                 w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-                       Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
+   (l3*Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)*Sin(Thetap[9] - Thetap[10])*
+      (w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3)*Tan(Thetap[0]) - w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap[9] - Thetap[10])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv)*Tan(Thetap[0]) + w1*Sec(Thetap[0])*
+         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
+              (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) - 
+        w1*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) + 
+        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                     2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                     Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                      + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                      - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                     Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                         (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                        2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                         (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                        2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                    (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                       (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                    (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                       (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                    (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                       (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                         (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                    (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                       (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                         (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                   2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+                   Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                      2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                       (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                      2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                   2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                      2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                      Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                            (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                  Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))
+                        + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                       (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                            (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                  Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))
+                        - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                      Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                         2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                         2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                    (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                      (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                               Tan(x[18]))))/l3)) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+                 (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                      (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                               Tan(x[18]))))/l3))))/l3 - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
+           (sr.Cs*Cos(Thetap[0])*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) - 
+        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*(Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                    2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                       Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                     (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                Tan(x[18]))))/l3)) - Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                Tan(x[18]))))/l3)) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                         2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                         Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                     Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                l2)) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                     Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                l2)) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                          (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                             (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                            2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                             (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                            2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8])
+                         - 2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8])
+                         - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - 2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        Tan(x[4]) + Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                       2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                          2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                          Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                      Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                 l2)) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                      Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                 l2)) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                           (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                              (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                 (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                             2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                              (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                 (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                             2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                     Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                  (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))\
+                                + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                   Tan(x[18]))))/l3)) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                     (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       )*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                  (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))\
+                                + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                   Tan(x[18]))))/l3)))*Tan(x[20])) - 
+              Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*(Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                    2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                       Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                     (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                Tan(x[18]))))/l3)) - Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                Tan(x[18]))))/l3)) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                         2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                         Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                     Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                l2)) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                     Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                l2)) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                          (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                             (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                            2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                             (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                            2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8])
+                         - 2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8])
+                         - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - 2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        Tan(x[4]) + Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                       2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                          2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                          Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                      Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                 l2)) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                      Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                 l2)) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                           (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                              (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                 (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                             2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                              (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                 (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                             2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                     Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                  (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))\
+                                + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                   Tan(x[18]))))/l3)) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                     (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       )*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                  (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))\
+                                + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                   Tan(x[18]))))/l3)))*Tan(x[20])) + 
+              Cos(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                  (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
+                       (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                            (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                         Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                          (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                            2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                            2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                             Tan(x[18]))))/l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                  (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap[9] - Thetap[10])*
+                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                 Tan(x[18])))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                 Tan(x[18])))*Tan(x[20])))/lv)) + Sin(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                  (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
+                       (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                            (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                         Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                          (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                            2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                            2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                             Tan(x[18]))))/l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                  (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap[9] - Thetap[10])*
+                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                 Tan(x[18])))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                 Tan(x[18])))*Tan(x[20])))/lv)))/lv - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
            (sr.Cs*Cos(Thetap[0])*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2))))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))*Sin(Thetap[10] - Thetap[9])*
-      (-(w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                     2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)*Tan(Thetap[0])) + 
-        w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-           (Sin(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)*Tan(Thetap[0]) - 
-        w1*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) + 
-        w1*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) - 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + (Sec(x[20])*
-              (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                     2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                     Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                     2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                     Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                         (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                        2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                         (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                        2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
-                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                    (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                    Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                    (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                         (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                    (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                         (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                   2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                   Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                      2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                         w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-                   2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                      2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                       (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                      Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                       (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                            (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                       (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                            (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                      2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                      Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                         2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                         2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                 (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                         (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                         (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-                Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                 (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                         (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                         (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3))))/l3 - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
-           (sr.Cs*Cos(Thetap[0])*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
-        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-               (Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))\
-                  + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                     Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))\
-                     - 2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                       Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                       Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                         2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                         Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                         2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                         Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                             (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                            2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                             (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                            2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                       Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-                       2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                          2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                          Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                          2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                          2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                          Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                              (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                             2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                              (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                             2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-                    Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                     (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)))*Tan(x[20])) - 
-              Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*(Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                  (-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))\
-                  + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*
-                     Sin(x[18] - Thetap[0] + Thetap[8]) - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                    2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                    Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                       2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))\
-                     - 2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                       Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                       Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
-                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                          (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                            (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                 (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                         2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                         Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                         2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                         Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                             (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                            2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                             (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                            2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*(-u2 + u3 + w1*sr.Cs + 
-                          w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
-                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                       2*u3*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
-                       Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                          2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
-                       2*(-2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                          2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*
-                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
-                          Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) + 
-                          2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
-                          2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
-                          Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
-                              (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                             2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
-                              (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
-                             2*u3*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
-                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
-                     (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)) + 
-                    Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
-                     (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
-                             (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
-                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                             (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                               Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3)))*Tan(x[20])) + 
-              Cos(x[20] - Thetap[10] + Thetap[9])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))*
-               (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                       (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                         Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                            2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3) - 
-                 w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-                       Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)) + 
-              Sin(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                 (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                         (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20]))*
-               (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-                       (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                              (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                         Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                            2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                               (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/l3) - 
-                 w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] - Thetap[10] + Thetap[9])*
-                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])) - 
-                       Cos(x[20] - Thetap[10] + Thetap[9])*Tan(x[22])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
-                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
-                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
-                                2*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
-                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(PAI/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2))))) - 
+   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))*Sin(Thetap[9] - Thetap[10])*
+      (w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3)*Tan(Thetap[0]) - w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap[9] - Thetap[10])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv)*Tan(Thetap[0]) + w1*Sec(Thetap[0])*
+         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
+              (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      Sin(x[18] - Thetap[0] + Thetap[8]))) + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))))/
+            l3)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) - 
+        w1*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20])))/lv)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1) + 
+        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                   (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                     2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                      (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                     Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                      + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                      (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                         (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                           (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                      - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                     Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                         (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                        2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                         (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                            (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                        2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
+                Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                    (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                       (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                    (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                       (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                    (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                       (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                         (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                    (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                       (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                         (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)) - 
+                   2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+                   Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                      2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                       (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                      2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                   2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                      2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                       (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                      Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                       (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                            (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                  Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))
+                        + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                       (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                          (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                            (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                  Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))
+                        - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                      Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                         2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                         2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                 Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                    (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                      (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                               Tan(x[18]))))/l3)) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                 (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                   2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                   2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                      (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+                 (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                      (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                           (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                   w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                            (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                              2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                              2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                               Tan(x[18]))))/l3))))/l3 - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
+           (sr.Cs*Cos(Thetap[0])*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) - 
+        w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap[0]))/(1 - sr.Cs*sr.d) + 
+           (Sin(x[20] + Thetap[9] - Thetap[10])*(Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                    2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                       Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                     (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                Tan(x[18]))))/l3)) - Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                Tan(x[18]))))/l3)) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                         2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                         Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                     Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                l2)) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                     Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                l2)) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                          (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                             (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                            2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                             (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                            2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8])
+                         - 2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8])
+                         - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - 2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        Tan(x[4]) + Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                       2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                          2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                          Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                      Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                 l2)) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                      Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                 l2)) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                           (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                              (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                 (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                             2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                              (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                 (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                             2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                     Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                  (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))\
+                                + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                   Tan(x[18]))))/l3)) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                     (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       )*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                  (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))\
+                                + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                   Tan(x[18]))))/l3)))*Tan(x[20])) - 
+              Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*(Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]) - 
+                    Sin(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4]))) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                     (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2))\
+                     - 2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*Tan(x[4]) + 
+                    Cos(x[18] - Thetap[0] + Thetap[8])*(-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                       2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                    2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                       2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                       Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                     (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                Tan(x[18]))))/l3)) - Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))*
+                  (w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                            (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                    w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                       (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                               (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                 (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                            Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                             (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                               2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                               2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                Tan(x[18]))))/l3)) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                         2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                          (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                         Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                     Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                l2)) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                          (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                             (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                               (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                     Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                l2)) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                          Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                          (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                             (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                            2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                             (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                            2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8])
+                         - 2*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                        (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1))*Sin(x[18] - Thetap[0] + Thetap[8])
+                         - 2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                           (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                             (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                   Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2)
+                          ) - 2*u3*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                        Tan(x[4]) + Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                          2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])) - 
+                       2*(-2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                          2*Cos(x[4] - Thetap[0] + Thetap[1])*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                           (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) - 
+                          Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                      Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                 l2)) + 2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8])*
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                              (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                                (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                                      Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/
+                                 l2)) - 2*u3*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                           Tan(x[4]) - Sin(x[18] - Thetap[0] + Thetap[8])*
+                           (-2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*
+                              (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                 (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                             2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Cos(x[4] - Thetap[0] + Thetap[1])*Sec(x[4])*
+                              (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                                 (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))/l1)) + 
+                             2*u3*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])*Tan(x[4])))*Tan(x[18])) + 
+                    (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                     Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                        (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                  (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))\
+                                + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                   Tan(x[18]))))/l3)) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                     (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       )*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[18])*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))/l2) - 
+                       w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*(-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + 
+                          (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                  (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8])))\
+                                + Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                  2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                  2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                   Tan(x[18]))))/l3)))*Tan(x[20])) + 
+              Cos(x[20] + Thetap[9] - Thetap[10])*((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*
+                     Sin(x[4] - Thetap[0] + Thetap[1]) - (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*
+                     Sin(x[18] - Thetap[0] + Thetap[8]))*Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                 Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                     (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                  (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
+                       (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                            (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                         Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                          (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                            2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                            2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                             Tan(x[18]))))/l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                  (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap[9] - Thetap[10])*
+                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                 Tan(x[18])))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                 Tan(x[18])))*Tan(x[20])))/lv)) + Sin(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+               ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                    (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                  Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                  (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                    2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                    2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                       (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18]))\
+                  - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                       (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                         (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                    Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*(Cos(x[18] - Thetap[0] + Thetap[8])*
+                        (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                       2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                       2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                          (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*Tan(x[18])
+                       ))*Tan(x[20]))*(w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                  (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
+                       (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                            (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                              (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                         Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                          (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                            2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                            2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                               (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                             Tan(x[18]))))/l3) - w1*(1 - sr.Cs*sr.d)*Sec(Thetap[0])*
+                  (-((sr.Cs*Cos(Thetap[0]))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap[9] - Thetap[10])*
+                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                 Tan(x[18])))*Tan(x[20])) - Cos(x[20] + Thetap[9] - Thetap[10])*Tan(x[22])*
+                        ((-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                             (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                           Sin(x[18] - x[20] + Thetap[8] - Thetap[9]) + 
+                          Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                           (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                             2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                             2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                              Tan(x[18])) - (-(Cos(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                                (-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                  (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))) + 
+                             Sin(x[18] - x[20] + Thetap[8] - Thetap[9])*
+                              (Cos(x[18] - Thetap[0] + Thetap[8])*(1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1])) - 
+                                2*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1])*Sin(x[18] - Thetap[0] + Thetap[8]) - 
+                                2*(-2*Cos(x[18] - Thetap[0] + Thetap[8])*Sec(x[4])*Sin(Pi/6.0+ Thetap[0] - Thetap[1])*Sin(x[4] - Thetap[0] + Thetap[1]) - 
+                                   (1 + 2*Cos(Pi/6.0+ Thetap[0] - Thetap[1])*Sec(x[4])*Sin(x[4] - Thetap[0] + Thetap[1]))*Sin(x[18] - Thetap[0] + Thetap[8]))*
+                                 Tan(x[18])))*Tan(x[20])))/lv)))/lv - (w1*Cos(Thetap[0])*sr.Cs1)/(1 - sr.Cs*sr.d) + 
            (sr.Cs*Cos(Thetap[0])*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap[0])) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2))))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[10] - Thetap[9]),2)/(16.*Power(l2,2)))));
-
+    (l2*(Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap[9] - Thetap[10]),2)/(16.*Power(l2,2)))));
 
 
 	thetap9d = PAI/2.0+ ArcTan(-2*l3*delta3d,l3*lv) + VEHICLE3_SLIDING_MECHANISM_SIGN*ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))) + Thetap[10];
