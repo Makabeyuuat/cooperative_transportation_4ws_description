@@ -42,8 +42,8 @@
               v2_rear_right_steering_position_controller v2_rear_left_steering_position_controller v2_front_right_steering_position_controller v2_front_left_steering_position_controller
               v3_rear_right_wheel_rotation_velocity_controller v3_rear_left_wheel_rotation_velocity_controller v3_front_right_wheel_rotation_velocity_controller v3_front_left_wheel_rotation_velocity_controller
               v3_rear_right_steering_position_controller v3_rear_left_steering_position_controller v3_front_right_steering_position_controller v3_front_left_steering_position_controller
-              linkage1_rotation_velocity_controller linkage2_rotation_velocity_controller linkage3_rotation_velocity_controller
-              linkage_point_to_v1_velocity_controller linkage_point_to_v2_velocity_controller linkage_point_to_v3_velocity_controller"/>
+              linkage1_rotation_velocity_controller linkage2_rotation_velocity_controller linkage3_rotation_velocity_controller"/>
+              <!-- linkage_point_to_v1_velocity_controller linkage_point_to_v2_velocity_controller linkage_point_to_v3_velocity_controller -->
 
   <!-- TF/RS/P RViz はそのまま -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">

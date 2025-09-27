@@ -232,6 +232,7 @@ inline double nh10 = 0.0;
 
 //各リンクの長さ
 inline double lv = 0.9;
+inline double lt = 0.8;
 inline double l1 = 0.8;
 inline double l2 = (sqrt(2) / 8) * lv;
 inline double l3 = (sqrt(2) / 4) * lv;
@@ -246,6 +247,7 @@ inline int VEHICLE3_SLIDING_MECHANISM_SIGN = sign(VEHICLE3_SLIDING_MECHANISM_SLO
 //各車両の速度
 inline double v1, v2, v3;
 inline double v1f, v2f, v3f, v1r, v2r, v3r;
+inline double wheelRadius = 0.153; //車輪の半径
 
 // 初期値設定関数
 // 引数: t, dt, x0, x_new

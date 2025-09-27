@@ -21,6 +21,7 @@
 #include "DynamicsCalc.hpp"
 #include "getInputValue.hpp"
 #include "csvLogger.hpp"	// グローバル変数のヘッダーファイル
+#include "wheel_kinematics.hpp"
 
 using namespace std;
 
@@ -62,7 +63,7 @@ int main(int argc, char** argv)
     Vehicle vehicle3(nh, "v3");
 	// 各クラスをインスタンス化
     DynamicsCalculator dynamics_calc;
-	getInputValue getInputValue(0.01);
+	getInputValue getInputValue(0.02);
 
 	//データファイル作成
   	std::string pkg = ros::package::getPath("cooperative_transportation_4ws_description");
@@ -187,17 +188,28 @@ int main(int argc, char** argv)
 		getInputValue.getU(x_old, sr.j);
 		getInputValue.rungeKutta(x_old, sr.j);
 	
-		//経過時間を表示
-		//printf("%f\n", x_old[0]);
+		// 例：v1f,v1r, Phi[1], x_old[10] が既知
+        auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
+        auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
+        auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);
 
 		// 各車両へ steering コマンドと車輪の回転速度コマンドを送信
-        vehicle1.publishSteeringCommand(Phi[1], Phi[1], x_old[10], x_old[10]);
-        vehicle2.publishSteeringCommand(Phi[2], Phi[2], x_old[16], x_old[16]);
-        vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
+        // vehicle1.publishSteeringCommand(Phi[1], Phi[1], x_old[10], x_old[10]);
+        // vehicle2.publishSteeringCommand(Phi[2], Phi[2], x_old[16], x_old[16]);
+        // vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
 
-        vehicle1.publishWheelCommand(v1f, v1f, v1r, v1r);
-        vehicle2.publishWheelCommand(v2f, v2f, v2r, v2r);
-        vehicle3.publishWheelCommand(v3f, v3f, v3r, v3r);
+        // vehicle1.publishWheelCommand(v1f, v1f, v1r, v1r);
+        // vehicle2.publishWheelCommand(v2f, v2f, v2r, v2r);
+        // vehicle3.publishWheelCommand(v3f, v3f, v3r, v3r);
+
+
+		vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
+        vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
+        vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+
+        vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
+        vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
+        vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
 
 		//デバッグ用ログ出力
 		ROS_INFO_THROTTLE(0.1,"t+carrier:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",
@@ -218,6 +230,21 @@ int main(int argc, char** argv)
 
 		ROS_INFO_THROTTLE(0.1, "v1f=%.6f, v1r=%.6f, v2f=%.6f, v2r=%.6f, v3f=%.6f, v3r=%.6f",
     	    v1f, v1r, v2f, v2r, v3f, v3r);
+		
+		ROS_INFO_THROTTLE(0.1, "v1fl=%.6f, v1fr=%.6f, v1rl=%.6f, v1rr=%.6f",
+    	    c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
+		ROS_INFO_THROTTLE(0.1, "v2fl=%.6f, v2fr=%.6f, v2rl=%.6f, v2rr=%.6f",
+		    c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
+		ROS_INFO_THROTTLE(0.1, "v3fl=%.6f, v3fr=%.6f, v3rl=%.6f, v3rr=%.6f",
+		    c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
+
+		ROS_INFO_THROTTLE(0.1, "del1fl=%.6f, del1fr=%.6f, del1rl=%.6f, del1rr=%.6f",
+    	    c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
+		ROS_INFO_THROTTLE(0.1, "del2fl=%.6f, del2fr=%.6f, del2rl=%.6f, del2rr=%.6f",
+		    c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
+		ROS_INFO_THROTTLE(0.1, "del3fl=%.6f, del3fr=%.6f, del3rl=%.6f, del3rr=%.6f",
+		    c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+		
 
 		ROS_INFO_THROTTLE(0.1, "Phi1=%.6f, Phi2=%.6f, Phi3=%.6f\n",
     	    Phi[1], Phi[2], Phi[3]);

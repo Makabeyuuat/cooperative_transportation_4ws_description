@@ -15,41 +15,6 @@
 
 DynamicsCalculator::DynamicsCalculator() { }
 
-// void DynamicsCalculator::calcXold(std::vector<double>& x_old){
-//      //状態変数を計算
-//      //gazebo
-//      //荷台の姿勢角
-//      x_old[1] =  true_carrier_pos[0];
-//      x_old[2] =  true_carrier_pos[1];
-//      x_old[5] =  true_carrier_yaw; 
-//      //後輪：V1,V2,V3
-//      x_old[10] = true_vehicle1_steering_yaw[1];
-//      x_old[16] = true_vehicle2_steering_yaw[1];
-//      x_old[22] = true_vehicle3_steering_yaw[1];
-
-//      //仮想リンクを計算
-//      x_old[7] = -PAI/4.0 + atan2(delta_pos[0], lv/2.0) + (true_vehicle_yaw[0]);
-//      x_old[9] = x_old[7] + PAI/2.0;
-
-//      x_old[13] = (3.0*PAI/4.0) + atan2(delta_pos[1], lv/2.0) + (true_vehicle_yaw[1]);
-//      x_old[15] = x_old[13] + PAI/2.0;
-
-//      x_old[19] = (3.0*PAI/4.0) + atan2(delta_pos[2], lv/2.0) + (true_vehicle_yaw[2]);
-//      x_old[21] = x_old[19] + PAI/2.0;
-
-//      //gazebo+culculate
-// 	//v1前輪
-//      x_old[8] = true_vehicle1_steering_yaw[0] - x_old[9];
-//      x_old[11] = true_vehicle_yaw[0] + PAI;
-
-//      //v2前輪
-//      x_old[14] = true_vehicle2_steering_yaw[0] - x_old[15];
-//      x_old[17] = true_vehicle_yaw[1];
-
-// 	//v3前輪
-//      x_old[20] = true_vehicle3_steering_yaw[0] - x_old[21];
-//      x_old[23] = true_vehicle_yaw[2];
-// }
 
 void DynamicsCalculator::calcXold(std::vector<double>& x_old){
 
@@ -69,7 +34,7 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
      x_old[16] = true_vehicle2_steering_yaw[1];
      x_old[22] = true_vehicle3_steering_yaw[1];
 
-    // 摺動量（delta）。あなたの delta_pos[*] を使うならここで拾う
+    // 摺動量（delta）
     double delta1 = delta_pos[0];
     double delta2 = delta_pos[1];
     double delta3 = delta_pos[2];
