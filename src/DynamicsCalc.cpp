@@ -151,12 +151,29 @@ void DynamicsCalculator::computeCoefficients(const std::vector<double>& x_old) {
      double Th8  = x_old[3]  - x_old[18] - x_old[19];
      double Th9  = x_old[18] + x_old[19] - x_old[20] - x_old[21];
      double Th10 = x_old[20] + x_old[21] - x_old[23];
+
+
+     // 使う直前
+     double phi1 = wrapPi(x_old[4]);
+     double phi2 = wrapPi(x_old[6]);
+     double phi3 = wrapPi(x_old[8]);
+     double phi4 = wrapPi(x_old[10]);
+     double phi5 = wrapPi(x_old[12]);
+     double phi6 = wrapPi(x_old[14]);
+     double phi7 = wrapPi(x_old[16]);
+     double phi8 = wrapPi(x_old[18]);
+     double phi9 = wrapPi(x_old[20]);
+
+     double tan_phi5 = tan( clampAbs(phi5, LIM) );
+     double tan_phi6 = tan( clampAbs(phi6, LIM) );
+     double tan_phi8 = tan( clampAbs(phi8, LIM) );
+     double tan_phi9 = tan( clampAbs(phi9, LIM) );
  
      // ai を globals::ai に書き込む
      ai.a0t  = 1.0;
  
      ai.a1n1 = ai.a0t * std::sin(Th1);
-     ai.a1t1 = ai.a0t * std::cos(Th1)- 2*ai.a1n1 * std::tan(x_old[4]);
+     ai.a1t1 = ai.a0t * std::cos(Th1)- 2*ai.a1n1 * Tan(x_old[4]);
  
      ai.a1n2 = (2*ai.a1n1/std::cos(x_old[4]))* std::sin(x_old[3]-x_old[5]-PAI/6);
      ai.a1t2 = ai.a0t + (2*ai.a1n1/std::cos(x_old[4]))  * std::cos(x_old[3]-x_old[5]-PAI/6);
@@ -166,48 +183,65 @@ void DynamicsCalculator::computeCoefficients(const std::vector<double>& x_old) {
  
      // 第1車両
      ai.a2n = ai.a1t1*std::sin(Th2) - ai.a1n1*std::cos(Th2);
-     ai.a2t = ai.a1t1*std::cos(Th2) + ai.a1n1*std::sin(Th2) - 2*ai.a2n * std::tan(x_old[6]);
+     ai.a2t = ai.a1t1*std::cos(Th2) + ai.a1n1*std::sin(Th2) - 2*ai.a2n * Tan(x_old[6]);
  
      ai.a3n = ai.a2t*std::sin(Th3) - ai.a2n*std::cos(Th3);
-     ai.a3t = ai.a2t*std::cos(Th3) + ai.a2n*std::sin(Th3) - 2*ai.a3n * std::tan(x_old[8]);
+     ai.a3t = ai.a2t*std::cos(Th3) + ai.a2n*std::sin(Th3) - 2*ai.a3n * Tan(x_old[8]);
  
-     ai.V3t = ai.a2t*std::cos(Th3) + ai.a2n*std::sin(Th3) - ai.a3n * std::tan(x_old[8]);
+     ai.V3t = ai.a2t*std::cos(Th3) + ai.a2n*std::sin(Th3) - ai.a3n * Tan(x_old[8]);
      ai.a4t = ai.V3t * std::cos(Th4);
  
      // 第2車両
      ai.a5n = ai.a1t2*std::sin(Th5) - ai.a1n2*std::cos(Th5);
-     ai.a5t = ai.a1t2*std::cos(Th5) + ai.a1n2*std::sin(Th5) - 2*ai.a5n * std::tan(x_old[12]);
+     ai.a5t = ai.a1t2*std::cos(Th5) + ai.a1n2*std::sin(Th5) - 2*ai.a5n * Tan(x_old[12]);
  
      ai.a6n = ai.a5t*std::sin(Th6) - ai.a5n*std::cos(Th6);
-     ai.a6t = ai.a5t*std::cos(Th6) + ai.a5n*std::sin(Th6) - 2*ai.a6n * std::tan(x_old[14]);
+     ai.a6t = ai.a5t*std::cos(Th6) + ai.a5n*std::sin(Th6) - 2*ai.a6n * Tan(x_old[14]);
  
-     ai.V6t = ai.a5t*std::cos(Th6) + ai.a5n*std::sin(Th6) - ai.a6n * std::tan(x_old[14]);
+     ai.V6t = ai.a5t*std::cos(Th6) + ai.a5n*std::sin(Th6) - ai.a6n * Tan(x_old[14]);
      ai.a7t = ai.V6t * std::cos(Th7);
  
      // 第3車両
      ai.a8n = ai.a1t3*std::sin(Th8) - ai.a1n3*std::cos(Th8);
-     ai.a8t = ai.a1t3*std::cos(Th8) + ai.a1n3*std::sin(Th8) - 2*ai.a8n * std::tan(x_old[18]);
+     ai.a8t = ai.a1t3*std::cos(Th8) + ai.a1n3*std::sin(Th8) - 2*ai.a8n * Tan(x_old[18]);
  
      ai.a9n = ai.a8t*std::sin(Th9) - ai.a8n*std::cos(Th9);
-     ai.a9t = ai.a8t*std::cos(Th9) + ai.a8n*std::sin(Th9) - 2*ai.a9n * std::tan(x_old[20]);
+     ai.a9t = ai.a8t*std::cos(Th9) + ai.a8n*std::sin(Th9) - 2*ai.a9n * Tan(x_old[20]);
  
-     ai.V9t = ai.a8t*std::cos(Th9) + ai.a8n*std::sin(Th9) - ai.a9n * std::tan(x_old[20]);
+     ai.V9t = ai.a8t*std::cos(Th9) + ai.a8n*std::sin(Th9) - ai.a9n * Tan(x_old[20]);
      ai.a10t = ai.V9t * std::cos(Th10);
  
      // 車両の速度成分
      v1 = (ai.a2t*std::cos(Th3)
            + ai.a2n*std::sin(Th3)
-           - ai.a3n*std::tan(x_old[8])) * u1;
+           - ai.a3n*Tan(x_old[8])) * u1;
      v2 = (ai.a5t*std::cos(Th6)
            + ai.a5n*std::sin(Th6)
-           - ai.a6n*std::tan(x_old[14])) * u1;
+           - ai.a6n*Tan(x_old[14])) * u1;
      v3 = (ai.a8t*std::cos(Th9)
            + ai.a8n*std::sin(Th9)
-           - ai.a9n*std::tan(x_old[20])) * u1;
+           - ai.a9n*Tan(x_old[20])) * u1;
+
+     // 車両の前後輪の速度成分
+     v1f = v1 * cos(Phi[1]);
+     v1r = v1 * cos(x_old[10]);      
+     v2f = v2 * cos(Phi[2]);
+     v2r = v2 * cos(x_old[16]);
+     v3f = v3 * cos(Phi[3]);
+     v3r = v3 * cos(x_old[22]);
 
      //デバッグ用ログ出力
 	ROS_INFO_THROTTLE(0.1,"DynamicsCalc:v1=%.3f, v2=%.3f, v3=%.3f",
-      v1, v2, v3);     
+      v1, v2, v3);   
+      
+      ROS_INFO_THROTTLE(0.1,
+      "v3 angles: theta8=%.3f, theta9=%.3f, theta10=%.3f | phi9(x20)=%.3f | tan(phi9)=%.3f | Thetap9=%.3f, Thetap10=%.3f",
+      x_old[19], x_old[21], x_old[23], x_old[20], tan(x_old[20]), Thetap[9], Thetap[10]);
+
+      ROS_INFO_THROTTLE(0.1,
+      "v2 angles: theta5=%.3f, theta6=%.3f, theta7=%.3f | phi6(x14)=%.3f | tan(phi6)=%.3f | Thetap6=%.3f, Thetap7=%.3f",
+      x_old[13], x_old[15], x_old[17], x_old[14], tan(x_old[14]), Thetap[6], Thetap[7]);
+
  }
 
 
@@ -227,7 +261,7 @@ void DynamicsCalculator::calculate(const std::vector<double>& x_old, double t_ma
 //     delta3d = (3.0 / 20.0) * sin(2 * PAI * x_old[0] / t_max);
 //     Ddelta3d = (3.0 / 20.0) * (2 * PAI / t_max) * cos(2 * PAI * x_old[0] / t_max);
 //     DDdelta3d = -(3.0 / 20.0) * (2 * PAI / t_max) * (2 * PAI / t_max) * sin(2 * PAI * x_old[0] / t_max);
-     delta1d =  0.0;
+    delta1d =  0.0;
     Ddelta1d =  0.0;
     DDdelta1d = 0.0;
 
@@ -260,14 +294,6 @@ void DynamicsCalculator::calculate(const std::vector<double>& x_old, double t_ma
     Phi[1] = x_old[9] + x_old[8] - x_old[11] + PAI;
     Phi[2] = x_old[15] + x_old[14] - x_old[17];
     Phi[3] = x_old[21] + x_old[20] - x_old[23];
-
-    // 車両の前後輪の速度成分
-     v1f = v1 * cos(Phi[1]);
-     v1r = v1 * cos(x_old[10]);      
-     v2f = v2 * cos(Phi[2]);
-     v2r = v2 * cos(x_old[16]);
-     v3f = v3 * cos(Phi[3]);
-     v3r = v3 * cos(x_old[22]);
 
     // 車両の後輪間中点の計算（グローバル変数 x1, Y1, x2, y2, x3, y3 に代入）
     x1 = x_old[1] + 2 * l1 * cos(x_old[5]) + 2 * l2 * cos(x_old[7])

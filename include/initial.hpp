@@ -8,6 +8,7 @@
 #define Q_sample 100001  //曲線の分割数
 #define PSdist 300
 #define PAI 3.14159265358979323846
+#define LIM 1.48352986419518  //操舵角の上限（85度）
 inline constexpr int BEZIER_ORDER = 3; 
 inline constexpr double RAD2DEG = 180.0 / PAI;
 inline constexpr double DEG2RAD = PAI / 180.0;
@@ -16,6 +17,14 @@ inline constexpr double DEG2RAD = PAI / 180.0;
         if (A >= 0) return 1;
         else return -1;
     }
+
+
+inline double wrapPi(double a){
+  while(a >  PAI) a -= 2*PAI;
+  while(a <= -PAI) a += 2*PAI;
+  return a;
+}
+inline double clampAbs(double x, double lim){ return std::max(-lim, std::min(lim, x)); }
 
 //係数
 typedef struct {
@@ -119,28 +128,28 @@ inline double u10_inv_a[3][3];
 
 
 //フィードバック関数
-inline double k1 = 0.5;
-inline double k2 = 0.5;
-inline double k3 = 0.5;
-inline double k4 = 0.5;
-inline double k5 = 4.0;
-inline double k6 = 4.0;
-inline double k7 = 4.0;
-inline double k8 = 4.0;
-inline double k9 = 4.0;
-inline double k10 = 4.0;
-inline double k11 = 4.0;
-inline double k12 = 4.0;
-inline double k13 = 4.0;
-inline double k14 = 4.0;
-inline double k15 = 4.0;
-inline double k16 = 4.0;
-inline double k17 = 4.0;
-inline double k18 = 4.0;
-inline double k19 = 4.0;
-inline double k20 = 4.0;
-inline double k21 = 4.0;
-inline double k22 = 4.0;
+inline double k1 = 2.0;
+inline double k2 = 2.0;
+inline double k3 = 2.0;
+inline double k4 = 2.0;
+inline double k5 = 5.0;
+inline double k6 = 5.0;
+inline double k7 = 5.0;
+inline double k8 = 5.0;
+inline double k9 = 5.0;
+inline double k10 = 5.0;
+inline double k11 = 5.0;
+inline double k12 = 5.0;
+inline double k13 = 5.0;
+inline double k14 = 5.0;
+inline double k15 = 5.0;
+inline double k16 = 5.0;
+inline double k17 = 5.0;
+inline double k18 = 5.0;
+inline double k19 = 5.0;
+inline double k20 = 5.0;
+inline double k21 = 5.0;
+inline double k22 = 5.0;
 
 
 //制御入力の係数
@@ -170,7 +179,9 @@ inline double K21, K22, K23, K24;
 inline double thetap3d, dthetap3d;
 inline double K31, K32, K33, K34;
 
-inline double theta4d, dtheta4d, ddtheta4d;
+inline double theta4d = PAI;
+inline double dtheta4d = 0;
+inline double ddtheta4d = 0;
 
 inline double thetap5d,dthetap5d;
 inline double K51, K52, K53, K54;
@@ -178,7 +189,9 @@ inline double K51, K52, K53, K54;
 inline double thetap6d , dthetap6d;
 inline double K61, K62, K63, K64;
 
-inline double theta7d, dtheta7d, ddtheta7d;
+inline double theta7d = -PAI / 8.0;
+inline double dtheta7d = 0.0;
+inline double ddtheta7d = 0.0;
 
 inline double thetap8d, dthetap8d;
 inline double K81, K82, K83, K84;
@@ -186,7 +199,9 @@ inline double K81, K82, K83, K84;
 inline double thetap9d, dthetap9d;
 inline double K91, K92, K93, K94;
 
-inline double theta10d, dtheta10d, ddtheta10d;
+inline double theta10d = PAI / 6.0;
+inline double dtheta10d = 0;
+inline double ddtheta10d = 0;
 
 //摺動機構の目標関数とその微分
 inline double delta1d = 0.0, Ddelta1d = 0.0, DDdelta1d = 0.0;
@@ -237,12 +252,9 @@ inline double l1 = 0.8;
 inline double l2 = (sqrt(2) / 8) * lv;
 inline double l3 = (sqrt(2) / 4) * lv;
 //摺動機構の仮想リンク
-inline double VEHICLE1_SLIDING_MECHANISM_SLOPE = PAI / 4.0;
-inline double VEHICLE2_SLIDING_MECHANISM_SLOPE = PAI / 4.0;
-inline double VEHICLE3_SLIDING_MECHANISM_SLOPE = PAI / 4.0;
-inline int VEHICLE1_SLIDING_MECHANISM_SIGN = sign(VEHICLE1_SLIDING_MECHANISM_SLOPE);
-inline int VEHICLE2_SLIDING_MECHANISM_SIGN = sign(VEHICLE2_SLIDING_MECHANISM_SLOPE);
-inline int VEHICLE3_SLIDING_MECHANISM_SIGN = sign(VEHICLE3_SLIDING_MECHANISM_SLOPE);
+inline int VEHICLE1_SLIDING_MECHANISM_SIGN = sign(1.0);
+inline int VEHICLE2_SLIDING_MECHANISM_SIGN = sign(1.0);
+inline int VEHICLE3_SLIDING_MECHANISM_SIGN = sign(1.0);
 
 //各車両の速度
 inline double v1, v2, v3;

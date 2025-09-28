@@ -117,7 +117,7 @@ void trueCarrierCallback(const nav_msgs::Odometry::ConstPtr& msg)
     true_carrier_yaw  = yaw;
     x_old[1] = carrier_pose.pose.position.x;
     x_old[2] = carrier_pose.pose.position.y;
-    x_old[4] = yaw;
+    x_old[5] = yaw;//theta1
 
     got_body_pos = true;
 

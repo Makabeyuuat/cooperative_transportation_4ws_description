@@ -8,35 +8,35 @@ cooperative_transportation_4ws:
   v1_rear_right_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v1_rear_right_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v1_rear_right_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v1_rear_right_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v1_front_right_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v1_front_right_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v1_front_left_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v1_front_left_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v1_rear_left_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v1_rear_left_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v1_front_right_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v1_front_right_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v1_front_left_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v1_front_left_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v1_rear_left_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v1_rear_left_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   linkage1_rotation_velocity_controller:
     type: effort_controllers/JointPositionController
     joint: linkage1_rotation
@@ -52,67 +52,67 @@ cooperative_transportation_4ws:
   v2_front_right_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v2_front_right_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v2_rear_right_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v2_rear_right_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v2_front_left_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v2_front_left_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v2_rear_left_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v2_rear_left_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v2_front_right_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v2_front_right_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v2_rear_right_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v2_rear_right_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v2_front_left_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v2_front_left_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v2_rear_left_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v2_rear_left_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v3_front_right_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v3_front_right_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v3_rear_right_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v3_rear_right_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v3_front_left_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v3_front_left_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v3_rear_left_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v3_rear_left_steering
-    pid: {p: 1000.0, i: 0.01, d: 0.1}
+    pid: {p: 200.0, i: 0.01, d: 0.1}
   v3_front_right_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v3_front_right_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v3_rear_right_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v3_rear_right_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v3_front_left_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v3_front_left_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   v3_rear_left_wheel_rotation_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: v3_rear_left_wheel_rotation
-    pid: {p: 500.0, i: 0.01, d: 0.1}
+    pid: {p: 800.0, i: 0.01, d: 0.1}
   linkage_point_to_v1_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: linkage_point_to_v1

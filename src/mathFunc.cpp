@@ -2,6 +2,7 @@
 #include <math.h>
 
 #include "mathFunc.h"
+#include "initial.hpp"
 
 
 
@@ -15,7 +16,7 @@ double Sin(double x) {
 }
 
 double Tan(double x) {
-	return(tan(x));
+	return tan(x);
 }
 
 double ArcTan(double  x, double y) {

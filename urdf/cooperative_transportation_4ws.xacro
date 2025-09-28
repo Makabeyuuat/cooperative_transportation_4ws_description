@@ -1230,7 +1230,7 @@
   <child link="v1_rear_right_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v1_front_right_steering" type="revolute">
@@ -1239,7 +1239,7 @@
   <child link="v1_front_right_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v1_front_left_steering" type="revolute">
@@ -1248,7 +1248,7 @@
   <child link="v1_front_left_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v1_rear_left_steering" type="revolute">
@@ -1257,7 +1257,7 @@
   <child link="v1_rear_left_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v1_sliding_machine_to_body" type="fixed">
@@ -1381,7 +1381,7 @@
   <child link="v2_front_right_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v2_rear_right_steering" type="revolute">
@@ -1390,7 +1390,7 @@
   <child link="v2_rear_right_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v2_front_left_steering" type="revolute">
@@ -1399,7 +1399,7 @@
   <child link="v2_front_left_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v2_rear_left_steering" type="revolute">
@@ -1408,7 +1408,7 @@
   <child link="v2_rear_left_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v2_front_right_wheel_rotation" type="continuous">
@@ -1471,7 +1471,7 @@
   <child link="v3_front_right_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="-0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v3_rear_right_steering" type="revolute">
@@ -1480,7 +1480,7 @@
   <child link="v3_rear_right_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="-0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v3_front_left_steering" type="revolute">
@@ -1489,7 +1489,7 @@
   <child link="v3_front_left_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="-0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v3_rear_left_steering" type="revolute">
@@ -1498,7 +1498,7 @@
   <child link="v3_rear_left_hinge_1"/>
   <dynamics damping="${steering_damping}" friction="${steering_friction}"/>
   <axis xyz="-0.0 0.0 1.0"/>
-  <limit upper="1.2" lower="-1.2" effort="100" velocity="100"/>
+  <limit upper="1.57" lower="-1.57" effort="100" velocity="100"/>
 </joint>
 
 <joint name="v3_front_right_wheel_rotation" type="continuous">

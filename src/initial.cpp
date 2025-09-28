@@ -2,7 +2,7 @@
 
 void initial(double &t, double &dt, std::vector<double> &x0, std::vector<double> &x_new, std::vector<double> &x_input) {
     t = 66.8;
-    dt = 0.01;
+    dt = 0.02;
 
     // 必要なサイズにリサイズ（DIM + 1 個）
     x0.resize(DIM + 1, 0.0);
@@ -30,8 +30,6 @@ void initial(double &t, double &dt, std::vector<double> &x0, std::vector<double>
 	//x0[20] = -5.0 * PAI / 4.0;
 	//x0[21] = 5.0 * PAI / 4.0;
 
-    x0[1] = -6.5;
-    x0[2] = -1.0;
 
     // 第1車両の摺動機構
     x0[6] = PAI / 4.0;
