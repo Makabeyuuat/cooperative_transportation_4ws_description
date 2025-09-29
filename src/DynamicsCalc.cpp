@@ -61,13 +61,13 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
     //仮想リンクを計算
     // v1
     double th2 = thetav2 - (3.0/2.0)*PAI  + theta4;
-    double th3 = thetav3 + 0.5*PAI - theta4;
+    double th3 = -thetav3 - 0.5*PAI + theta4;
     // v2
     double th5 = thetav5 + PAI/2.0 + theta7;
-    double th6 = thetav6 + PAI/2.0 + theta7;
+    double th6 = -thetav6 + 3.0*PAI/2.0 + theta7;
     // v3
     double th8 = thetav8 + PAI/2.0 + theta10;
-    double th9 = thetav9 + PAI/2.0 + theta10;
+    double th9 = -thetav9 + 3.0*PAI/2.0 + theta10;
 
     //x_oldに格納
     x_old[7]  = th2;
@@ -122,7 +122,7 @@ double DynamicsCalculator::calc_thetavj_from_deltai(double deltai, int vehicle_s
 	double k1 = lv*l3;
 	double k2 = 2*deltai*l3;
 	double k3 = deltai*deltai + (lv/2.0)*(lv/2.0) + l3*l3 - 4.0*l2*l2;
-	double ret = atan2(k1,k2) + vehicle_sliding_mechanism_sign * atan2(sqrt(k1*k1+k2*k2-k3*k3),k3);
+	double ret = atan2(k1,k2) - atan2(sqrt(k1*k1+k2*k2-k3*k3),k3);
 
 	return(ret);
 }
