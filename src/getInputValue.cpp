@@ -88,9 +88,10 @@ void getInputValue::rungeKutta(std::vector<double>& x_old, int sr_j) {
 	x_old[23]=x_new[23];
 
 
+
 	Phi[1] = x_old[9] + x_old[8] - x_old[11] + PAI;
-   Phi[2] = x_old[15] + x_old[14] - x_old[17];
-   Phi[3] = x_old[21] + x_old[20] - x_old[23];
+	Phi[2] = x_old[15] + x_old[14] - x_old[17];
+	Phi[3] = x_old[21] + x_old[20] - x_old[23];
 
 
    
@@ -189,9 +190,6 @@ void getInputValue::U3(const std::vector<double>& x, int sr_j) {
 }
 
 void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
-    theta4d = PAI;
-	dtheta4d = 0;
-	ddtheta4d = 0;
 
 	double u4and = 0.0;
 	double u5and = 0.0;
@@ -1086,7 +1084,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 
 	b4 = K24 / a0 + (k5 + k6) * (dthetap2d / a0 - z41) + k5 * k6 * (thetap2d / a0 - z42 / a0) - (alpha41 * a0 + alpha42 * u2 + alpha43 * u3);
 	b5 = K34 / a0 + (k7 + k8) * (dthetap3d / a0 - z51) + k7 * k8 * (thetap3d / a0 - z52 / a0) - (alpha51 * a0 + alpha52 * u2 + alpha53 * u3);
-	b6 = ddtheta4d / a0 + (k9 + k10) * ((dtheta4d / a0) - z61) + k9 * k10 * ((theta4d / a0) - z62 / a0) - (alpha61 * a0 + alpha62 * u2 + alpha63 * u3);
+	b6 = ddthetap4d / a0 + (k9 + k10) * ((dthetap4d / a0) - z61) + k9 * k10 * ((thetap4d / a0) - z62 / a0) - (alpha61 * a0 + alpha62 * u2 + alpha63 * u3);
 
 	inv(u4_a, u4_inv_a);
 
@@ -1103,14 +1101,10 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 
 
 void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
-    //theta7d = 0.0;
-	theta7d = -PAI / 8.0;
-	dtheta7d = 0.0;
-	ddtheta7d = 0.0;
 
-	/*theta7d = -0.7 *  sin(2* PAI * x[0] / t_max);
-	dtheta7d =  -0.7 * (2* PAI / t_max) * cos(2 * PAI * x[0] / t_max);
-	ddtheta7d =  0.7 * (4 * PAI * PAI / t_max * t_max) * sin(2 * PAI * x[0] / t_max);*/
+	/*thetap7d = -0.7 *  sin(2* PAI * x[0] / t_max);
+	dthetap7d =  -0.7 * (2* PAI / t_max) * cos(2 * PAI * x[0] / t_max);
+	ddthetap7d =  0.7 * (4 * PAI * PAI / t_max * t_max) * sin(2 * PAI * x[0] / t_max);*/
 
 	double u7and = 0.0;
 	double u8and = 0.0;
@@ -2977,7 +2971,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 
 	b7 = K54 / a0 + (k11 + k12) * (dthetap5d / a0 - z71) + k11 * k12 * (thetap5d / a0 - z72 / a0) - (alpha71 * a0 + alpha72 * u2 + alpha73 * u3);
 	b8 = K64 / a0 + (k13 + k14) * (dthetap6d / a0 - z81) + k13 * k14 * (thetap6d / a0 - z82 / a0) - (alpha81 * a0 + alpha82 * u2 + alpha83 * u3);
-	b9 = ddtheta7d / a0 + (k15 + k16) * ((dtheta7d / a0) - z91) + k15 * k16 * ((theta7d / a0) - z92 / a0) - (alpha91 * a0 + alpha92 * u2 + alpha93 * u3);
+	b9 = ddthetap7d / a0 + (k15 + k16) * ((dthetap7d / a0) - z91) + k15 * k16 * ((thetap7d / a0) - z92 / a0) - (alpha91 * a0 + alpha92 * u2 + alpha93 * u3);
 
 	inv(u7_a, u7_inv_a);
 
@@ -2991,10 +2985,6 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 }
 
 void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
-    //theta10d = 0;
-	theta10d = PAI / 6.0;
-	dtheta10d = 0;
-	ddtheta10d = 0;
 
 	double u10and = 0.0;
 	double u11and = 0.0;
@@ -5086,7 +5076,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 
 	b10 = K84 / a0 + (k17 + k18) * (dthetap8d / a0 - z101) + k17 * k18 * (thetap8d / a0 - z102 / a0) - (alpha101 * a0 + alpha102 * u2 + alpha103 * u3);
 	b11 = K94 / a0 + (k19 + k20) * (dthetap9d / a0 - z111) + k19 * k20 * (thetap9d / a0 - z112 / a0) - (alpha111 * a0 + alpha112 * u2 + alpha113 * u3);
-	b12 = ddtheta10d / a0 + (k21 + k22) * ((dtheta10d / a0) - z121) + k21 * k22 * ((theta10d / a0) - z122 / a0) - (alpha121 * a0 + alpha122 * u2 + alpha123 * u3);
+	b12 = ddthetap10d / a0 + (k21 + k22) * ((dthetap10d / a0) - z121) + k21 * k22 * ((thetap10d / a0) - z122 / a0) - (alpha121 * a0 + alpha122 * u2 + alpha123 * u3);
 
 	inv(u10_a, u10_inv_a);
 

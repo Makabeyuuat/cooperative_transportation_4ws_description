@@ -77,30 +77,13 @@ int main(int argc, char** argv)
 	current_time = time(NULL);
 	printf("%s", ctime(&current_time));
 
-	double	h;
-	long	i, j, n, time;
-
-	//gazebo上の初期値をx_oldに代入
-	while (ros::ok() && ! got_body_pos) {
-		ros::spinOnce();
-		loop_rate.sleep();
-		//デバッグ用ログ出力
-		ROS_INFO("Waiting for getting initial pose...");
-	}
-	//デバッグ用ログ出力
-	// ROS_INFO("Locking initial pose and calling initial(): x=%.3f, y=%.3f, theta_1=%.3f",
-    //        x_old[1], x_old[2], x_old[4]);
 	
 
-	//初期値を設定
-	initial(t_max, h, x_old, x_new, x_input);
-
 	//経路のQ分割
-	s[0] = 0;
-	for (int i = 1; i < Q_sample; i++) {
-		qs[i] = qs[i - 1] + 1.0 / 100000.0;
-		s[i] = sqrt(pow(d1Rxdq1(Bx, qs, i), 2) + pow(d1Rydq1(By, qs, i), 2)) - s[i - 1];
-
+	qs[0] = 0.0;
+	double dt = 1.0 / (Q_sample - 1);
+	for (int i = 1; i < Q_sample; ++i) {
+    	qs[i] = i * dt;
 	}
 
 	//曲率の値出力
@@ -140,6 +123,25 @@ int main(int argc, char** argv)
 				+ 10 * d1Rydq1(By, qs, i) * d2Rxdq2(Bx, qs, i) * d3Rxdq3(Bx, qs, i) - 10 * d1Rydq1(By, qs, i) * d2Rydq2(By, qs, i) * d3Rydq3(By, qs, i)
 				+ 2 * Power(d1Rydq1(By, qs, i), 2) * d4Rydq4(By, qs, i))) / Power(Power(d1Rxdq1(Bx, qs, i), 2) + Power(d1Rydq1(By, qs, i), 2), 4.00000000005);
 	}
+
+	double	h;
+	long	i, j, n, time;
+
+	//初期値を設定
+	initial(t_max, h, x_old, x_new, x_input);
+
+	//gazebo上の初期値をx_oldに代入
+	while (ros::ok() && ! got_body_pos) {
+		ros::spinOnce();
+		loop_rate.sleep();
+		//デバッグ用ログ出力
+		ROS_INFO("Waiting for getting initial pose...");
+	}
+	//デバッグ用ログ出力
+	// ROS_INFO("Locking initial pose and calling initial(): x=%.3f, y=%.3f, theta_1=%.3f",
+    //        x_old[1], x_old[2], x_old[4]);
+	
+
 
 
 	//rungeS();
@@ -193,10 +195,12 @@ int main(int argc, char** argv)
 	
 		dynamics_calc.calcXold(x_old);
 
-		//部分探索
-		searchPP(x_old);
 		//係数aの計算(ここでx_oldも計算)
 		dynamics_calc.computeCoefficients(x_old);
+
+		//部分探索
+		searchPP(x_old);
+		
 
 		dynamics_calc.calculate(x_old, t_max, l1, l2, l3, sr.j);
 
@@ -406,7 +410,7 @@ Search searchP(const std::vector<double>& x) {
 
 		dist = sqrt(pow((x[1] - R[i][0]), 2) + pow((x[2] - R[i][1]), 2));
 
-		if (-0.001 < dot && dot < 0.001) {
+		if (-0.01 < dot && dot < 0.01) {
 
 			if (dist < dist0) {
 				dist0 = dist;
@@ -441,7 +445,7 @@ Search searchPP(const std::vector<double>& x) {
 
 			dist = sqrt(pow((x[1] - R[i][0]), 2) + pow((x[2] - R[i][1]), 2));
 
-			if (-0.001 < dot && dot < 0.001) {
+			if (-0.01 < dot && dot < 0.01) {
 
 				if (dist < dist0) {
 					dist0 = dist;
@@ -464,7 +468,7 @@ Search searchPP(const std::vector<double>& x) {
 
 			dist = sqrt(pow((x[1] - R[i][0]), 2) + pow((x[2] - R[i][1]), 2));
 
-			if (-0.001 < dot && dot < 0.001) {
+			if (-0.01 < dot && dot < 0.01) {
 
 				if (dist < dist0) {
 					dist0 = dist;
@@ -488,7 +492,7 @@ Search searchPP(const std::vector<double>& x) {
 
 			dist = sqrt(pow((x[1] - R[i][0]), 2) + pow((x[2] - R[i][1]), 2));
 
-			if (-0.001 < dot && dot < 0.001) {
+			if (-0.01 < dot && dot < 0.01) {
 
 				if (dist < dist0) {
 					dist0 = dist;
