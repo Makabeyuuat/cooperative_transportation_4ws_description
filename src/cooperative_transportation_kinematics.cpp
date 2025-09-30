@@ -235,24 +235,24 @@ int main(int argc, char** argv)
         vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
 
 		//デバッグ用ログ出力
-		ROS_INFO_THROTTLE(0.1,"t+carrier:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",
-           x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
+		// ROS_INFO_THROTTLE(0.1,"t+carrier:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",
+        //    x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
 
-		ROS_INFO_THROTTLE(0.1,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",
-           x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
+		// ROS_INFO_THROTTLE(0.1,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",
+        //    x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
 
-		ROS_INFO_THROTTLE(0.1,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",
-           x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
+		// ROS_INFO_THROTTLE(0.1,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",
+        //    x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
 
-		ROS_INFO_THROTTLE(0.1,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f",
-           x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
+		// ROS_INFO_THROTTLE(0.1,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f",
+        //    x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
 		
 		
 		// ROS_INFO_THROTTLE(0.1, "sr: j=%d, Psx=%.3f, Psy=%.3f, d=%.3f, Cs=%.6f, dCs1=%.6f, dCs2=%.6f",
     	//     sr.j, sr.Psx, sr.Psy, sr.d, sr.Cs, sr.Cs1, sr.Cs2);
 
-		ROS_INFO_THROTTLE(0.1, "v1f=%.6f, v1r=%.6f, v2f=%.6f, v2r=%.6f, v3f=%.6f, v3r=%.6f",
-    	    v1f, v1r, v2f, v2r, v3f, v3r);
+		// ROS_INFO_THROTTLE(0.1, "v1f=%.6f, v1r=%.6f, v2f=%.6f, v2r=%.6f, v3f=%.6f, v3r=%.6f",
+    	//     v1f, v1r, v2f, v2r, v3f, v3r);
 		
 		// ROS_INFO_THROTTLE(0.1, "v1fl=%.6f, v1fr=%.6f, v1rl=%.6f, v1rr=%.6f",
     	//     c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);

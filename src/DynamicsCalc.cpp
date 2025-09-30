@@ -240,17 +240,17 @@ void DynamicsCalculator::computeCoefficients(const std::vector<double>& x_old) {
      v3f = v3 * cos(Phi[3]);
      v3r = v3 * cos(phi10);
 
-     //デバッグ用ログ出力
-	ROS_INFO_THROTTLE(0.1,"DynamicsCalc:v1=%.3f, v2=%.3f, v3=%.3f",
-      v1, v2, v3);   
+     // //デバッグ用ログ出力
+	// ROS_INFO_THROTTLE(0.1,"DynamicsCalc:v1=%.3f, v2=%.3f, v3=%.3f",
+     //  v1, v2, v3);   
       
-      ROS_INFO_THROTTLE(0.1,
-      "v3 angles: theta8=%.3f, theta9=%.3f, theta10=%.3f | phi9(x20)=%.3f | tan(phi9)=%.3f | Thetap9=%.3f, Thetap10=%.3f",
-      x_old[19], x_old[21], x_old[23], x_old[20], tan(x_old[20]), Thetap[9], Thetap[10]);
+     //  ROS_INFO_THROTTLE(0.1,
+     //  "v3 angles: theta8=%.3f, theta9=%.3f, theta10=%.3f | phi9(x20)=%.3f | tan(phi9)=%.3f | Thetap9=%.3f, Thetap10=%.3f",
+     //  x_old[19], x_old[21], x_old[23], x_old[20], tan(x_old[20]), Thetap[9], Thetap[10]);
 
-      ROS_INFO_THROTTLE(0.1,
-      "v2 angles: theta5=%.3f, theta6=%.3f, theta7=%.3f | phi6(x14)=%.3f | tan(phi6)=%.3f | Thetap6=%.3f, Thetap7=%.3f",
-      x_old[13], x_old[15], x_old[17], x_old[14], tan(x_old[14]), Thetap[6], Thetap[7]);
+     //  ROS_INFO_THROTTLE(0.1,
+     //  "v2 angles: theta5=%.3f, theta6=%.3f, theta7=%.3f | phi6(x14)=%.3f | tan(phi6)=%.3f | Thetap6=%.3f, Thetap7=%.3f",
+     //  x_old[13], x_old[15], x_old[17], x_old[14], tan(x_old[14]), Thetap[6], Thetap[7]);
 
  }
 

@@ -136,20 +136,20 @@ inline double k5 = 25.0;
 inline double k6 = 25.0;
 inline double k7 = 25.0;
 inline double k8 = 25.0;
-inline double k9 = 25.0;
-inline double k10 = 25.0;
+inline double k9 = 30.0;
+inline double k10 = 30.0;
 inline double k11 = 25.0;
 inline double k12 = 25.0;
 inline double k13 = 25.0;
 inline double k14 = 25.0;
-inline double k15 = 25.0;
-inline double k16 = 25.0;
+inline double k15 = 30.0;
+inline double k16 = 30.0;
 inline double k17 = 25.0;
 inline double k18 = 25.0;
 inline double k19 = 25.0;
 inline double k20 = 25.0;
-inline double k21 = 25.0;
-inline double k22 = 25.0;
+inline double k21 = 30.0;
+inline double k22 = 30.0;
 
 
 //制御入力の係数

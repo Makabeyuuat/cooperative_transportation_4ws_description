@@ -38,6 +38,7 @@ CSVLogger::CSVLogger(const std::string& dir, int close_threshold, int sync_every
   // ヘッダー（先頭は t）
   csv_ << "t,x,y,theta0,phi1,theta1,phi2,theta2,phi3,theta3,phi4,theta4,phi5,theta5,phi6,theta6,phi7,theta7,phi8,theta8,phi9,theta9,phi10,theta10,"
        << "x1,Y1,x2,y2,x3,y3,Trix[1],Triy[1],Trix[2],Triy[2],Trix[3],Triy[3],varphi1,varphi2,varphi3,z21,z22,z31,z32,z41,z42,z51,z52,z61,z62,z71,z72,z81,z82,z91,z92,"
+       <<"z101,z102,z111,z112,z121,z122,"
        << "al21,al22,al31,al32,al33,al41,al42,al43,al44,al51,al52,al53,al54,al55,al61,al62,al63,al66,al71,al72,al73,al76,al77,al81,al82,al83,al88,al91,al92,al93,al99,"
        << "u1,u2,u3,u4,u5,u6,u7,u8,u9,u10,u11,u12,v1,v2,v3,PSx,PSy,d,d0d,Q,nh1,nh2,nh3,nh4,nh5,nh6,nh7,nh8,nh9,nh10,"
        << "thetap1d,thetap2d,dthetap2d,thetap3d,dthetap3d,thetap4d,thetap5d,dthetap5d,thetap6d,dthetap6d,thetap7d,thetap8d,dthetap8d,thetap9d,dthetap9d,thetap10d,"
@@ -136,6 +137,12 @@ void CSVLogger::logData() {
          << ","  << z82
          << ","  << z91
          << ","  << z92
+         << ","  << z101
+         << ","  << z102
+         << ","  << z111
+         << ","  << z112
+         << ","  << z121
+         << ","  << z122
          << ","  << alpha21
          << ","  << alpha22
          << ","  << alpha31
@@ -202,17 +209,17 @@ void CSVLogger::logData() {
          << ","  << dthetap2d
          << ","  << thetap3d
          << ","  << dthetap3d
-         << ","  << theta4d
+         << ","  << thetap4d
          << ","  << thetap5d
          << ","  << dthetap5d
          << ","  << thetap6d
          << ","  << dthetap6d
-         << ","  << theta7d
+         << ","  << thetap7d
          << ","  << thetap8d
          << ","  << dthetap8d
          << ","  << thetap9d
          << ","  << dthetap9d
-         << ","  << theta10d
+         << ","  << thetap10d
          << ","  << delta1d
          << ","  << delta2d
          << ","  << delta3d

@@ -979,13 +979,13 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 		(l2 * (Power(lv + 2 * l3 * Cos(Thetap[3] - Thetap[4]), 2) / Power(l2, 2) + 16 * (1 - Power(lv + 2 * l3 * Cos(Thetap[3] - Thetap[4]), 2) / (16.00* Power(l2, 2)))));
 
 
-	thetap3d = -Pi/2. - ArcTan(-2*l3*delta1d(t),l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2))) + thetap4d;
+	thetap3d = -PAI/2.0- ArcTan(-2*l3*delta1d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2))) + thetap4d;
 
 
-	dthetap3d =(-2*Power(l3,2)*lv*Derivative(1)(delta1d)(t))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2)) - (2*delta1d(t)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2))*
-      Derivative(1)(delta1d)(t))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*
-      (8*Power(l3,2)*delta1d(t)*Derivative(1)(delta1d)(t) - 4*delta1d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*Derivative(1)(delta1d)(t)))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2)));
+	dthetap3d =(-2*Power(l3,2)*lv*Ddelta1d)/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2)) - (2*delta1d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2))*
+      Ddelta1d)/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*
+      (8*Power(l3,2)*delta1d*Ddelta1d - 4*delta1d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*Ddelta1d))/
+    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2)));
 
 
 
@@ -995,19 +995,19 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 
 	K33 = 0;
 
-	K34 = (16*Power(l3,4)*lv*delta1d(t)*Power(Derivative(1)(delta1d)(t),2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2),2) + 
-   (16*Power(l3,2)*Power(delta1d(t),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2))*Power(Derivative(1)(delta1d)(t),2))/
-    Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2),2) - (2*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2))*Power(Derivative(1)(delta1d)(t),2))/
-    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2)) - (4*Power(l3,2)*delta1d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*Derivative(1)(delta1d)(t)*
-      (8*Power(l3,2)*delta1d(t)*Derivative(1)(delta1d)(t) - 4*delta1d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*Derivative(1)(delta1d)(t)))/
-    (Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2))) - 
-   ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*Power(8*Power(l3,2)*delta1d(t)*Derivative(1)(delta1d)(t) - 4*delta1d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*Derivative(1)(delta1d)(t),2))/
-    (4.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2))*Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2),1.5)) - 
-   (2*Power(l3,2)*lv*Derivative(2)(delta1d)(t))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2)) - (2*delta1d(t)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2))*
-      Derivative(2)(delta1d)(t))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*
-      (8*Power(l3,2)*Power(Derivative(1)(delta1d)(t),2) - 8*Power(delta1d(t),2)*Power(Derivative(1)(delta1d)(t),2) - 4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*Power(Derivative(1)(delta1d)(t),2) + 8*Power(l3,2)*delta1d(t)*Derivative(2)(delta1d)(t) - 
-        4*delta1d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2))*Derivative(2)(delta1d)(t)))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta1d(t),2),2)));
+	K34 = (16*Power(l3,4)*lv*delta1d*Power(Ddelta1d,2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2),2) + 
+   (16*Power(l3,2)*Power(delta1d,2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2))*Power(Ddelta1d,2))/
+    Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2),2) - (2*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2))*Power(Ddelta1d,2))/
+    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2)) - (4*Power(l3,2)*delta1d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*Ddelta1d*
+      (8*Power(l3,2)*delta1d*Ddelta1d - 4*delta1d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*Ddelta1d))/
+    (Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2))) - 
+   ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*Power(8*Power(l3,2)*delta1d*Ddelta1d - 4*delta1d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*Ddelta1d,2))/
+    (4.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2))*Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2),1.5)) - 
+   (2*Power(l3,2)*lv*DDdelta1d)/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2)) - (2*delta1d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2))*
+      DDdelta1d)/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*
+      (8*Power(l3,2)*Power(Ddelta1d,2) - 8*Power(delta1d,2)*Power(Ddelta1d,2) - 4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*Power(Ddelta1d,2) + 8*Power(l3,2)*delta1d*DDdelta1d - 
+        4*delta1d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*DDdelta1d))/
+    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2)));
 	
 
 	u4_a[0][0] = alpha44 - (K21 / a0);
@@ -2578,14 +2578,14 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 									2 * (-2 * Cos(x[12] - Thetap[0] + Thetap[5]) * Sec(x[4]) * Sin(PAI / 6.0- Thetap[0] + Thetap[1]) * Sin(x[4] - Thetap[0] + Thetap[1]) - (1 - 2 * Cos(PAI / 6.0- Thetap[0] + Thetap[1]) * Sec(x[4]) * Sin(x[4] - Thetap[0] + Thetap[1])) * Sin(x[12] - Thetap[0] + Thetap[5])) * Tan(x[12]))) * Tan(x[14])) * Tan(x[16])) / lv))) / lv - (w1 * Cos(Thetap[0]) *sr.Cs1) / (1 - sr.Cs * sr.d) +
 				(sr.Cs * Cos(Thetap[0]) * (-(w1 * sr.Cs * (1 - sr.Cs * sr.d) * Tan(Thetap[0])) - w1 * sr.d *sr.Cs1)) / Power(1 - sr.Cs * sr.d, 2)))) / (l2 * (Power(lv + 2 * l3 * Cos(Thetap[6] - Thetap[7]), 2) / Power(l2, 2) + 16 * (1 - Power(lv + 2 * l3 * Cos(Thetap[6] - Thetap[7]), 2) / (16.00* Power(l2, 2)))));
 
-	thetap6d = (3*Pi)/2. - ArcTan(-2*l3*delta2d(t),l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2))) + thetap7d;
+	thetap6d = (3*PAI)/2.0- ArcTan(-2*l3*delta2d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2))) + thetap7d;
 
 
-	dthetap6d = (-2*Power(l3,2)*lv*Derivative(1)(delta2d)(t))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2)) - 
-   (2*delta2d(t)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2))*Derivative(1)(delta2d)(t))/
-    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*
-      (8*Power(l3,2)*delta2d(t)*Derivative(1)(delta2d)(t) - 4*delta2d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*Derivative(1)(delta2d)(t)))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2)));
+	dthetap6d = (-2*Power(l3,2)*lv*Ddelta2d)/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2)) - 
+   (2*delta2d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2))*Ddelta2d)/
+    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*
+      (8*Power(l3,2)*delta2d*Ddelta2d - 4*delta2d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*Ddelta2d))/
+    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2)));
 
 
 
@@ -2596,23 +2596,23 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 
 	K63 = 0;
 
-	K64 = (16*Power(l3,4)*lv*delta2d(t)*Power(Derivative(1)(delta2d)(t),2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2),2) + 
-   (16*Power(l3,2)*Power(delta2d(t),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2))*Power(Derivative(1)(delta2d)(t),2))/
-    Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2),2) - (2*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2))*
-      Power(Derivative(1)(delta2d)(t),2))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2)) - 
-   (4*Power(l3,2)*delta2d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*Derivative(1)(delta2d)(t)*
-      (8*Power(l3,2)*delta2d(t)*Derivative(1)(delta2d)(t) - 4*delta2d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*Derivative(1)(delta2d)(t)))/
-    (Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2))) - 
-   ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*Power(8*Power(l3,2)*delta2d(t)*Derivative(1)(delta2d)(t) - 
-        4*delta2d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*Derivative(1)(delta2d)(t),2))/
-    (4.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2))*Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2),1.5)) - 
-   (2*Power(l3,2)*lv*Derivative(2)(delta2d)(t))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2)) - 
-   (2*delta2d(t)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2))*Derivative(2)(delta2d)(t))/
-    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*
-      (8*Power(l3,2)*Power(Derivative(1)(delta2d)(t),2) - 8*Power(delta2d(t),2)*Power(Derivative(1)(delta2d)(t),2) - 
-        4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*Power(Derivative(1)(delta2d)(t),2) + 8*Power(l3,2)*delta2d(t)*Derivative(2)(delta2d)(t) - 
-        4*delta2d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2))*Derivative(2)(delta2d)(t)))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta2d(t),2),2)));
+	K64 = (16*Power(l3,4)*lv*delta2d*Power(Ddelta2d,2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2),2) + 
+   (16*Power(l3,2)*Power(delta2d,2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2))*Power(Ddelta2d,2))/
+    Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2),2) - (2*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2))*
+      Power(Ddelta2d,2))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2)) - 
+   (4*Power(l3,2)*delta2d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*Ddelta2d*
+      (8*Power(l3,2)*delta2d*Ddelta2d - 4*delta2d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*Ddelta2d))/
+    (Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2))) - 
+   ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*Power(8*Power(l3,2)*delta2d*Ddelta2d - 
+        4*delta2d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*Ddelta2d,2))/
+    (4.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2))*Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2),1.5)) - 
+   (2*Power(l3,2)*lv*DDdelta2d)/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2)) - 
+   (2*delta2d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2))*DDdelta2d)/
+    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*
+      (8*Power(l3,2)*Power(Ddelta2d,2) - 8*Power(delta2d,2)*Power(Ddelta2d,2) - 
+        4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*Power(Ddelta2d,2) + 8*Power(l3,2)*delta2d*DDdelta2d - 
+        4*delta2d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*DDdelta2d))/
+    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2)));
 
 
 
@@ -4406,15 +4406,15 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 
 
            
-	thetap9d = (3*Pi)/2. - ArcTan(-2*l3*delta3d(t),l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),
-    Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2))) + thetap10d;
+	thetap9d = (3*PAI)/2.0- ArcTan(-2*l3*delta3d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),
+    Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))) + thetap10d;
 
 
-	dthetap9d = (-2*Power(l3,2)*lv*Derivative(1)(delta3d)(t))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2)) - 
-   (2*delta3d(t)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2))*Derivative(1)(delta3d)(t))/
-    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*
-      (8*Power(l3,2)*delta3d(t)*Derivative(1)(delta3d)(t) - 4*delta3d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*Derivative(1)(delta3d)(t)))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2)));
+	dthetap9d = (-2*Power(l3,2)*lv*Ddelta3d)/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2)) - 
+   (2*delta3d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))*Ddelta3d)/
+    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*
+      (8*Power(l3,2)*delta3d*Ddelta3d - 4*delta3d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Ddelta3d))/
+    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2)));
 
 
 	K91 = 0;
@@ -4424,23 +4424,23 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 
 	K93 = 0;
 
-	K94 = (16*Power(l3,4)*lv*delta3d(t)*Power(Derivative(1)(delta3d)(t),2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2),2) + 
-   (16*Power(l3,2)*Power(delta3d(t),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2))*Power(Derivative(1)(delta3d)(t),2))/
-    Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2),2) - (2*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2))*
-      Power(Derivative(1)(delta3d)(t),2))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2)) - 
-   (4*Power(l3,2)*delta3d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*Derivative(1)(delta3d)(t)*
-      (8*Power(l3,2)*delta3d(t)*Derivative(1)(delta3d)(t) - 4*delta3d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*Derivative(1)(delta3d)(t)))/
-    (Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2))) - 
-   ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*Power(8*Power(l3,2)*delta3d(t)*Derivative(1)(delta3d)(t) - 
-        4*delta3d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*Derivative(1)(delta3d)(t),2))/
-    (4.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2))*Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2),1.5)) - 
-   (2*Power(l3,2)*lv*Derivative(2)(delta3d)(t))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2)) - 
-   (2*delta3d(t)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2))*Derivative(2)(delta3d)(t))/
-    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*
-      (8*Power(l3,2)*Power(Derivative(1)(delta3d)(t),2) - 8*Power(delta3d(t),2)*Power(Derivative(1)(delta3d)(t),2) - 
-        4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*Power(Derivative(1)(delta3d)(t),2) + 8*Power(l3,2)*delta3d(t)*Derivative(2)(delta3d)(t) - 
-        4*delta3d(t)*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2))*Derivative(2)(delta3d)(t)))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d(t),2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4. + Power(delta3d(t),2),2)));
+	K94 = (16*Power(l3,4)*lv*delta3d*Power(Ddelta3d,2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2),2) + 
+   (16*Power(l3,2)*Power(delta3d,2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))*Power(Ddelta3d,2))/
+    Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2),2) - (2*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))*
+      Power(Ddelta3d,2))/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2)) - 
+   (4*Power(l3,2)*delta3d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Ddelta3d*
+      (8*Power(l3,2)*delta3d*Ddelta3d - 4*delta3d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Ddelta3d))/
+    (Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2),2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))) - 
+   ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Power(8*Power(l3,2)*delta3d*Ddelta3d - 
+        4*delta3d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Ddelta3d,2))/
+    (4.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2))*Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2),1.5)) - 
+   (2*Power(l3,2)*lv*DDdelta3d)/(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2)) - 
+   (2*delta3d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))*DDdelta3d)/
+    (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*
+      (8*Power(l3,2)*Power(Ddelta3d,2) - 8*Power(delta3d,2)*Power(Ddelta3d,2) - 
+        4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Power(Ddelta3d,2) + 8*Power(l3,2)*delta3d*DDdelta3d - 
+        4*delta3d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*DDdelta3d))/
+    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2)));
 
 
 	u10_a[0][0] = alpha1010 - (K81 / a0);
@@ -4456,6 +4456,11 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 	b10 = K84 / a0 + (k17 + k18) * (dthetap8d / a0 - z101) + k17 * k18 * (thetap8d / a0 - z102 / a0) - (alpha101 * a0 + alpha102 * u2 + alpha103 * u3);
 	b11 = K94 / a0 + (k19 + k20) * (dthetap9d / a0 - z111) + k19 * k20 * (thetap9d / a0 - z112 / a0) - (alpha111 * a0 + alpha112 * u2 + alpha113 * u3);
 	b12 = ddthetap10d / a0 + (k21 + k22) * ((dthetap10d / a0) - z121) + k21 * k22 * ((thetap10d / a0) - z122 / a0) - (alpha121 * a0 + alpha122 * u2 + alpha123 * u3);
+
+
+	ROS_INFO_THROTTLE(0.1,
+      "b: b10=%.3f, b11=%.3f, b12=%.3f, z111=%.3f ,z112=%.3f, z101=%.3f ,z102=%.3f, z121=%.3f ,z122=%.3f",
+      b10,b11,b12,z101,z102,z111,z112,z121,z122);
 
 	inv(u10_a, u10_inv_a);
 
