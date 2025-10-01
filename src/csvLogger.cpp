@@ -44,7 +44,8 @@ CSVLogger::CSVLogger(const std::string& dir, int close_threshold, int sync_every
        << "thetap1d,thetap2d,dthetap2d,thetap3d,dthetap3d,thetap4d,thetap5d,dthetap5d,thetap6d,dthetap6d,thetap7d,thetap8d,dthetap8d,thetap9d,dthetap9d,thetap10d,"
        << "delta1d,delta2d,delta3d,thetap0,thetap1,thetap2,thetap3,thetap4,thetap5,thetap6,thetap7,thetap8,thetap9,thetap10,thetaT,"
        << "K81,K82,K83,K84,K91,K92,K93,K94,"
-       << "sr.Cs, sr.Cs1, 1 - sr.d*sr.Cs"
+       << "sr.Cs, sr.Cs1, 1 - sr.d*sr.Cs,"
+       <<"b4,b5,b6,b7,b8,b9,b10,b11,b12"
        << "\n";
 
   // ヘッダーも確実に同期
@@ -238,7 +239,8 @@ void CSVLogger::logData() {
          << ","  << K81 << "," << K82 << "," << K83 << "," << K84
          << ","  << K91 << "," << K92 << "," << K93 << "," << K94
          << ","  << sr.Cs << "," << sr.Cs1
-          << ","  << 1 - sr.d*sr.Cs
+         << ","  << 1 - sr.d*sr.Cs
+         << ","  << b4 << "," << b5 << "," << b6 << "," << b7 << "," << b8 << "," << b9 << "," << b10 << "," << b11 << "," << b12
          << "\n";
     // ---- ここまで1行 ----
 

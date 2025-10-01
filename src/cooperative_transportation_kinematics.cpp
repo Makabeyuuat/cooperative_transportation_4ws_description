@@ -211,7 +211,7 @@ int main(int argc, char** argv)
 		//再度、車両の速度を計算
 		dynamics_calc.computeCoefficients(x_old);
 	
-		// 例：v1f,v1r, Phi[1], x_old[10] が既知
+		//車輪の左右差を考慮して計算
         auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
         auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
         auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);

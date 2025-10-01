@@ -128,28 +128,41 @@ inline double u10_inv_a[3][3];
 
 
 //フィードバック関数
-inline double k1 = 8.0;
-inline double k2 = 8.0;
-inline double k3 = 8.0;
-inline double k4 = 8.0;
-inline double k5 = 25.0;
-inline double k6 = 25.0;
-inline double k7 = 25.0;
-inline double k8 = 25.0;
-inline double k9 = 30.0;
-inline double k10 = 30.0;
-inline double k11 = 25.0;
-inline double k12 = 25.0;
-inline double k13 = 25.0;
-inline double k14 = 25.0;
-inline double k15 = 30.0;
-inline double k16 = 30.0;
-inline double k17 = 25.0;
-inline double k18 = 25.0;
-inline double k19 = 25.0;
-inline double k20 = 25.0;
-inline double k21 = 30.0;
-inline double k22 = 30.0;
+inline double k1 = 2.5;
+inline double k2 = 2.5;
+inline double k3 = 2.5;
+inline double k4 = 2.5;
+inline double k5 = 20.0;
+inline double k6 = 20.0;
+inline double k7 = 20.0;
+inline double k8 = 20.0;
+inline double k9 = 20.0;
+inline double k10 = 20.0;
+inline double k11 = 20.0;
+inline double k12 = 20.0;
+inline double k13 = 20.0;
+inline double k14 = 20.0;
+inline double k15 = 20.0;
+inline double k16 = 20.0;
+inline double k17 = 20.0;
+inline double k18 = 20.0;
+inline double k19 = 20.0;
+inline double k20 = 20.0;
+inline double k21 = 20.0;
+inline double k22 = 20.0;
+
+
+
+
+inline double b4 = 0.0;
+inline double b5 = 0.0;
+inline double b6 = 0.0;
+inline double b7 = 0.0;
+inline double b8 = 0.0;
+inline double b9 = 0.0;
+inline double b10 = 0.0;
+inline double b11 = 0.0;
+inline double b12 = 0.0;
 
 
 //制御入力の係数
