@@ -20,7 +20,7 @@ CSVLogger::CSVLogger(const std::string& dir, int close_threshold, int sync_every
 
   // ファイル名
   const std::string ts = makeTimeStamp();
-  const std::string filename = dir + "/data_log_" + ts + ".csv";
+  const std::string filename = dir + "/gazebo_log_" + ts + ".csv";
 
   // 高レベルストリーム（テキスト）
   csv_.open(filename, std::ios::out | std::ios::trunc);

@@ -40,8 +40,8 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
     double delta3 = delta_pos[2];
 
     //デバッグ用ログ出力
-	ROS_INFO_THROTTLE(0.1,"DynamicsCalc:delta1=%.3f, delta2=%.3f, delta3=%.3f, SIGN = %d",
-      delta1, delta2, delta3, VEHICLE1_SLIDING_MECHANISM_SIGN);
+	// ROS_INFO_THROTTLE(0.1,"DynamicsCalc:delta1=%.3f, delta2=%.3f, delta3=%.3f, SIGN = %d",
+     //  delta1, delta2, delta3, VEHICLE1_SLIDING_MECHANISM_SIGN);
 
     // --- 仮想リンクの“車体基準角” thetav* をまず作る（参考コードの作法に揃える） ---
     // thetav3,5,7 は「スライダj側」、thetav2,4,6 は「アームi側」という対応（参考）
@@ -55,8 +55,8 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
 
 
      //デバッグ用ログ出力
-	ROS_INFO_THROTTLE(0.1,"DynamicsCalc:thetav2=%.3f, thetav3=%.3f, thetav5=%.3f, thetav6=%.3f, thetav8=%.3f, thetav9=%.3f",
-      thetav2, thetav3, thetav5, thetav6, thetav8, thetav9);
+	// ROS_INFO_THROTTLE(0.25,"DynamicsCalc:thetav2=%.3f, thetav3=%.3f, thetav5=%.3f, thetav6=%.3f, thetav8=%.3f, thetav9=%.3f",
+     //  thetav2, thetav3, thetav5, thetav6, thetav8, thetav9);
 
     //仮想リンクを計算
     // v1
@@ -88,9 +88,15 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
      x_old[20] = true_vehicle3_steering_yaw[0] - th9;
      x_old[23] = theta10;
 
-     //デバッグ用ログ出力
-	ROS_INFO_THROTTLE(0.1,"DynamicsCalc:theta2=%.3f, theta3=%.3f, theta5=%.3f, theta6=%.3f, theta8=%.3f, theta9=%.3f",
-      th2, th3, th5, th6, th8, th9);
+     // //デバッグ用ログ出力
+	// ROS_INFO_THROTTLE(0.1,"calcX:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",
+     //  x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
+	// ROS_INFO_THROTTLE(0.1,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",
+     //  x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
+	// ROS_INFO_THROTTLE(0.1,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",
+     //  x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
+	// ROS_INFO_THROTTLE(0.1,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f",
+     //  x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
 
 //     //車両の姿勢角
 //     x_old[11] = theta4 + PAI;

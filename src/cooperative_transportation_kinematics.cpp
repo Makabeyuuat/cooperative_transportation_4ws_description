@@ -63,7 +63,7 @@ int main(int argc, char** argv)
     Vehicle vehicle3(nh, "v3");
 	// 各クラスをインスタンス化
     DynamicsCalculator dynamics_calc;
-	getInputValue getInputValue(0.02);
+	getInputValue getInputValue(0.025);
 
 	//データファイル作成
   	std::string pkg = ros::package::getPath("cooperative_transportation_4ws_description");
@@ -195,6 +195,11 @@ int main(int argc, char** argv)
 	
 		dynamics_calc.calcXold(x_old);
 
+		ROS_INFO_THROTTLE(0.25,"calcX:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
+	    ROS_INFO_THROTTLE(0.25,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
+	    ROS_INFO_THROTTLE(0.25,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f", x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
+	    ROS_INFO_THROTTLE(0.25,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n",x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
+
 		//係数aの計算(ここでx_oldも計算)
 		dynamics_calc.computeCoefficients(x_old);
 
@@ -207,6 +212,13 @@ int main(int argc, char** argv)
 	
 		//制御入力を計算
 		getInputValue.getU(x_old, sr.j);
+
+		ROS_INFO_THROTTLE(0.25,"afterGetU:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
+	    ROS_INFO_THROTTLE(0.25,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
+	    ROS_INFO_THROTTLE(0.25,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
+	    ROS_INFO_THROTTLE(0.25,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n\n",x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
+
+		
 		getInputValue.rungeKutta(x_old, sr.j);
 		//再度、車両の速度を計算
 		dynamics_calc.computeCoefficients(x_old);
@@ -228,7 +240,8 @@ int main(int argc, char** argv)
 
 		vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
         vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
-        vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+        //vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+		vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
 
         vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
         vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
@@ -269,8 +282,8 @@ int main(int argc, char** argv)
 		//     c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
 		
 
-		ROS_INFO_THROTTLE(0.1, "Phi1=%.6f, Phi2=%.6f, Phi3=%.6f\n",
-    	    Phi[1], Phi[2], Phi[3]);
+		// ROS_INFO_THROTTLE(0.1, "Phi1=%.6f, Phi2=%.6f, Phi3=%.6f\n",
+    	//     Phi[1], Phi[2], Phi[3]);
 
 
 

@@ -2,7 +2,7 @@ cooperative_transportation_4ws:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 50
+    publish_rate: 40
 
   # Position Controllers --------------------------------------
   v1_rear_right_wheel_rotation_velocity_controller:
@@ -40,15 +40,15 @@ cooperative_transportation_4ws:
   linkage1_rotation_velocity_controller:
     type: effort_controllers/JointPositionController
     joint: linkage1_rotation
-    pid: {p: 0.0, i: 0.0, d: 0.}
+    pid: {p: 0.0, i: 0.0, d: 0.0}
   linkage2_rotation_velocity_controller:
     type: effort_controllers/JointPositionController
     joint: linkage2_rotation
-    pid: {p: 0.0, i: 0.0, d: 0.}
+    pid: {p: 0.0, i: 0.0, d: 0.0}
   linkage3_rotation_velocity_controller:
     type: effort_controllers/JointPositionController
     joint: linkage3_rotation
-    pid: {p: 0.0, i: 0.0, d: 0.1}
+    pid: {p: 0.0, i: 0.0, d: 0.0}
   v2_front_right_steering_position_controller:
     type: effort_controllers/JointPositionController
     joint: v2_front_right_steering
