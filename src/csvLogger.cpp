@@ -39,7 +39,7 @@ CSVLogger::CSVLogger(const std::string& dir, int close_threshold, int sync_every
   csv_ << "t,x,y,theta0,phi1,theta1,phi2,theta2,phi3,theta3,phi4,theta4,phi5,theta5,phi6,theta6,phi7,theta7,phi8,theta8,phi9,theta9,phi10,theta10,"
        << "x1,Y1,x2,y2,x3,y3,Trix[1],Triy[1],Trix[2],Triy[2],Trix[3],Triy[3],varphi1,varphi2,varphi3,z21,z22,z31,z32,z41,z42,z51,z52,z61,z62,z71,z72,z81,z82,z91,z92,"
        <<"z101,z102,z111,z112,z121,z122,"
-       << "al21,al22,al31,al32,al33,al41,al42,al43,al44,al51,al52,al53,al54,al55,al61,al62,al63,al66,al71,al72,al73,al76,al77,al81,al82,al83,al88,al91,al92,al93,al99,"
+       << "al21,al22,al31,al32,al33,al41,al42,al43,al44,al51,al52,al53,al54,al55,al61,al62,al63,al66,al71,al72,al73,al76,al77,al81,al82,al83,al88,al91,al92,al93,al99,al101,al102,al103,al1010,al111,al112,aL113,al1110,al1111,al121,al122,al123,al1210,,al1211,al1212"
        << "u1,u2,u3,u4,u5,u6,u7,u8,u9,u10,u11,u12,v1,v2,v3,PSx,PSy,d,d0d,Q,nh1,nh2,nh3,nh4,nh5,nh6,nh7,nh8,nh9,nh10,"
        << "thetap1d,thetap2d,dthetap2d,thetap3d,dthetap3d,thetap4d,thetap5d,dthetap5d,thetap6d,dthetap6d,thetap7d,thetap8d,dthetap8d,thetap9d,dthetap9d,thetap10d,"
        << "delta1d,delta2d,delta3d,thetap0,thetap1,thetap2,thetap3,thetap4,thetap5,thetap6,thetap7,thetap8,thetap9,thetap10,thetaT,"
@@ -175,6 +175,21 @@ void CSVLogger::logData() {
          << ","  << alpha92
          << ","  << alpha93
          << ","  << alpha99
+          << ","  << alpha101
+          << ","  << alpha102
+          << ","  << alpha103
+          << ","  << alpha1010
+          << ","  << alpha111
+          << ","  << alpha112
+          << ","  << alpha113
+          << ","  << alpha1110
+          << ","  << alpha1111
+          << ","  << alpha121
+          << ","  << alpha122
+          << ","  << alpha123
+          << ","  << alpha1210
+          << ","  << alpha1211
+          << ","  << alpha1212
          << ","  << u1
          << ","  << u2
          << ","  << u3

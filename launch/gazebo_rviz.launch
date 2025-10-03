@@ -17,7 +17,7 @@
         args="-param robot_description
               -model cooperative_transportation_4ws
               -urdf
-              -x -6.5 -y -1.0 -z 0.070 -R 0 -P 0 -Y 0
+              -x -6.5 -y 1.0 -z 0.070 -R 0 -P 0 -Y 0
               -J v1_front_right_steering 0.0
               -J v1_front_left_steering  0.0
               -J v1_rear_right_steering  0.0

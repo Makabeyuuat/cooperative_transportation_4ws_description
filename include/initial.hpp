@@ -84,7 +84,7 @@ inline Search sr;
 //経路情報
 //３次のベジェ曲線
 inline double Bx[BEZIER_ORDER + 1] = { -6.5, 3.0, -3.0, 6.5 };
-inline double By[BEZIER_ORDER + 1] = { -1.0, -1.0, 1.0, 1.0 };
+inline double By[BEZIER_ORDER + 1] = { 1.0, 1.0, -1.0, -1.0 };
 //曲率の配列を保存
 inline double cs[Q_sample][4] = {};
 inline double R[Q_sample][2] = {};
