@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 
 	ros::init(argc, argv, "cooperative_transport_node");
     ros::NodeHandle nh;
-	ros::Rate loop_rate(100);
+	ros::Rate loop_rate(50);
 
     // callback.cppで定義している各コールバックを購読
 	ros::Subscriber joint_state_sub    = nh.subscribe("/cooperative_transportation_4ws/joint_states", 10, jointStateCallback);
@@ -63,7 +63,7 @@ int main(int argc, char** argv)
     Vehicle vehicle3(nh, "v3");
 	// 各クラスをインスタンス化
     DynamicsCalculator dynamics_calc;
-	getInputValue getInputValue(0.025);
+	getInputValue getInputValue(0.02);
 
 	//データファイル作成
   	std::string pkg = ros::package::getPath("cooperative_transportation_4ws_description");
@@ -164,7 +164,7 @@ int main(int argc, char** argv)
 	getInputValue.getU(x_old, sr.j);
 	getInputValue.rungeKutta(x_old, sr.j);
 	//再度、車両の速度を計算
-	dynamics_calc.computeCoefficients(x_old);
+	//dynamics_calc.computeCoefficients(x_old);
 
 	// 例：v1f,v1r, Phi[1], x_old[10] が既知
     auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
@@ -177,9 +177,9 @@ int main(int argc, char** argv)
     // vehicle1.publishWheelCommand(v1f, v1f, v1r, v1r);
     // vehicle2.publishWheelCommand(v2f, v2f, v2r, v2r);
     // vehicle3.publishWheelCommand(v3f, v3f, v3r, v3r);
-	vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
-    vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
-    vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+	vehicle1.publishSteeringCommand(Phi[1], Phi[1], x_old[10], x_old[10]);
+    vehicle2.publishSteeringCommand(Phi[2], Phi[2], x_old[16], x_old[16]);
+    vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
     vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
     vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
     vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);

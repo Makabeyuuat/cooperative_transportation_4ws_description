@@ -2,7 +2,7 @@
 
 void initial(double &t, double &dt, std::vector<double> &x0, std::vector<double> &x_new, std::vector<double> &x_input) {
     t = 66.8;
-    dt = 0.025;
+    dt = 0.02;
 
     // 必要なサイズにリサイズ（DIM + 1 個）
     x0.resize(DIM + 1, 0.0);

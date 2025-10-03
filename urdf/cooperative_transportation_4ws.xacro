@@ -41,8 +41,8 @@
 <xacro:property name="sliding_mechanism_mu" value="0.3" />
 <xacro:property name="sliding_mechanism_friction" value="${sliding_mechanism_mu*gravitational_acceleration*(carrier_inertia_coef/3 + linkage_point_mass)}" />
 <!-- ステアリング -->
-<xacro:property name="steering_damping" value="5.0" />
-<xacro:property name="steering_mu" value="0.01" />
+<xacro:property name="steering_damping" value="1.0" />
+<xacro:property name="steering_mu" value="0.001" />
 <xacro:property name="steering_friction" value="${steering_mu * gravitational_acceleration * 0.25*(carrier_inertia_coef/3 + linkage_point_mass + sliding_mechanism_mass + sim_body_mass)}" />
 <!-- 摺動機構に乗っかている回転関節 -->
 <xacro:property name="rotational_joint_damping" value="0.02" />
@@ -1221,7 +1221,7 @@
   <child link="v1_rear_right_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v1_rear_right_steering" type="revolute">
@@ -1284,7 +1284,7 @@
   <child link="v1_front_right_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v1_front_left_wheel_rotation" type="continuous">
@@ -1293,7 +1293,7 @@
   <child link="v1_front_left_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v1_rear_left_wheel_rotation" type="continuous">
@@ -1302,7 +1302,7 @@
   <child link="v1_rear_left_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <!-- <joint name="linkage1_rotation" type="continuous">
@@ -1417,7 +1417,7 @@
   <child link="v2_front_right_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v2_rear_right_wheel_rotation" type="continuous">
@@ -1426,7 +1426,7 @@
   <child link="v2_rear_right_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="-0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v2_front_left_wheel_rotation" type="continuous">
@@ -1435,7 +1435,7 @@
   <child link="v2_front_left_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v2_rear_left_wheel_rotation" type="continuous">
@@ -1444,7 +1444,7 @@
   <child link="v2_rear_left_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="-0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v3_sliding_machine_to_body" type="fixed">
@@ -1507,7 +1507,7 @@
   <child link="v3_front_right_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v3_rear_right_wheel_rotation" type="continuous">
@@ -1516,7 +1516,7 @@
   <child link="v3_rear_right_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v3_front_left_wheel_rotation" type="continuous">
@@ -1525,7 +1525,7 @@
   <child link="v3_front_left_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="v3_rear_left_wheel_rotation" type="continuous">
@@ -1534,7 +1534,7 @@
   <child link="v3_rear_left_wheel_1"/>
   <dynamics damping="${wheel_joint_damping}" friction="${wheel_joint_friction}"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <limit effort="40.0" velocity="200.0"/> 
+  <limit effort="100.0" velocity="200.0"/> 
 </joint>
 
 <joint name="linkage_point_to_v1" type="prismatic">

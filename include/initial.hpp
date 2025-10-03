@@ -183,7 +183,7 @@ inline double alpha121, alpha122, alpha123, alpha1210, alpha1211, alpha1212;
 
 //重心の目標相対位置関数
 inline double d0d, dd0d, ddd0d;
-inline double theta1d, dtheta1d, ddtheta1d;
+inline double thetap1d, dthetap1d, ddthetap1d;
 
 inline double thetap2d;
 inline double dthetap2d;
@@ -223,7 +223,7 @@ inline double delta3d = 0.0, Ddelta3d = 0.0, DDdelta3d = 0.0;
 
 
 inline double thetaT = 0.0;
-inline double Thetap[11] = {0.0};
+inline double Thetap0, Thetap1, Thetap2, Thetap3, Thetap4, Thetap5, Thetap6, Thetap7, Thetap8, Thetap9, Thetap10;
 inline double Phi[4] = {0.0};    // Phi[1]～Phi[3]（Phi[0] は使わない想定）
 
 inline double x1 = 0.0, Y1 = 0.0;
