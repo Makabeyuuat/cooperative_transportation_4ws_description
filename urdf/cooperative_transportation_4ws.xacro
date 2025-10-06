@@ -4,10 +4,14 @@
 <xacro:property name="PI" value="3.1415926535897932384626433832795028841971" />
 <xacro:property name="gravitational_acceleration" value="9.8" />
 <xacro:property name="vehicle1_Yaw" value="0" />
+
+<!-- フォームクロージャー -->
 <!-- <xacro:property name="vehicle2_Yaw" value="${-PI/8}" />
 <xacro:property name="vehicle3_Yaw" value="${PI/6}" /> -->
-<xacro:property name="vehicle2_Yaw" value="${-PI/8}" />
-<xacro:property name="vehicle3_Yaw" value="${PI/6}" />
+
+<!-- 車両の姿勢を接線方位角に一致 -->
+<xacro:property name="vehicle2_Yaw" value="${0.0}" />
+<xacro:property name="vehicle3_Yaw" value="${0.0}" />
 
 
 <!--各リンクの質量と慣性をfusionから変換 -->
@@ -51,7 +55,7 @@
 
 <!-- wheelの接地面の摩擦などを定義 -->
 <xacro:property name="wheel_surface_mu1" value="1.0"/>
-<xacro:property name="wheel_surface_mu2" value="1.0" />
+<xacro:property name="wheel_surface_mu2" value="0.8" />
 <xacro:property name="wheel_kp" value="2e4" /> 
 <xacro:property name="wheel_kd" value="5.0" />
 <xacro:property name="wheel_minDepth" value="0.01" />
@@ -92,14 +96,14 @@
     <inertia ixx="${carrier_inertia_coef*586.219446}" iyy="${carrier_inertia_coef*586.234405}" izz="${carrier_inertia_coef*1171.807086}" ixy="${carrier_inertia_coef*0.007184}" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0 0 -0.6559999999999989" rpy="0 0 0"/>
+    <origin xyz="0 -0.057 -0.6559999999999989" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://cooperative_transportation_4ws_newwheel_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="_"/>
   </visual>
   <collision>
-    <origin xyz="0 0 -0.6559999999999989" rpy="0 0 0"/>
+    <origin xyz="0 -0.057 -0.6559999999999989" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://cooperative_transportation_4ws_newwheel_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -122,7 +126,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
   </collision>
 </link>
@@ -290,7 +294,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -334,7 +338,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -378,7 +382,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -632,7 +636,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -676,7 +680,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -720,7 +724,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -764,7 +768,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -955,7 +959,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -999,7 +1003,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -1043,7 +1047,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -1087,7 +1091,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.153" length="0.05"/>
+      <cylinder radius="0.153" length="0.07"/>
     </geometry>
 
     <surface>
@@ -1330,29 +1334,29 @@
 </joint> -->
 
 <joint name="linkage1_rotation" type="continuous">
-  <origin xyz="1.60045 0.057547 0.025" rpy="0 0 ${vehicle1_Yaw}"/>
+  <origin xyz="1.60045 0.0 0.025" rpy="0 0 ${vehicle1_Yaw}"/>
   <parent link="carrier"/>
   <child link="linkage_point1_1"/>
-  <axis xyz="0.0 -0.0 -1.0"/>
+  <axis xyz="0.0 -0.0 1.0"/>
   <dynamics damping="${rotational_joint_damping}" friction="${rotational_joint_friction}"/>
   <limit effort="100" velocity="100"/>
 </joint>
 
 <joint name="linkage2_rotation" type="continuous">
-  <origin xyz="-0.799387 1.443222 0.025" rpy="0 0 ${vehicle2_Yaw}"/>
+  <origin xyz="-0.799387 1.386222 0.025" rpy="0 0 ${vehicle2_Yaw}"/>
   <parent link="carrier"/>
   <child link="linkage_point2_1"/>
-  <axis xyz="0.0 -0.0 -1.0"/>
+  <axis xyz="0.0 -0.0 1.0"/>
   <dynamics damping="${rotational_joint_damping}" friction="${rotational_joint_friction}"/>
   <limit effort="100" velocity="100"/>
 </joint>
 
 
 <joint name="linkage3_rotation" type="continuous">
-  <origin xyz="-0.8 -1.329973 0.025" rpy="0 0 ${vehicle3_Yaw}"/>
+  <origin xyz="-0.8 -1.386973 0.025" rpy="0 0 ${vehicle3_Yaw}"/>
   <parent link="carrier"/>
   <child link="linkage_point3_1"/>
-  <axis xyz="0.0 -0.0 -1.0"/>
+  <axis xyz="0.0 -0.0 1.0"/>
   <dynamics damping="${rotational_joint_damping}" friction="${rotational_joint_friction}"/>
   <limit effort="100" velocity="100"/>
 </joint>

@@ -177,9 +177,10 @@ int main(int argc, char** argv)
     // vehicle1.publishWheelCommand(v1f, v1f, v1r, v1r);
     // vehicle2.publishWheelCommand(v2f, v2f, v2r, v2r);
     // vehicle3.publishWheelCommand(v3f, v3f, v3r, v3r);
-	vehicle1.publishSteeringCommand(Phi[1], Phi[1], x_old[10], x_old[10]);
-    vehicle2.publishSteeringCommand(Phi[2], Phi[2], x_old[16], x_old[16]);
-    vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
+    vehicle1.publishWheelCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
+    vehicle2.publishWheelCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
+    vehicle3.publishWheelCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+
     vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
     vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
     vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
