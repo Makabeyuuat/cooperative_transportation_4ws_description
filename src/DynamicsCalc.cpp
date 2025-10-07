@@ -82,10 +82,10 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
      x_old[8] = true_vehicle1_steering_yaw[0] - th3;
      x_old[11] = theta4;       
      //v2前輪
-     x_old[14] = true_vehicle2_steering_yaw[0] - th6;
+     x_old[14] = true_vehicle2_steering_yaw[0] - th6 + PAI/8;
      x_old[17] = theta7;        
      //v3前輪
-     x_old[20] = true_vehicle3_steering_yaw[0] - th9;
+     x_old[20] = true_vehicle3_steering_yaw[0] - th9 - PAI/6;
      x_old[23] = theta10;
 
      // //デバッグ用ログ出力
