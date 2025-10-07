@@ -152,6 +152,7 @@ int main(int argc, char** argv)
 	
 	
 	dynamics_calc.calcXold(x_old);
+	logger.logData();
 
 	//係数aの計算(ここでx_oldも計算)
 	dynamics_calc.computeCoefficients(x_old);
@@ -241,8 +242,8 @@ int main(int argc, char** argv)
 
 		vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
         vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
-        //vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
-		vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
+        vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+		//vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
 
         vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
         vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);

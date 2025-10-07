@@ -46,7 +46,7 @@ void getInputValue::rungeKutta(std::vector<double>& x_old, int sr_j) {
     }
     // 第4段階
     for (int i = 0; i < n; i++) {
-        double dx = fAllVec[i](x_old);
+        double dx = fAllVec[i](x[0]);
         k[i][3] = h * dx;
         r[i][3] = (k[i][3] - 2.0 * q[i][2]) / 6.0;
         x_new[i] = x[2][i] + r[i][3];
