@@ -88,11 +88,11 @@ void trueBaseLinkCallback(const nav_msgs::Odometry::ConstPtr& msg)
     double roll, pitch, yaw;
     tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
     
-    // ROS_INFO("True position of [base_link] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
-    //          base_link_pose.pose.position.x,
-    //          base_link_pose.pose.position.y,
-    //          base_link_pose.pose.position.z,
-    //          roll, pitch, yaw);
+    ROS_INFO("True position of [base_link] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
+             base_link_pose.pose.position.x,
+             base_link_pose.pose.position.y,
+             base_link_pose.pose.position.z,
+             roll, pitch, yaw);
     
 }
 
@@ -122,11 +122,11 @@ void trueCarrierCallback(const nav_msgs::Odometry::ConstPtr& msg)
     got_body_pos = true;
 
     
-    // ROS_INFO("True position of [carrier] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
-    //          carrier_pose.pose.position.x,
-    //          carrier_pose.pose.position.y,
-    //          carrier_pose.pose.position.z,
-    //          roll, pitch, yaw);
+    ROS_INFO("True position of [carrier] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
+             carrier_pose.pose.position.x,
+             carrier_pose.pose.position.y,
+             carrier_pose.pose.position.z,
+             roll, pitch, yaw);
 }
 
 // vehicle1の姿勢角のコールバック

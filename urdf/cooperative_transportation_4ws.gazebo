@@ -13,14 +13,14 @@
   <plugin name="control" filename="libgazebo_ros_control.so"/>
 </gazebo> -->
 
-<gazebo>
+<!-- <gazebo>
   <physics type="ode">
-    <max_step_size>0.001</max_step_size>       <!-- 1ms -->
+    <max_step_size>0.001</max_step_size>    
     <real_time_update_rate>1000</real_time_update_rate>
     <ode>
       <solver>
         <type>quick</type>
-        <iters>80</iters>        <!-- 50〜100 -->
+        <iters>80</iters>    
         <sor>1.3</sor>
       </solver>
       <constraints>
@@ -31,7 +31,7 @@
       </constraints>
     </ode>
   </physics>
-</gazebo>
+</gazebo> -->
 
 <gazebo>
   <plugin name="plot3d_trajectory" filename="libLinkPlot3DPlugin.so">

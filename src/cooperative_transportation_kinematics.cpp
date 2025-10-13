@@ -172,16 +172,10 @@ int main(int argc, char** argv)
     auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
     auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);
 	// 各車両へ steering コマンドと車輪の回転速度コマンドを送信
-    // vehicle1.publishSteeringCommand(Phi[1], Phi[1], x_old[10], x_old[10]);
-    // vehicle2.publishSteeringCommand(Phi[2], Phi[2], x_old[16], x_old[16]);
-    // vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
-    // vehicle1.publishWheelCommand(v1f, v1f, v1r, v1r);
-    // vehicle2.publishWheelCommand(v2f, v2f, v2r, v2r);
-    // vehicle3.publishWheelCommand(v3f, v3f, v3r, v3r);
+
     vehicle1.publishWheelCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
     vehicle2.publishWheelCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
     vehicle3.publishWheelCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
-
     vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
     vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
     vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
@@ -197,10 +191,10 @@ int main(int argc, char** argv)
 	
 		dynamics_calc.calcXold(x_old);
 
-		ROS_INFO_THROTTLE(0.25,"calcX:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
-	    ROS_INFO_THROTTLE(0.25,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
-	    ROS_INFO_THROTTLE(0.25,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f", x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
-	    ROS_INFO_THROTTLE(0.25,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n",x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
+		ROS_INFO_THROTTLE(0.2,"calcX:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
+	    ROS_INFO_THROTTLE(0.2,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
+	    ROS_INFO_THROTTLE(0.2,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f", x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
+	    ROS_INFO_THROTTLE(0.2,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n",x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
 
 		//係数aの計算(ここでx_oldも計算)
 		dynamics_calc.computeCoefficients(x_old);
@@ -215,10 +209,10 @@ int main(int argc, char** argv)
 		//制御入力を計算
 		getInputValue.getU(x_old, sr.j);
 
-		ROS_INFO_THROTTLE(0.25,"afterGetU:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
-	    ROS_INFO_THROTTLE(0.25,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
-	    ROS_INFO_THROTTLE(0.25,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
-	    ROS_INFO_THROTTLE(0.25,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n\n",x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
+		ROS_INFO_THROTTLE(0.2,"afterGetU:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
+	    ROS_INFO_THROTTLE(0.2,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
+	    ROS_INFO_THROTTLE(0.2,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
+	    ROS_INFO_THROTTLE(0.2,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n\n",x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
 
 		
 		getInputValue.rungeKutta(x_old, sr.j);
@@ -425,7 +419,7 @@ Search searchP(const std::vector<double>& x) {
 
 		dist = sqrt(pow((x[1] - R[i][0]), 2) + pow((x[2] - R[i][1]), 2));
 
-		if (-0.01 < dot && dot < 0.01) {
+		if (-0.001 < dot && dot < 0.001) {
 
 			if (dist < dist0) {
 				dist0 = dist;
@@ -460,7 +454,7 @@ Search searchPP(const std::vector<double>& x) {
 
 			dist = sqrt(pow((x[1] - R[i][0]), 2) + pow((x[2] - R[i][1]), 2));
 
-			if (-0.01 < dot && dot < 0.01) {
+			if (-0.001 < dot && dot < 0.001) {
 
 				if (dist < dist0) {
 					dist0 = dist;
@@ -483,7 +477,7 @@ Search searchPP(const std::vector<double>& x) {
 
 			dist = sqrt(pow((x[1] - R[i][0]), 2) + pow((x[2] - R[i][1]), 2));
 
-			if (-0.01 < dot && dot < 0.01) {
+			if (-0.001 < dot && dot < 0.001) {
 
 				if (dist < dist0) {
 					dist0 = dist;
@@ -507,7 +501,7 @@ Search searchPP(const std::vector<double>& x) {
 
 			dist = sqrt(pow((x[1] - R[i][0]), 2) + pow((x[2] - R[i][1]), 2));
 
-			if (-0.01 < dot && dot < 0.01) {
+			if (-0.001 < dot && dot < 0.001) {
 
 				if (dist < dist0) {
 					dist0 = dist;

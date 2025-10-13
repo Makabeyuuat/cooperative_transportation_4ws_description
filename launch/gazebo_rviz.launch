@@ -17,7 +17,7 @@
         args="-param robot_description
               -model cooperative_transportation_4ws
               -urdf
-              -x -6.5 -y 1.0 -z 0.070 -R 0 -P 0 -Y 0
+              -x -6.5 -y 1.001 -z 0.070 -R 0 -P 0 -Y 0
               -J linkage1_rotation  0.0
               -J linkage2_rotation  -0.3926990817
               -J linkage3_rotation  0.5235987756

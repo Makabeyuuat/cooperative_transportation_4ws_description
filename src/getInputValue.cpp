@@ -974,7 +974,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 		(l2 * (Power(lv + 2 * l3 * Cos(Thetap3 - Thetap4), 2) / Power(l2, 2) + 16 * (1 - Power(lv + 2 * l3 * Cos(Thetap3 - Thetap4), 2) / (16.0* Power(l2, 2)))));
 
 
-	thetap3d = -PAI / 2.0 - ArcTan(-2 * delta1d * l3, l3 * lv) + ArcTan(Power(delta1d, 2) - 4 * Power(l2, 2) + Power(l3, 2) + Power(lv, 2) / 4.000000000, Sqrt(4 * Power(delta1d, 2) * Power(l3, 2) + Power(l3, 2) * Power(lv, 2) - Power(Power(delta1d, 2) - 4 * Power(l2, 2) + Power(l3, 2) + Power(lv, 2) / 4.000000000, 2))) + Thetap4;
+	thetap3d = -PAI / 2.0 - ArcTan(-2 * delta1d * l3, l3 * lv) + ArcTan(Power(delta1d, 2) - 4 * Power(l2, 2) + Power(l3, 2) + Power(lv, 2) / 4.0, Sqrt(4 * Power(delta1d, 2) * Power(l3, 2) + Power(l3, 2) * Power(lv, 2) - Power(Power(delta1d, 2) - 4 * Power(l2, 2) + Power(l3, 2) + Power(lv, 2) / 4.0, 2))) + Thetap4;
 
 	dthetap3d = w1 * (1 - sr.Cs * sr.d) * Sec(Thetap0) * (-((sr.Cs * Cos(Thetap0)) / (1 - sr.Cs * sr.d)) + ((Cos(x[8] - x[10] + Thetap3 - Thetap4) * Sin(x[10]) - Sin(x[8] + Thetap3 - Thetap4)) * (Sin(x[6] - x[8] + Thetap2 - Thetap3) * (Cos(x[4] - x[6] + Thetap1 - Thetap2) * Sin(x[4] - Thetap0 + Thetap1) + Sin(x[4] - x[6] + Thetap1 - Thetap2) * (Cos(x[4] - Thetap0 + Thetap1) + 2 * Sin(x[4] - Thetap0 + Thetap1) * Tan(x[4]))) +
 		Cos(x[6] - x[8] + Thetap2 - Thetap3) * (-(Sin(x[4] - Thetap0 + Thetap1) * Sin(x[4] - x[6] + Thetap1 - Thetap2)) + Cos(x[4] - x[6] + Thetap1 - Thetap2) * (Cos(x[4] - Thetap0 + Thetap1) + 2 * Sin(x[4] - Thetap0 + Thetap1) * Tan(x[4])) -

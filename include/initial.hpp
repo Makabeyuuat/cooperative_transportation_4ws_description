@@ -128,28 +128,28 @@ inline double u10_inv_a[3][3];
 
 
 //フィードバック関数
-inline double k1 = 2.5;
-inline double k2 = 2.5;
-inline double k3 = 2.5;
-inline double k4 = 2.5;
-inline double k5 = 20.0;
-inline double k6 = 20.0;
-inline double k7 = 20.0;
-inline double k8 = 20.0;
+inline double k1 = 5.0;
+inline double k2 = 5.0;
+inline double k3 = 5.0;
+inline double k4 = 5.0;
+inline double k5 = 10.0;
+inline double k6 = 10.0;
+inline double k7 = 10.0;
+inline double k8 = 10.0;
 inline double k9 = 20.0;
-inline double k10 = 20.0;
-inline double k11 = 20.0;
-inline double k12 = 20.0;
-inline double k13 = 20.0;
-inline double k14 = 20.0;
-inline double k15 = 20.0;
-inline double k16 = 20.0;
-inline double k17 = 20.0;
-inline double k18 = 20.0;
-inline double k19 = 20.0;
-inline double k20 = 20.0;
-inline double k21 = 20.0;
-inline double k22 = 20.0;
+inline double k10 = 10.0;
+inline double k11 = 10.0;
+inline double k12 = 10.0;
+inline double k13 = 10.0;
+inline double k14 = 10.0;
+inline double k15 = 10.0;
+inline double k16 = 10.0;
+inline double k17 = 10.0;
+inline double k18 = 10.0;
+inline double k19 = 10.0;
+inline double k20 = 10.0;
+inline double k21 = 10.0;
+inline double k22 = 10.0;
 
 
 
@@ -264,6 +264,9 @@ inline double lt = 0.8;
 inline double l1 = 0.8;
 inline double l2 = (sqrt(2) / 8) * lv;
 inline double l3 = (sqrt(2) / 4) * lv;
+
+// inline double l2 = (sqrt(3) / 12) * lv;
+// inline double l3 = (sqrt(3) / 6) * lv;
 //摺動機構の仮想リンク
 inline int VEHICLE1_SLIDING_MECHANISM_SIGN = sign(1.0);
 inline int VEHICLE2_SLIDING_MECHANISM_SIGN = sign(1.0);
