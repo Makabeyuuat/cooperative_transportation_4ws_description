@@ -55,8 +55,8 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
 
 
      //デバッグ用ログ出力
-	// ROS_INFO_THROTTLE(0.25,"DynamicsCalc:thetav2=%.3f, thetav3=%.3f, thetav5=%.3f, thetav6=%.3f, thetav8=%.3f, thetav9=%.3f",
-     //  thetav2, thetav3, thetav5, thetav6, thetav8, thetav9);
+	ROS_INFO_THROTTLE(0.25,"DynamicsCalc:thetav2=%.3f, thetav3=%.3f, thetav5=%.3f, thetav6=%.3f, thetav8=%.3f, thetav9=%.3f",
+      thetav2, thetav3, thetav5, thetav6, thetav8, thetav9);
 
     //仮想リンクを計算
     // v1
