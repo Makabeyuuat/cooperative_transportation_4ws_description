@@ -136,7 +136,7 @@ inline double k5 = 10.0;
 inline double k6 = 10.0;
 inline double k7 = 10.0;
 inline double k8 = 10.0;
-inline double k9 = 20.0;
+inline double k9 = 10.0;
 inline double k10 = 10.0;
 inline double k11 = 10.0;
 inline double k12 = 10.0;
@@ -262,11 +262,11 @@ inline double nh10 = 0.0;
 inline double lv = 0.9;
 inline double lt = 0.8;
 inline double l1 = 0.8;
-inline double l2 = (sqrt(2) / 8) * lv;
-inline double l3 = (sqrt(2) / 4) * lv;
+// inline double l2 = (sqrt(2) / 8) * lv;
+// inline double l3 = (sqrt(2) / 4) * lv;
 
-// inline double l2 = (sqrt(3) / 12) * lv;
-// inline double l3 = (sqrt(3) / 6) * lv;
+inline double l2 = (sqrt(3) / 12) * lv;
+inline double l3 = (sqrt(3) / 6) * lv;
 //摺動機構の仮想リンク
 inline int VEHICLE1_SLIDING_MECHANISM_SIGN = sign(1.0);
 inline int VEHICLE2_SLIDING_MECHANISM_SIGN = sign(1.0);
