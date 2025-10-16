@@ -61,13 +61,13 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
     //仮想リンクを計算
     // v1
     double th2 = thetav2 - (3.0/2.0)*PAI  + theta4;
-    double th3 = -thetav3 - 0.5*PAI + theta4;
+    double th3 = -thetav3 - PAI/2.0 + theta4;
     // v2
     double th5 = thetav5 + PAI/2.0 + theta7;
     double th6 = -thetav6 + 3.0*PAI/2.0 + theta7;
     // v3
-    double th8 = thetav8 + PAI/2.0 + theta10;
-    double th9 = -thetav9 + 3.0*PAI/2.0 + theta10;
+    double th8 = thetav8 + 5.0*PAI/6.0 + theta10;
+    double th9 = -thetav9 + 7.0*PAI/6.0 + theta10;
 
     //x_oldに格納
     x_old[7]  = th2;

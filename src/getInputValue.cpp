@@ -5665,7 +5665,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 
 
 	//拘束条件
-	thetap8d = PAI/2.0+ ArcTan(4*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))),(lv + 2*l3*Cos(Thetap9 - Thetap10))/l2) + Thetap10;
+	thetap8d = (5*PAI)/6.0+ ArcTan(4*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))),(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10))/l2) + Thetap10;
+
 
 
 	dthetap8d =w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
@@ -5692,15 +5693,15 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv) - 
-   (l3*Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)*Sin(Thetap9 - Thetap10)*
-      (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
+                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv) + 
+   (l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)*
+      (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -5726,16 +5727,16 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*
-      (Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*Sin(Thetap9 - Thetap10)*
-      (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
+   (8*l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -5761,7 +5762,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))));
+    (l2*(Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))));
 
 
 
@@ -5822,23 +5823,23 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
               Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                  2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv - 
-   (l3*Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)*Sin(Thetap9 - Thetap10)*
-      ((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap0)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
-                (-(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8))) + 
-             (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8) - 
-                2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)) - 
-                2*(-(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) + 
-             Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3 - 
+                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv + 
+   (l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)*
+      (-((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap0)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                  (-(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
+                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8))) + 
+               (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
+               Sin(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8) - 
+                  2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)) - 
+                  2*(-(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) + 
+               Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                  2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) + 
         (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(Sin(x[20] + Thetap9 - Thetap10)*
               (Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)) + 
@@ -5897,24 +5898,24 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*
-      (Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*Sin(Thetap9 - Thetap10)*
-      ((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap0)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
-                (-(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
-                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8))) + 
-             (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8) - 
-                2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)) - 
-                2*(-(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) + 
-             Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3 - 
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
+   (8*l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (-((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap0)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                  (-(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
+                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8))) + 
+               (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
+               Sin(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8) - 
+                  2*Power(Sec(x[18]),2)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)) - 
+                  2*(-(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) + 
+               Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                  2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) + 
         (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(Sin(x[20] + Thetap9 - Thetap10)*
               (Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)) + 
@@ -5973,7 +5974,10 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))));
+    (l2*(Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))));
+
+
+
 
 
 
@@ -5985,8 +5989,9 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-           Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
-                    Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+           Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                 (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
               Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                  2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
@@ -6004,8 +6009,9 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-           Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
-                    Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+           Power(Sec(x[20]),2)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                 (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
               Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                  2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
@@ -6039,20 +6045,20 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
               Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                  2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                  2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv - 
-   (l3*Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)*Sin(Thetap9 - Thetap10)*
-      (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((Sec(x[20])*(-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)) - 
-                Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3 + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))/l3) - 
+                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv + 
+   (l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)*
+      (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((Sec(x[20])*(-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9))\
+                   - Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3 + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))/l3)) + 
         (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(Sin(x[20] + Thetap9 - Thetap10)*
               (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
@@ -6068,8 +6074,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))) - 
                 (-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)) - 
-                   Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9))\
+                    - Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
@@ -6088,8 +6094,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))) - 
                 (-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)) - 
-                   Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9))\
+                    - Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) + 
@@ -6117,21 +6123,21 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*
-      (Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*Sin(Thetap9 - Thetap10)*
-      (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((Sec(x[20])*(-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)) - 
-                Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3 + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))/l3) - 
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
+   (8*l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((Sec(x[20])*(-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9))\
+                   - Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3 + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))/l3)) + 
         (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(Sin(x[20] + Thetap9 - Thetap10)*
               (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
@@ -6147,8 +6153,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))) - 
                 (-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)) - 
-                   Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9))\
+                    - Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
@@ -6167,8 +6173,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))) - 
                 (-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)) - 
-                   Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9))\
+                    - Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) + 
@@ -6196,7 +6202,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))));
+    (l2*(Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))));
+
 
 
 
@@ -6215,7 +6222,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv) - 
-   (l3*w1*Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)*Cos(x[20] + Thetap9 - Thetap10)*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap0)*Sin(Thetap9 - Thetap10)*
+   (l3*w1*Cos(x[20] + Thetap9 - Thetap10)*Cos(PAI/6.0- Thetap9 + Thetap10)*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap0)*Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)*
       ((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
         Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
@@ -6228,10 +6235,11 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/
-    (2.*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*
-      (Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) - 
-   (8*l3*w1*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*Cos(x[20] + Thetap9 - Thetap10)*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap0)*
-      Sin(Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+    (2.*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) - 
+   (8*l3*w1*Cos(x[20] + Thetap9 - Thetap10)*Cos(PAI/6.0- Thetap9 + Thetap10)*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap0)*
+      Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      ((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
         Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
@@ -6243,53 +6251,55 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/
-    (l2*lv*(Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))));
+    (l2*lv*(Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))));
 
 
 
-	K84 = -(l3*Cos(Thetap9 - Thetap10)*Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)*
-       Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-            (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                 Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                    2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
-         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-            (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                  Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+
+
+	K84 = (Power(l3,2)*Power(Cos(PAI/6.0- Thetap9 + Thetap10),2)*Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),3)*
+      Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                      2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                  (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                     Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
-               Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                  Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
+        w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+           (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
+                 Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                    2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
+                 (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                    Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
+              Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
+                 Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                    2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
+                 (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                    Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv),2))/
+    (16.*Power(l2,5)*Power(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)),1.5)*
+      (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
+   (Power(l3,2)*Power(Cos(PAI/6.0- Thetap9 + Thetap10),2)*(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10))*
+      Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                      2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                      2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                  (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                     Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*
-      (Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Cos(Thetap9 - Thetap10)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*
-      Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -6315,15 +6325,16 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (l2*(Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) + 
-   (Power(l3,2)*Power(lv + 2*l3*Cos(Thetap9 - Thetap10),3)*Power(Sin(Thetap9 - Thetap10),2)*
-      Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
+    (Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) - 
+   (l3*Sin(PAI/6.0- Thetap9 + Thetap10)*Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)*
+      Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -6349,16 +6360,16 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (16.*Power(l2,5)*Power(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)),1.5)*
-      (Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) + 
-   (Power(l3,2)*(lv + 2*l3*Cos(Thetap9 - Thetap10))*Power(Sin(Thetap9 - Thetap10),2)*
-      Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
+    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) - 
+   (8*l3*Sin(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -6384,8 +6395,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*
-      (Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) + 
+    (l2*(Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
    w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
       (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -6436,7 +6446,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
-    (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) + 
+    (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) + 
    w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
       (Sin(x[20] + Thetap9 - Thetap10)*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
              (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
@@ -6582,7 +6592,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                              (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
@@ -6597,7 +6608,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                              (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20])) - 
@@ -6745,7 +6757,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                              (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
@@ -6760,7 +6773,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                              (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20])) + 
@@ -6785,26 +6799,30 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
             w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
                (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                     Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)\
+                      + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                         2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
                      (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
                   Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                     Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)\
+                      + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                         2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
                      (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)) + 
@@ -6829,38 +6847,42 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
             w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
                (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                     Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)\
+                      + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                         2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
                      (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
                   Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                     Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)\
+                      + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                         2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
                      (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - 
-      (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) - 
-   (l3*Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)*Sin(Thetap9 - Thetap10)*
-      (w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)*Tan(Thetap0) - 
+      (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
+   (l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)*
+      (-(w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)*Tan(Thetap0)) + 
         w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -6885,15 +6907,15 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                     Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*Tan(Thetap0)\
-         + w1*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-              (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
+         Tan(Thetap0) - w1*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
                 Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                    2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)*
-         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) - 
+         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) + 
         w1*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap9 - Thetap10)*
                ((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -6919,7 +6941,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
-         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) + 
+         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) - 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
            (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
@@ -7005,8 +7027,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3))))/l3 - 
-           (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2))\
-         - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
+           (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/Power(1 - sr.Cs*sr.d,2)
+           ) + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
            (Sin(x[20] + Thetap9 - Thetap10)*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
                   (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
@@ -7133,12 +7155,14 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                           2*Cos(x[4] - Thetap0 + Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
                            (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
                           Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*
+                              (-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                                   (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)))/l2)) + 
                           2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8)*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*
+                              (-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                                   (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)))/l2)) - 
                           2*u3*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4]) - 
                           Sin(x[18] - Thetap0 + Thetap8)*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*
@@ -7175,8 +7199,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20])) - 
-              Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20]))\
+               - Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
                   (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
                     2*Cos(x[4] - Thetap0 + Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
@@ -7302,12 +7326,14 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                           2*Cos(x[4] - Thetap0 + Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
                            (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
                           Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*
+                              (-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                                   (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)))/l2)) + 
                           2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8)*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*
+                              (-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                                   (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)))/l2)) - 
                           2*u3*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4]) - 
                           Sin(x[18] - Thetap0 + Thetap8)*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*
@@ -7344,8 +7370,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20])) + 
-              Cos(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20]))\
+               + Cos(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
                  Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
@@ -7361,36 +7387,37 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                     (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                             (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                         Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                         Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                             2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
                     (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)
-                            + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*
+                           Sin(x[18] - x[20] + Thetap8 - Thetap9) + Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                           (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                                   Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)
+                                  )) + Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                              (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
-                       Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)
-                            + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                       Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                              Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*
+                           Sin(x[18] - x[20] + Thetap8 - Thetap9) + Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                           (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                                   Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)
+                                  )) + Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                              (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)) + 
@@ -7410,50 +7437,51 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                     (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                             (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                         Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                         Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                             2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
                     (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)
-                            + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*
+                           Sin(x[18] - x[20] + Thetap8 - Thetap9) + Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                           (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                                   Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)
+                                  )) + Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                              (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
-                       Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)
-                            + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                       Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                              Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*
+                           Sin(x[18] - x[20] + Thetap8 - Thetap9) + Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                           (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                                   Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)
+                                  )) + Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                              (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - 
-           (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2))))
-     /(2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*
-      (Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2))))) - 
-   (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))*Sin(Thetap9 - Thetap10)*
-      (w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
-                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
-                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)*Tan(Thetap0) - 
+                                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv\
+            - (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/
+            Power(1 - sr.Cs*sr.d,2))))/(2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
+   (8*l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+      (-(w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+             (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                        Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
+                  Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
+                     2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)*Tan(Thetap0)) + 
         w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -7478,15 +7506,15 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                     Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*Tan(Thetap0)\
-         + w1*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[20])*
-              (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
+         Tan(Thetap0) - w1*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
+           (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
                 Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                    2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)*
-         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) - 
+         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) + 
         w1*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap9 - Thetap10)*
                ((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -7512,7 +7540,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
-         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) + 
+         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) - 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
            (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
@@ -7598,8 +7626,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3))))/l3 - 
-           (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2))\
-         - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
+           (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/Power(1 - sr.Cs*sr.d,2)
+           ) + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
            (Sin(x[20] + Thetap9 - Thetap10)*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
                   (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
@@ -7726,12 +7754,14 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                           2*Cos(x[4] - Thetap0 + Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
                            (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
                           Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*
+                              (-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                                   (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)))/l2)) + 
                           2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8)*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*
+                              (-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                                   (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)))/l2)) - 
                           2*u3*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4]) - 
                           Sin(x[18] - Thetap0 + Thetap8)*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*
@@ -7768,8 +7798,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20])) - 
-              Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20]))\
+               - Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
                   (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
                      (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
                     2*Cos(x[4] - Thetap0 + Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
@@ -7895,12 +7925,14 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                           2*Cos(x[4] - Thetap0 + Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
                            (-u2 + u3 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
                           Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*
+                              (-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                                   (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)))/l2)) + 
                           2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8)*
-                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
-                                (Sec(x[18])*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                           (-u2 + w1*sr.Cs + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*
+                              (-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[18])*
+                                   (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)))/l2)) - 
                           2*u3*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4]) - 
                           Sin(x[18] - Thetap0 + Thetap8)*(-2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*
@@ -7937,8 +7969,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20])) + 
-              Cos(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
+                                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20]))\
+               + Cos(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
                  Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                     2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
@@ -7954,36 +7986,37 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                     (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                             (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                         Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                         Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                             2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
                     (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)
-                            + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*
+                           Sin(x[18] - x[20] + Thetap8 - Thetap9) + Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                           (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                                   Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)
+                                  )) + Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                              (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
-                       Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)
-                            + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                       Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                              Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*
+                           Sin(x[18] - x[20] + Thetap8 - Thetap9) + Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                           (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                                   Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)
+                                  )) + Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                              (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)) + 
@@ -8003,47 +8036,48 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                     (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                             (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                         Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                         Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                             2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                             2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
                  w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
                     (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)
-                            + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*
+                           Sin(x[18] - x[20] + Thetap8 - Thetap9) + Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                           (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                                   Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)
+                                  )) + Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                              (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
-                       Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)
-                            + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                       Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                              Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*
+                           Sin(x[18] - x[20] + Thetap8 - Thetap9) + Cos(x[18] - x[20] + Thetap8 - Thetap9)*
+                           (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
-                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                             Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
-                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
+                                   Sin(x[4] - Thetap0 + Thetap1) - (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8)
+                                  )) + Sin(x[18] - x[20] + Thetap8 - Thetap9)*
+                              (Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - 
-           (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2))))
-     /(l2*(Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap9 - Thetap10),2)/(16.*Power(l2,2)))));
+                                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv\
+            - (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/
+            Power(1 - sr.Cs*sr.d,2))))/(l2*(Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))));
 
 
 
-
-	thetap9d = (3*PAI)/2.0- ArcTan(-2*l3*delta3d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),
+	thetap9d = (7*PAI)/6.0- ArcTan(-2*l3*delta3d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),
     Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))) + Thetap10;
+
 
     
 	dthetap9d = w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
@@ -8077,6 +8111,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
       (8*Power(l3,2)*delta3d*Ddelta3d - 4*delta3d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Ddelta3d))/
     (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - 
         Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2)));
+
 
 
 
@@ -8139,6 +8174,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv;
+
 
 
 
@@ -8209,6 +8245,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 
 
 
+
+
 	K93 = -((w1*Cos(x[20] + Thetap9 - Thetap10)*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap0)*
        ((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
             (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -8222,7 +8260,6 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                   (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv);
-
 
 
 
@@ -8276,7 +8313,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
-    (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) + 
+    (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) + 
    w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
       (Sin(x[20] + Thetap9 - Thetap10)*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
              (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
@@ -8422,7 +8459,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                              (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
@@ -8437,7 +8475,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                              (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20])) - 
@@ -8585,7 +8624,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                              (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)) + 
@@ -8600,7 +8640,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                      (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
                              (-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                          Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                              2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                              2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                 (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)))*Tan(x[20])) + 
@@ -8625,26 +8666,30 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
             w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
                (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                     Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)\
+                      + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                         2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
                      (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
                   Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                     Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)\
+                      + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                         2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
                      (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)) + 
@@ -8669,30 +8714,34 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3) - 
             w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
                (Sin(x[20] + Thetap9 - Thetap10)*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                     Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)\
+                      + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                         2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
                      (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])) - 
                   Cos(x[20] + Thetap9 - Thetap10)*Tan(x[22])*((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
-                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
-                     Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9)\
+                      + Cos(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                         (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                         2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                         2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])) - 
                      (-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                              (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))) + 
-                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*(1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
+                        Sin(x[18] - x[20] + Thetap8 - Thetap9)*(Cos(x[18] - Thetap0 + Thetap8)*
+                            (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)) - 
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - 
-      (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
+      (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
    (16*Power(l3,4)*lv*delta3d*Power(Ddelta3d,2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2),2) + 
    (16*Power(l3,2)*Power(delta3d,2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))*
       Power(Ddelta3d,2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2),2) - 

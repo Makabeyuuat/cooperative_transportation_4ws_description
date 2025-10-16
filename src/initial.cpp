@@ -47,10 +47,10 @@ void initial(double &t, double &dt, std::vector<double> &x0, std::vector<double>
     x0[17] = -PAI / 8.0;
 
     // 第3車両の摺動機構
-    x0[18] = -5.0 * PAI / 6.0 - PAI / 6.0;
-    x0[19] = 5.0 * PAI / 6.0 + PAI / 6.0;
-    x0[20] = -7.0 * PAI / 6.0 - PAI / 6.0;
-    x0[21] = 7.0 * PAI / 6.0 + PAI / 6.0;
+    x0[18] = -7.0 * PAI / 6.0 - PAI / 6.0;
+    x0[19] = 7.0 * PAI / 6.0 + PAI / 6.0;
+    x0[20] = -5.0 * PAI / 6.0 - PAI / 6.0;
+    x0[21] = 5.0 * PAI / 6.0 + PAI / 6.0;
     x0[22] = -PAI / 6.0;
     x0[23] = PAI / 6.0;
 }
