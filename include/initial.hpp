@@ -83,8 +83,13 @@ inline Search sr;
 
 //経路情報
 //３次のベジェ曲線
+//細長い経路
 inline double Bx[BEZIER_ORDER + 1] = { -6.5, 3.0, -3.0, 6.5 };
-inline double By[BEZIER_ORDER + 1] = { 1.0, 1.0, -1.0, -1.0 };
+inline double By[BEZIER_ORDER + 1] = { -2.5, -2.5, 2.5, 2.5 };
+//幅広い経路
+// inline double Bx[BEZIER_ORDER + 1] = { -10.0, 10.0, -10.0, 10.0 };
+// inline double By[BEZIER_ORDER + 1] = { -10.0, -10.0, 10.0, 10.0 };
+
 //曲率の配列を保存
 inline double cs[Q_sample][4] = {};
 inline double R[Q_sample][2] = {};
@@ -127,29 +132,29 @@ inline double u10_a[3][3];
 inline double u10_inv_a[3][3];
 
 
-//フィードバック関数
-inline double k1 = 5.0;
-inline double k2 = 5.0;
-inline double k3 = 5.0;
-inline double k4 = 5.0;
-inline double k5 = 10.0;
-inline double k6 = 10.0;
-inline double k7 = 10.0;
-inline double k8 = 10.0;
-inline double k9 = 10.0;
-inline double k10 = 10.0;
-inline double k11 = 10.0;
-inline double k12 = 10.0;
-inline double k13 = 10.0;
-inline double k14 = 10.0;
-inline double k15 = 10.0;
-inline double k16 = 10.0;
-inline double k17 = 10.0;
-inline double k18 = 10.0;
-inline double k19 = 10.0;
-inline double k20 = 10.0;
-inline double k21 = 10.0;
-inline double k22 = 10.0;
+//フィードバックゲイン(後輪ゲインは低めに設定)
+inline double k1 = 10.0;
+inline double k2 = 10.0;
+inline double k3 = 10.0;
+inline double k4 = 10.0;
+inline double k5 = 20.0;
+inline double k6 = 20.0;
+inline double k7 = 20.0;
+inline double k8 = 20.0;
+inline double k9 = 20.0;
+inline double k10 = 20.0;
+inline double k11 = 20.0;
+inline double k12 = 20.0;
+inline double k13 = 20.0;
+inline double k14 = 20.0;
+inline double k15 = 8.0;
+inline double k16 = 8.0;
+inline double k17 = 20.0;
+inline double k18 = 20.0;
+inline double k19 = 20.0;
+inline double k20 = 20.0;
+inline double k21 = 8.0;
+inline double k22 = 8.0;
 
 
 

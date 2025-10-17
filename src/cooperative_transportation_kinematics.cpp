@@ -217,7 +217,7 @@ int main(int argc, char** argv)
 		
 		getInputValue.rungeKutta(x_old, sr.j);
 		//再度、車両の速度を計算
-		dynamics_calc.computeCoefficients(x_old);
+		//dynamics_calc.computeCoefficients(x_old);
 	
 		//車輪の左右差を考慮して計算
         auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);

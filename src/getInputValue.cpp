@@ -24,9 +24,9 @@ void getInputValue::rungeKutta(std::vector<double>& x_old, int sr_j) {
     for (int i = 0; i < n; i++) {
         double dx = fAllVec[i](x_old);
         k[i][0] = h * dx;
-        r[i][0] = (k[i][0] - 2.0 * q[i][3]) / 2.0;
+        r[i][0] = (k[i][0] - 2.00 * q[i][3]) / 2.00;
         x[0][i] = x_old[i] + r[i][0];
-        q[i][0] = q[i][3] + 3.0 * r[i][0] - k[i][0] / 2.0;
+        q[i][0] = q[i][3] + 3.0 * r[i][0] - k[i][0] / 2.00;
     }   
     // 第2段階
     for (int i = 0; i < n; i++) {
@@ -48,9 +48,9 @@ void getInputValue::rungeKutta(std::vector<double>& x_old, int sr_j) {
     for (int i = 0; i < n; i++) {
         double dx = fAllVec[i](x[0]);
         k[i][3] = h * dx;
-        r[i][3] = (k[i][3] - 2.0 * q[i][2]) / 6.0;
+        r[i][3] = (k[i][3] - 2.00 * q[i][2]) / 6.0;
         x_new[i] = x[2][i] + r[i][3];
-        q[i][3] = q[i][2] + 3.0 * r[i][3] - k[i][3] / 2.0;
+        q[i][3] = q[i][2] + 3.0 * r[i][3] - k[i][3] / 2.00;
     }
 
 
@@ -576,7 +576,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 
 	//拘束条件
 	//arctan(x,y)
-	thetap2d = (-3*PAI)/2.0+ ArcTan(4*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2))),(lv + 2*l3*Cos(Thetap3 - Thetap4))/l2) + Thetap4;
+	thetap2d = (-3*PAI)/2.00+ ArcTan(4*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2))),(lv + 2*l3*Cos(Thetap3 - Thetap4))/l2) + Thetap4;
 
 
 	dthetap2d = w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + ((Cos(x[8] - x[10] + Thetap3 - Thetap4)*Sin(x[10]) - Sin(x[8] + Thetap3 - Thetap4))*
@@ -603,7 +603,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
                  Cos(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])) - 
                  2*(Cos(x[4] - x[6] + Thetap1 - Thetap2)*Sin(x[4] - Thetap0 + Thetap1) + 
                     Sin(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])))*Tan(x[6])))/l3)))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*Sin(Thetap3 - Thetap4)*
       (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
@@ -676,7 +676,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
                 Cos(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])) - 
                 2*(Cos(x[4] - x[6] + Thetap1 - Thetap2)*Sin(x[4] - Thetap0 + Thetap1) + 
                    Sin(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])))*Tan(x[6]))))/l3))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*Sin(Thetap3 - Thetap4)*
       (-((w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(Cos(x[8] - x[10] + Thetap3 - Thetap4)*Sin(x[10]) - Sin(x[8] + Thetap3 - Thetap4))*
@@ -753,7 +753,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
                    Cos(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])) - 
                    2*(Cos(x[4] - x[6] + Thetap1 - Thetap2)*Sin(x[4] - Thetap0 + Thetap1) + 
                       Sin(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])))*Tan(x[6]))))/lv)))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*Sin(Thetap3 - Thetap4)*
       ((w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((-(Cos(x[6] - x[8] + Thetap2 - Thetap3)*Sin(x[8])) + Cos(x[8])*Sin(x[6] - x[8] + Thetap2 - Thetap3))*
@@ -797,7 +797,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
            Cos(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])) - 
            2*(Cos(x[4] - x[6] + Thetap1 - Thetap2)*Sin(x[4] - Thetap0 + Thetap1) + 
               Sin(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])))*Tan(x[6]))))/
-    (2.*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2))))) + 
    (8*l3*w1*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*(1 - sr.Cs*sr.d)*Sec(Thetap0)*Sin(Thetap3 - Thetap4)*
       (Cos(x[10])*Cos(x[8] - x[10] + Thetap3 - Thetap4) + Sin(x[10])*Sin(x[8] - x[10] + Thetap3 - Thetap4))*
@@ -830,7 +830,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
                   Cos(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])) - 
                   2*(Cos(x[4] - x[6] + Thetap1 - Thetap2)*Sin(x[4] - Thetap0 + Thetap1) + 
                      Sin(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])))*Tan(x[6])))/l3),2))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2))))) - 
    (8*l3*Cos(Thetap3 - Thetap4)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
       Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
@@ -1298,7 +1298,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
                              2*(Cos(x[4] - x[6] + Thetap1 - Thetap2)*Sin(x[4] - Thetap0 + Thetap1) + 
                                 Sin(x[4] - x[6] + Thetap1 - Thetap2)*(Cos(x[4] - Thetap0 + Thetap1) + 2*Sin(x[4] - Thetap0 + Thetap1)*Tan(x[4])))*Tan(x[6])))/l3))))/l3 - 
            (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2))))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap3 - Thetap4),2)/(16.*Power(l2,2)))*Sin(Thetap3 - Thetap4)*
       (-(w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
@@ -1572,7 +1572,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 
 
 
-	thetap3d = -PAI/2.0- ArcTan(-2*l3*delta1d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),
+	thetap3d = -PAI/2.00- ArcTan(-2*l3*delta1d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),
     Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2))) + Thetap4;
 
 
@@ -1587,7 +1587,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
    (2*delta1d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2))*Ddelta1d)/
     (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*
       (8*Power(l3,2)*delta1d*Ddelta1d - 4*delta1d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*Ddelta1d))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2)));
+    (2.0*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2)));
 
 
 
@@ -1793,7 +1793,7 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
       (8*Power(l3,2)*Power(Ddelta1d,2) - 8*Power(delta1d,2)*Power(Ddelta1d,2) - 
         4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*Power(Ddelta1d,2) + 8*Power(l3,2)*delta1d*DDdelta1d - 
         4*delta1d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2))*DDdelta1d))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2)));
+    (2.0*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta1d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta1d,2),2)));
 
 
 	u4_a[0][0] = alpha44 - (K21 / a0);
@@ -2250,7 +2250,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 				2 * (-2 * Cos(x[12] - Thetap0 + Thetap5) * Sec(x[4]) * Sin(PAI / 6.0- Thetap0 + Thetap1) * Sin(x[4] - Thetap0 + Thetap1) - (1 - 2 * Cos(PAI / 6.0- Thetap0 + Thetap1) * Sec(x[4]) * Sin(x[4] - Thetap0 + Thetap1)) * Sin(x[12] - Thetap0 + Thetap5)) * Tan(x[12]))) * Tan(x[14]))) / lv);
 
 	//拘束条件
-	thetap5d = PAI/2.0+ ArcTan(4*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))),(lv + 2*l3*Cos(Thetap6 - Thetap7))/l2) + Thetap7;
+	thetap5d = PAI/2.00+ ArcTan(4*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))),(lv + 2*l3*Cos(Thetap6 - Thetap7))/l2) + Thetap7;
 
 
 	dthetap5d = w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sin(x[14] + Thetap6 - Thetap7)*
@@ -2311,7 +2311,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[12] - Thetap0 + Thetap5) - 
                        2*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[12] - Thetap0 + Thetap5))*Tan(x[12])))*Tan(x[14]))*Tan(x[16]))/lv)))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*Sin(Thetap6 - Thetap7)*
       (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sec(x[14])*(-(Cos(x[12] - x[14] + Thetap5 - Thetap6)*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
@@ -2481,7 +2481,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
                       2*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[12] - Thetap0 + Thetap5) - 
                       2*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[12] - Thetap0 + Thetap5))*Tan(x[12])))*Tan(x[14]))*Tan(x[16])))/lv))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*Sin(Thetap6 - Thetap7)*
       ((w1*(1 - sr.Cs*sr.d)*Sec(x[14])*Sec(Thetap0)*(-(Cos(x[12] - x[14] + Thetap5 - Thetap6)*
                 (-(Cos(x[12] - Thetap0 + Thetap5)*(1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))) + 
@@ -2698,7 +2698,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
                       2*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[12] - Thetap0 + Thetap5) - 
                       2*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[12] - Thetap0 + Thetap5))*Tan(x[12])))*Tan(x[14]))*Tan(x[16])))/lv))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*Sin(Thetap6 - Thetap7)*
       (w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((Sec(x[14])*(-((-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[12] - Thetap0 + Thetap5))*Sin(x[12] - x[14] + Thetap5 - Thetap6)) - 
@@ -2806,7 +2806,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
               2*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[12] - Thetap0 + Thetap5) - 
               2*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                  (1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[12] - Thetap0 + Thetap5))*Tan(x[12])))*Tan(x[14])))/
-    (2.*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))))
+    (2.0*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))))
      - (8*l3*w1*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*Cos(x[14] + Thetap6 - Thetap7)*(1 - sr.Cs*sr.d)*Power(Sec(x[16]),2)*Sec(Thetap0)*Sin(Thetap6 - Thetap7)*
       ((-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
            (1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[12] - Thetap0 + Thetap5))*Sin(x[12] - x[14] + Thetap5 - Thetap6) + 
@@ -2859,7 +2859,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
                         2*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[12] - Thetap0 + Thetap5) - 
                         2*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                            (1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[12] - Thetap0 + Thetap5))*Tan(x[12])))*Tan(x[14]))*Tan(x[16]))/lv),2))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
    (8*l3*Cos(Thetap6 - Thetap7)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*
       Power(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sec(x[14])*(-(Cos(x[12] - x[14] + Thetap5 - Thetap6)*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
@@ -3986,7 +3986,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
                                 2*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 - 2*Cos(PAI/6.0- Thetap0 + Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[12] - Thetap0 + Thetap5))*Tan(x[12])))*Tan(x[14]))*Tan(x[16]))/lv)))/lv - 
            (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2))))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*(Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sqrt(1 - Power(lv + 2*l3*Cos(Thetap6 - Thetap7),2)/(16.*Power(l2,2)))*Sin(Thetap6 - Thetap7)*
       (w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
            (Sec(x[14])*(-(Cos(x[12] - x[14] + Thetap5 - Thetap6)*(-2*Cos(x[12] - Thetap0 + Thetap5)*Sec(x[4])*Sin(PAI/6.0- Thetap0 + Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
@@ -4552,7 +4552,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 
 
 
-	thetap6d = (3*PAI)/2.0- ArcTan(-2*l3*delta2d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),
+	thetap6d = (3*PAI)/2.00- ArcTan(-2*l3*delta2d,l3*lv) + ArcTan(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),
     Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2))) + Thetap7;
 
     
@@ -4585,7 +4585,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
    (2*delta2d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2))*Ddelta2d)/
     (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*
       (8*Power(l3,2)*delta2d*Ddelta2d - 4*delta2d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*Ddelta2d))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2)));
+    (2.0*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2)));
 
 
 
@@ -5210,7 +5210,7 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
     (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*
       (8*Power(l3,2)*Power(Ddelta2d,2) - 8*Power(delta2d,2)*Power(Ddelta2d,2) - 4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*Power(Ddelta2d,2) + 
         8*Power(l3,2)*delta2d*DDdelta2d - 4*delta2d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2))*DDdelta2d))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2)));
+    (2.0*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta2d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta2d,2),2)));
 
 
 
@@ -5727,7 +5727,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
    (8*l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
@@ -5898,7 +5898,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
    (8*l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (-((w1*(1 - sr.Cs*sr.d)*Sec(x[20])*Sec(Thetap0)*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*
@@ -6123,7 +6123,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                       2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                       2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                          (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20]))))/lv))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
    (8*l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((Sec(x[20])*(-((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
@@ -6235,7 +6235,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/
-    (2.*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*lv*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) - 
    (8*l3*w1*Cos(x[20] + Thetap9 - Thetap10)*Cos(PAI/6.0- Thetap9 + Thetap10)*(1 - sr.Cs*sr.d)*Power(Sec(x[22]),2)*Sec(Thetap0)*
       Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
@@ -6360,7 +6360,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv),2))/
-    (2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+    (2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) - 
    (8*l3*Sin(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       Power(-(w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
@@ -6446,7 +6446,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
-    (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) + 
+    (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) + 
    w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
       (Sin(x[20] + Thetap9 - Thetap10)*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
              (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
@@ -6874,7 +6874,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - 
-      (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
+      (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
    (l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)*
       (-(w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
              (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*
@@ -6915,7 +6915,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                    2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)*
-         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) + 
+         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) + 
         w1*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap9 - Thetap10)*
                ((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -6941,7 +6941,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
-         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) - 
+         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) - 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
            (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
@@ -7027,7 +7027,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3))))/l3 - 
-           (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/Power(1 - sr.Cs*sr.d,2)
+           (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)
            ) + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
            (Sin(x[20] + Thetap9 - Thetap10)*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
                   (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
@@ -7471,8 +7471,8 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv\
-            - (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/
-            Power(1 - sr.Cs*sr.d,2))))/(2.*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
+            - (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/
+            Power(1 - sr.Cs*sr.d,2))))/(2.0*Power(l2,3)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2))))) + 
    (8*l3*Cos(PAI/6.0- Thetap9 + Thetap10)*Sqrt(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))*
       (-(w1*(u2 - w1*sr.Cs)*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + 
@@ -7514,7 +7514,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                    2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                    2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                       (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3)*
-         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) + 
+         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) + 
         w1*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sin(x[20] + Thetap9 - Thetap10)*
                ((-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                     (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Sin(x[18] - x[20] + Thetap8 - Thetap9) + 
@@ -7540,7 +7540,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                        2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                        2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                           (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
-         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) - 
+         (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) - 
         w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
            (Sec(x[20])*(-(Cos(x[18] - x[20] + Thetap8 - Thetap9)*(-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
                       (u2 - w1*sr.Cs - w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*(-((sr.Cs*Cos(Thetap0))/(1 - sr.Cs*sr.d)) + (Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))/l1)) - 
@@ -7626,7 +7626,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                               2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                               2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                  (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18]))))/l3))))/l3 - 
-           (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/Power(1 - sr.Cs*sr.d,2)
+           (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)
            ) + w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
            (Sin(x[20] + Thetap9 - Thetap10)*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
                   (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
@@ -8070,7 +8070,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                                 2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                                 2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                                    (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv\
-            - (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/
+            - (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/
             Power(1 - sr.Cs*sr.d,2))))/(l2*(Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/Power(l2,2) + 16*(1 - Power(lv + 2*l3*Sin(PAI/6.0- Thetap9 + Thetap10),2)/(16.*Power(l2,2)))));
 
 
@@ -8109,7 +8109,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
    (2*delta3d*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))*Ddelta3d)/
     (Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2)) + ((-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*
       (8*Power(l3,2)*delta3d*Ddelta3d - 4*delta3d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Ddelta3d))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - 
+    (2.0*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - 
         Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2)));
 
 
@@ -8313,7 +8313,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                   2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                   2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                      (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)*
-    (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1) + 
+    (-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1) + 
    w1*(1 - sr.Cs*sr.d)*Sec(Thetap0)*((sr.Cs*(u2 - w1*sr.Cs)*Sin(Thetap0))/(1 - sr.Cs*sr.d) + 
       (Sin(x[20] + Thetap9 - Thetap10)*(Sin(x[18] - x[20] + Thetap8 - Thetap9)*
              (-2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1)*
@@ -8741,7 +8741,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
                            2*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1)*Sin(x[18] - Thetap0 + Thetap8) - 
                            2*(-2*Cos(x[18] - Thetap0 + Thetap8)*Sec(x[4])*Sin(PAI/6.0+ Thetap0 - Thetap1)*Sin(x[4] - Thetap0 + Thetap1) - 
                               (1 + 2*Cos(PAI/6.0+ Thetap0 - Thetap1)*Sec(x[4])*Sin(x[4] - Thetap0 + Thetap1))*Sin(x[18] - Thetap0 + Thetap8))*Tan(x[18])))*Tan(x[20])))/lv)))/lv - 
-      (w1*Cos(Thetap0)*se.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*se.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
+      (w1*Cos(Thetap0)*sr.Cs1)/(1 - sr.Cs*sr.d) + (sr.Cs*Cos(Thetap0)*(-(w1*sr.Cs*(1 - sr.Cs*sr.d)*Tan(Thetap0)) - w1*sr.d*sr.Cs1))/Power(1 - sr.Cs*sr.d,2)) + 
    (16*Power(l3,4)*lv*delta3d*Power(Ddelta3d,2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2),2) + 
    (16*Power(l3,2)*Power(delta3d,2)*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2))*
       Power(Ddelta3d,2))/Power(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2),2) - 
@@ -8759,7 +8759,7 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
       (8*Power(l3,2)*Power(Ddelta3d,2) - 8*Power(delta3d,2)*Power(Ddelta3d,2) - 
         4*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*Power(Ddelta3d,2) + 8*Power(l3,2)*delta3d*DDdelta3d - 
         4*delta3d*(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2))*DDdelta3d))/
-    (2.*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - 
+    (2.0*(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2))*Sqrt(Power(l3,2)*Power(lv,2) + 4*Power(l3,2)*Power(delta3d,2) - 
         Power(-4*Power(l2,2) + Power(l3,2) + Power(lv,2)/4.0+ Power(delta3d,2),2)));
 
 
