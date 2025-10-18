@@ -214,9 +214,9 @@ void DynamicsCalculator::computeCoefficients(const std::vector<double>& x) {
 	v3 = (ai.a8t * cos(Theta9) + ai.a8n * sin(Theta9) - ai.a9n * tan(x[20])) * u1;
 
 
-     Phi[1] = x_old[9] + x_old[8] - x_old[11] + PAI;
-	Phi[2] = x_old[15] + x_old[14] - x_old[17];
-	Phi[3] = x_old[21] + x_old[20] - x_old[23];
+     Phi[1] = x[9] + x[8] - x[11] + PAI;
+	Phi[2] = x[15] + x[14] - x[17];
+	Phi[3] = x[21] + x[20] - x[23];
 
 
      //前輪間中点速度
