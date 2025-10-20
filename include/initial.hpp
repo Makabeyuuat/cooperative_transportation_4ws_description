@@ -85,7 +85,7 @@ inline Search sr;
 //３次のベジェ曲線
 //細長い経路
 inline double Bx[BEZIER_ORDER + 1] = { -6.5, 2.0, -2.0, 6.5 };
-inline double By[BEZIER_ORDER + 1] = { -2.0, -2.0, 2.0, 2.0 };
+inline double By[BEZIER_ORDER + 1] = { 2.0, 2.0, -2.0, -2.0 };
 //幅広い経路
 // inline double Bx[BEZIER_ORDER + 1] = { -7.0, 7.0, -7.0, 7.0 };
 // inline double By[BEZIER_ORDER + 1] = { 7.0, 7.0, -7.0, -7.0 };

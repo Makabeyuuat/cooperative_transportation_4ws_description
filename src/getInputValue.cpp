@@ -5215,75 +5215,75 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 
 
 
-	// u7_a[0][0] = alpha77 - (K51 / a0);
-	// u7_a[0][1] = -K52 / a0;
-	// u7_a[0][2] = -K53 / a0;
-	// u7_a[1][0] = alpha87 - (K61 / a0);
-	// u7_a[1][1] = alpha88 - (K62 / a0);
-	// u7_a[1][2] = -K63 / a0;
-	// u7_a[2][0] = alpha97;
-	// u7_a[2][1] = alpha98;
-	// u7_a[2][2] = alpha99;
+	u7_a[0][0] = alpha77 - (K51 / a0);
+	u7_a[0][1] = -K52 / a0;
+	u7_a[0][2] = -K53 / a0;
+	u7_a[1][0] = alpha87 - (K61 / a0);
+	u7_a[1][1] = alpha88 - (K62 / a0);
+	u7_a[1][2] = -K63 / a0;
+	u7_a[2][0] = alpha97;
+	u7_a[2][1] = alpha98;
+	u7_a[2][2] = alpha99;
 
-	// b7 = K54 / a0 + (k11 + k12) * (dthetap5d / a0 - z71) + k11 * k12 * (thetap5d / a0 - z72 / a0) - (alpha71 * a0 + alpha72 * u2 + alpha73 * u3);
-	// b8 = K64 / a0 + (k13 + k14) * (dthetap6d / a0 - z81) + k13 * k14 * (thetap6d / a0 - z82 / a0) - (alpha81 * a0 + alpha82 * u2 + alpha83 * u3);
-	// b9 = ddthetap7d / a0 + (k15 + k16) * ((dthetap7d / a0) - z91) + k15 * k16 * ((thetap7d / a0) - z92 / a0) - (alpha91 * a0 + alpha92 * u2 + alpha93 * u3);
+	b7 = K54 / a0 + (k11 + k12) * (dthetap5d / a0 - z71) + k11 * k12 * (thetap5d / a0 - z72 / a0) - (alpha71 * a0 + alpha72 * u2 + alpha73 * u3);
+	b8 = K64 / a0 + (k13 + k14) * (dthetap6d / a0 - z81) + k13 * k14 * (thetap6d / a0 - z82 / a0) - (alpha81 * a0 + alpha82 * u2 + alpha83 * u3);
+	b9 = ddthetap7d / a0 + (k15 + k16) * ((dthetap7d / a0) - z91) + k15 * k16 * ((thetap7d / a0) - z92 / a0) - (alpha91 * a0 + alpha92 * u2 + alpha93 * u3);
 
-	// inv(u7_a, u7_inv_a);
+	inv(u7_a, u7_inv_a);
 
-	// u7and = u7_inv_a[0][0] * b7 + u7_inv_a[0][1] * b8 + u7_inv_a[0][2] * b9;
-	// u8and = u7_inv_a[1][0] * b7 + u7_inv_a[1][1] * b8 + u7_inv_a[1][2] * b9;
-	// u9and = u7_inv_a[2][0] * b7 + u7_inv_a[2][1] * b8 + u7_inv_a[2][2] * b9;
+	u7and = u7_inv_a[0][0] * b7 + u7_inv_a[0][1] * b8 + u7_inv_a[0][2] * b9;
+	u8and = u7_inv_a[1][0] * b7 + u7_inv_a[1][1] * b8 + u7_inv_a[1][2] * b9;
+	u9and = u7_inv_a[2][0] * b7 + u7_inv_a[2][1] * b8 + u7_inv_a[2][2] * b9;
 
-	// u7 = u7and;
-	// u8 = u8and;
-	// u9 = u9and;
-      Eigen::Matrix3d A7;
-      A7 <<  (alpha77 - (K51 / a0)),   (-K52 / a0),              (-K53 / a0),
-             (alpha87 - (K61 / a0)),   (alpha88 - (K62 / a0)),   (-K63 / a0),
-              alpha97,                  alpha98,                  alpha99;
+	u7 = u7and;
+	u8 = u8and;
+	u9 = u9and;
+      // Eigen::Matrix3d A7;
+      // A7 <<  (alpha77 - (K51 / a0)),   (-K52 / a0),              (-K53 / a0),
+      //        (alpha87 - (K61 / a0)),   (alpha88 - (K62 / a0)),   (-K63 / a0),
+      //         alpha97,                  alpha98,                  alpha99;
       
-      Eigen::Vector3d b7v;
-      b7v << ( K54 / a0
-               + (k11 + k12) * (dthetap5d / a0 - z71)
-               + (k11 * k12) * (thetap5d / a0 - z72 / a0)
-               - (alpha71 * a0 + alpha72 * u2 + alpha73 * u3) ),
-             ( K64 / a0
-               + (k13 + k14) * (dthetap6d / a0 - z81)
-               + (k13 * k14) * (thetap6d / a0 - z82 / a0)
-               - (alpha81 * a0 + alpha82 * u2 + alpha83 * u3) ),
-             ( ddthetap7d / a0
-               + (k15 + k16) * (dthetap7d / a0 - z91)
-               + (k15 * k16) * (thetap7d / a0 - z92 / a0)
-               - (alpha91 * a0 + alpha92 * u2 + alpha93 * u3) );
+      // Eigen::Vector3d b7v;
+      // b7v << ( K54 / a0
+      //          + (k11 + k12) * (dthetap5d / a0 - z71)
+      //          + (k11 * k12) * (thetap5d / a0 - z72 / a0)
+      //          - (alpha71 * a0 + alpha72 * u2 + alpha73 * u3) ),
+      //        ( K64 / a0
+      //          + (k13 + k14) * (dthetap6d / a0 - z81)
+      //          + (k13 * k14) * (thetap6d / a0 - z82 / a0)
+      //          - (alpha81 * a0 + alpha82 * u2 + alpha83 * u3) ),
+      //        ( ddthetap7d / a0
+      //          + (k15 + k16) * (dthetap7d / a0 - z91)
+      //          + (k15 * k16) * (thetap7d / a0 - z92 / a0)
+      //          - (alpha91 * a0 + alpha92 * u2 + alpha93 * u3) );
             
-      // --- 解法：CompleteOrthogonalDecoposition（最小二乗/ランク落ちに強い）---
-      Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix3d> cod;
-      cod.setThreshold(1e-12);   // スケールに応じて調整可
-      cod.compute(A7);
+      // // --- 解法：CompleteOrthogonalDecoposition（最小二乗/ランク落ちに強い）---
+      // Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix3d> cod;
+      // cod.setThreshold(1e-12);   // スケールに応じて調整可
+      // cod.compute(A7);
 
-      Eigen::Vector3d x7;
-      if (cod.rank() < 3) {
-          // ランク落ち時はティホノフ正則化付き最小二乗でフォールバック
-          const double lambda = 1e-8;              // 1e-10〜1e-6 程度で調整
-          const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
-          x7 = (A7.transpose()*A7 + lambda*I).ldlt().solve(A7.transpose()*b7v);
-      } else {
-          x7 = cod.solve(b7v);
-      }
+      // Eigen::Vector3d x7;
+      // if (cod.rank() < 3) {
+      //     // ランク落ち時はティホノフ正則化付き最小二乗でフォールバック
+      //     const double lambda = 1e-8;              // 1e-10〜1e-6 程度で調整
+      //     const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
+      //     x7 = (A7.transpose()*A7 + lambda*I).ldlt().solve(A7.transpose()*b7v);
+      // } else {
+      //     x7 = cod.solve(b7v);
+      // }
 
-      // （任意）残差の相対ノルムで健全性チェック
-      const double rel_err_u7 = (A7 * x7 - b7v).norm() / (b7v.norm() + 1e-12);
-      // ROS_DEBUG_STREAM("U7-9 solve rel_err=" << rel_err_u7);
+      // // （任意）残差の相対ノルムで健全性チェック
+      // const double rel_err_u7 = (A7 * x7 - b7v).norm() / (b7v.norm() + 1e-12);
+      // // ROS_DEBUG_STREAM("U7-9 solve rel_err=" << rel_err_u7);
 
-      // --- 代入 ---
-      u7and = x7(0);
-      u8and = x7(1);
-      u9and = x7(2);
+      // // --- 代入 ---
+      // u7and = x7(0);
+      // u8and = x7(1);
+      // u9and = x7(2);
 
-      u7 = u7and;
-      u8 = u8and;
-      u9 = u9and;
+      // u7 = u7and;
+      // u8 = u8and;
+      // u9 = u9and;
 }
 
 void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
@@ -8811,83 +8811,83 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 
 
         
-	// u10_a[0][0] = alpha1010 - (K81 / a0);
-	// u10_a[0][1] = -K82 / a0;
-	// u10_a[0][2] = -K83 / a0;
-	// u10_a[1][0] = alpha1110 - (K91 / a0);
-	// u10_a[1][1] = alpha1111 - (K92 / a0);
-	// u10_a[1][2] = -K93 / a0;
-	// u10_a[2][0] = alpha1210;
-	// u10_a[2][1] = alpha1211;
-	// u10_a[2][2] = alpha1212;
+	u10_a[0][0] = alpha1010 - (K81 / a0);
+	u10_a[0][1] = -K82 / a0;
+	u10_a[0][2] = -K83 / a0;
+	u10_a[1][0] = alpha1110 - (K91 / a0);
+	u10_a[1][1] = alpha1111 - (K92 / a0);
+	u10_a[1][2] = -K93 / a0;
+	u10_a[2][0] = alpha1210;
+	u10_a[2][1] = alpha1211;
+	u10_a[2][2] = alpha1212;
 
-	// b10 = K84 / a0 + (k17 + k18) * (dthetap8d / a0 - z101) + k17 * k18 * (thetap8d / a0 - z102 / a0) - (alpha101 * a0 + alpha102 * u2 + alpha103 * u3);
-	// b11 = K94 / a0 + (k19 + k20) * (dthetap9d / a0 - z111) + k19 * k20 * (thetap9d / a0 - z112 / a0) - (alpha111 * a0 + alpha112 * u2 + alpha113 * u3);
-	// b12 = ddthetap10d / a0 + (k21 + k22) * ((dthetap10d / a0) - z121) + k21 * k22 * ((thetap10d / a0) - z122 / a0) - (alpha121 * a0 + alpha122 * u2 + alpha123 * u3);
+	b10 = K84 / a0 + (k17 + k18) * (dthetap8d / a0 - z101) + k17 * k18 * (thetap8d / a0 - z102 / a0) - (alpha101 * a0 + alpha102 * u2 + alpha103 * u3);
+	b11 = K94 / a0 + (k19 + k20) * (dthetap9d / a0 - z111) + k19 * k20 * (thetap9d / a0 - z112 / a0) - (alpha111 * a0 + alpha112 * u2 + alpha113 * u3);
+	b12 = ddthetap10d / a0 + (k21 + k22) * ((dthetap10d / a0) - z121) + k21 * k22 * ((thetap10d / a0) - z122 / a0) - (alpha121 * a0 + alpha122 * u2 + alpha123 * u3);
 
-	// inv(u10_a, u10_inv_a);
+	inv(u10_a, u10_inv_a);
 
-	// u10and = u10_inv_a[0][0] * b10 + u10_inv_a[0][1] * b11 + u10_inv_a[0][2] * b12;
-	// u11and = u10_inv_a[1][0] * b10 + u10_inv_a[1][1] * b11 + u10_inv_a[1][2] * b12;
-	// u12and = u10_inv_a[2][0] * b10 + u10_inv_a[2][1] * b11 + u10_inv_a[2][2] * b12;
+	u10and = u10_inv_a[0][0] * b10 + u10_inv_a[0][1] * b11 + u10_inv_a[0][2] * b12;
+	u11and = u10_inv_a[1][0] * b10 + u10_inv_a[1][1] * b11 + u10_inv_a[1][2] * b12;
+	u12and = u10_inv_a[2][0] * b10 + u10_inv_a[2][1] * b11 + u10_inv_a[2][2] * b12;
 
-	// u10 = u10and;
-	// u11 = u11and;
-	// u12 = u12and;
+	u10 = u10and;
+	u11 = u11and;
+	u12 = u12and;
    
 
-   // ... 係数の計算（alpha****, K**, a0, k**, thetap**, dthetap**, ddthetap**, z**, u2, u3）までは今まで通り ...
+   // // ... 係数の計算（alpha****, K**, a0, k**, thetap**, dthetap**, ddthetap**, z**, u2, u3）までは今まで通り ...
 
-   // --- A と b の構築（u10,u11,u12 ブロック）---
-   // --- 係数行列・右辺の組み立て ---
-   Eigen::Matrix3d A10;
-   A10 <<  alpha1010 - (K81 / a0),   -K82 / a0,              -K83 / a0,
-           alpha1110 - (K91 / a0),   alpha1111 - (K92 / a0), -K93 / a0,
-           alpha1210,                alpha1211,              alpha1212;
+   // // --- A と b の構築（u10,u11,u12 ブロック）---
+   // // --- 係数行列・右辺の組み立て ---
+   // Eigen::Matrix3d A10;
+   // A10 <<  alpha1010 - (K81 / a0),   -K82 / a0,              -K83 / a0,
+   //         alpha1110 - (K91 / a0),   alpha1111 - (K92 / a0), -K93 / a0,
+   //         alpha1210,                alpha1211,              alpha1212;
 
-   Eigen::Vector3d b10v;
-   b10v << ( K84 / a0
-             + (k17 + k18) * (dthetap8d / a0 - z101)
-             + (k17 * k18) * (thetap8d / a0 - z102 / a0)
-             - (alpha101 * a0 + alpha102 * u2 + alpha103 * u3) ),
-           ( K94 / a0
-             + (k19 + k20) * (dthetap9d / a0 - z111)
-             + (k19 * k20) * (thetap9d / a0 - z112 / a0)
-             - (alpha111 * a0 + alpha112 * u2 + alpha113 * u3) ),
-           ( ddthetap10d / a0
-             + (k21 + k22) * (dthetap10d / a0 - z121)
-             + (k21 * k22) * (thetap10d / a0 - z122 / a0)
-             - (alpha121 * a0 + alpha122 * u2 + alpha123 * u3) );
+   // Eigen::Vector3d b10v;
+   // b10v << ( K84 / a0
+   //           + (k17 + k18) * (dthetap8d / a0 - z101)
+   //           + (k17 * k18) * (thetap8d / a0 - z102 / a0)
+   //           - (alpha101 * a0 + alpha102 * u2 + alpha103 * u3) ),
+   //         ( K94 / a0
+   //           + (k19 + k20) * (dthetap9d / a0 - z111)
+   //           + (k19 * k20) * (thetap9d / a0 - z112 / a0)
+   //           - (alpha111 * a0 + alpha112 * u2 + alpha113 * u3) ),
+   //         ( ddthetap10d / a0
+   //           + (k21 + k22) * (dthetap10d / a0 - z121)
+   //           + (k21 * k22) * (thetap10d / a0 - z122 / a0)
+   //           - (alpha121 * a0 + alpha122 * u2 + alpha123 * u3) );
 
-   // --- 解法：CompleteOrthogonalDecomposition（最小二乗/ランク落ちに強い）---
-   Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix3d> cod;
-   cod.setThreshold(1e-12);               // 数値スケールに応じて調整可
-   cod.compute(A10);
+   // // --- 解法：CompleteOrthogonalDecomposition（最小二乗/ランク落ちに強い）---
+   // Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix3d> cod;
+   // cod.setThreshold(1e-12);               // 数値スケールに応じて調整可
+   // cod.compute(A10);
 
-   // ランク判定（3x3なので rank==3 が正則）
-   Eigen::Vector3d x10;
-   if (cod.rank() < 3) {
-       // ランク落ち時：ティホノフ正則化付き最小二乗でフォールバック
-       const double lambda = 1e-8;        // 必要に応じて 1e-10〜1e-6 で調整
-       const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
-       x10 = (A10.transpose() * A10 + lambda * I).ldlt().solve(A10.transpose() * b10v);
-   } else {
-       // フルランク：CODの解を採用
-       x10 = cod.solve(b10v);
-   }
+   // // ランク判定（3x3なので rank==3 が正則）
+   // Eigen::Vector3d x10;
+   // if (cod.rank() < 3) {
+   //     // ランク落ち時：ティホノフ正則化付き最小二乗でフォールバック
+   //     const double lambda = 1e-8;        // 必要に応じて 1e-10〜1e-6 で調整
+   //     const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
+   //     x10 = (A10.transpose() * A10 + lambda * I).ldlt().solve(A10.transpose() * b10v);
+   // } else {
+   //     // フルランク：CODの解を採用
+   //     x10 = cod.solve(b10v);
+   // }
 
-   // 残差チェック（任意：ログ用）
-   const double rel_err = (A10 * x10 - b10v).norm() / (b10v.norm() + 1e-12);
-   // 例: ROS_DEBUG_STREAM("U10-12 solve rel_err=" << rel_err);
+   // // 残差チェック（任意：ログ用）
+   // const double rel_err = (A10 * x10 - b10v).norm() / (b10v.norm() + 1e-12);
+   // // 例: ROS_DEBUG_STREAM("U10-12 solve rel_err=" << rel_err);
 
-   // --- 代入 ---
-   u10and = x10(0);
-   u11and = x10(1);
-   u12and = x10(2);
+   // // --- 代入 ---
+   // u10and = x10(0);
+   // u11and = x10(1);
+   // u12and = x10(2);
 
-   u10 = u10and;
-   u11 = u11and;
-   u12 = u12and;
+   // u10 = u10and;
+   // u11 = u11and;
+   // u12 = u12and;
 
 
 }

@@ -54,8 +54,8 @@
 <xacro:property name="rotational_joint_friction" value="${rotational_joint_mu * gravitational_acceleration * sim_carrier_mass/3}" />
 
 <!-- wheelの接地面の摩擦などを定義 -->
-<xacro:property name="wheel_surface_mu1" value="0.8"/>
-<xacro:property name="wheel_surface_mu2" value="0.6" />
+<xacro:property name="wheel_surface_mu1" value="0.7"/>
+<xacro:property name="wheel_surface_mu2" value="0.5" />
 <xacro:property name="wheel_kp" value="2e7" /> 
 <xacro:property name="wheel_kd" value="5.0" />
 <xacro:property name="wheel_minDepth" value="0.01" />
