@@ -1,84 +1,105 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.16)   # Unity build と PCH を使うために 3.16 以上を推奨
 project(cooperative_transportation_4ws_description)
 
-## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
-## C++11を有効化
-add_compile_options(-std=c++11)
-
+# ================= コンパイラ/グローバル設定 =================
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type")
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
+# ビルドタイプ（catkin 側指定がなければ Debug を既定に）
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
+
+# 共有/静的混在でも安全なように、全ターゲットを PIC 化
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+# ccache（あれば自動で有効化）
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+  message(STATUS "ccache found: enabling compiler launcher")
+  set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+endif()
+
+# ================= 依存 =================
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  tf        #ここにtf関係を追加
+  tf
   tf2
   tf2_ros
   gazebo_plugins
 )
 
-## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
-
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES fusion2urdf
-#  CATKIN_DEPENDS rospy
-#  DEPENDS system_lib
+  INCLUDE_DIRS include
+  LIBRARIES kinematics_solver mathematica
+  CATKIN_DEPENDS roscpp rospy std_msgs tf tf2 tf2_ros gazebo_plugins
 )
 
-###########
-## Build ##
-###########
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
-
-
-#--- これを追加 ---
-## C++17 を使う
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)  # 拡張なしで純粋な C++17
-#--- ここまで追加 ---
+# ================= インクルード =================
 include_directories(
-# include
   ${catkin_INCLUDE_DIRS}
   ${PROJECT_SOURCE_DIR}/include
-  /usr/include/eigen3 
+  /usr/include/eigen3
 )
 
+# ================= 自動生成(200+) → “mathematica” ライブラリ =================
+file(GLOB_RECURSE MATHEMATICA_SRCS
+     "${CMAKE_CURRENT_SOURCE_DIR}/src/mathematica/*.cpp")
 
-add_executable(cooperative_transportation_velocity src/cooperative_transportation_velocity.cpp)
-add_executable(formclosure_test src/formclosure_test.cpp)
-
-
-target_link_libraries(cooperative_transportation_velocity
-${catkin_LIBRARIES}
+# 静的でも PIC 必須（共有に取り込むため）
+add_library(mathematica STATIC ${MATHEMATICA_SRCS})
+set_target_properties(mathematica PROPERTIES
+  POSITION_INDEPENDENT_CODE ON
+  UNITY_BUILD ON                      # ★ Unity/Jumbo ビルドでコンパイル回数を削減
+  UNITY_BUILD_BATCH_SIZE 24           # 適宜調整（大きくするとメモリ消費↑）
 )
 
-target_link_libraries(formclosure_test
-${catkin_LIBRARIES}
+target_include_directories(mathematica PUBLIC
+  ${PROJECT_SOURCE_DIR}/include
+  ${catkin_INCLUDE_DIRS}
 )
 
+# 生成コードはデバッグ情報を軽く/無しにしてビルド時間短縮
+# （gdbで生成関数に入らないなら -g0 推奨、多少残すなら -g1）
+target_compile_options(mathematica PRIVATE -O2 -g0)
 
-
-add_executable(steering_desired_controller
-  src/main.cpp
-  src/vehicle.cpp
-  src/callback.cpp
+# PCH（前処理を共有）：生成コードが大量に Eigen を読むなら効く
+# CMake 3.16+ / GCC/Clang 対応
+target_precompile_headers(mathematica PRIVATE
+  <Eigen/Core>
+  <Eigen/Dense>
+  <vector>
+  <array>
+  <cmath>
 )
 
-target_link_libraries(steering_desired_controller
+target_link_libraries(mathematica
   ${catkin_LIBRARIES}
 )
 
+# ================= ソルバ本体（共有ライブラリに明示） =================
+# 以前のリンクエラーは libkinematics_solver.so 作成時に発生していたので SHARED を明示
+add_library(kinematics_solver SHARED
+  src/kinematics_solver.cpp
+)
+set_target_properties(kinematics_solver PROPERTIES
+  POSITION_INDEPENDENT_CODE ON
+)
+
+target_include_directories(kinematics_solver PUBLIC
+  ${PROJECT_SOURCE_DIR}/include
+  ${catkin_INCLUDE_DIRS}
+)
+
+target_link_libraries(kinematics_solver
+  mathematica
+  ${catkin_LIBRARIES}
+)
+
+# ================= 既存ノード =================
 
 add_executable(cooperative_transportation_kinematics_controller
   src/cooperative_transportation_kinematics.cpp
@@ -97,84 +118,26 @@ target_link_libraries(cooperative_transportation_kinematics_controller
   ${catkin_LIBRARIES}
 )
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_executable(cooperative_transportation_dynamics_controller
+  src/cooperative_transportation_dynamics.cpp
+  src/vehicle_ct.cpp
+  src/callback_dy.cpp
+  src/csvLogger.cpp
+  src/Bezier.cpp
+  src/differential_equations.cpp
+  src/getInputValue.cpp
+  src/mathFunc.cpp
+  src/DynamicsCalc.cpp
+  src/initial.cpp
+  src/dynamics_integrator_matrix.cpp
+)
 
+target_link_libraries(cooperative_transportation_dynamics_controller
+  kinematics_solver
+  ${catkin_LIBRARIES}
+)
 
-## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/fusion2urdf.cpp
-# )
-
-## Add cmake target dependencies of the library
-## as an example, code may need to be generated before libraries
-## either from message generation or dynamic reconfigure
-# add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Declare a C++ executable
-## With catkin_make all packages are built within a single CMake context
-## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/fusion2urdf_node.cpp)
-
-## Rename C++ executable without prefix
-## The above recommended prefix causes long target names, the following renames the
-## target back to the shorter version for ease of user use
-## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
-# set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX "")
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
-
-#############
-## Install ##
-#############
-
-# all install targets should use catkin DESTINATION variables
-# See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
-
-## Mark executable scripts (Python etc.) for installation
-## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark executables and/or libraries for installation
-# install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark cpp header files for installation
-# install(DIRECTORY include/${PROJECT_NAME}/
-#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-#   FILES_MATCHING PATTERN "*.h"
-#   PATTERN ".svn" EXCLUDE
-# )
-
-## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
-#   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
-
-#############
-## Testing ##
-#############
-
-## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_fusion2urdf.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
+# （任意）mathematica のみ最適化レベルを強めたい場合（RelWithDebInfo 相当）
+# if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+#   target_compile_options(mathematica PRIVATE -O2 -g0)
 # endif()
-
-## Add folders to be run by python nosetests
-# catkin_add_nosetests(test)

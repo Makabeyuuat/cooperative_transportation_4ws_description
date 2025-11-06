@@ -1,7 +1,7 @@
-#include "getInputValue.hpp"
-#include "initial.hpp"
-#include "differential_equations.hpp"
-#include "mathFunc.h"
+#include "cooperative_transportation_4ws_backstepping/getInputValue.hpp"
+#include "cooperative_transportation_4ws_backstepping/initial.hpp"
+#include "cooperative_transportation_4ws_backstepping/differential_equations.hpp"
+#include "cooperative_transportation_4ws_backstepping/mathFunc.h"
 #include <ros/ros.h> 
 #include <Eigen/Dense>
 
@@ -134,10 +134,11 @@ void getInputValue::getXInput(std::vector<double>& x_old, std::vector<double>& x
 void getInputValue::U1(const std::vector<double>& x_old, int sr_j) {
     w1 = a0;
 	u1 = ((1 - sr.d * sr.Cs) / cos(Thetap0)) * w1;
+
+   u_kinematics[0] = u1;
 }
 
 void getInputValue::U2(const std::vector<double>& x_old, int sr_j) {
-    double  w2;
 
 	
 	//経路追従
@@ -162,10 +163,11 @@ void getInputValue::U2(const std::vector<double>& x_old, int sr_j) {
 	w2 = ddd0d / a0 + (k1 + k2) * ((dd0d / a0) - z21) + k1 * k2 * ((d0d / a0) - z22 / a0);
 
 	u2 = (1 / alpha22) * (w2 - alpha21 * u1);
+
+   u_kinematics[1] = u2;
 }
 
 void getInputValue::U3(const std::vector<double>& x, int sr_j) {
-    double  w3;
 
 
 
@@ -187,6 +189,8 @@ void getInputValue::U3(const std::vector<double>& x, int sr_j) {
 	w3 = ddthetap1d / a0 + (k3 + k4) * ((dthetap1d / a0) - z31) + k3 * k4 * ((thetap1d / a0) - z32 / a0);
 
 	u3 = (1 / alpha33) * (w3 - (alpha31 * u1 + alpha32 * u2));
+
+   u_kinematics[2] = u3;
 }
 
 void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
@@ -1821,6 +1825,14 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 	u4 = u4and;
 	u5 = u5and;
 	u6 = u6and;
+
+   u_kinematics(3) = u4and;
+	u_kinematics(4) = u5and;
+	u_kinematics(5) = u6and;
+
+   w4 = (1/ a0)*(K21*u_kinematics(3) + K22*u_kinematics(4) + K23*u_kinematics(5) + K24) + (k5 + k6) * (dthetap2d / a0 - z71) + k5 * k6 * (thetap2d / a0 - z72 / a0);
+	w5 = (1/ a0)*(K31*u_kinematics(3) + K32*u_kinematics(4) + K33*u_kinematics(5) + K34) + (k7 + k8) * (dthetap3d / a0 - z81) + k7 * k8 * (thetap3d / a0 - z82 / a0);
+	w6 = ddthetap4d / a0 + (k9 + k10) * ((dthetap4d / a0) - z61) + k9 * k10 * ((thetap4d / a0) - z62 / a0);
 }
 
 
@@ -5238,52 +5250,14 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 	u7 = u7and;
 	u8 = u8and;
 	u9 = u9and;
-      // Eigen::Matrix3d A7;
-      // A7 <<  (alpha77 - (K51 / a0)),   (-K52 / a0),              (-K53 / a0),
-      //        (alpha87 - (K61 / a0)),   (alpha88 - (K62 / a0)),   (-K63 / a0),
-      //         alpha97,                  alpha98,                  alpha99;
-      
-      // Eigen::Vector3d b7v;
-      // b7v << ( K54 / a0
-      //          + (k11 + k12) * (dthetap5d / a0 - z71)
-      //          + (k11 * k12) * (thetap5d / a0 - z72 / a0)
-      //          - (alpha71 * a0 + alpha72 * u2 + alpha73 * u3) ),
-      //        ( K64 / a0
-      //          + (k13 + k14) * (dthetap6d / a0 - z81)
-      //          + (k13 * k14) * (thetap6d / a0 - z82 / a0)
-      //          - (alpha81 * a0 + alpha82 * u2 + alpha83 * u3) ),
-      //        ( ddthetap7d / a0
-      //          + (k15 + k16) * (dthetap7d / a0 - z91)
-      //          + (k15 * k16) * (thetap7d / a0 - z92 / a0)
-      //          - (alpha91 * a0 + alpha92 * u2 + alpha93 * u3) );
-            
-      // // --- 解法：CompleteOrthogonalDecoposition（最小二乗/ランク落ちに強い）---
-      // Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix3d> cod;
-      // cod.setThreshold(1e-12);   // スケールに応じて調整可
-      // cod.compute(A7);
 
-      // Eigen::Vector3d x7;
-      // if (cod.rank() < 3) {
-      //     // ランク落ち時はティホノフ正則化付き最小二乗でフォールバック
-      //     const double lambda = 1e-8;              // 1e-10〜1e-6 程度で調整
-      //     const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
-      //     x7 = (A7.transpose()*A7 + lambda*I).ldlt().solve(A7.transpose()*b7v);
-      // } else {
-      //     x7 = cod.solve(b7v);
-      // }
+   u_kinematics(6) = u7and;
+	u_kinematics(7) = u8and;
+	u_kinematics(8) = u9and;
 
-      // // （任意）残差の相対ノルムで健全性チェック
-      // const double rel_err_u7 = (A7 * x7 - b7v).norm() / (b7v.norm() + 1e-12);
-      // // ROS_DEBUG_STREAM("U7-9 solve rel_err=" << rel_err_u7);
-
-      // // --- 代入 ---
-      // u7and = x7(0);
-      // u8and = x7(1);
-      // u9and = x7(2);
-
-      // u7 = u7and;
-      // u8 = u8and;
-      // u9 = u9and;
+   w7 = (1/ a0)*(K51*u_kinematics(6) + K52*u_kinematics(7) + K53*u_kinematics(8) + K54) + (k11 + k12) * (dthetap5d / a0 - z71) + k11 * k12 * (thetap5d / a0 - z72 / a0);
+	w8 = (1/ a0)*(K61*u_kinematics(6) + K62*u_kinematics(7) + K63*u_kinematics(8) + K64) + (k13 + k14) * (dthetap6d / a0 - z81) + k13 * k14 * (thetap6d / a0 - z82 / a0);
+	w9 = ddthetap7d / a0 + (k15 + k16) * ((dthetap7d / a0) - z91) + k15 * k16 * ((thetap7d / a0) - z92 / a0);
 }
 
 void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
@@ -8834,6 +8808,14 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 	u10 = u10and;
 	u11 = u11and;
 	u12 = u12and;
+
+   u_kinematics(9) = u10and;
+	u_kinematics(10) = u11and;
+	u_kinematics(11) = u12and;
+
+   w10 = (1/ a0)*(K81*u_kinematics(9) + K82*u_kinematics(10) + K83*u_kinematics(11) + K84) + (k17 + k18) * (dthetap8d / a0 - z101) + k17 * k18 * (thetap8d / a0 - z102 / a0);
+	w11 = (1/ a0)*(K91*u_kinematics(9) + K92*u_kinematics(10) + K93*u_kinematics(11) + K94) + (k19 + k20) * (dthetap9d / a0 - z111) + k19 * k20 * (thetap9d / a0 - z112 / a0);
+	w12 = ddthetap10d / a0 + (k21 + k22) * ((dthetap10d / a0) - z121) + k21 * k22 * ((thetap10d / a0) - z122 / a0);
    
 
    // // ... 係数の計算（alpha****, K**, a0, k**, thetap**, dthetap**, ddthetap**, z**, u2, u3）までは今まで通り ...

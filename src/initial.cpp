@@ -1,11 +1,21 @@
-#include "initial.hpp"
+#include "cooperative_transportation_4ws_backstepping/initial.hpp"
+
+
+std::vector<double> x_old;
+std::vector<double> x_new;
+std::vector<double> x_input;
+
+
+Eigen::Map<Eigen::Matrix<double,27,1>> q_map(q_twist);
+Eigen::Map<Eigen::Matrix<double,27,1>> qdot_map(qdot_twist);
+
 
 void initial(double &t, double &dt, std::vector<double> &x0, std::vector<double> &x_new, std::vector<double> &x_input) {
     t = 66.8;
     dt = 0.02;
 
     // 必要なサイズにリサイズ（DIM + 1 個）
-    x0.resize(DIM + 1, 0.0);
+    x_old.resize(DIM + 1, 0.0);
     x_new.resize(DIM + 1, 0.0);
     x_input.resize(DIM + 1, 0.0);
 
