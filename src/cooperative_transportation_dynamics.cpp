@@ -19,6 +19,8 @@
 #include "cooperative_transportation_4ws_backstepping/callback_ct.hpp"     // コールバック関数の宣言
 #include "cooperative_transportation_4ws_backstepping/initial.hpp"		// 初期値設定のヘッダーファイル
 #include "cooperative_transportation_4ws_backstepping/DynamicsCalc.hpp"
+#include "cooperative_transportation_4ws_backstepping/dynamics_integrator.hpp"
+
 #include "cooperative_transportation_4ws_backstepping/getInputValue.hpp"
 #include "cooperative_transportation_4ws_backstepping/csvLogger.hpp"	// グローバル変数のヘッダーファイル
 #include "cooperative_transportation_4ws_backstepping/wheel_kinematics.hpp"
@@ -64,6 +66,11 @@ int main(int argc, char** argv)
 	// 各クラスをインスタンス化
     DynamicsCalculator dynamics_calc;
 	getInputValue getInputValue(0.02);
+
+	DynamicsIntegrator dynamicsintegrator(0.02);
+
+	// 初期化処理
+	//initials();
 
 	//データファイル作成
   	std::string pkg = ros::package::getPath("cooperative_transportation_4ws_description");
@@ -163,77 +170,64 @@ int main(int argc, char** argv)
     dynamics_calc.calculate(x_old, t_max, l1, l2, l3, sr.j);
 	//制御入力
 	getInputValue.getU(x_old, sr.j);
+	dynamicsintegrator.step(q_map, qdot_map, u_kinematics);
+	//Runge-Kuttaで次の時刻の状態を計算
 	getInputValue.rungeKutta(x_old, sr.j);
 	//再度、車両の速度を計算
 	//dynamics_calc.computeCoefficients(x_old);
 
-	// 例：v1f,v1r, Phi[1], x_old[10] が既知
+	//運動学モデル
     auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
     auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
     auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);
 	// 各車両へ steering コマンドと車輪の回転速度コマンドを送信
-
-    vehicle1.publishWheelCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
-    vehicle2.publishWheelCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
-    vehicle3.publishWheelCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+	vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
+    vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
+    vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
     vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
     vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
     vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
+
+	//動力学モデル
+	// 各車両へ steering コマンドと車輪の回転速度コマンドを送信
+	// vehicle1.publishSteeringCommand(Q_phiFL1, Q_phiFR1, Q_phiRL1, Q_phiRR1);
+    // vehicle2.publishSteeringCommand(Q_phiFL2, Q_phiFR2, Q_phiRL2, Q_phiRR2);
+    // vehicle3.publishSteeringCommand(Q_phiFL3, Q_phiFR3, Q_phiRL3, Q_phiRR3);
+    // vehicle1.publishWheelCommand(v1_torque_front[0], v1_torque_front[1], v1_torque_rear[0], v1_torque_rear[1]);
+    // vehicle2.publishWheelCommand(v2_torque_front[0], v2_torque_front[1], v2_torque_rear[0], v2_torque_rear[1]);
+    // vehicle3.publishWheelCommand(v3_torque_front[0], v3_torque_front[1], v3_torque_rear[0], v3_torque_rear[1]);
+
 
 	logger.logData();
 	
 	//Gazeboのフィードバックをもとに計算
 	while(ros::ok()) {
 		double current_time = ros::Time::now().toSec();
-        //double desired_steering = 0.5 * sin(current_time);
 		//ROSのコールバックを処理
 		ros::spinOnce();
 	
 		dynamics_calc.calcXold(x_old);
 
-		ROS_INFO_THROTTLE(0.2,"calcX:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
-	    ROS_INFO_THROTTLE(0.2,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
-	    ROS_INFO_THROTTLE(0.2,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f", x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
-	    ROS_INFO_THROTTLE(0.2,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n",x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
-
+	
 		//係数aの計算(ここでx_oldも計算)
 		dynamics_calc.computeCoefficients(x_old);
 
 		//部分探索
 		searchPP(x_old);
-		
-
 		dynamics_calc.calculate(x_old, t_max, l1, l2, l3, sr.j);
-
-	
 		//制御入力を計算
 		getInputValue.getU(x_old, sr.j);
-
-		ROS_INFO_THROTTLE(0.2,"afterGetU:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
-	    ROS_INFO_THROTTLE(0.2,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
-	    ROS_INFO_THROTTLE(0.2,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
-	    ROS_INFO_THROTTLE(0.2,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n\n",x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
-
-		
+		//駆動トルクを計算
+		dynamicsintegrator.step(q_map, qdot_map, u_kinematics);
 		getInputValue.rungeKutta(x_old, sr.j);
 		//再度、車両の速度を計算
 		//dynamics_calc.computeCoefficients(x_old);
 	
-		//車輪の左右差を考慮して計算
+		//運動学モデル
         auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
         auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
         auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);
-
 		// 各車両へ steering コマンドと車輪の回転速度コマンドを送信
-        // vehicle1.publishSteeringCommand(Phi[1], Phi[1], x_old[10], x_old[10]);
-        // vehicle2.publishSteeringCommand(Phi[2], Phi[2], x_old[16], x_old[16]);
-        // vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
-
-        // vehicle1.publishWheelCommand(v1f, v1f, v1r, v1r);
-        // vehicle2.publishWheelCommand(v2f, v2f, v2r, v2r);
-        // vehicle3.publishWheelCommand(v3f, v3f, v3r, v3r);
-
-
 		vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
         vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
         vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
@@ -243,47 +237,16 @@ int main(int argc, char** argv)
         vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
         vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
 
-		//デバッグ用ログ出力
-		// ROS_INFO_THROTTLE(0.1,"t+carrier:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",
-        //    x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
+		//動力学モデル
+		// 各車両へ steering コマンドと車輪の回転速度コマンドを送信
+		// vehicle1.publishSteeringCommand(Q_phiFL1, Q_phiFR1, Q_phiRL1, Q_phiRR1);
+    	// vehicle2.publishSteeringCommand(Q_phiFL2, Q_phiFR2, Q_phiRL2, Q_phiRR2);
+    	// vehicle3.publishSteeringCommand(Q_phiFL3, Q_phiFR3, Q_phiRL3, Q_phiRR3);
+    	// vehicle1.publishWheelCommand(v1_torque_front[0], v1_torque_front[1], v1_torque_rear[0], v1_torque_rear[1]);
+    	// vehicle2.publishWheelCommand(v2_torque_front[0], v2_torque_front[1], v2_torque_rear[0], v2_torque_rear[1]);
+    	// vehicle3.publishWheelCommand(v3_torque_front[0], v3_torque_front[1], v3_torque_rear[0], v3_torque_rear[1]);
 
-		// ROS_INFO_THROTTLE(0.1,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",
-        //    x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
-
-		// ROS_INFO_THROTTLE(0.1,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",
-        //    x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
-
-		// ROS_INFO_THROTTLE(0.1,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f",
-        //    x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
 		
-		
-		// ROS_INFO_THROTTLE(0.1, "sr: j=%d, Psx=%.3f, Psy=%.3f, d=%.3f, Cs=%.6f, dCs1=%.6f, dCs2=%.6f",
-    	//     sr.j, sr.Psx, sr.Psy, sr.d, sr.Cs, sr.Cs1, sr.Cs2);
-
-		// ROS_INFO_THROTTLE(0.1, "v1f=%.6f, v1r=%.6f, v2f=%.6f, v2r=%.6f, v3f=%.6f, v3r=%.6f",
-    	//     v1f, v1r, v2f, v2r, v3f, v3r);
-		
-		// ROS_INFO_THROTTLE(0.1, "v1fl=%.6f, v1fr=%.6f, v1rl=%.6f, v1rr=%.6f",
-    	//     c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
-		// ROS_INFO_THROTTLE(0.1, "v2fl=%.6f, v2fr=%.6f, v2rl=%.6f, v2rr=%.6f",
-		//     c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
-		// ROS_INFO_THROTTLE(0.1, "v3fl=%.6f, v3fr=%.6f, v3rl=%.6f, v3rr=%.6f",
-		//     c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
-
-		// ROS_INFO_THROTTLE(0.1, "del1fl=%.6f, del1fr=%.6f, del1rl=%.6f, del1rr=%.6f",
-    	//     c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
-		// ROS_INFO_THROTTLE(0.1, "del2fl=%.6f, del2fr=%.6f, del2rl=%.6f, del2rr=%.6f",
-		//     c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
-		// ROS_INFO_THROTTLE(0.1, "del3fl=%.6f, del3fr=%.6f, del3rl=%.6f, del3rr=%.6f",
-		//     c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
-		
-
-		// ROS_INFO_THROTTLE(0.1, "Phi1=%.6f, Phi2=%.6f, Phi3=%.6f\n",
-    	//     Phi[1], Phi[2], Phi[3]);
-
-
-
-
 		logger.logData();
 		loop_rate.sleep();
 

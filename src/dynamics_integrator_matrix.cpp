@@ -53,6 +53,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       double phi8dot = u_kinematics(9);
       double phi9dot = x_d[20];
       double phi10dot = x_d[22];
+
       Eigen::Matrix<double,23,12> SX =  kinematics_solver_.SX_mat();
       Eigen::Matrix<double,23,12> dSXdt =  kinematics_solver_.dSXdt_mat();
       Eigen::Matrix<double,12,1> pdud =  kinematics_solver_.pd_ud_vec();
@@ -87,7 +88,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
       //ゲイン
       Eigen::Matrix<double,12,1> gains;
-      gains << 5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0;
+      gains << 10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0;
       Eigen::Matrix<double,12,12> C = gains.asDiagonal();
           
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
@@ -97,10 +98,10 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
       
       //状態変数ベクトルの目標加速度
-      Xalpha = dSXdt*u_act + SX * nu;
+      Xalpha = dSXdt * u_act + SX * nu;
 
       //デバッグ用ログ出力
-	  ROS_INFO("Ps: t = %.3f x=%.3f, y=%.3f, Q=%d", x_old[0], sr.Psx, sr.Psy, sr.j);
+	  ROS_INFO_THROTTLE(0.2,"Ps: t = %.3f x=%.3f, y=%.3f, Q=%d", x_old[0], sr.Psx, sr.Psy, sr.j);
       //u_dとu_actの表示
       ROS_INFO_THROTTLE(0.2,"u_kinematics: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", u_kinematics(0), u_kinematics(1), u_kinematics(2), u_kinematics(3), u_kinematics(4), u_kinematics(5), u_kinematics(6), u_kinematics(7), u_kinematics(8), u_kinematics(9), u_kinematics(10), u_kinematics(11));
 	  ROS_INFO_THROTTLE(0.2,"u_act: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", u_act(0), u_act(1), u_act(2), u_act(3), u_act(4), u_act(5), u_act(6), u_act(7), u_act(8), u_act(9), u_act(10), u_act(11));
@@ -146,14 +147,14 @@ void DynamicsIntegrator::step(
       //目標加速度の取得
       Eigen::Matrix<double,27,1> alpha = computeAlpha(q, qdot, u_kinematics);
 
-      ROS_INFO_THROTTLE(0.2,"q: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", q_map(0), q_map(1), q_map(2), q_map(3), q_map(4), q_map(5), q_map(6), q_map(7), q_map(8), q_map(9), q_map(10), q_map(11));
-	  ROS_INFO_THROTTLE(0.2,"q: 13=%.3f, 14=%.3f, 15=%.3f, 16=%.3f, 17=%.3f, 18=%.3f, 19=%.3f, 20=%.3f,21=%.3f, 22=%.3f, 23=%.3f, 24=%.3f", q_map(12), q_map(13), q_map(14), q_map(15), q_map(16), q_map(17), q_map(18), q_map(19), q_map(20), q_map(21), q_map(22), q_map(23));
-	  ROS_INFO_THROTTLE(0.2,"q: 25=%.3f, 26=%.3f, 27=%.3f\n", q_map(24), q_map(25), q_map(26));
+    //   ROS_INFO_THROTTLE(0.2,"q: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", q_map(0), q_map(1), q_map(2), q_map(3), q_map(4), q_map(5), q_map(6), q_map(7), q_map(8), q_map(9), q_map(10), q_map(11));
+	//   ROS_INFO_THROTTLE(0.2,"q: 13=%.3f, 14=%.3f, 15=%.3f, 16=%.3f, 17=%.3f, 18=%.3f, 19=%.3f, 20=%.3f,21=%.3f, 22=%.3f, 23=%.3f, 24=%.3f", q_map(12), q_map(13), q_map(14), q_map(15), q_map(16), q_map(17), q_map(18), q_map(19), q_map(20), q_map(21), q_map(22), q_map(23));
+	//   ROS_INFO_THROTTLE(0.2,"q: 25=%.3f, 26=%.3f, 27=%.3f", q_map(24), q_map(25), q_map(26));
       
 
-      ROS_INFO_THROTTLE(0.2,"dotq: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", qdot_map(0), q_map(1), qdot_map(2), qdot_map(3), qdot_map(4), qdot_map(5), qdot_map(6), qdot_map(7), qdot_map(8), qdot_map(9), qdot_map(10), qdot_map(11));
-	  ROS_INFO_THROTTLE(0.2,"dotq: 13=%.3f, 14=%.3f, 15=%.3f, 16=%.3f, 17=%.3f, 18=%.3f, 19=%.3f, 20=%.3f,21=%.3f, 22=%.3f, 23=%.3f, 24=%.3f", qdot_map(12), qdot_map(13), qdot_map(14), qdot_map(15), qdot_map(16), qdot_map(17), qdot_map(18), qdot_map(19), qdot_map(20), qdot_map(21), qdot_map(22), qdot_map(23));
-	  ROS_INFO_THROTTLE(0.2,"dotq: 25=%.3f, 26=%.3f, 27=%.3f\n", qdot_map(24), qdot_map(25), qdot_map(26));
+    //   ROS_INFO_THROTTLE(0.2,"dotq: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", qdot_map(0), q_map(1), qdot_map(2), qdot_map(3), qdot_map(4), qdot_map(5), qdot_map(6), qdot_map(7), qdot_map(8), qdot_map(9), qdot_map(10), qdot_map(11));
+	//   ROS_INFO_THROTTLE(0.2,"dotq: 13=%.3f, 14=%.3f, 15=%.3f, 16=%.3f, 17=%.3f, 18=%.3f, 19=%.3f, 20=%.3f,21=%.3f, 22=%.3f, 23=%.3f, 24=%.3f", qdot_map(12), qdot_map(13), qdot_map(14), qdot_map(15), qdot_map(16), qdot_map(17), qdot_map(18), qdot_map(19), qdot_map(20), qdot_map(21), qdot_map(22), qdot_map(23));
+	//   ROS_INFO_THROTTLE(0.2,"dotq: 25=%.3f, 26=%.3f, 27=%.3f\n", qdot_map(24), qdot_map(25), qdot_map(26));
 
       
 
@@ -203,7 +204,7 @@ void DynamicsIntegrator::step(
       lambda_data = lambda;
 
       ROS_INFO_THROTTLE(0.2,"lambda: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", lambda(0), lambda(1), lambda(2), lambda(3), lambda(4), lambda(5), lambda(6), lambda(7), lambda(8), lambda(9), lambda(10), lambda(11));
-	  ROS_INFO_THROTTLE(0.2,"dotq: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda(12), lambda(13), lambda(14), lambda(15), lambda(16), lambda(17));
+	  ROS_INFO_THROTTLE(0.2,"lambda: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda(12), lambda(13), lambda(14), lambda(15), lambda(16), lambda(17));
 
 
 
@@ -226,9 +227,8 @@ void DynamicsIntegrator::step(
       Q_varphiR3 = Q_zeta(9);
       Q_phiF3 = Q_zeta(10);
       Q_varphiF3 = Q_zeta(11);
-     
 
-      // 3) step() の最後でそれぞれに詰める
+      //各車輪の回転トルクを計算
       // 車両1
       std::array<double,2> v1_rearTorque;  
       std::array<double,2> v1_frontTorque;
@@ -247,8 +247,6 @@ void DynamicsIntegrator::step(
       v3_rearTorque  = computeRearWheelTorque(Q_varphiR3, q(25), q(23));
       v3_frontTorque = computeFrontWheelTorque(Q_varphiF3, q(25), q(23));
 
-
-
       v1_torque_rear[0] = v1_rearTorque[0];  // 左後輪
       v1_torque_rear[1] = v1_rearTorque[1];  // 右後輪
       v1_torque_front[0] = v1_frontTorque[0];  // 左後輪
@@ -263,6 +261,28 @@ void DynamicsIntegrator::step(
       v3_torque_rear[1] = v3_rearTorque[1];  // 右後輪
       v3_torque_front[0] = v3_frontTorque[0];  // 左後輪
       v3_torque_front[1] = v3_frontTorque[1];  // 右後輪
+
+      //各車輪のステアリングトルクを計算
+      Q_phiFL1 = Q_phiF1/2.0;
+      Q_phiFR1 = Q_phiF1/2.0; 
+      Q_phiRL1 = Q_phiR1/2.0; 
+      Q_phiRR1 = Q_phiR1/2.0;
+
+      Q_phiFL2 = Q_phiF2/2.0;
+      Q_phiFR2 = Q_phiF2/2.0; 
+      Q_phiRL2 = Q_phiR2/2.0; 
+      Q_phiRR2 = Q_phiR2/2.0;
+
+      Q_phiFL3 = Q_phiF3/2.0;
+      Q_phiFR3 = Q_phiF3/2.0; 
+      Q_phiRL3 = Q_phiR3/2.0; 
+      Q_phiRR3 = Q_phiR3/2.0;
+
+      ROS_INFO_THROTTLE(0.2,"v1: Q_phi1R=%.3f, Q_phi1F=%.3f, Q_varphi1R=%.3f, Q_varphi1F=%.3f", Q_phiR1, Q_phiF1, Q_varphiR1, Q_varphiF1);
+	  ROS_INFO_THROTTLE(0.2,"v2: Q_phi2R=%.3f, Q_phi2F=%.3f, Q_varphi2R=%.3f, Q_varphi2F=%.3f", Q_phiR2, Q_phiF2, Q_varphiR2, Q_varphiF2);
+	  ROS_INFO_THROTTLE(0.2,"v3: Q_phi3R=%.3f, Q_phi3F=%.3f, Q_varphi3R=%.3f, Q_varphi3F=%.3f\n\n", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
+
+     
      
 
       //積分用の配列に代入

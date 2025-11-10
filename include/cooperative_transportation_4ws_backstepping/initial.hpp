@@ -332,6 +332,7 @@ inline double v3_steering_angle_vel_FL, v3_steering_angle_vel_FR, v3_steering_an
 inline double v3_wheel_angle_FL,        v3_wheel_angle_FR,        v3_wheel_angle_RL,        v3_wheel_angle_RR;
 inline double v3_wheel_angle_vel_FL,    v3_wheel_angle_vel_FR,    v3_wheel_angle_vel_RL,    v3_wheel_angle_vel_RR;
 inline double delta_vel1, delta_vel2, delta_vel3;
+inline double Q_phiFR1, Q_phiFL1, Q_phiRR1, Q_phiRL1, Q_phiFR2, Q_phiFL2, Q_phiRR2, Q_phiRL2, Q_phiFR3, Q_phiFL3, Q_phiRR3, Q_phiRL3; 
 
 
 //hill
