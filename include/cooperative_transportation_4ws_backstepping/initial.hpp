@@ -12,7 +12,7 @@
 #define PAI 3.14159265358979323846
 #define LIM 1.48352986419518  //操舵角の上限（85度）
 #define vehicle_inertia_coef 0.04732
-#define wheel_inertia_coef 1.72425
+#define wheel_inertia_coef 0.4
 #define hinge_inertia_coef 2.58637
 #define carrier_inertia_coef 0.0487
 inline constexpr int BEZIER_ORDER = 3; 
@@ -91,7 +91,7 @@ inline Search sr;
 //３次のベジェ曲線
 //細長い経路
 inline double Bx[BEZIER_ORDER + 1] = { -6.5, 1.0, -1.0, 6.5 };
-inline double By[BEZIER_ORDER + 1] = { -3.0, -3.0, 3.0, 3.0 };
+inline double By[BEZIER_ORDER + 1] = { -2.0, -2.0, 2.0, 2.0 };
 //幅広い経路
 // inline double Bx[BEZIER_ORDER + 1] = { -7.0, 7.0, -7.0, 7.0 };
 // inline double By[BEZIER_ORDER + 1] = { 7.0, 7.0, -7.0, -7.0 };
@@ -341,35 +341,34 @@ inline double Q_phiFR1, Q_phiFL1, Q_phiRR1, Q_phiRL1, Q_phiFR2, Q_phiFL2, Q_phiR
 inline double rho = 0.0 * DEG2RAD;
 
 inline double m_wheel = 8;
-inline double m_hinge = 12;
+inline double m_hinge = 3.4982376613637274;
 inline double M_mass = 100 + 2* 12.646385127140846;
 inline double m_b = 100 + 2*12.646385127140846; //車両の質量
 inline double m_w = 2*(m_wheel + m_hinge);
-inline double m_c = 100.0;
+inline double m_c = 100.0 + (16.301253040579397*3);
 inline double I_theta0 = carrier_inertia_coef * 1171.807086;
 inline double I_wheel = wheel_inertia_coef *0.029034;
-inline double I_hinge = hinge_inertia_coef*0.021551;
+inline double I_hinge = hinge_inertia_coef*0.007588;
 //v1
 inline double I_theta1 = vehicle_inertia_coef * 418.647558 + 2*0.755318;
 inline double I_phiF1 = 2*(I_wheel + I_hinge);
 inline double I_phiR1 = 2*(I_wheel + I_hinge);
-inline double I_varphiF1 = 2*(wheel_inertia_coef*0.053334);        
-inline double I_varphiR1 = 2*(wheel_inertia_coef*0.053334); 
+inline double I_varphiF1 = 2*(wheel_inertia_coef*0.222011);        
+inline double I_varphiR1 = 2*(wheel_inertia_coef*0.222011); 
 //v2
 inline double I_theta2 = vehicle_inertia_coef * 418.647558 + 2*0.755318;
 inline double I_phiF2 = 2*(I_wheel + I_hinge);
 inline double I_phiR2 = 2*(I_wheel + I_hinge);
-inline double I_varphiF2 = 2*(wheel_inertia_coef*0.053334);        
-inline double I_varphiR2 = 2*(wheel_inertia_coef*0.053334); 
+inline double I_varphiF2 = 2*(wheel_inertia_coef*0.222011);        
+inline double I_varphiR2 = 2*(wheel_inertia_coef*0.222011); 
 //v3
 inline double I_theta3 = vehicle_inertia_coef * 418.647558 + 2*0.755318;
 inline double I_phiF3 = 2*(I_wheel + I_hinge);
 inline double I_phiR3 = 2*(I_wheel + I_hinge);
-inline double I_varphiF3 = 2*(wheel_inertia_coef*0.053334);        
-inline double I_varphiR3 = 2*(wheel_inertia_coef*0.053334); 
+inline double I_varphiF3 = 2*(wheel_inertia_coef*0.222011);        
+inline double I_varphiR3 = 2*(wheel_inertia_coef*0.222011); 
      
      
-inline double Q_phiF1 = 0.0, Q_phiR1 = 0.0, Q_varphiF1 = 0.0, Q_varphiR1 = 0.0,Q_phiF2 = 0.0,Q_phiR2 = 0.0,Q_varphiF2 = 0.0,Q_varphiR2 = 0.0, Q_phiF3 = 0.0, Q_phiR3 = 0.0, Q_varphiF3 = 0.0, Q_varphiR3 = 0.0;
 
 
 inline double v1_torque_rear[2] = {};
@@ -387,6 +386,7 @@ inline double Q_varphiFR = 0.0;
 inline double Q_varphiFL = 0.0;
 inline double Q_varphiRR = 0.0;
 inline double Q_varphiRL = 0.0;
+inline double Q_phiF1 = 0.0, Q_phiR1 = 0.0, Q_varphiF1 = 0.0, Q_varphiR1 = 0.0,Q_phiF2 = 0.0,Q_phiR2 = 0.0,Q_varphiF2 = 0.0,Q_varphiR2 = 0.0, Q_phiF3 = 0.0, Q_phiR3 = 0.0, Q_varphiF3 = 0.0, Q_varphiR3 = 0.0;
 inline Eigen::Matrix<double,12,1> nu ;
 inline Eigen::Matrix<double,12,1> u_act ;
 inline double u1_act = 0.0, u2_act = 0.0, u3_act = 0.0, u4_act = 0.0, u5_act = 0.0, u6_act = 0.0, u7_act = 0.0, u8_act = 0.0, u9_act = 0.0, u10_act = 0.0, u11_act = 0.0, u12_act = 0.0;

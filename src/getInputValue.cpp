@@ -132,7 +132,7 @@ void getInputValue::getXInput(std::vector<double>& x_old, std::vector<double>& x
 // --- 制御入力計算用内部関数 ---
 
 void getInputValue::U1(const std::vector<double>& x_old, int sr_j) {
-    w1 = a0;
+   w1 = a0;
 	u1 = ((1 - sr.d * sr.Cs) / cos(Thetap0)) * w1;
 
    u_kinematics[0] = u1;
@@ -1826,9 +1826,9 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 	u5 = u5and;
 	u6 = u6and;
 
-   u_kinematics(3) = u4and;
-	u_kinematics(4) = u5and;
-	u_kinematics(5) = u6and;
+   u_kinematics(3) = u4;
+	u_kinematics(4) = u5;
+	u_kinematics(5) = u6;
 
    w4 = (1/ a0)*(K21*u_kinematics(3) + K22*u_kinematics(4) + K23*u_kinematics(5) + K24) + (k5 + k6) * (dthetap2d / a0 - z71) + k5 * k6 * (thetap2d / a0 - z72 / a0);
 	w5 = (1/ a0)*(K31*u_kinematics(3) + K32*u_kinematics(4) + K33*u_kinematics(5) + K34) + (k7 + k8) * (dthetap3d / a0 - z81) + k7 * k8 * (thetap3d / a0 - z82 / a0);
@@ -5251,9 +5251,9 @@ void getInputValue::U7_U8_U9(const std::vector<double>& x, int sr_j) {
 	u8 = u8and;
 	u9 = u9and;
 
-   u_kinematics(6) = u7and;
-	u_kinematics(7) = u8and;
-	u_kinematics(8) = u9and;
+   u_kinematics(6) = u7;
+	u_kinematics(7) = u8;
+	u_kinematics(8) = u9;
 
    w7 = (1/ a0)*(K51*u_kinematics(6) + K52*u_kinematics(7) + K53*u_kinematics(8) + K54) + (k11 + k12) * (dthetap5d / a0 - z71) + k11 * k12 * (thetap5d / a0 - z72 / a0);
 	w8 = (1/ a0)*(K61*u_kinematics(6) + K62*u_kinematics(7) + K63*u_kinematics(8) + K64) + (k13 + k14) * (dthetap6d / a0 - z81) + k13 * k14 * (thetap6d / a0 - z82 / a0);
@@ -8809,9 +8809,9 @@ void getInputValue::U10_U11_U12(const std::vector<double>& x, int sr_j) {
 	u11 = u11and;
 	u12 = u12and;
 
-   u_kinematics(9) = u10and;
-	u_kinematics(10) = u11and;
-	u_kinematics(11) = u12and;
+   u_kinematics(9) = u10;
+	u_kinematics(10) = u11;
+	u_kinematics(11) = u12;
 
    w10 = (1/ a0)*(K81*u_kinematics(9) + K82*u_kinematics(10) + K83*u_kinematics(11) + K84) + (k17 + k18) * (dthetap8d / a0 - z101) + k17 * k18 * (thetap8d / a0 - z102 / a0);
 	w11 = (1/ a0)*(K91*u_kinematics(9) + K92*u_kinematics(10) + K93*u_kinematics(11) + K94) + (k19 + k20) * (dthetap9d / a0 - z111) + k19 * k20 * (thetap9d / a0 - z112 / a0);

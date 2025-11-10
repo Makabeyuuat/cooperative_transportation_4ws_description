@@ -19,7 +19,7 @@
 <xacro:property name="fusion_carrier_mass" value="2052.2363345901408" /> 
 <xacro:property name="sim_carrier_mass" value="100" /> 
 <xacro:property name="carrier_inertia_coef" value="${sim_carrier_mass/fusion_carrier_mass}" /> 
-<!-- -->
+<!-- 車両のbody-->
 <xacro:property name="fusion_vehicle_body_mass" value="2113.272311120373" /> 
 <xacro:property name="sim_body_mass" value="100" /> 
 <xacro:property name="vehicle_inertia_coef" value="${sim_body_mass/fusion_vehicle_body_mass}" /> 
@@ -29,12 +29,17 @@
 <xacro:property name="sim_wheel_mass" value="8.0" /> 
 <xacro:property name="wheel_inertia_coef" value="${sim_wheel_mass/fusion_wheel_mass}" /> 
 
-<xacro:property name="wheel_joint_damping" value="0.1" />
-<xacro:property name="wheel_joint_mu" value="0.001" />
-<xacro:property name="wheel_joint_friction" value="${wheel_joint_mu * 0.0}" /> <!-- 横方向に垂直抗力は生まれないため0.0 -->
+<!-- hinge -->
+<xacro:property name="fusion_hinge_mass" value="3.498237661363729" /> 
+<xacro:property name="sim_hinge_mass" value="3.498237661363729" /> 
+<xacro:property name="hinge_inertia_coef" value="${sim_hinge_mass/fusion_hinge_mass}" /> 
 
 
 
+
+<xacro:property name="wheel_joint_damping" value="  1.0" />
+<xacro:property name="wheel_joint_mu" value="0.1" />
+<xacro:property name="wheel_joint_friction" value="${wheel_joint_mu* gravitational_acceleration * sim_wheel_mass }" /> 
 
 <xacro:property name="carrier_mass" value="2052.2363345901408" /> 
 <xacro:property name="linkage_point_mass" value="16.301253040579397" /> 
@@ -219,7 +224,7 @@
 <link name="v1_body_1">
   <inertial>
     <origin xyz="0.0009614087301266228 -8.103821973019787e-06 -0.13737493498310355" rpy="0 0 0"/>
-    <mass value="${vehicle_body_mass}"/>
+    <mass value="${sim_body_mass}"/>
     <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
   </inertial>
   <visual>
@@ -327,7 +332,7 @@
   <inertial>
     <origin xyz="1.7798855633799349e-07 2.540691992902744e-07 -3.1158354452109904e-07" rpy="0 0 0"/>
     <mass value="${sim_wheel_mass}"/>
-    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+    <inertia ixx="${wheel_inertia_coef*0.113544}" iyy="${wheel_inertia_coef*0.222011}" izz="${wheel_inertia_coef*0.113544}"  ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
     <origin xyz="-2.050031 -0.45752 -0.110215" rpy="0 0 0"/>
@@ -477,7 +482,7 @@
 <link name="v2body_1">
   <inertial>
     <origin xyz="0.0009614810265025087 -8.330993812588616e-06 -0.13737493498310416" rpy="0 0 0"/>
-    <mass value="${vehicle_body_mass}"/>
+    <mass value="${sim_body_mass}"/>
     <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
   </inertial>
   <visual>
@@ -800,7 +805,7 @@
 <link name="v3_body_1">
   <inertial>
     <origin xyz="0.000961157303698057 -8.357891134291862e-06 -0.13737493498310205" rpy="0 0 0"/>
-    <mass value="${vehicle_body_mass}"/>
+    <mass value="${sim_body_mass}"/>
     <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
   </inertial>
   <visual>

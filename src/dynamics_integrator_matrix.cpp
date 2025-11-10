@@ -278,9 +278,9 @@ void DynamicsIntegrator::step(
       Q_phiRL3 = Q_phiR3/2.0; 
       Q_phiRR3 = Q_phiR3/2.0;
 
-      ROS_INFO_THROTTLE(0.2,"v1: Q_phi1R=%.3f, Q_phi1F=%.3f, Q_varphi1R=%.3f, Q_varphi1F=%.3f", Q_phiR1, Q_phiF1, Q_varphiR1, Q_varphiF1);
-	  ROS_INFO_THROTTLE(0.2,"v2: Q_phi2R=%.3f, Q_phi2F=%.3f, Q_varphi2R=%.3f, Q_varphi2F=%.3f", Q_phiR2, Q_phiF2, Q_varphiR2, Q_varphiF2);
-	  ROS_INFO_THROTTLE(0.2,"v3: Q_phi3R=%.3f, Q_phi3F=%.3f, Q_varphi3R=%.3f, Q_varphi3F=%.3f\n\n", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
+      ROS_INFO_THROTTLE(0.2,"v1: Q_phiR1=%.3f, Q_phiF1=%.3f, Q_varphiR1=%.3f, Q_varphiF1=%.3f", Q_phiR1, Q_phiF1, Q_varphiR1, Q_varphiF1);
+	  ROS_INFO_THROTTLE(0.2,"v2: Q_phiR2=%.3f, Q_phiF2=%.3f, Q_varphiR2=%.3f, Q_varphiF2=%.3f", Q_phiR2, Q_phiF2, Q_varphiR2, Q_varphiF2);
+	  ROS_INFO_THROTTLE(0.2,"v3: Q_phiR3=%.3f, Q_phiF3=%.3f, Q_varphiR3=%.3f, Q_varphiF3=%.3f\n\n", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
 
      
      

@@ -218,7 +218,7 @@
 <link name="v1_body_1">
   <inertial>
     <origin xyz="0.0009614087301266228 -8.103821973019787e-06 -0.13737493498310355" rpy="0 0 0"/>
-    <mass value="${vehicle_body_mass}"/>
+    <mass value="${sim_body_mass}"/>
     <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
   </inertial>
   <visual>
@@ -476,7 +476,7 @@
 <link name="v2body_1">
   <inertial>
     <origin xyz="0.0009614810265025087 -8.330993812588616e-06 -0.13737493498310416" rpy="0 0 0"/>
-    <mass value="${vehicle_body_mass}"/>
+    <mass value="${sim_body_mass}"/>
     <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
   </inertial>
   <visual>
@@ -799,7 +799,7 @@
 <link name="v3_body_1">
   <inertial>
     <origin xyz="0.000961157303698057 -8.357891134291862e-06 -0.13737493498310205" rpy="0 0 0"/>
-    <mass value="${vehicle_body_mass}"/>
+    <mass value="${sim_body_mass}"/>
     <inertia ixx="${vehicle_inertia_coef*114.688091}" iyy="${vehicle_inertia_coef*336.418835}" izz="${vehicle_inertia_coef*418.647558}" ixy="${vehicle_inertia_coef*0.010139}" iyz="${vehicle_inertia_coef*0.002956}" ixz="${vehicle_inertia_coef*-0.33997}"/>
   </inertial>
   <visual>
