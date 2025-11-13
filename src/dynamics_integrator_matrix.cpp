@@ -88,7 +88,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
       //ゲイン
       Eigen::Matrix<double,12,1> gains;
-      gains << 10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0;
+      gains << 5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0;
       Eigen::Matrix<double,12,12> C = gains.asDiagonal();
           
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
@@ -192,7 +192,7 @@ void DynamicsIntegrator::step(
       Eigen::Matrix<double,NXI,   18> AT_xi   = AT.topRows(NXI); 
       Eigen::Matrix<double,NZETA, 18> AT_zeta = AT.bottomRows(NZETA);
 
-      // 4) ddotq,dotqを含まない項 K (27x1) の分割
+      //ddotq,dotqを含まない項K
       Eigen::Matrix<double, NXI,   1> K_xi   = K.topRows   (NXI);
       Eigen::Matrix<double, NZETA, 1> K_zeta = K.bottomRows(NZETA);
 
@@ -210,7 +210,7 @@ void DynamicsIntegrator::step(
 
       //駆動力の導出
       Eigen::Matrix<double,12,1> rhs_zeta_only = M_zetazeta * alpha_zeta + C_zetazeta * qdot_zeta  + K_zeta;                   
-      // 拘束反力を引いて最終的な駆動トルク
+      //拘束力を引いて最終的な駆動トルク
       Eigen::Matrix<double,12,1> Q_zeta = rhs_zeta_only - AT_zeta * lambda;
 
 

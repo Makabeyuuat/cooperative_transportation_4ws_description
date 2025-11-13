@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_dNHother_18_()
 {
 double ret;
-ret = 2*lv*Cos(PAI/6. - q_map(2))*Power(qdot_map(2),2) - 2*Sin(q_map(21))*qdot_map(26)*qdot_map(21) - Cos(q_map(21))*q_map(26)*Power(qdot_map(21),2);
+ret = 2*l1*Cos(PAI/6. - q_map(2))*Power(qdot_map(2),2) - 2*Sin(q_map(21))*qdot_map(26)*qdot_map(21) - Cos(q_map(21))*q_map(26)*Power(qdot_map(21),2);
 return ret;
 }

@@ -326,7 +326,7 @@
   <inertial>
     <origin xyz="1.7798855633799349e-07 2.540691992902744e-07 -3.1158354452109904e-07" rpy="0 0 0"/>
     <mass value="${sim_wheel_mass}"/>
-    <inertia ixx="0.113544" iyy="0.222011" izz="0.113544" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+    <inertia ixx="${wheel_inertia_coef*0.113544}" iyy="${wheel_inertia_coef*0.222011}" izz="${wheel_inertia_coef*0.113544}" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
     <origin xyz="-2.050031 -0.45752 -0.110215" rpy="0 0 0"/>

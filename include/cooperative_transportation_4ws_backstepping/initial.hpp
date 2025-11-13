@@ -132,6 +132,8 @@ inline std::vector<double> x_dd = std::vector<double>(DIM + 1, 0.0);
 extern Eigen::Map<Eigen::Matrix<double,27,1>> q_map;
 extern Eigen::Map<Eigen::Matrix<double,27,1>> qdot_map;
 extern Eigen::Map<Eigen::Matrix<double,27,1>> qddot_map;
+inline Eigen::Matrix<double,12,1> nu ;
+inline Eigen::Matrix<double,12,1> u_act ;
 
 //input
 //制御入力
@@ -156,8 +158,8 @@ inline double k5 = 20.0;
 inline double k6 = 20.0;
 inline double k7 = 20.0;
 inline double k8 = 20.0;
-inline double k9 = 20.0;
-inline double k10 = 20.0;
+inline double k9 = 8.0;
+inline double k10 = 8.0;
 inline double k11 = 20.0;
 inline double k12 = 20.0;
 inline double k13 = 20.0;
@@ -387,8 +389,6 @@ inline double Q_varphiFL = 0.0;
 inline double Q_varphiRR = 0.0;
 inline double Q_varphiRL = 0.0;
 inline double Q_phiF1 = 0.0, Q_phiR1 = 0.0, Q_varphiF1 = 0.0, Q_varphiR1 = 0.0,Q_phiF2 = 0.0,Q_phiR2 = 0.0,Q_varphiF2 = 0.0,Q_varphiR2 = 0.0, Q_phiF3 = 0.0, Q_phiR3 = 0.0, Q_varphiF3 = 0.0, Q_varphiR3 = 0.0;
-inline Eigen::Matrix<double,12,1> nu ;
-inline Eigen::Matrix<double,12,1> u_act ;
 inline double u1_act = 0.0, u2_act = 0.0, u3_act = 0.0, u4_act = 0.0, u5_act = 0.0, u6_act = 0.0, u7_act = 0.0, u8_act = 0.0, u9_act = 0.0, u10_act = 0.0, u11_act = 0.0, u12_act = 0.0;
 inline double asd = 0.0;
 inline double athetap0d = 0.0;
