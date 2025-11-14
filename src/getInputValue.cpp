@@ -1830,8 +1830,8 @@ void getInputValue::U4_U5_U6(const std::vector<double>& x, int sr_j) {
 	u_kinematics(4) = u5;
 	u_kinematics(5) = u6;
 
-   w4 = (1/ a0)*(K21*u_kinematics(3) + K22*u_kinematics(4) + K23*u_kinematics(5) + K24) + (k5 + k6) * (dthetap2d / a0 - z71) + k5 * k6 * (thetap2d / a0 - z72 / a0);
-	w5 = (1/ a0)*(K31*u_kinematics(3) + K32*u_kinematics(4) + K33*u_kinematics(5) + K34) + (k7 + k8) * (dthetap3d / a0 - z81) + k7 * k8 * (thetap3d / a0 - z82 / a0);
+   w4 = (1/ a0)*(K21*u_kinematics(3) + K22*u_kinematics(4) + K23*u_kinematics(5) + K24) + (k5 + k6) * (dthetap2d / a0 - z41) + k5 * k6 * (thetap2d / a0 - z42 / a0);
+	w5 = (1/ a0)*(K31*u_kinematics(3) + K32*u_kinematics(4) + K33*u_kinematics(5) + K34) + (k7 + k8) * (dthetap3d / a0 - z51) + k7 * k8 * (thetap3d / a0 - z52 / a0);
 	w6 = ddthetap4d / a0 + (k9 + k10) * ((dthetap4d / a0) - z61) + k9 * k10 * ((thetap4d / a0) - z62 / a0);
 }
 

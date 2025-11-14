@@ -74,30 +74,9 @@
 <link name="base_link"/>
 
 
-<!-- <link name="carrier">
-  <inertial>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="2052.2363345901408"/>
-    <inertia ixx="586.219446" iyy="586.234405" izz="1171.807086" ixy="0.007184" iyz="0.0" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="0 0 -0.6559999999999989" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://cooperative_transportation_4ws_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="yellow"/>
-  </visual>
-  <collision>
-    <origin xyz="0 0 -0.6559999999999989" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://cooperative_transportation_4ws_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link> -->
-
 <link name="carrier">
   <inertial>
-    <origin xyz="-0.00038139052519531075 0.05527097122796802 0.0" rpy="0 0 0"/>
+    <origin xyz="-0.00038139052519531075 0.0 0.0" rpy="0 0 0"/>
     <mass value="${sim_carrier_mass}"/>
     <inertia ixx="${carrier_inertia_coef*586.219446}" iyy="${carrier_inertia_coef*586.234405}" izz="${carrier_inertia_coef*1171.807086}" ixy="${carrier_inertia_coef*0.007184}" iyz="0.0" ixz="0.0"/>
   </inertial>
