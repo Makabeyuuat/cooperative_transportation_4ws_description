@@ -88,7 +88,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
       //ゲイン
       Eigen::Matrix<double,12,1> gains;
-      gains <<  5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0;
+      gains <<  10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0;
       Eigen::Matrix<double,12,12> C = gains.asDiagonal();
           
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
@@ -147,16 +147,6 @@ void DynamicsIntegrator::step(
       //目標加速度の取得
       Eigen::Matrix<double,27,1> alpha = computeAlpha(q, qdot, u_kinematics);
 
-    //   ROS_INFO_THROTTLE(0.2,"q: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", q_map(0), q_map(1), q_map(2), q_map(3), q_map(4), q_map(5), q_map(6), q_map(7), q_map(8), q_map(9), q_map(10), q_map(11));
-	//   ROS_INFO_THROTTLE(0.2,"q: 13=%.3f, 14=%.3f, 15=%.3f, 16=%.3f, 17=%.3f, 18=%.3f, 19=%.3f, 20=%.3f,21=%.3f, 22=%.3f, 23=%.3f, 24=%.3f", q_map(12), q_map(13), q_map(14), q_map(15), q_map(16), q_map(17), q_map(18), q_map(19), q_map(20), q_map(21), q_map(22), q_map(23));
-	//   ROS_INFO_THROTTLE(0.2,"q: 25=%.3f, 26=%.3f, 27=%.3f", q_map(24), q_map(25), q_map(26));
-      
-
-    //   ROS_INFO_THROTTLE(0.2,"dotq: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", qdot_map(0), q_map(1), qdot_map(2), qdot_map(3), qdot_map(4), qdot_map(5), qdot_map(6), qdot_map(7), qdot_map(8), qdot_map(9), qdot_map(10), qdot_map(11));
-	//   ROS_INFO_THROTTLE(0.2,"dotq: 13=%.3f, 14=%.3f, 15=%.3f, 16=%.3f, 17=%.3f, 18=%.3f, 19=%.3f, 20=%.3f,21=%.3f, 22=%.3f, 23=%.3f, 24=%.3f", qdot_map(12), qdot_map(13), qdot_map(14), qdot_map(15), qdot_map(16), qdot_map(17), qdot_map(18), qdot_map(19), qdot_map(20), qdot_map(21), qdot_map(22), qdot_map(23));
-	//   ROS_INFO_THROTTLE(0.2,"dotq: 25=%.3f, 26=%.3f, 27=%.3f\n", qdot_map(24), qdot_map(25), qdot_map(26));
-
-      
 
       //qの目標加速度を分解
       constexpr int NXI = 15;
@@ -280,8 +270,20 @@ void DynamicsIntegrator::step(
 
       ROS_INFO_THROTTLE(0.2,"v1: Q_phiR1=%.3f, Q_phiF1=%.3f, Q_varphiR1=%.3f, Q_varphiF1=%.3f", Q_phiR1, Q_phiF1, Q_varphiR1, Q_varphiF1);
 	  ROS_INFO_THROTTLE(0.2,"v2: Q_phiR2=%.3f, Q_phiF2=%.3f, Q_varphiR2=%.3f, Q_varphiF2=%.3f", Q_phiR2, Q_phiF2, Q_varphiR2, Q_varphiF2);
-	  ROS_INFO_THROTTLE(0.2,"v3: Q_phiR3=%.3f, Q_phiF3=%.3f, Q_varphiR3=%.3f, Q_varphiF3=%.3f\n\n", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
+	  ROS_INFO_THROTTLE(0.2,"v3: Q_phiR3=%.3f, Q_phiF3=%.3f, Q_varphiR3=%.3f, Q_varphiF3=%.3f", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
 
+      Eigen::Matrix<double,12,1> Q_rhs     = rhs_zeta_only;
+      Eigen::Matrix<double,12,1> Q_const   = - AT_zeta * lambda;
+      Eigen::Matrix<double,12,1> Q_total   = Q_rhs + Q_const; // = Q_zeta
+
+      int idx_varphiR1 =1;
+      int idx_varphiR2 =5;
+      int idx_varphiR3 =9;
+
+      ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, const=%.3f, total=%.3f",Q_rhs(idx_varphiR1),Q_const(idx_varphiR1),Q_total(idx_varphiR1));
+      ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, const=%.3f, total=%.3f",Q_rhs(idx_varphiR2),Q_const(idx_varphiR2),Q_total(idx_varphiR2));
+      ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, const=%.3f, total=%.3f\n\n",Q_rhs(idx_varphiR3),Q_const(idx_varphiR3),Q_total(idx_varphiR3));
+     
      
      
 
