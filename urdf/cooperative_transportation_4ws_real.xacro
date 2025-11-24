@@ -52,7 +52,7 @@
 <xacro:property name="sliding_mechanism_friction" value="${sliding_mechanism_mu*gravitational_acceleration*(sim_carrier_mass/3 + linkage_point_mass)}" />
 <!-- ステアリング -->
 <xacro:property name="steering_damping" value="1.0" />
-<xacro:property name="steering_mu" value="0.05" />
+<xacro:property name="steering_mu" value="0.02" />
 <xacro:property name="steering_friction" value="${steering_mu * gravitational_acceleration * 0.25*(sim_carrier_mass/3 + linkage_point_mass + sliding_mechanism_mass + sim_body_mass)}" />
 <!-- 摺動機構に乗っかている回転関節 -->
 <xacro:property name="rotational_joint_damping" value="0.02" />
@@ -61,7 +61,7 @@
 
 <!-- wheelの接地面の摩擦などを定義 -->
 <xacro:property name="wheel_surface_mu1" value="0.8"/>
-<xacro:property name="wheel_surface_mu2" value="0.5" />
+<xacro:property name="wheel_surface_mu2" value="0.4" />
 <xacro:property name="wheel_kp" value="2e7" /> 
 <xacro:property name="wheel_kd" value="5.0" />
 <xacro:property name="wheel_minDepth" value="0.01" />
