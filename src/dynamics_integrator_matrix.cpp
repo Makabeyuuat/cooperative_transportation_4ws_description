@@ -88,7 +88,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
       //ゲイン
       Eigen::Matrix<double,12,1> gains;
-      gains <<  10.0,10.0,10.0,11.0,11.0,11.0,11.0,11.0,11.0,11.0,11.0,11.0;
+      gains <<  10.0,10.0,10.0,0.0,10.0,10.0,0.0,20.0,20.0,0.0,20.0,20.0;
       Eigen::Matrix<double,12,12> C = gains.asDiagonal();
           
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
@@ -193,7 +193,8 @@ void DynamicsIntegrator::step(
       Eigen::Matrix<double,18,1> lambda = cod.solve(rhs);
       lambda_data = lambda;
 
-      ROS_INFO_THROTTLE(0.2,"lambda: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", lambda(0), lambda(1), lambda(2), lambda(3), lambda(4), lambda(5), lambda(6), lambda(7), lambda(8), lambda(9), lambda(10), lambda(11));
+      ROS_INFO_THROTTLE(0.2,"lambda: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", 
+        lambda(0), lambda(1), lambda(2), lambda(3), lambda(4), lambda(5), lambda(6), lambda(7), lambda(8), lambda(9), lambda(10), lambda(11));
 	  ROS_INFO_THROTTLE(0.2,"lambda: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda(12), lambda(13), lambda(14), lambda(15), lambda(16), lambda(17));
 
 

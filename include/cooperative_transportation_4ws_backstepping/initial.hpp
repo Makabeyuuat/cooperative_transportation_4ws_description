@@ -13,7 +13,7 @@
 #define LIM 1.48352986419518  //操舵角の上限（85度）
 #define vehicle_inertia_coef 0.04732
 #define wheel_inertia_coef 0.4
-#define hinge_inertia_coef 2.58637
+#define hinge_inertia_coef 1.0
 #define carrier_inertia_coef 0.0487
 inline constexpr int BEZIER_ORDER = 3; 
 inline constexpr double RAD2DEG = 180.0 / PAI;
@@ -150,26 +150,26 @@ inline double u10_inv_a[3][3];
 
 
 //フィードバックゲイン(後輪ゲインは低めに設定)
-inline double k1 = 10.0;
-inline double k2 = 10.0;
-inline double k3 = 10.0;
-inline double k4 = 10.0;
-inline double k5 = 20.0;
-inline double k6 = 20.0;
-inline double k7 = 20.0;
-inline double k8 = 20.0;
+inline double k1 = 5.0;
+inline double k2 = 5.0;
+inline double k3 = 5.0;
+inline double k4 = 5.0;
+inline double k5 = 10.0;
+inline double k6 = 10.0;
+inline double k7 = 10.0;
+inline double k8 = 10.0;
 inline double k9 = 8.0;
 inline double k10 = 8.0;
-inline double k11 = 20.0;
-inline double k12 = 20.0;
-inline double k13 = 20.0;
-inline double k14 = 20.0;
+inline double k11 = 10.0;
+inline double k12 = 10.0;
+inline double k13 = 10.0;
+inline double k14 = 10.0;
 inline double k15 = 8.0;
 inline double k16 = 8.0;
-inline double k17 = 20.0;
-inline double k18 = 20.0;
-inline double k19 = 20.0;
-inline double k20 = 20.0;
+inline double k17 = 10.0;
+inline double k18 = 10.0;
+inline double k19 = 10.0;
+inline double k20 = 10.0;
 inline double k21 = 8.0;
 inline double k22 = 8.0;
 
@@ -300,9 +300,6 @@ inline double nh10 = 0.0;
 inline double lv = 0.9;
 inline double lt = 0.8;
 inline double l1 = 0.8;
-// inline double l2 = (sqrt(2) / 8) * lv;
-// inline double l3 = (sqrt(2) / 4) * lv;
-
 inline double l2 = (sqrt(3) / 12) * lv;
 inline double l3 = (sqrt(3) / 6) * lv;
 //摺動機構の仮想リンク
@@ -349,7 +346,7 @@ inline double m_b = 100 + 2*12.646385127140846; //車両の質量
 inline double m_w = 2*(m_wheel + m_hinge);
 inline double m_c = 100.0 + (16.301253040579397*3);
 inline double I_theta0 = carrier_inertia_coef * 1171.807086;
-inline double I_wheel = wheel_inertia_coef *0.029034;
+inline double I_wheel = wheel_inertia_coef *0.113544;
 inline double I_hinge = hinge_inertia_coef*0.007588;
 //v1
 inline double I_theta1 = vehicle_inertia_coef * 418.647558 + 2*0.755318;
