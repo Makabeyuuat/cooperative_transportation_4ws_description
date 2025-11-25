@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_Axi_15_11_()
 {
 double ret;
-ret = -Sin(q_map(9));
+ret = -Sin(q_map(13));
 return ret;
 }

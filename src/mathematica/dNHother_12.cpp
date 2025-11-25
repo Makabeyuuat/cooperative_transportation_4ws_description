@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_dNHother_12_()
 {
 double ret;
-ret = (lv*Cos(q_map(13))*Cos(q_map(25) + q_map(13))*Power(qdot_map(13),2))/2. + (lv*Sin(q_map(13))*Sin(q_map(25) + q_map(13))*Power(qdot_map(13),2))/2. + Sin(q_map(25) + q_map(13))*(qdot_map(25) + qdot_map(13))*(-(lv*Sin(q_map(13))*qdot_map(13))/2. + qdot_map(11)) - Cos(q_map(25) + q_map(13))*(qdot_map(25) + qdot_map(13))*((lv*Cos(q_map(13))*qdot_map(13))/2. + qdot_map(12));
+ret = (lv*Cos(q_map(21))*Cos(q_map(24) + q_map(21))*Power(qdot_map(21),2))/2. + (lv*Sin(q_map(21))*Sin(q_map(24) + q_map(21))*Power(qdot_map(21),2))/2. + Sin(q_map(24) + q_map(21))*(qdot_map(24) + qdot_map(21))*(-(lv*Sin(q_map(21))*qdot_map(21))/2. + qdot_map(19)) - Cos(q_map(24) + q_map(21))*(qdot_map(24) + qdot_map(21))*((lv*Cos(q_map(21))*qdot_map(21))/2. + qdot_map(20));
 return ret;
 }

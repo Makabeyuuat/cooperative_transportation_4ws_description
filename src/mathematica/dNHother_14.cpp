@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_dNHother_14_()
 {
 double ret;
-ret = -2*l1*Sin(q_map(2))*Power(qdot_map(2),2) - 2*Sin(q_map(5))*qdot_map(6)*qdot_map(5) - Cos(q_map(5))*q_map(6)*Power(qdot_map(5),2);
+ret = -2*l1*Sin(q_map(2))*Power(qdot_map(2),2) - 2*Sin(q_map(5))*qdot_map(10)*qdot_map(5) - Cos(q_map(5))*q_map(10)*Power(qdot_map(5),2);
 return ret;
 }

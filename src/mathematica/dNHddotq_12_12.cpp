@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_dNHddotq_12_12_()
 {
 double ret;
-ret = -Cos(q_map(25) + q_map(13));
+ret = -Cos(q_map(24) + q_map(21));
 return ret;
 }
