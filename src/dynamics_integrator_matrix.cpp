@@ -88,7 +88,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
       //ゲイン
       Eigen::Matrix<double,12,1> gains;
-      gains <<  10.0,10.0,10.0,20.0,20.0,20.0,20.0,20.0,20.0,20.0,20.0,20.0;
+      gains <<  10.0,10.0,10.0,0.0,10.0,10.0,0.0,20.0,20.0,0.0,20.0,20.0;
       Eigen::Matrix<double,12,12> C = gains.asDiagonal();
           
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
