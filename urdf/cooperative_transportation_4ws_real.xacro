@@ -1531,7 +1531,7 @@
   <parent link="linkage_point1_1"/>
   <child link="v1_sliding_machine_1"/>
   <dynamics damping="${sliding_mechanism_damping}" friction="${sliding_mechanism_friction}"/>
-  <axis xyz="0 -1 0"/>
+  <axis xyz="0 1 0"/>
   <limit upper="0.0" lower="0.0" effort="10" velocity="10"/>
 </joint>
 
@@ -1540,7 +1540,7 @@
   <parent link="linkage_point2_1"/>
   <child link="v2_sliding_machine_1"/>
   <dynamics damping="${sliding_mechanism_damping}" friction="${sliding_mechanism_friction}"/>
-  <axis xyz="0 -1 0"/>
+  <axis xyz="0 1 0"/>
   <limit upper="0.0" lower="0.0" effort="10" velocity="10"/>
 </joint>
 
@@ -1549,7 +1549,7 @@
   <parent link="linkage_point3_1"/>
   <child link="v3_sliding_machine_1"/>
   <dynamics damping="${sliding_mechanism_damping}" friction="${sliding_mechanism_friction}"/>
-  <axis xyz="0 -1 0"/>
+  <axis xyz="0 1 0"/>
   <limit upper="0.0" lower="0.0" effort="10" velocity="10"/>
 </joint>
 
