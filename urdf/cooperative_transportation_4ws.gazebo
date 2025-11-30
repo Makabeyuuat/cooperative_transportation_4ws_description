@@ -108,7 +108,7 @@
 <gazebo>
   <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
     <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
-    <bodyName>v2_body_1</bodyName>
+    <bodyName>v2body_1</bodyName>
     <frameName>world</frameName>
     <topicName>true_v2body</topicName>
   </plugin>
