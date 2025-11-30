@@ -99,6 +99,33 @@
 <gazebo>
   <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
     <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>v1_body_1</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_v1body</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>v2_body_1</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_v2body</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
+    <bodyName>v3_body_1</bodyName>
+    <frameName>world</frameName>
+    <topicName>true_v3body</topicName>
+  </plugin>
+</gazebo>
+
+<gazebo>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <robotNamespace>/cooperative_transportation_4ws</robotNamespace>
     <bodyName>linkage_point1_1</bodyName>
     <frameName>world</frameName>
     <topicName>true_linkage_point1</topicName>

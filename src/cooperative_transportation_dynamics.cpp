@@ -51,6 +51,9 @@ int main(int argc, char** argv)
 	ros::Subscriber joint_state_sub    = nh.subscribe("/cooperative_transportation_4ws/joint_states", 10, jointStateCallback);
     ros::Subscriber sub_base = nh.subscribe("/cooperative_transportation_4ws/true_base_link", 10, trueBaseLinkCallback);
     ros::Subscriber sub_carrier = nh.subscribe("/cooperative_transportation_4ws/true_carrier", 10, trueCarrierCallback);
+	ros::Subscriber sub_v1body = nh.subscribe("/cooperative_transportation_4ws/true_v1body", 10, trueV1BodyCallback);
+	ros::Subscriber sub_v2body = nh.subscribe("/cooperative_transportation_4ws/true_v2body", 10, trueV2BodyCallback);
+	ros::Subscriber sub_v3body = nh.subscribe("/cooperative_transportation_4ws/true_v3body", 10, trueV3BodyCallback);
     ros::Subscriber sub_linkage1 = nh.subscribe("/cooperative_transportation_4ws/true_linkage_point1", 10, trueLinkagePoint1Callback);
     ros::Subscriber sub_linkage2 = nh.subscribe("/cooperative_transportation_4ws/true_linkage_point2", 10, trueLinkagePoint2Callback);
     ros::Subscriber sub_linkage3 = nh.subscribe("/cooperative_transportation_4ws/true_linkage_point3", 10, trueLinkagePoint3Callback);
