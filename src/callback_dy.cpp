@@ -38,6 +38,15 @@ bool v3_rear_left_steering_pose_received = false;
 geometry_msgs::PoseStamped v3_front_left_steering_pose;
 bool v3_front_left_steering_pose_received = false;
 
+geometry_msgs::PoseStamped v1body_pose;
+bool v1body_pose_received= false;
+
+geometry_msgs::PoseStamped v2body_pose;
+bool v2body_pose_received = false;
+
+geometry_msgs::PoseStamped v3body_pose;
+bool v3body_pose_received = false;
+
 
 
 void jointStateCallback(const sensor_msgs::JointState::ConstPtr& msg)
@@ -296,43 +305,7 @@ void trueCarrierCallback(const nav_msgs::Odometry::ConstPtr& msg)
     //          roll, pitch, yaw);
 }
 
-// vehicle1の姿勢角のコールバック
-// void trueLinkagePoint1Callback(const nav_msgs::Odometry::ConstPtr& msg)
-// {
-//     linkage_point1_pose.header = msg->header;
-//     linkage_point1_pose.pose = msg->pose.pose;
-//     linkage_point1_pose_received = true;
-    
-//     tf2::Quaternion q;
-//     q.setX(linkage_point1_pose.pose.orientation.x);
-//     q.setY(linkage_point1_pose.pose.orientation.y);
-//     q.setZ(linkage_point1_pose.pose.orientation.z);
-//     q.setW(linkage_point1_pose.pose.orientation.w);
-    
-//     double roll, pitch, yaw;
-//     tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
 
-//     //X：theta4の座標
-//     true_vehicle_yaw[0] = yaw;
-//     x_old[11] = yaw + PAI;
-
-//     //q：x1,y1,theta1の座標
-//     q_twist[3] = linkage_point1_pose.pose.position.x;
-//     q_twist[4] = linkage_point1_pose.pose.position.y;
-//     q_twist[5] = yaw; 
-//     qdot_twist[3] = msg->twist.twist.linear.x;
-//     qdot_twist[4] = msg->twist.twist.linear.y;
-//     qdot_twist[5] = msg->twist.twist.angular.z;
-//     x_d[3] = qdot_twist[3];
-//     x_d[4] = qdot_twist[4];
-//     x_d[5] = qdot_twist[5];
-    
-// //     ROS_INFO("True position of [linkage_point1] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
-// //              linkage_point1_pose.pose.position.x,
-// //              linkage_point1_pose.pose.position.y,
-// //              linkage_point1_pose.pose.position.z,
-// //              roll, pitch, yaw);
-// }
 
 // vehicle1の姿勢角のコールバック
 void trueV1BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
@@ -375,42 +348,7 @@ void trueV1BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
 
 
 
-// // vehicle2の姿勢角 用のコールバック
-// void trueLinkagePoint2Callback(const nav_msgs::Odometry::ConstPtr& msg)
-// {
-//     linkage_point2_pose.header = msg->header;
-//     linkage_point2_pose.pose = msg->pose.pose;
-//     linkage_point2_pose_received = true;
-    
-//     tf2::Quaternion q;
-//     q.setX(linkage_point2_pose.pose.orientation.x);
-//     q.setY(linkage_point2_pose.pose.orientation.y);
-//     q.setZ(linkage_point2_pose.pose.orientation.z);
-//     q.setW(linkage_point2_pose.pose.orientation.w);
-    
-//     double roll, pitch, yaw;
-//     tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
-    
-//     true_vehicle_yaw[1] = yaw;
-//     x_old[17] = yaw;
 
-//     //q：x2,y2,theta2の座標
-//     q_twist[7] = linkage_point2_pose.pose.position.x;
-//     q_twist[8] = linkage_point2_pose.pose.position.y;
-//     q_twist[9] = yaw; 
-//     qdot_twist[7] = msg->twist.twist.linear.x;
-//     qdot_twist[8] = msg->twist.twist.linear.y;
-//     qdot_twist[9] = msg->twist.twist.angular.z;
-//     x_d[11] = qdot_twist[7];
-//     x_d[12] = qdot_twist[8];
-//     x_d[13] = qdot_twist[9];
-    
-//     // ROS_INFO("True position of [linkage_point2] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
-//     //          linkage_point2_pose.pose.position.x,
-//     //          linkage_point2_pose.pose.position.y,
-//     //          linkage_point2_pose.pose.position.z,
-//     //          roll, pitch, yaw);
-// }
 
 // vehicle2の姿勢角 用のコールバック
 void trueV2BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
@@ -449,42 +387,7 @@ void trueV2BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
     //          roll, pitch, yaw);
 }
 
-// // vehicle3の姿勢角 用のコールバック
-// void trueLinkagePoint3Callback(const nav_msgs::Odometry::ConstPtr& msg)
-// {
-//     linkage_point3_pose.header = msg->header;
-//     linkage_point3_pose.pose = msg->pose.pose;
-//     linkage_point3_pose_received = true;
-    
-//     tf2::Quaternion q;
-//     q.setX(linkage_point3_pose.pose.orientation.x);
-//     q.setY(linkage_point3_pose.pose.orientation.y);
-//     q.setZ(linkage_point3_pose.pose.orientation.z);
-//     q.setW(linkage_point3_pose.pose.orientation.w);
-    
-//     double roll, pitch, yaw;
-//     tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
 
-//     true_vehicle_yaw[2] = yaw;
-//     x_old[23] = yaw;
-
-//     //q：x3,y3,theta3の座標
-//     q_twist[11] = linkage_point3_pose.pose.position.x;
-//     q_twist[12] = linkage_point3_pose.pose.position.y;
-//     q_twist[13] = yaw; 
-//     qdot_twist[11] = msg->twist.twist.linear.x;
-//     qdot_twist[12] = msg->twist.twist.linear.y;
-//     qdot_twist[13] = msg->twist.twist.angular.z;
-//     x_d[19] = qdot_twist[11];
-//     x_d[20] = qdot_twist[12];
-//     x_d[21] = qdot_twist[13];
-    
-//     // ROS_INFO("True position of [linkage_point3] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
-//     //          linkage_point3_pose.pose.position.x,
-//     //          linkage_point3_pose.pose.position.y,
-//     //          linkage_point3_pose.pose.position.z,
-//     //          roll, pitch, yaw);
-// }
 
 // vehicle3の姿勢角 用のコールバック
 void trueV3BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
@@ -523,6 +426,118 @@ void trueV3BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
     //          roll, pitch, yaw);
 }
 
+
+// vehicle1の姿勢角のコールバック
+void trueLinkagePoint1Callback(const nav_msgs::Odometry::ConstPtr& msg)
+{
+    linkage_point1_pose.header = msg->header;
+    linkage_point1_pose.pose = msg->pose.pose;
+    linkage_point1_pose_received = true;
+    
+    tf2::Quaternion q;
+    q.setX(linkage_point1_pose.pose.orientation.x);
+    q.setY(linkage_point1_pose.pose.orientation.y);
+    q.setZ(linkage_point1_pose.pose.orientation.z);
+    q.setW(linkage_point1_pose.pose.orientation.w);
+    
+    double roll, pitch, yaw;
+    tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+    //X：theta4の座標
+    true_vehicle_yaw[0] = yaw;
+    x_old[11] = yaw + PAI;
+
+    //q：x1,y1,theta1の座標
+    q_twist[3] = linkage_point1_pose.pose.position.x;
+    q_twist[4] = linkage_point1_pose.pose.position.y;
+    q_twist[5] = yaw; 
+    qdot_twist[3] = msg->twist.twist.linear.x;
+    qdot_twist[4] = msg->twist.twist.linear.y;
+    qdot_twist[5] = msg->twist.twist.angular.z;
+    x_d[3] = qdot_twist[3];
+    x_d[4] = qdot_twist[4];
+    x_d[5] = qdot_twist[5];
+    
+//     ROS_INFO("True position of [linkage_point1] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
+//              linkage_point1_pose.pose.position.x,
+//              linkage_point1_pose.pose.position.y,
+//              linkage_point1_pose.pose.position.z,
+//              roll, pitch, yaw);
+}
+
+// // vehicle2の姿勢角 用のコールバック
+void trueLinkagePoint2Callback(const nav_msgs::Odometry::ConstPtr& msg)
+{
+    linkage_point2_pose.header = msg->header;
+    linkage_point2_pose.pose = msg->pose.pose;
+    linkage_point2_pose_received = true;
+    
+    tf2::Quaternion q;
+    q.setX(linkage_point2_pose.pose.orientation.x);
+    q.setY(linkage_point2_pose.pose.orientation.y);
+    q.setZ(linkage_point2_pose.pose.orientation.z);
+    q.setW(linkage_point2_pose.pose.orientation.w);
+    
+    double roll, pitch, yaw;
+    tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+    
+    true_vehicle_yaw[1] = yaw;
+    x_old[17] = yaw;
+
+    //q：x2,y2,theta2の座標
+    q_twist[7] = linkage_point2_pose.pose.position.x;
+    q_twist[8] = linkage_point2_pose.pose.position.y;
+    q_twist[9] = yaw; 
+    qdot_twist[7] = msg->twist.twist.linear.x;
+    qdot_twist[8] = msg->twist.twist.linear.y;
+    qdot_twist[9] = msg->twist.twist.angular.z;
+    x_d[11] = qdot_twist[7];
+    x_d[12] = qdot_twist[8];
+    x_d[13] = qdot_twist[9];
+    
+    // ROS_INFO("True position of [linkage_point2] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
+    //          linkage_point2_pose.pose.position.x,
+    //          linkage_point2_pose.pose.position.y,
+    //          linkage_point2_pose.pose.position.z,
+    //          roll, pitch, yaw);
+}
+
+// vehicle3の姿勢角 用のコールバック
+ void trueLinkagePoint3Callback(const nav_msgs::Odometry::ConstPtr& msg)
+ {
+    linkage_point3_pose.header = msg->header;
+    linkage_point3_pose.pose = msg->pose.pose;
+    linkage_point3_pose_received = true;
+    
+    tf2::Quaternion q;
+    q.setX(linkage_point3_pose.pose.orientation.x);
+    q.setY(linkage_point3_pose.pose.orientation.y);
+    q.setZ(linkage_point3_pose.pose.orientation.z);
+    q.setW(linkage_point3_pose.pose.orientation.w);
+    
+    double roll, pitch, yaw;
+    tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+    true_vehicle_yaw[2] = yaw;
+    x_old[23] = yaw;
+
+    //q：x3,y3,theta3の座標
+    q_twist[11] = linkage_point3_pose.pose.position.x;
+    q_twist[12] = linkage_point3_pose.pose.position.y;
+    q_twist[13] = yaw; 
+    qdot_twist[11] = msg->twist.twist.linear.x;
+    qdot_twist[12] = msg->twist.twist.linear.y;
+    qdot_twist[13] = msg->twist.twist.angular.z;
+    x_d[19] = qdot_twist[11];
+    x_d[20] = qdot_twist[12];
+    x_d[21] = qdot_twist[13];
+    
+    // ROS_INFO("True position of [linkage_point3] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
+    //          linkage_point3_pose.pose.position.x,
+    //          linkage_point3_pose.pose.position.y,
+    //          linkage_point3_pose.pose.position.z,
+    //          roll, pitch, yaw);
+}
 
 //  v1_front用のコールバック
 void trueV1FrontLeftSteeringCallback(const nav_msgs::Odometry::ConstPtr& msg)
