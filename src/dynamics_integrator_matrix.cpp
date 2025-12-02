@@ -122,7 +122,6 @@ Eigen::Matrix<double,27,1> DynamicsIntegrator::computeAlpha(
         Eigen::Matrix<double,23,1> Xalpha = computeXAlpha(x_old, x_d, u_kinematics);
 
         asd = Xalpha(0);
-        athetap0d = Xalpha(2);
         athetap4d =  Xalpha(10);
         athetap7d =  Xalpha(16);
         athetap10d =  Xalpha(22);
@@ -333,88 +332,94 @@ array<double,2>  DynamicsIntegrator::computeRearWheelOmegas(double speed, double
 
 
 
-// 入力がアクスルごとのトルク Q の場合
-std::array<double,2>  DynamicsIntegrator::computeFrontWheelTorque(
+std::array<double, 2> DynamicsIntegrator::computeFrontWheelTorque(
     double Qf,
     double steeringAngleFront,
     double steeringAngleRear)
 {
-    const double Wf = 0.8;  // 前輪トレッド幅 [m]
-    std::array<double,2> torques;
+    const double Wf = 0.8; 
+    std::array<double, 2> torques;
 
     double tan_diff = std::tan(steeringAngleFront) - std::tan(steeringAngleRear);
+    
+    // 直進時は均等配分
     if (std::fabs(tan_diff) < 1e-9) {
         torques[0] = Qf * 0.5;
         torques[1] = Qf * 0.5;
         return torques;
     }
 
-    // 1) リアアクスル基準での回転中心半径
-    double R_rear_center = lv / tan_diff;
+    // 1. 旋回半径の近似 (車両中心または後軸基準のR)
+    // 4WSの幾何学中心までの距離 R
+    double R_eff = std::abs(lv / tan_diff);
 
-    // 2) 前輪アクスルまで平行移動
-    double Rf_center = R_rear_center + lv;
+    // 2. 内外輪の半径差 (トレッド幅による)
+    double R_inner = R_eff - Wf / 2.0;
+    double R_outer = R_eff + Wf / 2.0;
+    double sum_R = R_inner + R_outer;
 
-    // 3) 内輪／外輪の絶対半径
-    double Rf_abs   = std::abs(Rf_center);
-    double Rf_inner = Rf_abs - Wf/2.0;
-    double Rf_outer = Rf_abs + Wf/2.0;
+    // 3. トルク配分
+    // 【修正】旋回を助ける場合: 外輪トルク > 内輪トルク
+    // トルクは半径に比例させるのが一般的 (駆動力 F を均等にする考え方なら T = F*r なので r に比例)
+    
+    double T_inner = Qf * (R_inner / sum_R); // 半径が小さい方に小さいトルク
+    double T_outer = Qf * (R_outer / sum_R); // 半径が大きい方に大きいトルク
 
-    // 4) 内外で逆比（パワー均等）にトルクを配分
-    double sum = Rf_inner + Rf_outer;
-    double Tin = Qf * (Rf_outer / sum);
-    double Tou = Qf * (Rf_inner / sum);
-
-    // 5) 旋回方向に応じて左右に割り当て
+    // 4. 左右への割り当て (tan_diff > 0 は左旋回と仮定)
     if (tan_diff > 0) {
-        // 左折：左が内輪
-        torques[0] = Tin;  // 左
-        torques[1] = Tou;  // 右
+        // 左旋回: 左が内輪
+        torques[0] = T_inner; // Left
+        torques[1] = T_outer; // Right
     } else {
-        // 右折：右が内輪
-        torques[0] = Tou;  // 左
-        torques[1] = Tin;  // 右
+        // 右旋回: 右が内輪
+        torques[0] = T_outer; // Left
+        torques[1] = T_inner; // Right
     }
     return torques;
 }
 
-std::array<double,2> DynamicsIntegrator::computeRearWheelTorque(
-    double Qr,
+std::array<double, 2> DynamicsIntegrator::computeRearWheelTorque(
+    double Qr,                  // 【変更】入力は後輪合計トルク
     double steeringAngleFront,
     double steeringAngleRear)
 {
-    const double Wr = 0.8;  // 後輪トレッド幅 [m]
-    std::array<double,2> torques;
+    const double Wr = 0.8;      // 【変更】後輪のトレッド幅 (前輪と同じならそのままでOK)
+    std::array<double, 2> torques;
 
+    // 旋回の厳しさ（曲率）を決めるのは「前後輪の操舵角の差」
+    // これは前輪計算時と全く同じロジックでOK
     double tan_diff = std::tan(steeringAngleFront) - std::tan(steeringAngleRear);
+    
+    // 直進時（またはカニ歩き時）は均等配分
     if (std::fabs(tan_diff) < 1e-9) {
         torques[0] = Qr * 0.5;
         torques[1] = Qr * 0.5;
         return torques;
     }
 
-    // 1) リアアクスル基準での回転中心半径
-    double Rr_center = lv / tan_diff;
+    // 1. 旋回半径の近似
+    // 4WSにおける旋回半径の定義は前後共通の指標を使って問題ありません
+    double R_eff = std::abs(lv / tan_diff);
 
-    // 2) 内輪／外輪の絶対半径
-    double Rr_abs   = std::abs(Rr_center);
-    double Rr_inner = Rr_abs - Wr/2.0;
-    double Rr_outer = Rr_abs + Wr/2.0;
+    // 2. 内外輪の半径差 (後輪トレッド幅 Wr を使用)
+    double R_inner = R_eff - Wr / 2.0;
+    double R_outer = R_eff + Wr / 2.0;
+    double sum_R = R_inner + R_outer;
 
-    // 3) パワー均等配分
-    double sum = Rr_inner + Rr_outer;
-    double Tin = Qr * (Rr_outer / sum);
-    double Tou = Qr * (Rr_inner / sum);
+    // 3. トルク配分 (外輪トルク > 内輪トルク)
+    double T_inner = Qr * (R_inner / sum_R);
+    double T_outer = Qr * (R_outer / sum_R);
 
-    // 4) 左右アサイン
+    // 4. 左右への割り当て (tan_diff > 0 は左旋回)
+    // 旋回方向の判定も前後で共通です
     if (tan_diff > 0) {
-        // 左折
-        torques[0] = Tin;
-        torques[1] = Tou;
+        // 左旋回: 左(0)が内輪、右(1)が外輪
+        torques[0] = T_inner; // Left (Rear)
+        torques[1] = T_outer; // Right (Rear)
     } else {
-        // 右折
-        torques[0] = Tou;
-        torques[1] = Tin;
+        // 右旋回: 右(1)が内輪、左(0)が外輪
+        torques[0] = T_outer; // Left (Rear)
+        torques[1] = T_inner; // Right (Rear)
     }
     return torques;
 }

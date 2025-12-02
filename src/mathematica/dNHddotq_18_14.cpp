@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_dNHddotq_18_14_()
 {
 double ret;
-ret = -(q_map(14)*Sin(q_map(13)));
+ret = q_map(14)*Sin(q_map(13));
 return ret;
 }

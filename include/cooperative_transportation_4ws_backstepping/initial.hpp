@@ -11,10 +11,12 @@
 #define PSdist 400
 #define PAI 3.14159265358979323846
 #define LIM 1.48352986419518  //操舵角の上限（85度）
-#define vehicle_inertia_coef 0.04732
-#define wheel_inertia_coef 0.4
-#define hinge_inertia_coef 1.0
-#define carrier_inertia_coef 0.0487
+// #define vehicle_inertia_coef 0.04732
+// #define wheel_inertia_coef 0.4
+// #define hinge_inertia_coef 1.0
+// #define carrier_inertia_coef 0.0487
+
+
 inline constexpr int BEZIER_ORDER = 3; 
 inline constexpr double RAD2DEG = 180.0 / PAI;
 inline constexpr double DEG2RAD = PAI / 180.0;
@@ -310,7 +312,7 @@ inline int VEHICLE3_SLIDING_MECHANISM_SIGN = sign(1.0);
 //各車両の速度
 inline double v1, v2, v3;
 inline double v1f, v2f, v3f, v1r, v2r, v3r;
-inline double wheelRadius = 0.153; //車輪の半径
+inline double wheelRadius = 0.16; //車輪の半径
 
 
 
@@ -339,12 +341,19 @@ inline double Q_phiFR1, Q_phiFL1, Q_phiRR1, Q_phiRL1, Q_phiFR2, Q_phiFL2, Q_phiR
 //flat
 inline double rho = 0.0 * DEG2RAD;
 
-inline double m_wheel = 8;
+inline double m_wheel = 15.0;
 inline double m_hinge = 3.4982376613637274;
-inline double M_mass = 100 + 2* 12.646385127140846;
-inline double m_b = 100 + 2*12.646385127140846; //車両の質量
+inline double M_mass = 100.0 + 2* 12.646385127140846;
+inline double m_b = 100.0 + 2*12.646385127140846; //車両の質量
 inline double m_w = 2*(m_wheel + m_hinge);
 inline double m_c = 100.0 + (16.301253040579397*3);
+
+inline double vehicle_inertia_coef  = m_b / 2113.272311120373;
+inline double wheel_inertia_coef = m_wheel / 20.0;
+inline double hinge_inertia_coef = 1.0;
+inline double carrier_inertia_coef = m_c / 2052.2363345901408;
+
+
 inline double I_theta0 = carrier_inertia_coef * 1171.807086;
 inline double I_wheel = wheel_inertia_coef *0.113544;
 inline double I_hinge = hinge_inertia_coef*0.007588;

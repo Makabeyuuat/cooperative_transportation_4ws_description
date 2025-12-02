@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_Axi_13_6_()
 {
 double ret;
-ret = -(Cos(q_map(5))*q_map(6));
+ret = Cos(q_map(5))*q_map(6);
 return ret;
 }

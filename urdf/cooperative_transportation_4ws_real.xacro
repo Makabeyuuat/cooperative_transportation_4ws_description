@@ -26,7 +26,7 @@
 
 <!-- 車輪 -->
 <xacro:property name="fusion_wheel_mass" value="20.0" /> 
-<xacro:property name="sim_wheel_mass" value="8.0" /> 
+<xacro:property name="sim_wheel_mass" value="15.0" /> 
 <xacro:property name="wheel_inertia_coef" value="${sim_wheel_mass/fusion_wheel_mass}" /> 
 
 <!-- hinge -->
@@ -111,7 +111,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
   </collision>
 </link>
@@ -279,7 +279,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -323,7 +323,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -367,7 +367,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -621,7 +621,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -665,7 +665,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -709,7 +709,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -753,7 +753,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -944,7 +944,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -988,7 +988,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -1032,7 +1032,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
@@ -1076,7 +1076,7 @@
   <collision>
     <origin xyz="0 0 0" rpy="1.57 0 0"/>
     <geometry>
-      <cylinder radius="0.16" length="0.07"/>
+      <cylinder radius="0.16" length="0.08"/>
     </geometry>
 
     <surface>
