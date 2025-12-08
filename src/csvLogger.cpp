@@ -46,7 +46,8 @@ CSVLogger::CSVLogger(const std::string& dir, int close_threshold, int sync_every
        << "K81,K82,K83,K84,K91,K92,K93,K94,"
        << "sr.Cs, sr.Cs1, 1 - sr.d*sr.Cs,"
        << "nu1,nu2,nu3,nu4,nu5,nu6,nu7,nu8,nu9,nu10,nu11,nu12,"
-      << "lambda1,lambda2,lambda3,lambda4,lambda5,lambda6,lambda7,lambda8,lambda9,lambda10,lambda11,lambda12,lambda13,lambda14,lambda15,lambda16,lambda17,lambda18"
+       << "lambda1,lambda2,lambda3,lambda4,lambda5,lambda6,lambda7,lambda8,lambda9,lambda10,lambda11,lambda12,lambda13,lambda14,lambda15,lambda16,lambda17,lambda18,"
+       << "Q_phiR1, Q_varphiR1, Q_phiF1, Q_varphiF1, Q_phiR2, Q_varphiR2, Q_phiF2, Q_varphiF2, Q_phiR3, Q_varphiR3, Q_phiF3, Q_varphiF3"
        << "\n";
 
   // ヘッダーも確実に同期
@@ -176,21 +177,21 @@ void CSVLogger::logData() {
          << ","  << alpha92
          << ","  << alpha93
          << ","  << alpha99
-          << ","  << alpha101
-          << ","  << alpha102
-          << ","  << alpha103
-          << ","  << alpha1010
-          << ","  << alpha111
-          << ","  << alpha112
-          << ","  << alpha113
-          << ","  << alpha1110
-          << ","  << alpha1111
-          << ","  << alpha121
-          << ","  << alpha122
-          << ","  << alpha123
-          << ","  << alpha1210
-          << ","  << alpha1211
-          << ","  << alpha1212
+         << ","  << alpha101
+         << ","  << alpha102
+         << ","  << alpha103
+         << ","  << alpha1010
+         << ","  << alpha111
+         << ","  << alpha112
+         << ","  << alpha113
+         << ","  << alpha1110
+         << ","  << alpha1111
+         << ","  << alpha121
+         << ","  << alpha122
+         << ","  << alpha123
+         << ","  << alpha1210
+         << ","  << alpha1211
+         << ","  << alpha1212
          << ","  << u1
          << ","  << u2
          << ","  << u3
@@ -258,6 +259,7 @@ void CSVLogger::logData() {
          << ","  << 1 - sr.d*sr.Cs
          << ","  << nu(0) << "," << nu(1) << "," << nu(2) << "," << nu(3) << "," << nu(4) << "," << nu(5) << "," << nu(6) << "," << nu(7) << "," << nu(8) << "," << nu(9) << "," << nu(10) << "," << nu(11)
          << ","  << lambda_data(0) << "," << lambda_data(1) << "," << lambda_data(2) << "," << lambda_data(3) << "," << lambda_data(4) << "," << lambda_data(5) << "," << lambda_data(6) << "," << lambda_data(7) << "," << lambda_data(8) << "," << lambda_data(9) << "," << lambda_data(10) << "," << lambda_data(11) << "," << lambda_data(12) << "," << lambda_data(13) << "," << lambda_data(14) << "," << lambda_data(15) << "," << lambda_data(16) << "," << lambda_data(17)
+         << ","  <<Q_phiR1 << "," << Q_varphiR1 << "," << Q_phiF1 << "," << Q_varphiF1 << ","  <<Q_phiR2 << "," << Q_varphiR2 << "," << Q_phiF2 << "," << Q_varphiF2 << ","  <<Q_phiR3 << "," << Q_varphiR3 << "," << Q_phiF3 << "," << Q_varphiF3 
          << "\n";
     // ---- ここまで1行 ----
 

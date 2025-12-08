@@ -88,7 +88,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
       //ゲイン
       Eigen::Matrix<double,12,1> gains;
-      gains <<  10.0,10.0,10.0,0.0,10.0,10.0,0.0,10.0,10.0,0.0,10.0,10.0;
+      gains <<  10.0,10.0,10.0,0.0,20.0,20.0,0.0,20.0,20.0,0.0,20.0,20.0;
       Eigen::Matrix<double,12,12> C = gains.asDiagonal();
           
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
@@ -101,7 +101,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       Xalpha = dSXdt * u_act + SX * nu;
 
       //デバッグ用ログ出力
-	  ROS_INFO_THROTTLE(0.2,"Ps: t = %.3f x=%.3f, y=%.3f, Q=%d", x_old[0], sr.Psx, sr.Psy, sr.j);
+	  ROS_INFO_THROTTLE(0.2,"Ps: t = %.3f x=%.3f, y=%.3f, Q=%d, thetap0=%.3f", x_old[0], sr.Psx, sr.Psy, sr.j, Thetap0);
       //u_dとu_actの表示
       ROS_INFO_THROTTLE(0.2,"u_kinematics: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", u_kinematics(0), u_kinematics(1), u_kinematics(2), u_kinematics(3), u_kinematics(4), u_kinematics(5), u_kinematics(6), u_kinematics(7), u_kinematics(8), u_kinematics(9), u_kinematics(10), u_kinematics(11));
 	  ROS_INFO_THROTTLE(0.2,"u_act: 1=%.3f, 2=%.3f, 3=%.3f, 4=%.3f, 5=%.3f, 6=%.3f, 7=%.3f, 8=%.3f,9=%.3f, 10=%.3f, 11=%.3f, 12=%.3f", u_act(0), u_act(1), u_act(2), u_act(3), u_act(4), u_act(5), u_act(6), u_act(7), u_act(8), u_act(9), u_act(10), u_act(11));
@@ -120,10 +120,15 @@ Eigen::Matrix<double,27,1> DynamicsIntegrator::computeAlpha(
         Eigen::Matrix<double,27,1> alpha;
         //状態変数ベクトルの目標加速度 
         Eigen::Matrix<double,23,1> Xalpha = computeXAlpha(x_old, x_d, u_kinematics);
+        
+        ROS_INFO_THROTTLE(0.2,"ca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
+        ROS_INFO_THROTTLE(0.2,"v1: x1=%.3f, y1=%.3f, thetav1=%.3f, s1=%.3f", q(3), q(4), q(5), q(6));
+	    ROS_INFO_THROTTLE(0.2,"v2: x2=%.3f, y2=%.3f, thetav2=%.3f, s2=%.3f", q(7), q(8), q(9), q(10));
+	    ROS_INFO_THROTTLE(0.2,"v3: x3=%.3f, y3=%.3f, thetav3=%.3f, s3=%.3f", q(11), q(12), q(13), q(14));
 
-        asd = Xalpha(0);
-        athetap4d =  Xalpha(10);
-        athetap7d =  Xalpha(16);
+        asd =         Xalpha(0);
+        athetap4d =   Xalpha(10);
+        athetap7d =   Xalpha(16);
         athetap10d =  Xalpha(22);
 
         alpha = kinematics_solver_.aqd_vec();

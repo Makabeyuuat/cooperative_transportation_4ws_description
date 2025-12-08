@@ -139,7 +139,7 @@ inline Eigen::Matrix<double,12,1> u_act ;
 
 //input
 //制御入力
-inline double a0 = 0.2;
+inline double a0 = 0.15;
 inline double u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12;
 //制御入力用行列
 //行列計算
@@ -341,12 +341,13 @@ inline double Q_phiFR1, Q_phiFL1, Q_phiRR1, Q_phiRL1, Q_phiFR2, Q_phiFL2, Q_phiR
 //flat
 inline double rho = 0.0 * DEG2RAD;
 
-inline double m_wheel = 15.0;
+inline double m_linkage_point = 1.0;
+inline double m_axle = 1.0;
+inline double m_wheel = 8.0;
 inline double m_hinge = 3.4982376613637274;
-inline double M_mass = 100.0 + 2* 12.646385127140846;
-inline double m_b = 100.0 + 2*12.646385127140846; //車両の質量
+inline double m_b = 70.0; //車両の質量
 inline double m_w = 2*(m_wheel + m_hinge);
-inline double m_c = 100.0 + (16.301253040579397*3);
+inline double m_c = 100.0;
 
 inline double vehicle_inertia_coef  = m_b / 2113.272311120373;
 inline double wheel_inertia_coef = m_wheel / 20.0;
@@ -354,23 +355,25 @@ inline double hinge_inertia_coef = 1.0;
 inline double carrier_inertia_coef = m_c / 2052.2363345901408;
 
 
+inline double linkage_inertia_coef = m_linkage_point / 16.301253040579;
+
 inline double I_theta0 = carrier_inertia_coef * 1171.807086;
 inline double I_wheel = wheel_inertia_coef *0.113544;
 inline double I_hinge = hinge_inertia_coef*0.007588;
 //v1
-inline double I_theta1 = vehicle_inertia_coef * 418.647558 + 2*0.755318;
+inline double I_theta1 = vehicle_inertia_coef * 418.647558;
 inline double I_phiF1 = 2*(I_wheel + I_hinge);
 inline double I_phiR1 = 2*(I_wheel + I_hinge);
 inline double I_varphiF1 = 2*(wheel_inertia_coef*0.222011);        
 inline double I_varphiR1 = 2*(wheel_inertia_coef*0.222011); 
 //v2
-inline double I_theta2 = vehicle_inertia_coef * 418.647558 + 2*0.755318;
+inline double I_theta2 = vehicle_inertia_coef * 418.647558;
 inline double I_phiF2 = 2*(I_wheel + I_hinge);
 inline double I_phiR2 = 2*(I_wheel + I_hinge);
 inline double I_varphiF2 = 2*(wheel_inertia_coef*0.222011);        
 inline double I_varphiR2 = 2*(wheel_inertia_coef*0.222011); 
 //v3
-inline double I_theta3 = vehicle_inertia_coef * 418.647558 + 2*0.755318;
+inline double I_theta3 = vehicle_inertia_coef * 418.647558;
 inline double I_phiF3 = 2*(I_wheel + I_hinge);
 inline double I_phiR3 = 2*(I_wheel + I_hinge);
 inline double I_varphiF3 = 2*(wheel_inertia_coef*0.222011);        

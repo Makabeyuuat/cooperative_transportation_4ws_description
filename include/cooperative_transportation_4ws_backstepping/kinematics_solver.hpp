@@ -198,7 +198,9 @@ public:
   
   // --- pd_ud_pd_t 12 ---
   inline static constexpr Mfn pdud_tbl[12] = {
-    &KinematicsSolver::calc_pd_ud_pd_t_1_, &KinematicsSolver::calc_pd_ud_pd_t_2_, &KinematicsSolver::calc_pd_ud_pd_t_3_, &KinematicsSolver::calc_pd_ud_pd_t_4_, &KinematicsSolver::calc_pd_ud_pd_t_5_, &KinematicsSolver::calc_pd_ud_pd_t_6_, &KinematicsSolver::calc_pd_ud_pd_t_7_, &KinematicsSolver::calc_pd_ud_pd_t_8_, &KinematicsSolver::calc_pd_ud_pd_t_9_, &KinematicsSolver::calc_pd_ud_pd_t_10_, &KinematicsSolver::calc_pd_ud_pd_t_11_, &KinematicsSolver::calc_pd_ud_pd_t_12_
+    &KinematicsSolver::calc_pd_ud_pd_t_1_, &KinematicsSolver::calc_pd_ud_pd_t_2_, &KinematicsSolver::calc_pd_ud_pd_t_3_, &KinematicsSolver::calc_pd_ud_pd_t_4_, 
+    &KinematicsSolver::calc_pd_ud_pd_t_5_, &KinematicsSolver::calc_pd_ud_pd_t_6_, &KinematicsSolver::calc_pd_ud_pd_t_7_, &KinematicsSolver::calc_pd_ud_pd_t_8_, 
+    &KinematicsSolver::calc_pd_ud_pd_t_9_, &KinematicsSolver::calc_pd_ud_pd_t_10_, &KinematicsSolver::calc_pd_ud_pd_t_11_, &KinematicsSolver::calc_pd_ud_pd_t_12_
   };
   
   
