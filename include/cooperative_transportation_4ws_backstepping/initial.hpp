@@ -220,13 +220,21 @@ inline double alpha121, alpha122, alpha123, alpha1210, alpha1211, alpha1212;
 
 //重心の目標相対位置関数
 inline double d0d, dd0d, ddd0d, dddd0d;
-inline double thetap1d, dthetap1d, ddthetap1d, dddthetap1d;
+inline double thetap1d, dthetap1d;
+inline double ddthetap1d =0.0;
+inline double dddthetap1d=0.0;
 
 inline double thetap2d;
-inline double dthetap2d, ddthetap2d, dddthetap2d;
+inline double dthetap2d;
+inline double ddthetap2d =0.0;
+inline double dddthetap2d=0.0;
+
 inline double K21, K22, K23, K24;
 
-inline double thetap3d, dthetap3d, ddthetap3d, dddthetap3d;
+inline double thetap3d, dthetap3d;
+inline double ddthetap3d =0.0;
+inline double dddthetap3d=0.0;
+
 inline double K31, K32, K33, K34;
 
 inline double thetap4d = PAI;
@@ -234,10 +242,16 @@ inline double dthetap4d = 0;
 inline double ddthetap4d = 0;
 inline double dddthetap4d = 0;
 
-inline double thetap5d,dthetap5d, ddthetap5d, dddthetap5d;
+inline double thetap5d,dthetap5d;
+inline double ddthetap5d =0.0;
+inline double dddthetap5d=0.0;
+
 inline double K51, K52, K53, K54;
 
-inline double thetap6d , dthetap6d, ddthetap6d, dddthetap6d;
+inline double thetap6d , dthetap6d;
+inline double ddthetap6d =0.0;
+inline double dddthetap6d=0.0;
+
 inline double K61, K62, K63, K64;
 
 inline double thetap7d = -PAI / 8.0;
@@ -245,10 +259,16 @@ inline double dthetap7d = 0.0;
 inline double ddthetap7d = 0.0;
 inline double dddthetap7d = 0;
 
-inline double thetap8d, dthetap8d, ddthetap8d, dddthetap8d;
+inline double thetap8d, dthetap8d;
+inline double ddthetap8d =0.0;
+inline double dddthetap8d=0.0;
+
 inline double K81, K82, K83, K84;
 
-inline double thetap9d, dthetap9d, ddthetap9d, dddthetap9d;
+inline double thetap9d, dthetap9d;
+inline double ddthetap9d =0.0;
+inline double dddthetap9d=0.0;
+
 inline double K91, K92, K93, K94;
 
 inline double thetap10d = PAI / 6.0;

@@ -156,8 +156,7 @@ int main(int argc, char** argv)
 
 	//rungeS();
 
-	
-	n = (long)(t_max / h) + 1;
+
 
 	
 	
