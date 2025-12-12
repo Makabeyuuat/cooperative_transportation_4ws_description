@@ -1,5 +1,6 @@
-#include "../common.hpp"
-#include "../kinematics_solver.hpp"
+#include "cooperative_transportation_4ws_backstepping/kinematics_solver.hpp"
+#include "cooperative_transportation_4ws_backstepping/initial.hpp"
+#include "cooperative_transportation_4ws_backstepping/mathFunc.h"
 
 double KinematicsSolver::calc_Dthetap2_2_2_()
 {

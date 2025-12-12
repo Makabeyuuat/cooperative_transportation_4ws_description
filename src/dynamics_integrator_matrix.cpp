@@ -93,6 +93,9 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
           
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
 
+      //thetapの2,3階微分を計算
+      getDtheta(nu, u_kinematics);
+
       //目標加速度νを計算
       nu = -dot_C_rb + pdud;
       
@@ -464,6 +467,11 @@ void DynamicsIntegrator::getDtheta(const Eigen::Matrix<double,12,1>& nu, const E
     //thetap9dの２階微分と３階微分
     ddthetap9d = Dthetap8(2) ;
     dddthetap9d =Dthetap8(3) ; 
+
+     ROS_INFO_THROTTLE(0.2,"v1: ddthetap2d=%.3f, dddthetap2d=%.3f, ddthetap3d=%.3f, dddthetap3d=%.3f", Dthetap2(0), Dthetap2(1), Dthetap2(2), Dthetap2(3));
+     ROS_INFO_THROTTLE(0.2,"v2: ddthetap5d=%.3f, dddthetap5d=%.3f, ddthetap6d=%.3f, dddthetap6d=%.3f", Dthetap5(0), Dthetap5(1), Dthetap5(2), Dthetap5(3));
+     ROS_INFO_THROTTLE(0.2,"v3: ddthetap8d=%.3f, dddthetap8d=%.3f, ddthetap9d=%.3f, dddthetap9d=%.3f", Dthetap8(0), Dthetap8(1), Dthetap8(2), Dthetap8(3));
+
 
 }
 
