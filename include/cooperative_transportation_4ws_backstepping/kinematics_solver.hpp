@@ -19,8 +19,11 @@ public:
   Eigen::Matrix<double,27,1>  Kxi_vec();
   Eigen::Matrix<double,12,1>  pd_ud_vec();
   Eigen::Matrix<double,27,1>  aqd_vec();
+  Eigen::Matrix<double,4,1>  Dthetap2_vec();
+  Eigen::Matrix<double,4,1>  Dthetap5_vec();
+  Eigen::Matrix<double,4,1>  Dthetap8_vec();
 
-  // --- 状態・派生 ---
+  // --- 状態 ---
   Eigen::Matrix<double,23,12> SX_mat();
   Eigen::Matrix<double,23,12> dSXdt_mat();
 
@@ -37,6 +40,9 @@ public:
   inline double dSXdt(size_t i) { return (this->*dSXdt_tbl[i/12][i%12])(); }
   inline double pdud(size_t i) { return (this->*pdud_tbl[i])(); }
   inline double aqd(size_t i) { return (this->*aqd_tbl[i])(); }
+  inline double Dthetap2(size_t i) { return (this->*Dthetap2_tbl[i])(); }
+  inline double Dthetap5(size_t i) { return (this->*Dthetap5_tbl[i])(); }
+  inline double Dthetap8(size_t i) { return (this->*Dthetap8_tbl[i])(); }
 
 
   // --- Cxi 27x27 ---
@@ -213,9 +219,22 @@ public:
     &KinematicsSolver::calc_aqd_17_, &KinematicsSolver::calc_aqd_18_, &KinematicsSolver::calc_aqd_19_, &KinematicsSolver::calc_aqd_20_,
     &KinematicsSolver::calc_aqd_21_, &KinematicsSolver::calc_aqd_22_, &KinematicsSolver::calc_aqd_23_, &KinematicsSolver::calc_aqd_24_,
     &KinematicsSolver::calc_aqd_25_, &KinematicsSolver::calc_aqd_26_, &KinematicsSolver::calc_aqd_27_};
-  
-  
+
+  //Dthetap2-3
+  inline static constexpr Mfn Dthetap2_tbl[4] = {
+    &KinematicsSolver::calc_Dthetap2_1_1_, &KinematicsSolver::calc_Dthetap2_1_2_, &KinematicsSolver::calc_Dthetap2_2_1_, &KinematicsSolver::calc_Dthetap2_2_2_};
+
+
+  //Dthetap5-6
+  inline static constexpr Mfn Dthetap5_tbl[4] = {
+    &KinematicsSolver::calc_Dthetap5_1_1_, &KinematicsSolver::calc_Dthetap5_1_2_, &KinematicsSolver::calc_Dthetap5_2_1_, &KinematicsSolver::calc_Dthetap5_2_2_};
+
+  //Dthetap8-9
+  inline static constexpr Mfn Dthetap8_tbl[4] = {
+    &KinematicsSolver::calc_Dthetap8_1_1_, &KinematicsSolver::calc_Dthetap8_1_2_, &KinematicsSolver::calc_Dthetap8_2_1_, &KinematicsSolver::calc_Dthetap8_2_2_};
 }; 
+
+
 
 
 

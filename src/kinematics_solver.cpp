@@ -39,6 +39,14 @@ Eigen::Matrix<double,27,1> KinematicsSolver::Kxi_vec(){
     return fill_from_vec<27>(this, Kxi_tbl);
 }
 
+Eigen::Matrix<double,23,12> KinematicsSolver::SX_mat(){
+    return fill_from_tbl<23,12>(this, SX_tbl);
+}
+
+Eigen::Matrix<double,23,12> KinematicsSolver::dSXdt_mat(){
+    return fill_from_tbl<23,12>(this, dSXdt_tbl);
+}
+
 
 Eigen::Matrix<double,12,1> KinematicsSolver::pd_ud_vec(){
     return fill_from_vec<12>(this, pdud_tbl);
@@ -48,12 +56,15 @@ Eigen::Matrix<double,27,1> KinematicsSolver::aqd_vec(){
     return fill_from_vec<27>(this, aqd_tbl);
 }
 
-
-Eigen::Matrix<double,23,12> KinematicsSolver::SX_mat(){
-    return fill_from_tbl<23,12>(this, SX_tbl);
+Eigen::Matrix<double,4,1> KinematicsSolver::Dthetap2_vec(){
+    return fill_from_vec<4>(this, Dthetap2_tbl);
 }
 
-Eigen::Matrix<double,23,12> KinematicsSolver::dSXdt_mat(){
-    return fill_from_tbl<23,12>(this, dSXdt_tbl);
+Eigen::Matrix<double,4,1> KinematicsSolver::Dthetap5_vec(){
+    return fill_from_vec<4>(this, Dthetap5_tbl);
+}
+
+Eigen::Matrix<double,4,1> KinematicsSolver::Dthetap8_vec(){
+    return fill_from_vec<4>(this, Dthetap8_tbl);
 }
 
