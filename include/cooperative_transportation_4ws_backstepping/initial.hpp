@@ -277,9 +277,9 @@ inline double ddthetap10d = 0;
 inline double dddthetap10d = 0;
 
 //摺動機構の目標関数とその微分
-inline double delta1d = 0.0, Ddelta1d = 0.0, DDdelta1d = 0.0;
-inline double delta2d = 0.0, Ddelta2d = 0.0, DDdelta2d = 0.0;
-inline double delta3d = 0.0, Ddelta3d = 0.0, DDdelta3d = 0.0;
+inline double delta1d = 0.0, Ddelta1d = 0.0, DDdelta1d = 0.0, DDDdelta1d = 0.0;
+inline double delta2d = 0.0, Ddelta2d = 0.0, DDdelta2d = 0.0, DDDdelta2d = 0.0;
+inline double delta3d = 0.0, Ddelta3d = 0.0, DDdelta3d = 0.0, DDDdelta3d = 0.0;
 
 
 inline double thetaT = 0.0;

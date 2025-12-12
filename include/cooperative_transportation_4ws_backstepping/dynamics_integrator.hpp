@@ -83,6 +83,7 @@ public:
     std::array<double,2> computeRearWheelOmegas(double speed, double steeringAngle);
     std::array<double,2> computeRearWheelTorque(double Qr, double steeringAngleFront, double steeringAngleRear);
     std::array<double,2> computeFrontWheelTorque(double Qf, double steeringAngleFront, double steeringAngleRear);
+    void getDtheta(const Eigen::Matrix<double,12,1>& nu, const Eigen::Matrix<double,12,1>& u_kinematics);
 
 private:
         KinematicsSolver kinematics_solver_;
