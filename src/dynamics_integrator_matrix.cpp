@@ -124,10 +124,10 @@ Eigen::Matrix<double,27,1> DynamicsIntegrator::computeAlpha(
         //状態変数ベクトルの目標加速度 
         Eigen::Matrix<double,23,1> Xalpha = computeXAlpha(x_old, x_d, u_kinematics);
         
-        ROS_INFO_THROTTLE(0.2,"ca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
-        ROS_INFO_THROTTLE(0.2,"v1: x1=%.3f, y1=%.3f, thetav1=%.3f, s1=%.3f, v1f=%.3f, v1r=%.3f", q(3), q(4), q(5), q(6), v1f, v1r);
-	    ROS_INFO_THROTTLE(0.2,"v2: x2=%.3f, y2=%.3f, thetav2=%.3f, s2=%.3f, v2f=%.3f, v2r=%.3f", q(7), q(8), q(9), q(10), v2f, v2r);
-	    ROS_INFO_THROTTLE(0.2,"v3: x3=%.3f, y3=%.3f, thetav3=%.3f, s3=%.3f, v3f=%.3f, v3r=%.3f", q(11), q(12), q(13), q(14), v3f, v3r);
+        // ROS_INFO_THROTTLE(0.2,"ca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
+        // ROS_INFO_THROTTLE(0.2,"v1: x1=%.3f, y1=%.3f, thetav1=%.3f, s1=%.3f, v1f=%.3f, v1r=%.3f", q(3), q(4), q(5), q(6), v1f, v1r);
+	    // ROS_INFO_THROTTLE(0.2,"v2: x2=%.3f, y2=%.3f, thetav2=%.3f, s2=%.3f, v2f=%.3f, v2r=%.3f", q(7), q(8), q(9), q(10), v2f, v2r);
+	    // ROS_INFO_THROTTLE(0.2,"v3: x3=%.3f, y3=%.3f, thetav3=%.3f, s3=%.3f, v3f=%.3f, v3r=%.3f", q(11), q(12), q(13), q(14), v3f, v3r);
 
         asd =         Xalpha(0);
         athetap4d =   Xalpha(10);
@@ -200,9 +200,9 @@ void DynamicsIntegrator::step(
       Eigen::Matrix<double,18,1> lambda = cod.solve(rhs);
       lambda_data = lambda;
 
-      ROS_INFO_THROTTLE(0.2,"lambda: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", 
-        lambda(0), lambda(1), lambda(2), lambda(3), lambda(4), lambda(5), lambda(6), lambda(7), lambda(8), lambda(9), lambda(10), lambda(11));
-	  ROS_INFO_THROTTLE(0.2,"lambda: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda(12), lambda(13), lambda(14), lambda(15), lambda(16), lambda(17));
+    //   ROS_INFO_THROTTLE(0.2,"lambda: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", 
+    //     lambda(0), lambda(1), lambda(2), lambda(3), lambda(4), lambda(5), lambda(6), lambda(7), lambda(8), lambda(9), lambda(10), lambda(11));
+	//   ROS_INFO_THROTTLE(0.2,"lambda: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda(12), lambda(13), lambda(14), lambda(15), lambda(16), lambda(17));
 
 
 
@@ -276,9 +276,9 @@ void DynamicsIntegrator::step(
       Q_phiRL3 = Q_phiR3/2.0; 
       Q_phiRR3 = Q_phiR3/2.0;
 
-      ROS_INFO_THROTTLE(0.2,"v1: Q_phiR1=%.3f, Q_phiF1=%.3f, Q_varphiR1=%.3f, Q_varphiF1=%.3f", Q_phiR1, Q_phiF1, Q_varphiR1, Q_varphiF1);
-	  ROS_INFO_THROTTLE(0.2,"v2: Q_phiR2=%.3f, Q_phiF2=%.3f, Q_varphiR2=%.3f, Q_varphiF2=%.3f", Q_phiR2, Q_phiF2, Q_varphiR2, Q_varphiF2);
-	  ROS_INFO_THROTTLE(0.2,"v3: Q_phiR3=%.3f, Q_phiF3=%.3f, Q_varphiR3=%.3f, Q_varphiF3=%.3f", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
+    //   ROS_INFO_THROTTLE(0.2,"v1: Q_phiR1=%.3f, Q_phiF1=%.3f, Q_varphiR1=%.3f, Q_varphiF1=%.3f", Q_phiR1, Q_phiF1, Q_varphiR1, Q_varphiF1);
+	//   ROS_INFO_THROTTLE(0.2,"v2: Q_phiR2=%.3f, Q_phiF2=%.3f, Q_varphiR2=%.3f, Q_varphiF2=%.3f", Q_phiR2, Q_phiF2, Q_varphiR2, Q_varphiF2);
+	//   ROS_INFO_THROTTLE(0.2,"v3: Q_phiR3=%.3f, Q_phiF3=%.3f, Q_varphiR3=%.3f, Q_varphiF3=%.3f", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
 
       Eigen::Matrix<double,12,1> Q_rhs     = rhs_zeta_only;
       Eigen::Matrix<double,12,1> Q_const   = - AT_zeta * lambda;
@@ -288,9 +288,9 @@ void DynamicsIntegrator::step(
       int idx_varphiR2 =5;
       int idx_varphiR3 =9;
 
-      ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR1),Q_const(idx_varphiR1),Q_total(idx_varphiR1));
-      ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR2),Q_const(idx_varphiR2),Q_total(idx_varphiR2));
-      ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, A*lambda=%.3f, total=%.3f\n\n",Q_rhs(idx_varphiR3),Q_const(idx_varphiR3),Q_total(idx_varphiR3));
+    //   ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR1),Q_const(idx_varphiR1),Q_total(idx_varphiR1));
+    //   ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR2),Q_const(idx_varphiR2),Q_total(idx_varphiR2));
+    //   ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, A*lambda=%.3f, total=%.3f\n\n",Q_rhs(idx_varphiR3),Q_const(idx_varphiR3),Q_total(idx_varphiR3));
      
      
      
@@ -468,9 +468,9 @@ void DynamicsIntegrator::getDtheta(const Eigen::Matrix<double,12,1>& nu, const E
     ddthetap9d = Dthetap8(2) ;
     dddthetap9d =Dthetap8(3) ; 
 
-     ROS_INFO_THROTTLE(0.2,"v1: ddthetap2d=%.3f, dddthetap2d=%.3f, ddthetap3d=%.3f, dddthetap3d=%.3f", Dthetap2(0), Dthetap2(1), Dthetap2(2), Dthetap2(3));
-     ROS_INFO_THROTTLE(0.2,"v2: ddthetap5d=%.3f, dddthetap5d=%.3f, ddthetap6d=%.3f, dddthetap6d=%.3f", Dthetap5(0), Dthetap5(1), Dthetap5(2), Dthetap5(3));
-     ROS_INFO_THROTTLE(0.2,"v3: ddthetap8d=%.3f, dddthetap8d=%.3f, ddthetap9d=%.3f, dddthetap9d=%.3f", Dthetap8(0), Dthetap8(1), Dthetap8(2), Dthetap8(3));
+     ROS_INFO_THROTTLE(0.04,"v1: thetap2d=%.3f, dthetap2d=%.3f, ddthetap2d=%.3f, dddthetap2d=%.3f, thetap3d=%.3f, dthetap3d=%.3f, ddthetap3d=%.3f, dddthetap3d=%.3f", thetap2d, dthetap2d, Dthetap2(0), Dthetap2(1), thetap3d, dthetap3d, Dthetap2(2), Dthetap2(3));
+     ROS_INFO_THROTTLE(0.04,"v2: thetap5d=%.3f, dthetap5d=%.3f, ddthetap5d=%.3f, dddthetap5d=%.3f, thetap6d=%.3f, dthetap6d=%.3f, ddthetap6d=%.3f, dddthetap6d=%.3f", thetap5d, dthetap5d, Dthetap5(0), Dthetap5(1), thetap6d, dthetap6d, Dthetap5(2), Dthetap5(3));
+     ROS_INFO_THROTTLE(0.04,"v3: thetap8d=%.3f, dthetap8d=%.3f, ddthetap8d=%.3f, dddthetap8d=%.3f, thetap9d=%.3f, dthetap9d=%.3f, ddthetap9d=%.3f, dddthetap9d=%.3f\n\n", thetap8d, dthetap8d, Dthetap8(0), Dthetap8(1), thetap9d, dthetap9d, Dthetap8(2), Dthetap8(3));
 
 
 }
