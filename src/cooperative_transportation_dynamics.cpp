@@ -240,7 +240,7 @@ int main(int argc, char** argv)
         // vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
 
 		//動力学モデル
-		// //各車両へ steering コマンドと車輪の回転速度コマンドを送信
+		//各車両へ steering コマンドと車輪の回転速度コマンドを送信
 		vehicle1.publishSteeringCommand(Q_phiFL1, Q_phiFR1, Q_phiRL1, Q_phiRR1);
     	vehicle2.publishSteeringCommand(Q_phiFL2, Q_phiFR2, Q_phiRL2, Q_phiRR2);
     	vehicle3.publishSteeringCommand(Q_phiFL3, Q_phiFR3, Q_phiRL3, Q_phiRR3);

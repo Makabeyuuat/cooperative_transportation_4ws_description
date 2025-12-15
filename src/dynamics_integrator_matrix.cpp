@@ -200,9 +200,9 @@ void DynamicsIntegrator::step(
       Eigen::Matrix<double,18,1> lambda = cod.solve(rhs);
       lambda_data = lambda;
 
-    //   ROS_INFO_THROTTLE(0.2,"lambda: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", 
-    //     lambda(0), lambda(1), lambda(2), lambda(3), lambda(4), lambda(5), lambda(6), lambda(7), lambda(8), lambda(9), lambda(10), lambda(11));
-	//   ROS_INFO_THROTTLE(0.2,"lambda: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda(12), lambda(13), lambda(14), lambda(15), lambda(16), lambda(17));
+      ROS_INFO_THROTTLE(0.2,"lambda: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", 
+        lambda(0), lambda(1), lambda(2), lambda(3), lambda(4), lambda(5), lambda(6), lambda(7), lambda(8), lambda(9), lambda(10), lambda(11));
+	  ROS_INFO_THROTTLE(0.2,"lambda: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda(12), lambda(13), lambda(14), lambda(15), lambda(16), lambda(17));
 
 
 
@@ -288,9 +288,9 @@ void DynamicsIntegrator::step(
       int idx_varphiR2 =5;
       int idx_varphiR3 =9;
 
-    //   ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR1),Q_const(idx_varphiR1),Q_total(idx_varphiR1));
-    //   ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR2),Q_const(idx_varphiR2),Q_total(idx_varphiR2));
-    //   ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, A*lambda=%.3f, total=%.3f\n\n",Q_rhs(idx_varphiR3),Q_const(idx_varphiR3),Q_total(idx_varphiR3));
+      ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR1),Q_const(idx_varphiR1),Q_total(idx_varphiR1));
+      ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR2),Q_const(idx_varphiR2),Q_total(idx_varphiR2));
+      ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, A*lambda=%.3f, total=%.3f\n\n",Q_rhs(idx_varphiR3),Q_const(idx_varphiR3),Q_total(idx_varphiR3));
      
      
      
