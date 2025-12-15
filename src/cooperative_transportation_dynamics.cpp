@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 
 	ros::init(argc, argv, "cooperative_transport_node");
     ros::NodeHandle nh;
-	ros::Rate loop_rate(25);
+	ros::Rate loop_rate(50);
 
     // callback.cppで定義している各コールバックを購読
 	ros::Subscriber joint_state_sub    = nh.subscribe("/cooperative_transportation_4ws/joint_states", 10, jointStateCallback);
@@ -68,9 +68,9 @@ int main(int argc, char** argv)
     Vehicle vehicle3(nh, "v3");
 	// 各クラスをインスタンス化
     DynamicsCalculator dynamics_calc;
-	getInputValue getInputValue(0.04);
+	getInputValue getInputValue(0.02);
 
-	DynamicsIntegrator dynamicsintegrator(0.04);
+	DynamicsIntegrator dynamicsintegrator(0.02);
 
 	// 初期化処理
 	//initials();

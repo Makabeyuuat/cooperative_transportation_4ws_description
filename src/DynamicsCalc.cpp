@@ -146,6 +146,7 @@ double DynamicsCalculator::calc_thetavi_from_thetavj(double thetavj, int vehicle
 
 //モデルの速度成分の計算
 void DynamicsCalculator::computeCoefficients(const std::vector<double>& x) {
+     
 
      double Theta1 = x[3] - x[4] - x[5];
 	double Theta2 = x[4] + x[5] - x[6] - x[7];
@@ -236,6 +237,29 @@ void DynamicsCalculator::computeCoefficients(const std::vector<double>& x) {
      double a8t_pre = ai.a1t3 * cos(Theta8) + ai.a1n3 * sin(Theta8);
      double a8n_pre = ai.a1t3 * sin(Theta8) - ai.a1n3 * cos(Theta8);
      v3r = (a8t_pre - a8n_pre * tan(x[22])) * u1;
+
+
+     //qdotを計算
+     const double r = wheelRadius;
+
+     // 後輪
+     varphiR_dot[0] = v1r / r;
+     varphiR_dot[1] = v2r / r;
+     varphiR_dot[2] = v3r / r;
+
+     // 前輪
+     varphiF_dot[0] = v1f / r;
+     varphiF_dot[1] = v2f / r;
+     varphiF_dot[2] = v3f / r;
+
+     qdot_twist[16] = varphiR_dot[0];
+     qdot_twist[18] = varphiF_dot[0];
+
+     qdot_twist[20] = varphiR_dot[1];
+     qdot_twist[22] = varphiF_dot[1];
+
+     qdot_twist[24] = varphiR_dot[2];
+     qdot_twist[26] = varphiF_dot[2];
 
      // //デバッグ用ログ出力
 	// ROS_INFO_THROTTLE(0.1,"DynamicsCalc:v1=%.3f, v2=%.3f, v3=%.3f",

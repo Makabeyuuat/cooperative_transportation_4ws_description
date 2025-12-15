@@ -26,23 +26,33 @@ public:
   // --- 状態 ---
   Eigen::Matrix<double,23,12> SX_mat();
   Eigen::Matrix<double,23,12> dSXdt_mat();
+  Eigen::Matrix<double,12,23> udpdX_mat();
 
   inline double Cxi_rc(size_t r, size_t c) { return (this->*Cxi_tbl[r][c])(); }
   inline double Cxi(size_t i) { return (this->*Cxi_tbl[i/27][i%27])(); }
+
   inline double Mxi_rc(size_t r, size_t c) { return (this->*Mxi_tbl[r][c])(); }
   inline double Mxi(size_t i) { return (this->*Mxi_tbl[i/27][i%27])(); }
+
   inline double Axi_rc(size_t r, size_t c) { return (this->*Axi_tbl[r][c])(); }
   inline double Axi(size_t i) { return (this->*Axi_tbl[i/27][i%27])(); }
+
   inline double Kxi(size_t i) { return (this->*Kxi_tbl[i])(); }
+
   inline double SX_rc(size_t r, size_t c) { return (this->*SX_tbl[r][c])(); }
   inline double SX(size_t i) { return (this->*SX_tbl[i/12][i%12])(); }
+
   inline double dSXdt_rc(size_t r, size_t c) { return (this->*dSXdt_tbl[r][c])(); }
   inline double dSXdt(size_t i) { return (this->*dSXdt_tbl[i/12][i%12])(); }
-  inline double pdud(size_t i) { return (this->*pdud_tbl[i])(); }
+
+  inline double udpdX_rc(size_t r, size_t c){return (this->*udpdX_tbl[r][c])();}
+  inline double udpdX(size_t i){return (this->*udpdX_tbl[i/23][i%23])();}
+
+  //inline double pdud(size_t i) { return (this->*pdud_tbl[i])(); }
   inline double aqd(size_t i) { return (this->*aqd_tbl[i])(); }
-  inline double Dthetap2(size_t i) { return (this->*Dthetap2_tbl[i])(); }
-  inline double Dthetap5(size_t i) { return (this->*Dthetap5_tbl[i])(); }
-  inline double Dthetap8(size_t i) { return (this->*Dthetap8_tbl[i])(); }
+  // inline double Dthetap2(size_t i) { return (this->*Dthetap2_tbl[i])(); }
+  // inline double Dthetap5(size_t i) { return (this->*Dthetap5_tbl[i])(); }
+  // inline double Dthetap8(size_t i) { return (this->*Dthetap8_tbl[i])(); }
 
 
   // --- Cxi 27x27 ---
@@ -203,11 +213,11 @@ public:
   
   
   // --- pd_ud_pd_t 12 ---
-  inline static constexpr Mfn pdud_tbl[12] = {
-    &KinematicsSolver::calc_pd_ud_pd_t_1_, &KinematicsSolver::calc_pd_ud_pd_t_2_, &KinematicsSolver::calc_pd_ud_pd_t_3_, &KinematicsSolver::calc_pd_ud_pd_t_4_, 
-    &KinematicsSolver::calc_pd_ud_pd_t_5_, &KinematicsSolver::calc_pd_ud_pd_t_6_, &KinematicsSolver::calc_pd_ud_pd_t_7_, &KinematicsSolver::calc_pd_ud_pd_t_8_, 
-    &KinematicsSolver::calc_pd_ud_pd_t_9_, &KinematicsSolver::calc_pd_ud_pd_t_10_, &KinematicsSolver::calc_pd_ud_pd_t_11_, &KinematicsSolver::calc_pd_ud_pd_t_12_
-  };
+  // inline static constexpr Mfn pdud_tbl[12] = {
+  //   &KinematicsSolver::calc_pd_ud_pd_t_1_, &KinematicsSolver::calc_pd_ud_pd_t_2_, &KinematicsSolver::calc_pd_ud_pd_t_3_, &KinematicsSolver::calc_pd_ud_pd_t_4_, 
+  //   &KinematicsSolver::calc_pd_ud_pd_t_5_, &KinematicsSolver::calc_pd_ud_pd_t_6_, &KinematicsSolver::calc_pd_ud_pd_t_7_, &KinematicsSolver::calc_pd_ud_pd_t_8_, 
+  //   &KinematicsSolver::calc_pd_ud_pd_t_9_, &KinematicsSolver::calc_pd_ud_pd_t_10_, &KinematicsSolver::calc_pd_ud_pd_t_11_, &KinematicsSolver::calc_pd_ud_pd_t_12_
+  // };
   
   
   //aqd
@@ -221,18 +231,134 @@ public:
     &KinematicsSolver::calc_aqd_25_, &KinematicsSolver::calc_aqd_26_, &KinematicsSolver::calc_aqd_27_};
 
   //Dthetap2-3
-  inline static constexpr Mfn Dthetap2_tbl[4] = {
-    &KinematicsSolver::calc_Dthetap2_1_1_, &KinematicsSolver::calc_Dthetap2_1_2_, &KinematicsSolver::calc_Dthetap2_2_1_, &KinematicsSolver::calc_Dthetap2_2_2_};
+//   inline static constexpr Mfn Dthetap2_tbl[4] = {
+//     &KinematicsSolver::calc_Dthetap2_1_1_, &KinematicsSolver::calc_Dthetap2_1_2_, &KinematicsSolver::calc_Dthetap2_2_1_, &KinematicsSolver::calc_Dthetap2_2_2_};
 
 
-  //Dthetap5-6
-  inline static constexpr Mfn Dthetap5_tbl[4] = {
-    &KinematicsSolver::calc_Dthetap5_1_1_, &KinematicsSolver::calc_Dthetap5_1_2_, &KinematicsSolver::calc_Dthetap5_2_1_, &KinematicsSolver::calc_Dthetap5_2_2_};
+//   //Dthetap5-6
+//   inline static constexpr Mfn Dthetap5_tbl[4] = {
+//     &KinematicsSolver::calc_Dthetap5_1_1_, &KinematicsSolver::calc_Dthetap5_1_2_, &KinematicsSolver::calc_Dthetap5_2_1_, &KinematicsSolver::calc_Dthetap5_2_2_};
 
-  //Dthetap8-9
-  inline static constexpr Mfn Dthetap8_tbl[4] = {
-    &KinematicsSolver::calc_Dthetap8_1_1_, &KinematicsSolver::calc_Dthetap8_1_2_, &KinematicsSolver::calc_Dthetap8_2_1_, &KinematicsSolver::calc_Dthetap8_2_2_};
-}; 
+//   //Dthetap8-9
+//   inline static constexpr Mfn Dthetap8_tbl[4] = {
+//     &KinematicsSolver::calc_Dthetap8_1_1_, &KinematicsSolver::calc_Dthetap8_1_2_, &KinematicsSolver::calc_Dthetap8_2_1_, &KinematicsSolver::calc_Dthetap8_2_2_};
+// }; 
+
+
+//udpdX
+// --- d_ud_d_X 12x23 ---
+inline static constexpr Mfn udpdX_tbl[12][23] = {
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_1_1_,  &KinematicsSolver::calc_pd_ud_pd_X_1_2_,  &KinematicsSolver::calc_pd_ud_pd_X_1_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_1_4_,  &KinematicsSolver::calc_pd_ud_pd_X_1_5_,  &KinematicsSolver::calc_pd_ud_pd_X_1_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_1_7_,  &KinematicsSolver::calc_pd_ud_pd_X_1_8_,  &KinematicsSolver::calc_pd_ud_pd_X_1_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_1_10_, &KinematicsSolver::calc_pd_ud_pd_X_1_11_, &KinematicsSolver::calc_pd_ud_pd_X_1_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_1_13_, &KinematicsSolver::calc_pd_ud_pd_X_1_14_, &KinematicsSolver::calc_pd_ud_pd_X_1_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_1_16_, &KinematicsSolver::calc_pd_ud_pd_X_1_17_, &KinematicsSolver::calc_pd_ud_pd_X_1_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_1_19_, &KinematicsSolver::calc_pd_ud_pd_X_1_20_, &KinematicsSolver::calc_pd_ud_pd_X_1_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_1_22_, &KinematicsSolver::calc_pd_ud_pd_X_1_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_2_1_,  &KinematicsSolver::calc_pd_ud_pd_X_2_2_,  &KinematicsSolver::calc_pd_ud_pd_X_2_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_2_4_,  &KinematicsSolver::calc_pd_ud_pd_X_2_5_,  &KinematicsSolver::calc_pd_ud_pd_X_2_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_2_7_,  &KinematicsSolver::calc_pd_ud_pd_X_2_8_,  &KinematicsSolver::calc_pd_ud_pd_X_2_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_2_10_, &KinematicsSolver::calc_pd_ud_pd_X_2_11_, &KinematicsSolver::calc_pd_ud_pd_X_2_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_2_13_, &KinematicsSolver::calc_pd_ud_pd_X_2_14_, &KinematicsSolver::calc_pd_ud_pd_X_2_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_2_16_, &KinematicsSolver::calc_pd_ud_pd_X_2_17_, &KinematicsSolver::calc_pd_ud_pd_X_2_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_2_19_, &KinematicsSolver::calc_pd_ud_pd_X_2_20_, &KinematicsSolver::calc_pd_ud_pd_X_2_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_2_22_, &KinematicsSolver::calc_pd_ud_pd_X_2_23_}, 
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_3_1_,  &KinematicsSolver::calc_pd_ud_pd_X_3_2_,  &KinematicsSolver::calc_pd_ud_pd_X_3_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_3_4_,  &KinematicsSolver::calc_pd_ud_pd_X_3_5_,  &KinematicsSolver::calc_pd_ud_pd_X_3_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_3_7_,  &KinematicsSolver::calc_pd_ud_pd_X_3_8_,  &KinematicsSolver::calc_pd_ud_pd_X_3_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_3_10_, &KinematicsSolver::calc_pd_ud_pd_X_3_11_, &KinematicsSolver::calc_pd_ud_pd_X_3_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_3_13_, &KinematicsSolver::calc_pd_ud_pd_X_3_14_, &KinematicsSolver::calc_pd_ud_pd_X_3_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_3_16_, &KinematicsSolver::calc_pd_ud_pd_X_3_17_, &KinematicsSolver::calc_pd_ud_pd_X_3_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_3_19_, &KinematicsSolver::calc_pd_ud_pd_X_3_20_, &KinematicsSolver::calc_pd_ud_pd_X_3_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_3_22_, &KinematicsSolver::calc_pd_ud_pd_X_3_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_4_1_,  &KinematicsSolver::calc_pd_ud_pd_X_4_2_,  &KinematicsSolver::calc_pd_ud_pd_X_4_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_4_4_,  &KinematicsSolver::calc_pd_ud_pd_X_4_5_,  &KinematicsSolver::calc_pd_ud_pd_X_4_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_4_7_,  &KinematicsSolver::calc_pd_ud_pd_X_4_8_,  &KinematicsSolver::calc_pd_ud_pd_X_4_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_4_10_, &KinematicsSolver::calc_pd_ud_pd_X_4_11_, &KinematicsSolver::calc_pd_ud_pd_X_4_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_4_13_, &KinematicsSolver::calc_pd_ud_pd_X_4_14_, &KinematicsSolver::calc_pd_ud_pd_X_4_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_4_16_, &KinematicsSolver::calc_pd_ud_pd_X_4_17_, &KinematicsSolver::calc_pd_ud_pd_X_4_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_4_19_, &KinematicsSolver::calc_pd_ud_pd_X_4_20_, &KinematicsSolver::calc_pd_ud_pd_X_4_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_4_22_, &KinematicsSolver::calc_pd_ud_pd_X_4_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_5_1_,  &KinematicsSolver::calc_pd_ud_pd_X_5_2_,  &KinematicsSolver::calc_pd_ud_pd_X_5_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_5_4_,  &KinematicsSolver::calc_pd_ud_pd_X_5_5_,  &KinematicsSolver::calc_pd_ud_pd_X_5_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_5_7_,  &KinematicsSolver::calc_pd_ud_pd_X_5_8_,  &KinematicsSolver::calc_pd_ud_pd_X_5_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_5_10_, &KinematicsSolver::calc_pd_ud_pd_X_5_11_, &KinematicsSolver::calc_pd_ud_pd_X_5_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_5_13_, &KinematicsSolver::calc_pd_ud_pd_X_5_14_, &KinematicsSolver::calc_pd_ud_pd_X_5_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_5_16_, &KinematicsSolver::calc_pd_ud_pd_X_5_17_, &KinematicsSolver::calc_pd_ud_pd_X_5_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_5_19_, &KinematicsSolver::calc_pd_ud_pd_X_5_20_, &KinematicsSolver::calc_pd_ud_pd_X_5_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_5_22_, &KinematicsSolver::calc_pd_ud_pd_X_5_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_6_1_,  &KinematicsSolver::calc_pd_ud_pd_X_6_2_,  &KinematicsSolver::calc_pd_ud_pd_X_6_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_6_4_,  &KinematicsSolver::calc_pd_ud_pd_X_6_5_,  &KinematicsSolver::calc_pd_ud_pd_X_6_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_6_7_,  &KinematicsSolver::calc_pd_ud_pd_X_6_8_,  &KinematicsSolver::calc_pd_ud_pd_X_6_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_6_10_, &KinematicsSolver::calc_pd_ud_pd_X_6_11_, &KinematicsSolver::calc_pd_ud_pd_X_6_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_6_13_, &KinematicsSolver::calc_pd_ud_pd_X_6_14_, &KinematicsSolver::calc_pd_ud_pd_X_6_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_6_16_, &KinematicsSolver::calc_pd_ud_pd_X_6_17_, &KinematicsSolver::calc_pd_ud_pd_X_6_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_6_19_, &KinematicsSolver::calc_pd_ud_pd_X_6_20_, &KinematicsSolver::calc_pd_ud_pd_X_6_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_6_22_, &KinematicsSolver::calc_pd_ud_pd_X_6_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_7_1_,  &KinematicsSolver::calc_pd_ud_pd_X_7_2_,  &KinematicsSolver::calc_pd_ud_pd_X_7_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_7_4_,  &KinematicsSolver::calc_pd_ud_pd_X_7_5_,  &KinematicsSolver::calc_pd_ud_pd_X_7_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_7_7_,  &KinematicsSolver::calc_pd_ud_pd_X_7_8_,  &KinematicsSolver::calc_pd_ud_pd_X_7_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_7_10_, &KinematicsSolver::calc_pd_ud_pd_X_7_11_, &KinematicsSolver::calc_pd_ud_pd_X_7_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_7_13_, &KinematicsSolver::calc_pd_ud_pd_X_7_14_, &KinematicsSolver::calc_pd_ud_pd_X_7_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_7_16_, &KinematicsSolver::calc_pd_ud_pd_X_7_17_, &KinematicsSolver::calc_pd_ud_pd_X_7_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_7_19_, &KinematicsSolver::calc_pd_ud_pd_X_7_20_, &KinematicsSolver::calc_pd_ud_pd_X_7_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_7_22_, &KinematicsSolver::calc_pd_ud_pd_X_7_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_8_1_,  &KinematicsSolver::calc_pd_ud_pd_X_8_2_,  &KinematicsSolver::calc_pd_ud_pd_X_8_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_8_4_,  &KinematicsSolver::calc_pd_ud_pd_X_8_5_,  &KinematicsSolver::calc_pd_ud_pd_X_8_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_8_7_,  &KinematicsSolver::calc_pd_ud_pd_X_8_8_,  &KinematicsSolver::calc_pd_ud_pd_X_8_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_8_10_, &KinematicsSolver::calc_pd_ud_pd_X_8_11_, &KinematicsSolver::calc_pd_ud_pd_X_8_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_8_13_, &KinematicsSolver::calc_pd_ud_pd_X_8_14_, &KinematicsSolver::calc_pd_ud_pd_X_8_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_8_16_, &KinematicsSolver::calc_pd_ud_pd_X_8_17_, &KinematicsSolver::calc_pd_ud_pd_X_8_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_8_19_, &KinematicsSolver::calc_pd_ud_pd_X_8_20_, &KinematicsSolver::calc_pd_ud_pd_X_8_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_8_22_, &KinematicsSolver::calc_pd_ud_pd_X_8_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_9_1_,  &KinematicsSolver::calc_pd_ud_pd_X_9_2_,  &KinematicsSolver::calc_pd_ud_pd_X_9_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_9_4_,  &KinematicsSolver::calc_pd_ud_pd_X_9_5_,  &KinematicsSolver::calc_pd_ud_pd_X_9_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_9_7_,  &KinematicsSolver::calc_pd_ud_pd_X_9_8_,  &KinematicsSolver::calc_pd_ud_pd_X_9_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_9_10_, &KinematicsSolver::calc_pd_ud_pd_X_9_11_, &KinematicsSolver::calc_pd_ud_pd_X_9_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_9_13_, &KinematicsSolver::calc_pd_ud_pd_X_9_14_, &KinematicsSolver::calc_pd_ud_pd_X_9_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_9_16_, &KinematicsSolver::calc_pd_ud_pd_X_9_17_, &KinematicsSolver::calc_pd_ud_pd_X_9_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_9_19_, &KinematicsSolver::calc_pd_ud_pd_X_9_20_, &KinematicsSolver::calc_pd_ud_pd_X_9_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_9_22_, &KinematicsSolver::calc_pd_ud_pd_X_9_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_10_1_,  &KinematicsSolver::calc_pd_ud_pd_X_10_2_,  &KinematicsSolver::calc_pd_ud_pd_X_10_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_10_4_,  &KinematicsSolver::calc_pd_ud_pd_X_10_5_,  &KinematicsSolver::calc_pd_ud_pd_X_10_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_10_7_,  &KinematicsSolver::calc_pd_ud_pd_X_10_8_,  &KinematicsSolver::calc_pd_ud_pd_X_10_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_10_10_, &KinematicsSolver::calc_pd_ud_pd_X_10_11_, &KinematicsSolver::calc_pd_ud_pd_X_10_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_10_13_, &KinematicsSolver::calc_pd_ud_pd_X_10_14_, &KinematicsSolver::calc_pd_ud_pd_X_10_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_10_16_, &KinematicsSolver::calc_pd_ud_pd_X_10_17_, &KinematicsSolver::calc_pd_ud_pd_X_10_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_10_19_, &KinematicsSolver::calc_pd_ud_pd_X_10_20_, &KinematicsSolver::calc_pd_ud_pd_X_10_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_10_22_, &KinematicsSolver::calc_pd_ud_pd_X_10_23_},  
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_11_1_,  &KinematicsSolver::calc_pd_ud_pd_X_11_2_,  &KinematicsSolver::calc_pd_ud_pd_X_11_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_11_4_,  &KinematicsSolver::calc_pd_ud_pd_X_11_5_,  &KinematicsSolver::calc_pd_ud_pd_X_11_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_11_7_,  &KinematicsSolver::calc_pd_ud_pd_X_11_8_,  &KinematicsSolver::calc_pd_ud_pd_X_11_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_11_10_, &KinematicsSolver::calc_pd_ud_pd_X_11_11_, &KinematicsSolver::calc_pd_ud_pd_X_11_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_11_13_, &KinematicsSolver::calc_pd_ud_pd_X_11_14_, &KinematicsSolver::calc_pd_ud_pd_X_11_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_11_16_, &KinematicsSolver::calc_pd_ud_pd_X_11_17_, &KinematicsSolver::calc_pd_ud_pd_X_11_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_11_19_, &KinematicsSolver::calc_pd_ud_pd_X_11_20_, &KinematicsSolver::calc_pd_ud_pd_X_11_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_11_22_, &KinematicsSolver::calc_pd_ud_pd_X_11_23_},
+  {
+    &KinematicsSolver::calc_pd_ud_pd_X_12_1_,  &KinematicsSolver::calc_pd_ud_pd_X_12_2_,  &KinematicsSolver::calc_pd_ud_pd_X_12_3_,
+    &KinematicsSolver::calc_pd_ud_pd_X_12_4_,  &KinematicsSolver::calc_pd_ud_pd_X_12_5_,  &KinematicsSolver::calc_pd_ud_pd_X_12_6_,
+    &KinematicsSolver::calc_pd_ud_pd_X_12_7_,  &KinematicsSolver::calc_pd_ud_pd_X_12_8_,  &KinematicsSolver::calc_pd_ud_pd_X_12_9_,
+    &KinematicsSolver::calc_pd_ud_pd_X_12_10_, &KinematicsSolver::calc_pd_ud_pd_X_12_11_, &KinematicsSolver::calc_pd_ud_pd_X_12_12_,
+    &KinematicsSolver::calc_pd_ud_pd_X_12_13_, &KinematicsSolver::calc_pd_ud_pd_X_12_14_, &KinematicsSolver::calc_pd_ud_pd_X_12_15_,
+    &KinematicsSolver::calc_pd_ud_pd_X_12_16_, &KinematicsSolver::calc_pd_ud_pd_X_12_17_, &KinematicsSolver::calc_pd_ud_pd_X_12_18_,
+    &KinematicsSolver::calc_pd_ud_pd_X_12_19_, &KinematicsSolver::calc_pd_ud_pd_X_12_20_, &KinematicsSolver::calc_pd_ud_pd_X_12_21_,
+    &KinematicsSolver::calc_pd_ud_pd_X_12_22_, &KinematicsSolver::calc_pd_ud_pd_X_12_23_}};
+
+};
+
 
 
 

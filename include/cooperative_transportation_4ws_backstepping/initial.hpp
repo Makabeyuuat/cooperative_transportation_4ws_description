@@ -129,6 +129,7 @@ inline Eigen::Matrix<double,12,1> u_kinematics = Eigen::Matrix<double,12,1>::Zer
 
 inline double q_twist[27] = {0.0};
 inline double qdot_twist[27] = {0.0};
+inline double varphiR_dot[3], varphiF_dot[3];
 inline std::vector<double> x_d = std::vector<double>(DIM + 1, 0.0);
 inline std::vector<double> x_dd = std::vector<double>(DIM + 1, 0.0);
 extern Eigen::Map<Eigen::Matrix<double,27,1>> q_map;

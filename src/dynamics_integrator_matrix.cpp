@@ -56,7 +56,8 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
 
       Eigen::Matrix<double,23,12> SX =  kinematics_solver_.SX_mat();
       Eigen::Matrix<double,23,12> dSXdt =  kinematics_solver_.dSXdt_mat();
-      Eigen::Matrix<double,12,1> pdud =  kinematics_solver_.pd_ud_vec();
+      //Eigen::Matrix<double,12,1> pdud =  kinematics_solver_.pd_ud_vec();
+      Eigen::Matrix<double,12,23> udpdX =  kinematics_solver_.udpdX_mat();
       
       
 
@@ -94,10 +95,11 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
 
       //thetapの2,3階微分を計算
-      getDtheta(nu, u_kinematics);
+      //getDtheta(nu, u_kinematics);
 
+      Eigen::Matrix<double,23,1> Xdot = SX * u_act;
       //目標加速度νを計算
-      nu = -dot_C_rb + pdud;
+      nu = -dot_C_rb + udpdX * Xdot;
       
       
       //状態変数ベクトルの目標加速度
@@ -128,6 +130,10 @@ Eigen::Matrix<double,27,1> DynamicsIntegrator::computeAlpha(
         // ROS_INFO_THROTTLE(0.2,"v1: x1=%.3f, y1=%.3f, thetav1=%.3f, s1=%.3f, v1f=%.3f, v1r=%.3f", q(3), q(4), q(5), q(6), v1f, v1r);
 	    // ROS_INFO_THROTTLE(0.2,"v2: x2=%.3f, y2=%.3f, thetav2=%.3f, s2=%.3f, v2f=%.3f, v2r=%.3f", q(7), q(8), q(9), q(10), v2f, v2r);
 	    // ROS_INFO_THROTTLE(0.2,"v3: x3=%.3f, y3=%.3f, thetav3=%.3f, s3=%.3f, v3f=%.3f, v3r=%.3f", q(11), q(12), q(13), q(14), v3f, v3r);
+        // ROS_INFO_THROTTLE(0.2,"velca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
+        ROS_INFO_THROTTLE(0.2,"velv1: phiR1=%.3f, varphiR1=%.3f, phiF1=%.3f, varphiF1=%.3f", qdot(15), qdot(16), qdot(17), qdot(18));
+	    ROS_INFO_THROTTLE(0.2,"velv2: phiR2=%.3f, varphiR2=%.3f, phiF2=%.3f, varphiF2=%.3f", qdot(19), qdot(20), qdot(21), qdot(22));
+	    ROS_INFO_THROTTLE(0.2,"velv3: phiR3=%.3f, varphiR3=%.3f, phiF3=%.3f, varphiF3=%.3f", qdot(23), qdot(24), qdot(25), qdot(26));
 
         asd =         Xalpha(0);
         athetap4d =   Xalpha(10);
@@ -197,19 +203,19 @@ void DynamicsIntegrator::step(
       Eigen::Matrix<double,15,1> rhs =  (M_xixi * alpha_xi + C_xixi * qdot_xi + K_xi);
       // COD による最小ノルム解
       Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double,15,18>> cod(AT_xi);
-      Eigen::Matrix<double,18,1> lambda = cod.solve(rhs);
-      lambda_data = lambda;
+      Eigen::Matrix<double,18,1> lambda_vec = cod.solve(rhs);
+      lambda_data = lambda_vec;
 
-      ROS_INFO_THROTTLE(0.2,"lambda: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", 
-        lambda(0), lambda(1), lambda(2), lambda(3), lambda(4), lambda(5), lambda(6), lambda(7), lambda(8), lambda(9), lambda(10), lambda(11));
-	  ROS_INFO_THROTTLE(0.2,"lambda: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda(12), lambda(13), lambda(14), lambda(15), lambda(16), lambda(17));
+      ROS_INFO_THROTTLE(0.2,"lambda_vec: la1=%.3f, la2=%.3f, la3=%.3f, la4=%.3f, la5=%.3f, la6=%.3f, la7=%.3f, la8=%.3f,la9=%.3f, la10=%.3f, la11=%.3f, la12=%.3f", 
+        lambda_vec(0), lambda_vec(1), lambda_vec(2), lambda_vec(3), lambda_vec(4), lambda_vec(5), lambda_vec(6), lambda_vec(7), lambda_vec(8), lambda_vec(9), lambda_vec(10), lambda_vec(11));
+	  ROS_INFO_THROTTLE(0.2,"lambda_vec: la13=%.3f, la14=%.3f, la15=%.3f, la16=%.3f, la17=%.3f, la18=%.3f", lambda_vec(12), lambda_vec(13), lambda_vec(14), lambda_vec(15), lambda_vec(16), lambda_vec(17));
 
 
 
       //駆動力の導出
       Eigen::Matrix<double,12,1> rhs_zeta_only = M_zetazeta * alpha_zeta + C_zetazeta * qdot_zeta  + K_zeta;                   
       //拘束力を引いて最終的な駆動トルク
-      Eigen::Matrix<double,12,1> Q_zeta = rhs_zeta_only - AT_zeta * lambda;
+      Eigen::Matrix<double,12,1> Q_zeta = rhs_zeta_only - AT_zeta * lambda_vec;
 
 
       //駆動力計算
@@ -281,16 +287,16 @@ void DynamicsIntegrator::step(
 	//   ROS_INFO_THROTTLE(0.2,"v3: Q_phiR3=%.3f, Q_phiF3=%.3f, Q_varphiR3=%.3f, Q_varphiF3=%.3f", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
 
       Eigen::Matrix<double,12,1> Q_rhs     = rhs_zeta_only;
-      Eigen::Matrix<double,12,1> Q_const   = - AT_zeta * lambda;
+      Eigen::Matrix<double,12,1> Q_const   = - AT_zeta * lambda_vec;
       Eigen::Matrix<double,12,1> Q_total   = Q_rhs + Q_const; // = Q_zeta
 
       int idx_varphiR1 =1;
       int idx_varphiR2 =5;
       int idx_varphiR3 =9;
 
-      ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR1),Q_const(idx_varphiR1),Q_total(idx_varphiR1));
-      ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, A*lambda=%.3f, total=%.3f",Q_rhs(idx_varphiR2),Q_const(idx_varphiR2),Q_total(idx_varphiR2));
-      ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, A*lambda=%.3f, total=%.3f\n\n",Q_rhs(idx_varphiR3),Q_const(idx_varphiR3),Q_total(idx_varphiR3));
+      ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f",Q_rhs(idx_varphiR1),Q_const(idx_varphiR1),Q_total(idx_varphiR1));
+      ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f",Q_rhs(idx_varphiR2),Q_const(idx_varphiR2),Q_total(idx_varphiR2));
+      ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f\n\n",Q_rhs(idx_varphiR3),Q_const(idx_varphiR3),Q_total(idx_varphiR3));
      
      
      
@@ -432,48 +438,48 @@ std::array<double, 2> DynamicsIntegrator::computeRearWheelTorque(
     return torques;
 }
 
-void DynamicsIntegrator::getDtheta(const Eigen::Matrix<double,12,1>& nu, const Eigen::Matrix<double,12,1>& u_kinematics){
-    Eigen::Matrix<double,4,1> Dthetap2 =  kinematics_solver_.Dthetap2_vec();
-    Eigen::Matrix<double,4,1> Dthetap5 =  kinematics_solver_.Dthetap5_vec();
-    Eigen::Matrix<double,4,1> Dthetap8 =  kinematics_solver_.Dthetap8_vec();
+// void DynamicsIntegrator::getDtheta(const Eigen::Matrix<double,12,1>& nu, const Eigen::Matrix<double,12,1>& u_kinematics){
+//     Eigen::Matrix<double,4,1> Dthetap2 =  kinematics_solver_.Dthetap2_vec();
+//     Eigen::Matrix<double,4,1> Dthetap5 =  kinematics_solver_.Dthetap5_vec();
+//     Eigen::Matrix<double,4,1> Dthetap8 =  kinematics_solver_.Dthetap8_vec();
 
-   //thetap2dの２階微分と３階微分
-    ddthetap2d =  Dthetap2(0);
-    dddthetap2d = Dthetap2(1); 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //thetap3dの２階微分と３階微分
-    ddthetap3d = Dthetap2(2) ;
-    dddthetap3d =Dthetap2(3) ; 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//    //thetap2dの２階微分と３階微分
+//     ddthetap2d =  Dthetap2(0);
+//     dddthetap2d = Dthetap2(1); 
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     //thetap3dの２階微分と３階微分
+//     ddthetap3d = Dthetap2(2) ;
+//     dddthetap3d =Dthetap2(3) ; 
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
-    //thetap5dの２階微分と３階微分
-    ddthetap5d =  Dthetap5(0);
-    dddthetap5d = Dthetap5(1); 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //thetap6dの２階微分と３階微分
-    ddthetap6d = Dthetap5(2) ;
-    dddthetap6d =Dthetap5(3) ; 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     //thetap5dの２階微分と３階微分
+//     ddthetap5d =  Dthetap5(0);
+//     dddthetap5d = Dthetap5(1); 
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     //thetap6dの２階微分と３階微分
+//     ddthetap6d = Dthetap5(2) ;
+//     dddthetap6d =Dthetap5(3) ; 
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
-    //thetap8dの２階微分と３階微分
-    ddthetap8d =  Dthetap8(0);
-    dddthetap8d = Dthetap8(1); 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //thetap9dの２階微分と３階微分
-    ddthetap9d = Dthetap8(2) ;
-    dddthetap9d =Dthetap8(3) ; 
+//     //thetap8dの２階微分と３階微分
+//     ddthetap8d =  Dthetap8(0);
+//     dddthetap8d = Dthetap8(1); 
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     //thetap9dの２階微分と３階微分
+//     ddthetap9d = Dthetap8(2) ;
+//     dddthetap9d =Dthetap8(3) ; 
 
-     ROS_INFO_THROTTLE(0.04,"v1: thetap2d=%.3f, dthetap2d=%.3f, ddthetap2d=%.3f, dddthetap2d=%.3f, thetap3d=%.3f, dthetap3d=%.3f, ddthetap3d=%.3f, dddthetap3d=%.3f", thetap2d, dthetap2d, Dthetap2(0), Dthetap2(1), thetap3d, dthetap3d, Dthetap2(2), Dthetap2(3));
-     ROS_INFO_THROTTLE(0.04,"v2: thetap5d=%.3f, dthetap5d=%.3f, ddthetap5d=%.3f, dddthetap5d=%.3f, thetap6d=%.3f, dthetap6d=%.3f, ddthetap6d=%.3f, dddthetap6d=%.3f", thetap5d, dthetap5d, Dthetap5(0), Dthetap5(1), thetap6d, dthetap6d, Dthetap5(2), Dthetap5(3));
-     ROS_INFO_THROTTLE(0.04,"v3: thetap8d=%.3f, dthetap8d=%.3f, ddthetap8d=%.3f, dddthetap8d=%.3f, thetap9d=%.3f, dthetap9d=%.3f, ddthetap9d=%.3f, dddthetap9d=%.3f\n\n", thetap8d, dthetap8d, Dthetap8(0), Dthetap8(1), thetap9d, dthetap9d, Dthetap8(2), Dthetap8(3));
+//     //  ROS_INFO_THROTTLE(0.04,"v1: thetap2d=%.3f, dthetap2d=%.3f, ddthetap2d=%.3f, dddthetap2d=%.3f, thetap3d=%.3f, dthetap3d=%.3f, ddthetap3d=%.3f, dddthetap3d=%.3f", thetap2d, dthetap2d, Dthetap2(0), Dthetap2(1), thetap3d, dthetap3d, Dthetap2(2), Dthetap2(3));
+//     //  ROS_INFO_THROTTLE(0.04,"v2: thetap5d=%.3f, dthetap5d=%.3f, ddthetap5d=%.3f, dddthetap5d=%.3f, thetap6d=%.3f, dthetap6d=%.3f, ddthetap6d=%.3f, dddthetap6d=%.3f", thetap5d, dthetap5d, Dthetap5(0), Dthetap5(1), thetap6d, dthetap6d, Dthetap5(2), Dthetap5(3));
+//     //  ROS_INFO_THROTTLE(0.04,"v3: thetap8d=%.3f, dthetap8d=%.3f, ddthetap8d=%.3f, dddthetap8d=%.3f, thetap9d=%.3f, dthetap9d=%.3f, ddthetap9d=%.3f, dddthetap9d=%.3f\n\n", thetap8d, dthetap8d, Dthetap8(0), Dthetap8(1), thetap9d, dthetap9d, Dthetap8(2), Dthetap8(3));
 
 
-}
+// }
 
 
 
@@ -555,7 +561,7 @@ void DynamicsIntegrator::getDtheta(const Eigen::Matrix<double,12,1>& nu, const E
 //     Eigen::VectorXd sol= Hxi_pinv * b;
     
 //     Eigen::Vector3d qdd = sol.block<3,1>(0,0);
-//     Eigen::Vector2d lambda = sol.block<2,1>(3,0); 
+//     Eigen::Vector2d lambda_vec = sol.block<2,1>(3,0); 
 //     double phidd = Qphi;
 
 //     //積分用の配列に代入

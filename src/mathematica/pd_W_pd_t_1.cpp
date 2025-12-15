@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_pd_W_pd_t_1_()
 {
 double ret;
-ret = 0;
+ret = 0.0;
 return ret;
 }
