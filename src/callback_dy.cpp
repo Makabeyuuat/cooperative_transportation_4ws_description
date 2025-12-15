@@ -54,7 +54,7 @@ void jointStateCallback(const sensor_msgs::JointState::ConstPtr& msg)
     for (size_t i = 0; i < msg->name.size(); ++i) {
         const auto& joint = msg->name[i];
         double pos = msg->position[i];  // [m] for prismatic
-        double vel = msg->velocity[i];
+        if (i < msg->velocity.size()) vel = msg->velocity[i]; else vel = 0;
 
         // — プリズマティックジョイントの変位を delta_pos に格納 —
         if (joint == "linkage_point_to_v1") {
@@ -173,7 +173,35 @@ void jointStateCallback(const sensor_msgs::JointState::ConstPtr& msg)
             v3_wheel_angle_vel_RR   = vel;
         }
 
-        //各車両の後輪の操舵角と操舵角速度を状態変数ベクトルに格納
+        ROS_INFO_THROTTLE(
+                    0.2,
+                    "\n"
+                    "[Wheel vel check]\n"
+                    "v1 rear  RL=% .3f  RR=% .3f  avg=% .3f\n"
+                    "v1 front RL=% .3f  RR=% .3f  avg=% .3f\n"
+                    "v2 rear  RL=% .3f  RR=% .3f  avg=% .3f\n"
+                    "v2 front RL=% .3f  RR=% .3f  avg=% .3f\n"
+                    "v3 rear  RL=% .3f  RR=% .3f  avg=% .3f\n"
+                    "v3 front RL=% .3f  RR=% .3f  avg=% .3f\n",
+                    // v1
+                    v1_wheel_angle_vel_RL, v1_wheel_angle_vel_RR,
+                    0.5 * (v1_wheel_angle_vel_RL + v1_wheel_angle_vel_RR),
+                    v1_wheel_angle_vel_FL, v1_wheel_angle_vel_FR,
+                    0.5 * (v1_wheel_angle_vel_FL + v1_wheel_angle_vel_FR),
+
+                    // v2
+                    v2_wheel_angle_vel_RL, v2_wheel_angle_vel_RR,
+                    0.5 * (v2_wheel_angle_vel_RL + v2_wheel_angle_vel_RR),
+                    v2_wheel_angle_vel_FL, v2_wheel_angle_vel_FR,
+                    0.5 * (v2_wheel_angle_vel_FL + v2_wheel_angle_vel_FR),
+
+                    // v3
+                    v3_wheel_angle_vel_RL, v3_wheel_angle_vel_RR,
+                    0.5 * (v3_wheel_angle_vel_RL + v3_wheel_angle_vel_RR),
+                    v3_wheel_angle_vel_FL, v3_wheel_angle_vel_FR,
+                    0.5 * (v3_wheel_angle_vel_FL + v3_wheel_angle_vel_FR));
+    }
+    //各車両の後輪の操舵角と操舵角速度を状態変数ベクトルに格納
         true_vehicle1_steering_yaw[1] = (v1_steering_angle_RL + v1_steering_angle_RR)/2;
         true_vehicle2_steering_yaw[1] = (v2_steering_angle_RL + v2_steering_angle_RR)/2;
         true_vehicle3_steering_yaw[1] = (v3_steering_angle_RL + v3_steering_angle_RR)/2;
@@ -232,7 +260,6 @@ void jointStateCallback(const sensor_msgs::JointState::ConstPtr& msg)
         qdot_twist[6] = delta_vel1;
         qdot_twist[10] = delta_vel2;
         qdot_twist[14] = delta_vel3;
-    }
 }
 
 // base_link 用のコールバック
