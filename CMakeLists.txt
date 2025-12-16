@@ -46,7 +46,7 @@ include_directories(
 )
 
 # ================= 自動生成(200+) → “mathematica” ライブラリ =================
-file(GLOB_RECURSE MATHEMATICA_SRCS
+file(GLOB_RECURSE MATHEMATICA_SRCS CONFIGURE_DEPENDS
      "${CMAKE_CURRENT_SOURCE_DIR}/src/mathematica/*.cpp")
 
 # 静的でも PIC 必須（共有に取り込むため）

@@ -19,14 +19,26 @@ public:
   Eigen::Matrix<double,27,1>  Kxi_vec();
   Eigen::Matrix<double,12,1>  pd_ud_vec();
   Eigen::Matrix<double,27,1>  aqd_vec();
-  Eigen::Matrix<double,4,1>  Dthetap2_vec();
-  Eigen::Matrix<double,4,1>  Dthetap5_vec();
-  Eigen::Matrix<double,4,1>  Dthetap8_vec();
 
   // --- 状態 ---
   Eigen::Matrix<double,23,12> SX_mat();
   Eigen::Matrix<double,23,12> dSXdt_mat();
   Eigen::Matrix<double,12,23> udpdX_mat();
+
+
+  // --- 仮想リンク関係 ---
+  Eigen::Matrix<double,4,1>  K2_vec();
+  Eigen::Matrix<double,4,1>  K3_vec();
+  Eigen::Matrix<double,4,1>  K5_vec();
+  Eigen::Matrix<double,4,1>  K6_vec();
+  Eigen::Matrix<double,4,1>  K8_vec();
+  Eigen::Matrix<double,4,1>  K9_vec();
+  Eigen::Matrix<double,4,1>  thetap2d_vec();
+  Eigen::Matrix<double,4,1>  thetap3d_vec();
+  Eigen::Matrix<double,4,1>  thetap5d_vec();
+  Eigen::Matrix<double,4,1>  thetap6d_vec();
+  Eigen::Matrix<double,4,1>  thetap8d_vec();
+  Eigen::Matrix<double,4,1>  thetap9d_vec();
 
   inline double Cxi_rc(size_t r, size_t c) { return (this->*Cxi_tbl[r][c])(); }
   inline double Cxi(size_t i) { return (this->*Cxi_tbl[i/27][i%27])(); }
@@ -53,6 +65,70 @@ public:
   // inline double Dthetap2(size_t i) { return (this->*Dthetap2_tbl[i])(); }
   // inline double Dthetap5(size_t i) { return (this->*Dthetap5_tbl[i])(); }
   // inline double Dthetap8(size_t i) { return (this->*Dthetap8_tbl[i])(); }
+  // inline double K2(size_t i) { return (this->*K2_tbl[i])(); }
+  // inline double K3(size_t i) { return (this->*K3_tbl[i])(); }
+  // inline double K5(size_t i) { return (this->*K5_tbl[i])(); }
+  // inline double K6(size_t i) { return (this->*K6_tbl[i])(); }
+  // inline double K8(size_t i) { return (this->*K8_tbl[i])(); }
+  // inline double K9(size_t i) { return (this->*K9_tbl[i])(); }
+  // inline double THETAP2D(size_t i) { return (this->*thetap2d_tbl[i])(); }
+  // inline double THETAP3D(size_t i) { return (this->*thetap3d_tbl[i])(); }
+  // inline double THETAP5D(size_t i) { return (this->*thetap5d_tbl[i])(); }
+  // inline double THETAP6D(size_t i) { return (this->*thetap6d_tbl[i])(); }
+  // inline double THETAP8D(size_t i) { return (this->*thetap8d_tbl[i])(); }
+  // inline double THETAP9D(size_t i) { return (this->*thetap9d_tbl[i])(); }
+
+  inline double K2_1_1() { return calc_K2_1_1_(); } 
+  inline double K2_2_1() { return calc_K2_2_1_(); } 
+  inline double K2_3_1() { return calc_K2_3_1_(); } 
+  inline double K2_4_1() { return calc_K2_4_1_(); } 
+  inline double K3_1_1() { return calc_K3_1_1_(); } 
+  inline double K3_2_1() { return calc_K3_2_1_(); } 
+  inline double K3_3_1() { return calc_K3_3_1_(); } 
+  inline double K3_4_1() { return calc_K3_4_1_(); } 
+  inline double K5_1_1() { return calc_K5_1_1_(); } 
+  inline double K5_2_1() { return calc_K5_2_1_(); } 
+  inline double K5_3_1() { return calc_K5_3_1_(); } 
+  inline double K5_4_1() { return calc_K5_4_1_(); } 
+  inline double K6_1_1() { return calc_K6_1_1_(); } 
+  inline double K6_2_1() { return calc_K6_2_1_(); } 
+  inline double K6_3_1() { return calc_K6_3_1_(); } 
+  inline double K6_4_1() { return calc_K6_4_1_(); } 
+  inline double K8_1_1() { return calc_K8_1_1_(); } 
+  inline double K8_2_1() { return calc_K8_2_1_(); } 
+  inline double K8_3_1() { return calc_K8_3_1_(); } 
+  inline double K8_4_1() { return calc_K8_4_1_(); } 
+  inline double K9_1_1() { return calc_K9_1_1_(); } 
+  inline double K9_2_1() { return calc_K9_2_1_(); } 
+  inline double K9_3_1() { return calc_K9_3_1_(); } 
+  inline double K9_4_1() { return calc_K9_4_1_(); } 
+
+  inline double thetap2d_1_1() { return calc_thetap2d_1_1_(); } 
+  inline double thetap2d_2_1() { return calc_thetap2d_2_1_(); } 
+  inline double thetap2d_3_1() { return calc_thetap2d_3_1_(); } 
+  inline double thetap2d_4_1() { return calc_thetap2d_4_1_(); } 
+  inline double thetap3d_1_1() { return calc_thetap3d_1_1_(); } 
+  inline double thetap3d_2_1() { return calc_thetap3d_2_1_(); } 
+  inline double thetap3d_3_1() { return calc_thetap3d_3_1_(); } 
+  inline double thetap3d_4_1() { return calc_thetap3d_4_1_(); } 
+  inline double thetap5d_1_1() { return calc_thetap5d_1_1_(); } 
+  inline double thetap5d_2_1() { return calc_thetap5d_2_1_(); } 
+  inline double thetap5d_3_1() { return calc_thetap5d_3_1_(); } 
+  inline double thetap5d_4_1() { return calc_thetap5d_4_1_(); } 
+  inline double thetap6d_1_1() { return calc_thetap6d_1_1_(); } 
+  inline double thetap6d_2_1() { return calc_thetap6d_2_1_(); } 
+  inline double thetap6d_3_1() { return calc_thetap6d_3_1_(); } 
+  inline double thetap6d_4_1() { return calc_thetap6d_4_1_(); } 
+  inline double thetap8d_1_1() { return calc_thetap8d_1_1_(); } 
+  inline double thetap8d_2_1() { return calc_thetap8d_2_1_(); } 
+  inline double thetap8d_3_1() { return calc_thetap8d_3_1_(); } 
+  inline double thetap8d_4_1() { return calc_thetap8d_4_1_(); } 
+  inline double thetap9d_1_1() { return calc_thetap9d_1_1_(); } 
+  inline double thetap9d_2_1() { return calc_thetap9d_2_1_(); } 
+  inline double thetap9d_3_1() { return calc_thetap9d_3_1_(); } 
+  inline double thetap9d_4_1() { return calc_thetap9d_4_1_(); } 
+
+
 
 
   // --- Cxi 27x27 ---
@@ -357,7 +433,47 @@ inline static constexpr Mfn udpdX_tbl[12][23] = {
     &KinematicsSolver::calc_pd_ud_pd_X_12_19_, &KinematicsSolver::calc_pd_ud_pd_X_12_20_, &KinematicsSolver::calc_pd_ud_pd_X_12_21_,
     &KinematicsSolver::calc_pd_ud_pd_X_12_22_, &KinematicsSolver::calc_pd_ud_pd_X_12_23_}};
 
+  //K2~K9
+  // inline static constexpr Mfn K2_tbl[4] = {
+  //   &KinematicsSolver::calc_K2_1_1_, &KinematicsSolver::calc_K2_2_1, &KinematicsSolver::calc_K2_3_1_, &KinematicsSolver::calc_K2_4_1_};
+
+  // inline static constexpr Mfn K3_tbl[4] = {
+  //   &KinematicsSolver::calc_K3_1_1_, &KinematicsSolver::calc_K3_2_1, &KinematicsSolver::calc_K3_3_1_, &KinematicsSolver::calc_K3_4_1_};
+  
+  // inline static constexpr Mfn K5_tbl[4] = {
+  //   &KinematicsSolver::calc_K5_1_1_, &KinematicsSolver::calc_K5_2_1, &KinematicsSolver::calc_K5_3_1_, &KinematicsSolver::calc_K5_4_1_};
+  
+  // inline static constexpr Mfn K6_tbl[4] = {
+  //   &KinematicsSolver::calc_K6_1_1_, &KinematicsSolver::calc_K6_2_1, &KinematicsSolver::calc_K6_3_1_, &KinematicsSolver::calc_K6_4_1_};
+
+  // inline static constexpr Mfn K8_tbl[4] = {
+  //   &KinematicsSolver::calc_K8_1_1_, &KinematicsSolver::calc_K8_2_1, &KinematicsSolver::calc_K8_3_1_, &KinematicsSolver::calc_K8_4_1_};
+
+  // inline static constexpr Mfn K9_tbl[4] = {
+  //   &KinematicsSolver::calc_K9_1_1_, &KinematicsSolver::calc_K9_2_1, &KinematicsSolver::calc_K9_3_1_, &KinematicsSolver::calc_K9_4_1_};
+
+  // inline static constexpr Mfn thetap2d_tbl[4] = {
+  //   &KinematicsSolver::calc_thetap2d_1_1_, &KinematicsSolver::calc_thetap2d_2_1, &KinematicsSolver::calc_thetap2d_3_1_, &KinematicsSolver::calc_thetap2d_4_1_};
+
+  // inline static constexpr Mfn thetap3d_tbl[4] = {
+  //   &KinematicsSolver::calc_thetap3d_1_1_, &KinematicsSolver::calc_thetap3d_2_1, &KinematicsSolver::calc_thetap3d_3_1_, &KinematicsSolver::calc_thetap3d_4_1_};
+  
+  // inline static constexpr Mfn thetap5d_tbl[4] = {
+  //   &KinematicsSolver::calc_thetap5d_1_1_, &KinematicsSolver::calc_thetap5d_2_1, &KinematicsSolver::calc_thetap5d_3_1_, &KinematicsSolver::calc_thetap5d_4_1_};
+  
+  // inline static constexpr Mfn thetap6d_tbl[4] = {
+  //   &KinematicsSolver::calc_thetap6d_1_1_, &KinematicsSolver::calc_thetap6d_2_1, &KinematicsSolver::calc_thetap6d_3_1_, &KinematicsSolver::calc_thetap6d_4_1_};
+
+  // inline static constexpr Mfn thetap8d_tbl[4] = {
+  //   &KinematicsSolver::calc_thetap8d_1_1_, &KinematicsSolver::calc_thetap8d_2_1, &KinematicsSolver::calc_thetap8d_3_1_, &KinematicsSolver::calc_thetap8d_4_1_};
+
+  // inline static constexpr Mfn thetap9d_tbl[4] = {
+  //   &KinematicsSolver::calc_thetap9d_1_1_, &KinematicsSolver::calc_thetap9d_2_1, &KinematicsSolver::calc_thetap9d_3_1_, &KinematicsSolver::calc_thetap9d_4_1_};
+
+
 };
+
+
 
 
 
