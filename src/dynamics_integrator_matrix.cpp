@@ -59,6 +59,10 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       //Eigen::Matrix<double,12,1> pdud =  kinematics_solver_.pd_ud_vec();
       Eigen::Matrix<double,12,23> udpdX =  kinematics_solver_.udpdX_mat();
       
+      //ゲイン
+      Eigen::Matrix<double,12,1> gains;
+      gains <<  10.0,10.0,10.0,0.0,20.0,20.0,0.0,20.0,20.0,0.0,20.0,20.0;
+      Eigen::Matrix<double,12,12> C = gains.asDiagonal();
       
 
       // 実際の前進速度と前輪操舵角速度
@@ -85,13 +89,7 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
     
       //偏差ベクトル
-      Eigen::Matrix<double,12,1> r_b = u_act - u_kinematics;
-      
-      //ゲイン
-      Eigen::Matrix<double,12,1> gains;
-      gains <<  10.0,10.0,10.0,0.0,20.0,20.0,0.0,20.0,20.0,0.0,20.0,20.0;
-      Eigen::Matrix<double,12,12> C = gains.asDiagonal();
-          
+      Eigen::Matrix<double,12,1> r_b = u_act - u_kinematics;   
       Eigen::Matrix<double,12,1> dot_C_rb = C*r_b;
 
       //thetapの2,3階微分を計算
@@ -126,11 +124,11 @@ Eigen::Matrix<double,27,1> DynamicsIntegrator::computeAlpha(
         //状態変数ベクトルの目標加速度 
         Eigen::Matrix<double,23,1> Xalpha = computeXAlpha(x_old, x_d, u_kinematics);
         
-        // ROS_INFO_THROTTLE(0.2,"ca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
-        // ROS_INFO_THROTTLE(0.2,"v1: x1=%.3f, y1=%.3f, thetav1=%.3f, s1=%.3f, v1f=%.3f, v1r=%.3f", q(3), q(4), q(5), q(6), v1f, v1r);
-	    // ROS_INFO_THROTTLE(0.2,"v2: x2=%.3f, y2=%.3f, thetav2=%.3f, s2=%.3f, v2f=%.3f, v2r=%.3f", q(7), q(8), q(9), q(10), v2f, v2r);
-	    // ROS_INFO_THROTTLE(0.2,"v3: x3=%.3f, y3=%.3f, thetav3=%.3f, s3=%.3f, v3f=%.3f, v3r=%.3f", q(11), q(12), q(13), q(14), v3f, v3r);
-        // ROS_INFO_THROTTLE(0.2,"velca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
+        ROS_INFO_THROTTLE(0.2,"ca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
+        ROS_INFO_THROTTLE(0.2,"v1: x1=%.3f, y1=%.3f, thetav1=%.3f, s1=%.3f, v1f=%.3f, v1r=%.3f", q(3), q(4), q(5), q(6), v1f, v1r);
+	    ROS_INFO_THROTTLE(0.2,"v2: x2=%.3f, y2=%.3f, thetav2=%.3f, s2=%.3f, v2f=%.3f, v2r=%.3f", q(7), q(8), q(9), q(10), v2f, v2r);
+	    ROS_INFO_THROTTLE(0.2,"v3: x3=%.3f, y3=%.3f, thetav3=%.3f, s3=%.3f, v3f=%.3f, v3r=%.3f", q(11), q(12), q(13), q(14), v3f, v3r);
+        ROS_INFO_THROTTLE(0.2,"velca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
         ROS_INFO_THROTTLE(0.2,"velv1: phiR1=%.3f, varphiR1=%.3f, phiF1=%.3f, varphiF1=%.3f", qdot(15), qdot(16), qdot(17), qdot(18));
 	    ROS_INFO_THROTTLE(0.2,"velv2: phiR2=%.3f, varphiR2=%.3f, phiF2=%.3f, varphiF2=%.3f", qdot(19), qdot(20), qdot(21), qdot(22));
 	    ROS_INFO_THROTTLE(0.2,"velv3: phiR3=%.3f, varphiR3=%.3f, phiF3=%.3f, varphiF3=%.3f", qdot(23), qdot(24), qdot(25), qdot(26));
@@ -282,9 +280,9 @@ void DynamicsIntegrator::step(
       Q_phiRL3 = Q_phiR3/2.0; 
       Q_phiRR3 = Q_phiR3/2.0;
 
-    //   ROS_INFO_THROTTLE(0.2,"v1: Q_phiR1=%.3f, Q_phiF1=%.3f, Q_varphiR1=%.3f, Q_varphiF1=%.3f", Q_phiR1, Q_phiF1, Q_varphiR1, Q_varphiF1);
-	//   ROS_INFO_THROTTLE(0.2,"v2: Q_phiR2=%.3f, Q_phiF2=%.3f, Q_varphiR2=%.3f, Q_varphiF2=%.3f", Q_phiR2, Q_phiF2, Q_varphiR2, Q_varphiF2);
-	//   ROS_INFO_THROTTLE(0.2,"v3: Q_phiR3=%.3f, Q_phiF3=%.3f, Q_varphiR3=%.3f, Q_varphiF3=%.3f", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
+      ROS_INFO_THROTTLE(0.2,"v1: Q_phiR1=%.3f, Q_phiF1=%.3f, Q_varphiR1=%.3f, Q_varphiF1=%.3f", Q_phiR1, Q_phiF1, Q_varphiR1, Q_varphiF1);
+	  ROS_INFO_THROTTLE(0.2,"v2: Q_phiR2=%.3f, Q_phiF2=%.3f, Q_varphiR2=%.3f, Q_varphiF2=%.3f", Q_phiR2, Q_phiF2, Q_varphiR2, Q_varphiF2);
+	  ROS_INFO_THROTTLE(0.2,"v3: Q_phiR3=%.3f, Q_phiF3=%.3f, Q_varphiR3=%.3f, Q_varphiF3=%.3f", Q_phiR3, Q_phiF3, Q_varphiR3, Q_varphiF3);
 
       Eigen::Matrix<double,12,1> Q_rhs     = rhs_zeta_only;
       Eigen::Matrix<double,12,1> Q_const   = - AT_zeta * lambda_vec;
@@ -310,6 +308,8 @@ void DynamicsIntegrator::step(
       x_dd[5] = 0.0;
       x_dd[6] = 0.0;
       x_dd[7] = 0.0;
+
+
 }
 
 //内輪差考慮

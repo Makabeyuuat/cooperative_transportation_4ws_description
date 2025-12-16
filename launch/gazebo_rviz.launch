@@ -1,7 +1,7 @@
 <launch>
   <!-- 1) URDF -->
   <param name="robot_description"
-         command="$(find xacro)/xacro $(find cooperative_transportation_4ws_description)/urdf/cooperative_transportation_4ws.xacro"/>
+         command="$(find xacro)/xacro $(find cooperative_transportation_4ws_description)/urdf/cooperative_transportation_4ws_real.xacro"/>
 
   <!-- 2) Gazeboを先に起動 -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
