@@ -1,5 +1,7 @@
+#pragma once
 #ifndef GET_INPUT_VALUE_HPP
 #define GET_INPUT_VALUE_HPP
+#include "cooperative_transportation_4ws_backstepping/kinematics_solver.hpp"
 
 #include <vector>
 #include <cmath>
@@ -56,6 +58,7 @@ private:
     void U4_U5_U6(const std::vector<double>& x_old, int sr_j);
     void U7_U8_U9(const std::vector<double>& x_old, int sr_j);
     void U10_U11_U12(const std::vector<double>& x_old, int sr_j);
+    KinematicsSolver kinematics_solver_;
 };
 
 #endif // GET_INPUT_VALUE_HPP

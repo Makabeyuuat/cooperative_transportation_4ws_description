@@ -59,53 +59,53 @@ Eigen::Matrix<double,27,1> KinematicsSolver::aqd_vec(){
     return fill_from_vec<27>(this, aqd_tbl);
 }
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::K2_vec(){
-//     return fill_from_vec<4>(this, K2_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::K2_vec(){
+    return fill_from_vec<4>(this, K2_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::K3_vec(){
-//     return fill_from_vec<4>(this, K3_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::K3_vec(){
+    return fill_from_vec<4>(this, K3_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::K5_vec(){
-//     return fill_from_vec<4>(this, K5_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::K5_vec(){
+    return fill_from_vec<4>(this, K5_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::K6_vec(){
-//     return fill_from_vec<4>(this, K6_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::K6_vec(){
+    return fill_from_vec<4>(this, K6_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::K8_vec(){
-//     return fill_from_vec<4>(this, K8_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::K8_vec(){
+    return fill_from_vec<4>(this, K8_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::K9_vec(){
-//     return fill_from_vec<4>(this, K9_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::K9_vec(){
+    return fill_from_vec<4>(this, K9_tbl);
+}
 
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::thetap2d_vec(){
-//     return fill_from_vec<4>(this, thetap2d_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::thetap2d_vec(){
+    return fill_from_vec<4>(this, thetap2d_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::thetap3d_vec(){
-//     return fill_from_vec<4>(this, thetap3d_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::thetap3d_vec(){
+    return fill_from_vec<4>(this, thetap3d_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::thetap5d_vec(){
-//     return fill_from_vec<4>(this, thetap5d_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::thetap5d_vec(){
+    return fill_from_vec<4>(this, thetap5d_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::thetap6d_vec(){
-//     return fill_from_vec<4>(this, thetap6d_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::thetap6d_vec(){
+    return fill_from_vec<4>(this, thetap6d_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::thetap8d_vec(){
-//     return fill_from_vec<4>(this, thetap8d_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::thetap8d_vec(){
+    return fill_from_vec<4>(this, thetap8d_tbl);
+}
 
-// Eigen::Matrix<double,4,1> KinematicsSolver::thetap9d_vec(){
-//     return fill_from_vec<4>(this, thetap9d_tbl);
-// }
+Eigen::Matrix<double,4,1> KinematicsSolver::thetap9d_vec(){
+    return fill_from_vec<4>(this, thetap9d_tbl);
+}
 
 

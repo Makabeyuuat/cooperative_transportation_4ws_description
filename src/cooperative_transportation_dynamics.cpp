@@ -226,27 +226,27 @@ int main(int argc, char** argv)
 		//dynamics_calc.computeCoefficients(x_old);
 	
 		//運動学モデル
-        // auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
-        // auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
-        // auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);
-		// // 各車両へ steering コマンドと車輪の回転速度コマンドを送信
-		// vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
-        // vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
-        // vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
-		// //vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
+        auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
+        auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
+        auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);
+		// 各車両へ steering コマンドと車輪の回転速度コマンドを送信
+		vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
+        vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
+        vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+		//vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
 
-        // vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
-        // vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
-        // vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
+        vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
+        vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
+        vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
 
 		//動力学モデル
 		//各車両へ steering コマンドと車輪の回転速度コマンドを送信
-		vehicle1.publishSteeringCommand(Q_phiFL1, Q_phiFR1, Q_phiRL1, Q_phiRR1);
-    	vehicle2.publishSteeringCommand(Q_phiFL2, Q_phiFR2, Q_phiRL2, Q_phiRR2);
-    	vehicle3.publishSteeringCommand(Q_phiFL3, Q_phiFR3, Q_phiRL3, Q_phiRR3);
-    	vehicle1.publishWheelCommand(v1_torque_front[0], v1_torque_front[1], v1_torque_rear[0], v1_torque_rear[1]);
-    	vehicle2.publishWheelCommand(v2_torque_front[0], v2_torque_front[1], v2_torque_rear[0], v2_torque_rear[1]);
-    	vehicle3.publishWheelCommand(v3_torque_front[0], v3_torque_front[1], v3_torque_rear[0], v3_torque_rear[1]);
+		// vehicle1.publishSteeringCommand(Q_phiFL1, Q_phiFR1, Q_phiRL1, Q_phiRR1);
+    	// vehicle2.publishSteeringCommand(Q_phiFL2, Q_phiFR2, Q_phiRL2, Q_phiRR2);
+    	// vehicle3.publishSteeringCommand(Q_phiFL3, Q_phiFR3, Q_phiRL3, Q_phiRR3);
+    	// vehicle1.publishWheelCommand(v1_torque_front[0], v1_torque_front[1], v1_torque_rear[0], v1_torque_rear[1]);
+    	// vehicle2.publishWheelCommand(v2_torque_front[0], v2_torque_front[1], v2_torque_rear[0], v2_torque_rear[1]);
+    	// vehicle3.publishWheelCommand(v3_torque_front[0], v3_torque_front[1], v3_torque_rear[0], v3_torque_rear[1]);
 
 		
 		logger.logData();

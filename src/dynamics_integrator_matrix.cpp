@@ -59,6 +59,8 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       //Eigen::Matrix<double,12,1> pdud =  kinematics_solver_.pd_ud_vec();
       Eigen::Matrix<double,12,23> udpdX =  kinematics_solver_.udpdX_mat();
       
+
+      
       //ゲイン
       Eigen::Matrix<double,12,1> gains;
       gains <<  10.0,10.0,10.0,0.0,20.0,20.0,0.0,20.0,20.0,0.0,20.0,20.0;

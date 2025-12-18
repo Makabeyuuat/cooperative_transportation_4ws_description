@@ -46,7 +46,7 @@ include_directories(
 )
 
 # ================= 自動生成(200+) → “mathematica” ライブラリ =================
-file(GLOB_RECURSE MATHEMATICA_SRCS CONFIGURE_DEPENDS
+file(GLOB_RECURSE MATHEMATICA_SRCS
      "${CMAKE_CURRENT_SOURCE_DIR}/src/mathematica/*.cpp")
 
 # 静的でも PIC 必須（共有に取り込むため）
@@ -115,6 +115,7 @@ add_executable(cooperative_transportation_kinematics_controller
 )
 
 target_link_libraries(cooperative_transportation_kinematics_controller
+kinematics_solver
   ${catkin_LIBRARIES}
 )
 

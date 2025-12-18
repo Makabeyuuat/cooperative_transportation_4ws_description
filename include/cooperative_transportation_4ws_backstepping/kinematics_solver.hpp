@@ -62,71 +62,69 @@ public:
 
   //inline double pdud(size_t i) { return (this->*pdud_tbl[i])(); }
   inline double aqd(size_t i) { return (this->*aqd_tbl[i])(); }
-  // inline double Dthetap2(size_t i) { return (this->*Dthetap2_tbl[i])(); }
-  // inline double Dthetap5(size_t i) { return (this->*Dthetap5_tbl[i])(); }
-  // inline double Dthetap8(size_t i) { return (this->*Dthetap8_tbl[i])(); }
-  // inline double K2(size_t i) { return (this->*K2_tbl[i])(); }
-  // inline double K3(size_t i) { return (this->*K3_tbl[i])(); }
-  // inline double K5(size_t i) { return (this->*K5_tbl[i])(); }
-  // inline double K6(size_t i) { return (this->*K6_tbl[i])(); }
-  // inline double K8(size_t i) { return (this->*K8_tbl[i])(); }
-  // inline double K9(size_t i) { return (this->*K9_tbl[i])(); }
-  // inline double THETAP2D(size_t i) { return (this->*thetap2d_tbl[i])(); }
-  // inline double THETAP3D(size_t i) { return (this->*thetap3d_tbl[i])(); }
-  // inline double THETAP5D(size_t i) { return (this->*thetap5d_tbl[i])(); }
-  // inline double THETAP6D(size_t i) { return (this->*thetap6d_tbl[i])(); }
-  // inline double THETAP8D(size_t i) { return (this->*thetap8d_tbl[i])(); }
-  // inline double THETAP9D(size_t i) { return (this->*thetap9d_tbl[i])(); }
+  
+  inline double K2(size_t i) { return (this->*K2_tbl[i])(); }
+  inline double K3(size_t i) { return (this->*K3_tbl[i])(); }
+  inline double K5(size_t i) { return (this->*K5_tbl[i])(); }
+  inline double K6(size_t i) { return (this->*K6_tbl[i])(); }
+  inline double K8(size_t i) { return (this->*K8_tbl[i])(); }
+  inline double K9(size_t i) { return (this->*K9_tbl[i])(); }
+  inline double THETAP2D(size_t i) { return (this->*thetap2d_tbl[i])(); }
+  inline double THETAP3D(size_t i) { return (this->*thetap3d_tbl[i])(); }
+  inline double THETAP5D(size_t i) { return (this->*thetap5d_tbl[i])(); }
+  inline double THETAP6D(size_t i) { return (this->*thetap6d_tbl[i])(); }
+  inline double THETAP8D(size_t i) { return (this->*thetap8d_tbl[i])(); }
+  inline double THETAP9D(size_t i) { return (this->*thetap9d_tbl[i])(); }
 
-  inline double K2_1_1() { return calc_K2_1_1_(); } 
-  inline double K2_2_1() { return calc_K2_2_1_(); } 
-  inline double K2_3_1() { return calc_K2_3_1_(); } 
-  inline double K2_4_1() { return calc_K2_4_1_(); } 
-  inline double K3_1_1() { return calc_K3_1_1_(); } 
-  inline double K3_2_1() { return calc_K3_2_1_(); } 
-  inline double K3_3_1() { return calc_K3_3_1_(); } 
-  inline double K3_4_1() { return calc_K3_4_1_(); } 
-  inline double K5_1_1() { return calc_K5_1_1_(); } 
-  inline double K5_2_1() { return calc_K5_2_1_(); } 
-  inline double K5_3_1() { return calc_K5_3_1_(); } 
-  inline double K5_4_1() { return calc_K5_4_1_(); } 
-  inline double K6_1_1() { return calc_K6_1_1_(); } 
-  inline double K6_2_1() { return calc_K6_2_1_(); } 
-  inline double K6_3_1() { return calc_K6_3_1_(); } 
-  inline double K6_4_1() { return calc_K6_4_1_(); } 
-  inline double K8_1_1() { return calc_K8_1_1_(); } 
-  inline double K8_2_1() { return calc_K8_2_1_(); } 
-  inline double K8_3_1() { return calc_K8_3_1_(); } 
-  inline double K8_4_1() { return calc_K8_4_1_(); } 
-  inline double K9_1_1() { return calc_K9_1_1_(); } 
-  inline double K9_2_1() { return calc_K9_2_1_(); } 
-  inline double K9_3_1() { return calc_K9_3_1_(); } 
-  inline double K9_4_1() { return calc_K9_4_1_(); } 
+  // inline double K2_1_1() { return calc_K2_1_1_(); } 
+  // inline double K2_2_1() { return calc_K2_2_1_(); } 
+  // inline double K2_3_1() { return calc_K2_3_1_(); } 
+  // inline double K2_4_1() { return calc_K2_4_1_(); } 
+  // inline double K3_1_1() { return calc_K3_1_1_(); } 
+  // inline double K3_2_1() { return calc_K3_2_1_(); } 
+  // inline double K3_3_1() { return calc_K3_3_1_(); } 
+  // inline double K3_4_1() { return calc_K3_4_1_(); } 
+  // inline double K5_1_1() { return calc_K5_1_1_(); } 
+  // inline double K5_2_1() { return calc_K5_2_1_(); } 
+  // inline double K5_3_1() { return calc_K5_3_1_(); } 
+  // inline double K5_4_1() { return calc_K5_4_1_(); } 
+  // inline double K6_1_1() { return calc_K6_1_1_(); } 
+  // inline double K6_2_1() { return calc_K6_2_1_(); } 
+  // inline double K6_3_1() { return calc_K6_3_1_(); } 
+  // inline double K6_4_1() { return calc_K6_4_1_(); } 
+  // inline double K8_1_1() { return calc_K8_1_1_(); } 
+  // inline double K8_2_1() { return calc_K8_2_1_(); } 
+  // inline double K8_3_1() { return calc_K8_3_1_(); } 
+  // inline double K8_4_1() { return calc_K8_4_1_(); } 
+  // inline double K9_1_1() { return calc_K9_1_1_(); } 
+  // inline double K9_2_1() { return calc_K9_2_1_(); } 
+  // inline double K9_3_1() { return calc_K9_3_1_(); } 
+  // inline double K9_4_1() { return calc_K9_4_1_(); } 
 
-  inline double thetap2d_1_1() { return calc_thetap2d_1_1_(); } 
-  inline double thetap2d_2_1() { return calc_thetap2d_2_1_(); } 
-  inline double thetap2d_3_1() { return calc_thetap2d_3_1_(); } 
-  inline double thetap2d_4_1() { return calc_thetap2d_4_1_(); } 
-  inline double thetap3d_1_1() { return calc_thetap3d_1_1_(); } 
-  inline double thetap3d_2_1() { return calc_thetap3d_2_1_(); } 
-  inline double thetap3d_3_1() { return calc_thetap3d_3_1_(); } 
-  inline double thetap3d_4_1() { return calc_thetap3d_4_1_(); } 
-  inline double thetap5d_1_1() { return calc_thetap5d_1_1_(); } 
-  inline double thetap5d_2_1() { return calc_thetap5d_2_1_(); } 
-  inline double thetap5d_3_1() { return calc_thetap5d_3_1_(); } 
-  inline double thetap5d_4_1() { return calc_thetap5d_4_1_(); } 
-  inline double thetap6d_1_1() { return calc_thetap6d_1_1_(); } 
-  inline double thetap6d_2_1() { return calc_thetap6d_2_1_(); } 
-  inline double thetap6d_3_1() { return calc_thetap6d_3_1_(); } 
-  inline double thetap6d_4_1() { return calc_thetap6d_4_1_(); } 
-  inline double thetap8d_1_1() { return calc_thetap8d_1_1_(); } 
-  inline double thetap8d_2_1() { return calc_thetap8d_2_1_(); } 
-  inline double thetap8d_3_1() { return calc_thetap8d_3_1_(); } 
-  inline double thetap8d_4_1() { return calc_thetap8d_4_1_(); } 
-  inline double thetap9d_1_1() { return calc_thetap9d_1_1_(); } 
-  inline double thetap9d_2_1() { return calc_thetap9d_2_1_(); } 
-  inline double thetap9d_3_1() { return calc_thetap9d_3_1_(); } 
-  inline double thetap9d_4_1() { return calc_thetap9d_4_1_(); } 
+  // inline double thetap2d_1_1() { return calc_thetap2d_1_1_(); } 
+  // inline double thetap2d_2_1() { return calc_thetap2d_2_1_(); } 
+  // inline double thetap2d_3_1() { return calc_thetap2d_3_1_(); } 
+  // inline double thetap2d_4_1() { return calc_thetap2d_4_1_(); } 
+  // inline double thetap3d_1_1() { return calc_thetap3d_1_1_(); } 
+  // inline double thetap3d_2_1() { return calc_thetap3d_2_1_(); } 
+  // inline double thetap3d_3_1() { return calc_thetap3d_3_1_(); } 
+  // inline double thetap3d_4_1() { return calc_thetap3d_4_1_(); } 
+  // inline double thetap5d_1_1() { return calc_thetap5d_1_1_(); } 
+  // inline double thetap5d_2_1() { return calc_thetap5d_2_1_(); } 
+  // inline double thetap5d_3_1() { return calc_thetap5d_3_1_(); } 
+  // inline double thetap5d_4_1() { return calc_thetap5d_4_1_(); } 
+  // inline double thetap6d_1_1() { return calc_thetap6d_1_1_(); } 
+  // inline double thetap6d_2_1() { return calc_thetap6d_2_1_(); } 
+  // inline double thetap6d_3_1() { return calc_thetap6d_3_1_(); } 
+  // inline double thetap6d_4_1() { return calc_thetap6d_4_1_(); } 
+  // inline double thetap8d_1_1() { return calc_thetap8d_1_1_(); } 
+  // inline double thetap8d_2_1() { return calc_thetap8d_2_1_(); } 
+  // inline double thetap8d_3_1() { return calc_thetap8d_3_1_(); } 
+  // inline double thetap8d_4_1() { return calc_thetap8d_4_1_(); } 
+  // inline double thetap9d_1_1() { return calc_thetap9d_1_1_(); } 
+  // inline double thetap9d_2_1() { return calc_thetap9d_2_1_(); } 
+  // inline double thetap9d_3_1() { return calc_thetap9d_3_1_(); } 
+  // inline double thetap9d_4_1() { return calc_thetap9d_4_1_(); } 
 
 
 
@@ -296,15 +294,7 @@ public:
   // };
   
   
-  //aqd
-  inline static constexpr Mfn aqd_tbl[27] = {
-    &KinematicsSolver::calc_aqd_1_, &KinematicsSolver::calc_aqd_2_, &KinematicsSolver::calc_aqd_3_, &KinematicsSolver::calc_aqd_4_,
-    &KinematicsSolver::calc_aqd_5_, &KinematicsSolver::calc_aqd_6_, &KinematicsSolver::calc_aqd_7_, &KinematicsSolver::calc_aqd_8_,
-    &KinematicsSolver::calc_aqd_9_, &KinematicsSolver::calc_aqd_10_, &KinematicsSolver::calc_aqd_11_, &KinematicsSolver::calc_aqd_12_,
-    &KinematicsSolver::calc_aqd_13_, &KinematicsSolver::calc_aqd_14_, &KinematicsSolver::calc_aqd_15_, &KinematicsSolver::calc_aqd_16_,
-    &KinematicsSolver::calc_aqd_17_, &KinematicsSolver::calc_aqd_18_, &KinematicsSolver::calc_aqd_19_, &KinematicsSolver::calc_aqd_20_,
-    &KinematicsSolver::calc_aqd_21_, &KinematicsSolver::calc_aqd_22_, &KinematicsSolver::calc_aqd_23_, &KinematicsSolver::calc_aqd_24_,
-    &KinematicsSolver::calc_aqd_25_, &KinematicsSolver::calc_aqd_26_, &KinematicsSolver::calc_aqd_27_};
+  
 
   //Dthetap2-3
 //   inline static constexpr Mfn Dthetap2_tbl[4] = {
@@ -433,42 +423,66 @@ inline static constexpr Mfn udpdX_tbl[12][23] = {
     &KinematicsSolver::calc_pd_ud_pd_X_12_19_, &KinematicsSolver::calc_pd_ud_pd_X_12_20_, &KinematicsSolver::calc_pd_ud_pd_X_12_21_,
     &KinematicsSolver::calc_pd_ud_pd_X_12_22_, &KinematicsSolver::calc_pd_ud_pd_X_12_23_}};
 
+
+
+  //aqd
+  inline static constexpr Mfn aqd_tbl[27] = {
+    &KinematicsSolver::calc_aqd_1_, &KinematicsSolver::calc_aqd_2_, &KinematicsSolver::calc_aqd_3_, &KinematicsSolver::calc_aqd_4_,
+    &KinematicsSolver::calc_aqd_5_, &KinematicsSolver::calc_aqd_6_, &KinematicsSolver::calc_aqd_7_, &KinematicsSolver::calc_aqd_8_,
+    &KinematicsSolver::calc_aqd_9_, &KinematicsSolver::calc_aqd_10_, &KinematicsSolver::calc_aqd_11_, &KinematicsSolver::calc_aqd_12_,
+    &KinematicsSolver::calc_aqd_13_, &KinematicsSolver::calc_aqd_14_, &KinematicsSolver::calc_aqd_15_, &KinematicsSolver::calc_aqd_16_,
+    &KinematicsSolver::calc_aqd_17_, &KinematicsSolver::calc_aqd_18_, &KinematicsSolver::calc_aqd_19_, &KinematicsSolver::calc_aqd_20_,
+    &KinematicsSolver::calc_aqd_21_, &KinematicsSolver::calc_aqd_22_, &KinematicsSolver::calc_aqd_23_, &KinematicsSolver::calc_aqd_24_,
+    &KinematicsSolver::calc_aqd_25_, &KinematicsSolver::calc_aqd_26_, &KinematicsSolver::calc_aqd_27_};
   //K2~K9
-  // inline static constexpr Mfn K2_tbl[4] = {
-  //   &KinematicsSolver::calc_K2_1_1_, &KinematicsSolver::calc_K2_2_1, &KinematicsSolver::calc_K2_3_1_, &KinematicsSolver::calc_K2_4_1_};
 
-  // inline static constexpr Mfn K3_tbl[4] = {
-  //   &KinematicsSolver::calc_K3_1_1_, &KinematicsSolver::calc_K3_2_1, &KinematicsSolver::calc_K3_3_1_, &KinematicsSolver::calc_K3_4_1_};
+  inline static constexpr Mfn K2_tbl[4] = {
+    &KinematicsSolver::calc_K2_1_1_, &KinematicsSolver::calc_K2_2_1_, 
+    &KinematicsSolver::calc_K2_3_1_, &KinematicsSolver::calc_K2_4_1_};
+
+  inline static constexpr Mfn K3_tbl[4] = {
+    &KinematicsSolver::calc_K3_1_1_, &KinematicsSolver::calc_K3_2_1_, 
+    &KinematicsSolver::calc_K3_3_1_, &KinematicsSolver::calc_K3_4_1_};
   
-  // inline static constexpr Mfn K5_tbl[4] = {
-  //   &KinematicsSolver::calc_K5_1_1_, &KinematicsSolver::calc_K5_2_1, &KinematicsSolver::calc_K5_3_1_, &KinematicsSolver::calc_K5_4_1_};
+  inline static constexpr Mfn K5_tbl[4] = {
+    &KinematicsSolver::calc_K5_1_1_, &KinematicsSolver::calc_K5_2_1_, 
+    &KinematicsSolver::calc_K5_3_1_, &KinematicsSolver::calc_K5_4_1_};
   
-  // inline static constexpr Mfn K6_tbl[4] = {
-  //   &KinematicsSolver::calc_K6_1_1_, &KinematicsSolver::calc_K6_2_1, &KinematicsSolver::calc_K6_3_1_, &KinematicsSolver::calc_K6_4_1_};
+  inline static constexpr Mfn K6_tbl[4] = {
+    &KinematicsSolver::calc_K6_1_1_, &KinematicsSolver::calc_K6_2_1_, 
+    &KinematicsSolver::calc_K6_3_1_, &KinematicsSolver::calc_K6_4_1_};
 
-  // inline static constexpr Mfn K8_tbl[4] = {
-  //   &KinematicsSolver::calc_K8_1_1_, &KinematicsSolver::calc_K8_2_1, &KinematicsSolver::calc_K8_3_1_, &KinematicsSolver::calc_K8_4_1_};
+  inline static constexpr Mfn K8_tbl[4] = {
+    &KinematicsSolver::calc_K8_1_1_, &KinematicsSolver::calc_K8_2_1_, 
+    &KinematicsSolver::calc_K8_3_1_, &KinematicsSolver::calc_K8_4_1_};
 
-  // inline static constexpr Mfn K9_tbl[4] = {
-  //   &KinematicsSolver::calc_K9_1_1_, &KinematicsSolver::calc_K9_2_1, &KinematicsSolver::calc_K9_3_1_, &KinematicsSolver::calc_K9_4_1_};
+  inline static constexpr Mfn K9_tbl[4] = {
+    &KinematicsSolver::calc_K9_1_1_, &KinematicsSolver::calc_K9_2_1_, 
+    &KinematicsSolver::calc_K9_3_1_, &KinematicsSolver::calc_K9_4_1_};
 
-  // inline static constexpr Mfn thetap2d_tbl[4] = {
-  //   &KinematicsSolver::calc_thetap2d_1_1_, &KinematicsSolver::calc_thetap2d_2_1, &KinematicsSolver::calc_thetap2d_3_1_, &KinematicsSolver::calc_thetap2d_4_1_};
+  inline static constexpr Mfn thetap2d_tbl[4] = {
+    &KinematicsSolver::calc_thetap2d_1_1_, &KinematicsSolver::calc_thetap2d_2_1_, 
+    &KinematicsSolver::calc_thetap2d_3_1_, &KinematicsSolver::calc_thetap2d_4_1_};
 
-  // inline static constexpr Mfn thetap3d_tbl[4] = {
-  //   &KinematicsSolver::calc_thetap3d_1_1_, &KinematicsSolver::calc_thetap3d_2_1, &KinematicsSolver::calc_thetap3d_3_1_, &KinematicsSolver::calc_thetap3d_4_1_};
+  inline static constexpr Mfn thetap3d_tbl[4] = {
+    &KinematicsSolver::calc_thetap3d_1_1_, &KinematicsSolver::calc_thetap3d_2_1_, 
+    &KinematicsSolver::calc_thetap3d_3_1_, &KinematicsSolver::calc_thetap3d_4_1_};
   
-  // inline static constexpr Mfn thetap5d_tbl[4] = {
-  //   &KinematicsSolver::calc_thetap5d_1_1_, &KinematicsSolver::calc_thetap5d_2_1, &KinematicsSolver::calc_thetap5d_3_1_, &KinematicsSolver::calc_thetap5d_4_1_};
+  inline static constexpr Mfn thetap5d_tbl[4] = {
+    &KinematicsSolver::calc_thetap5d_1_1_, &KinematicsSolver::calc_thetap5d_2_1_, 
+    &KinematicsSolver::calc_thetap5d_3_1_, &KinematicsSolver::calc_thetap5d_4_1_};
   
-  // inline static constexpr Mfn thetap6d_tbl[4] = {
-  //   &KinematicsSolver::calc_thetap6d_1_1_, &KinematicsSolver::calc_thetap6d_2_1, &KinematicsSolver::calc_thetap6d_3_1_, &KinematicsSolver::calc_thetap6d_4_1_};
+  inline static constexpr Mfn thetap6d_tbl[4] = {
+    &KinematicsSolver::calc_thetap6d_1_1_, &KinematicsSolver::calc_thetap6d_2_1_, 
+    &KinematicsSolver::calc_thetap6d_3_1_, &KinematicsSolver::calc_thetap6d_4_1_};
 
-  // inline static constexpr Mfn thetap8d_tbl[4] = {
-  //   &KinematicsSolver::calc_thetap8d_1_1_, &KinematicsSolver::calc_thetap8d_2_1, &KinematicsSolver::calc_thetap8d_3_1_, &KinematicsSolver::calc_thetap8d_4_1_};
+  inline static constexpr Mfn thetap8d_tbl[4] = {
+    &KinematicsSolver::calc_thetap8d_1_1_, &KinematicsSolver::calc_thetap8d_2_1_, 
+    &KinematicsSolver::calc_thetap8d_3_1_, &KinematicsSolver::calc_thetap8d_4_1_};
 
-  // inline static constexpr Mfn thetap9d_tbl[4] = {
-  //   &KinematicsSolver::calc_thetap9d_1_1_, &KinematicsSolver::calc_thetap9d_2_1, &KinematicsSolver::calc_thetap9d_3_1_, &KinematicsSolver::calc_thetap9d_4_1_};
+  inline static constexpr Mfn thetap9d_tbl[4] = {
+    &KinematicsSolver::calc_thetap9d_1_1_, &KinematicsSolver::calc_thetap9d_2_1_, 
+    &KinematicsSolver::calc_thetap9d_3_1_, &KinematicsSolver::calc_thetap9d_4_1_};
 
 
 };
