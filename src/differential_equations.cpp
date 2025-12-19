@@ -48,7 +48,7 @@ double f10(const std::vector<double>&) {
 }
 
 double f11(const std::vector<double>& x) {
-    return ((ai.a4t*std::tan(x[10]) - ai.V3t*std::sin(x[8]+x[9]-x[11]))/lv)*u1;
+    return ((-ai.a4t*std::tan(x[10]) + ai.V3t*std::sin(x[8]+x[9]-x[11]))/lv)*u1;
 }
 
 double f12(const std::vector<double>&) { 

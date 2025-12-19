@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_Axi_2_5_()
 {
 double ret;
-ret = -Sin(q_map(15) + q_map(5));
+ret = wheelRadius*Sin(q_map(15) + q_map(5))*qdot_map(16);
 return ret;
 }

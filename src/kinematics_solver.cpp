@@ -59,6 +59,11 @@ Eigen::Matrix<double,27,1> KinematicsSolver::aqd_vec(){
     return fill_from_vec<27>(this, aqd_tbl);
 }
 
+Eigen::Matrix<double,6,1> KinematicsSolver::ALPHA6_vec(){
+    return fill_from_vec<6>(this, ALPHA6_tbl);
+}
+
+
 Eigen::Matrix<double,4,1> KinematicsSolver::K2_vec(){
     return fill_from_vec<4>(this, K2_tbl);
 }

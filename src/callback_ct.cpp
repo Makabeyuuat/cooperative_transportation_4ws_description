@@ -157,7 +157,7 @@ void trueV1BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
 
     //X：theta4の座標
     true_vehicle_yaw[0] = yaw;
-    x_old[11] = yaw + PAI;
+    x_old[11] = yaw;
 
     //q：x1,y1,theta1の座標
     q_twist[3] = v1body_pose.pose.position.x;

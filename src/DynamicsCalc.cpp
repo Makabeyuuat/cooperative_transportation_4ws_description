@@ -19,7 +19,7 @@ DynamicsCalculator::DynamicsCalculator() { }
 void DynamicsCalculator::calcXold(std::vector<double>& x_old){
 
     //車両の姿勢角
-    double theta4 = true_vehicle_yaw[0] + PAI;        // 車体yaw（v1）
+    double theta4 = true_vehicle_yaw[0] ;             // 車体yaw（v1）
     double theta7 = true_vehicle_yaw[1];              // 車体yaw（v2）
     double theta10 = true_vehicle_yaw[2];             // 車体yaw（v3）
 
@@ -55,13 +55,13 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
 
 
      //デバッグ用ログ出力
-	// ROS_INFO_THROTTLE(0.25,"DynamicsCalc:thetav2=%.3f, thetav3=%.3f, thetav5=%.3f, thetav6=%.3f, thetav8=%.3f, thetav9=%.3f",
-     //  thetav2, thetav3, thetav5, thetav6, thetav8, thetav9);
+	ROS_INFO_THROTTLE(0.25,"DynamicsCalc:thetav2=%.3f, thetav3=%.3f, thetav5=%.3f, thetav6=%.3f, thetav8=%.3f, thetav9=%.3f",
+      thetav2, thetav3, thetav5, thetav6, thetav8, thetav9);
 
     //仮想リンクを計算
     // v1
-    double th2 = thetav2 - (3.0/2.0)*PAI  + theta4;
-    double th3 = -thetav3 - PAI/2.0 + theta4;
+    double th2 = thetav2 - PAI/2.0  + theta4;
+    double th3 = thetav3 - PAI/6.0  + theta4;
     // v2
     double th5 = thetav5 + PAI/2.0 + theta7;
     double th6 = -thetav6 + 3.0*PAI/2.0 + theta7;
@@ -88,20 +88,16 @@ void DynamicsCalculator::calcXold(std::vector<double>& x_old){
      x_old[20] = true_vehicle3_steering_yaw[0] - th9;
      x_old[23] = theta10;
 
-     // //デバッグ用ログ出力
-	// ROS_INFO_THROTTLE(0.1,"calcX:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",
-     //  x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
-	// ROS_INFO_THROTTLE(0.1,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",
-     //  x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
-	// ROS_INFO_THROTTLE(0.1,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",
-     //  x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
-	// ROS_INFO_THROTTLE(0.1,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f",
-     //  x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
+     //デバッグ用ログ出力
+	ROS_INFO_THROTTLE(0.1,"calcX:t=%.3f, x=%.3f, y=%.3f, theta0=%.3f, phi1=%.3f, theta1=%.3f",
+      x_old[0], x_old[1], x_old[2], x_old[3], x_old[4], x_old[5]);
+	ROS_INFO_THROTTLE(0.1,"vehicle1: phi2=%.3f, theta2=%.3f, phi3=%.3f, theta3=%.3f,phi4=%.3f, theta4=%.3f",
+      x_old[6], x_old[7], x_old[8], x_old[9], x_old[10], x_old[11]);
+	ROS_INFO_THROTTLE(0.1,"vehicle2: phi5=%.3f, theta5=%.3f, phi6=%.3f, theta6=%.3f, phi7=%.3f, theta7=%.3f",
+      x_old[12], x_old[13], x_old[14], x_old[15], x_old[16], x_old[17]);
+	ROS_INFO_THROTTLE(0.1,"vehicle3: phi8=%.3f, theta8=%.3f, phi9=%.3f, theta9=%.3f, phi10=%.3f, theta10=%.3f\n\n",
+      x_old[18], x_old[19], x_old[20], x_old[21], x_old[22], x_old[23]);
 
-//     //車両の姿勢角
-//     x_old[11] = theta4 + PAI;
-//     x_old[17] = theta7;
-//     x_old[23] = theta10;
 
     // 仕上げ：wrap（±π）しておくと後段の tan() が安定
 //     auto wrap_pi = [](double a){ while(a<=-PAI) a+=2*PAI; while(a> PAI) a-=2*PAI; return a; };
@@ -215,7 +211,7 @@ void DynamicsCalculator::computeCoefficients(const std::vector<double>& x) {
 	v3 = (ai.a8t * cos(Theta9) + ai.a8n * sin(Theta9) - ai.a9n * tan(x[20])) * u1;
 
 
-     Phi[1] = x[9] + x[8] - x[11] + PAI;
+     Phi[1] = x[9] + x[8] - x[11] ;
 	Phi[2] = x[15] + x[14] - x[17];
 	Phi[3] = x[21] + x[20] - x[23];
 

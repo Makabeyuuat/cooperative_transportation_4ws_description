@@ -239,10 +239,10 @@ inline double dddthetap3d=0.0;
 
 inline double K31, K32, K33, K34;
 
-inline double thetap4d = PAI;
-inline double dthetap4d = 0;
-inline double ddthetap4d = 0;
-inline double dddthetap4d = 0;
+inline double thetap4d = 0.0;
+inline double dthetap4d = 0.0;
+inline double ddthetap4d = 0.0;
+inline double dddthetap4d = 0.0;
 
 inline double thetap5d,dthetap5d;
 inline double ddthetap5d =0.0;

@@ -233,34 +233,6 @@ void jointStateCallback(const sensor_msgs::JointState::ConstPtr& msg)
         qdot_twist[6] = delta_vel1;
         qdot_twist[10] = delta_vel2;
         qdot_twist[14] = delta_vel3;
-
-        // ROS_INFO_THROTTLE(
-        //             0.2,
-        //             "\n"
-        //             "[Wheel vel check]\n"
-        //             "v1 rear  RL=% .3f  RR=% .3f  avg=% .3f\n"
-        //             "v1 front RL=% .3f  RR=% .3f  avg=% .3f\n"
-        //             "v2 rear  RL=% .3f  RR=% .3f  avg=% .3f\n"
-        //             "v2 front RL=% .3f  RR=% .3f  avg=% .3f\n"
-        //             "v3 rear  RL=% .3f  RR=% .3f  avg=% .3f\n"
-        //             "v3 front RL=% .3f  RR=% .3f  avg=% .3f\n",
-        //             // v1
-        //             v1_wheel_angle_vel_RL, v1_wheel_angle_vel_RR,
-        //             0.5 * (v1_wheel_angle_vel_RL + v1_wheel_angle_vel_RR),
-        //             v1_wheel_angle_vel_FL, v1_wheel_angle_vel_FR,
-        //             0.5 * (v1_wheel_angle_vel_FL + v1_wheel_angle_vel_FR),
-
-        //             // v2
-        //             v2_wheel_angle_vel_RL, v2_wheel_angle_vel_RR,
-        //             0.5 * (v2_wheel_angle_vel_RL + v2_wheel_angle_vel_RR),
-        //             v2_wheel_angle_vel_FL, v2_wheel_angle_vel_FR,
-        //             0.5 * (v2_wheel_angle_vel_FL + v2_wheel_angle_vel_FR),
-
-        //             // v3
-        //             v3_wheel_angle_vel_RL, v3_wheel_angle_vel_RR,
-        //             0.5 * (v3_wheel_angle_vel_RL + v3_wheel_angle_vel_RR),
-        //             v3_wheel_angle_vel_FL, v3_wheel_angle_vel_FR,
-        //             0.5 * (v3_wheel_angle_vel_FL + v3_wheel_angle_vel_FR));
 }
 
 // base_link 用のコールバック
@@ -353,7 +325,7 @@ void trueV1BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
 
     //X：theta4の座標
     true_vehicle_yaw[0] = yaw;
-    x_old[11] = yaw + PAI;
+    x_old[11] = yaw;
 
     //q：x1,y1,theta1の座標
     q_twist[3] = v1body_pose.pose.position.x;
@@ -473,7 +445,7 @@ void trueLinkagePoint1Callback(const nav_msgs::Odometry::ConstPtr& msg)
 
     //X：theta4の座標
     true_vehicle_yaw[0] = yaw;
-    x_old[11] = yaw + PAI;
+    x_old[11] = yaw;
 
     //q：x1,y1,theta1の座標
     q_twist[3] = linkage_point1_pose.pose.position.x;
