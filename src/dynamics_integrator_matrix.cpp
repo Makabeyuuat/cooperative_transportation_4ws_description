@@ -63,12 +63,12 @@ Eigen::Matrix<double,23,1> DynamicsIntegrator::computeXAlpha(
       
       //ゲイン
       Eigen::Matrix<double,12,1> gains;
-      gains <<  10.0,10.0,10.0,0.0,20.0,20.0,0.0,20.0,20.0,0.0,20.0,20.0;
+      gains <<  5.0,10.0,10.0,0.0,20.0,20.0,0.0,20.0,20.0,0.0,20.0,20.0;
       Eigen::Matrix<double,12,12> C = gains.asDiagonal();
       
 
       // 実際の前進速度と前輪操舵角速度
-      u1_act = x0dot * cos(Thetap0) + y0dot * sin(Thetap0);
+      u1_act = x0dot * cos(x_old[3]) + y0dot * sin(x_old[3]);
       u2_act = thetap0dot;
       u3_act = phi1dot;
       u4_act = phi2dot;
@@ -126,14 +126,14 @@ Eigen::Matrix<double,27,1> DynamicsIntegrator::computeAlpha(
         //状態変数ベクトルの目標加速度 
         Eigen::Matrix<double,23,1> Xalpha = computeXAlpha(x_old, x_d, u_kinematics);
         
-        ROS_INFO_THROTTLE(0.2,"ca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
-        ROS_INFO_THROTTLE(0.2,"v1: x1=%.3f, y1=%.3f, thetav1=%.3f, s1=%.3f, v1f=%.3f, v1r=%.3f", q(3), q(4), q(5), q(6), v1f, v1r);
-	    ROS_INFO_THROTTLE(0.2,"v2: x2=%.3f, y2=%.3f, thetav2=%.3f, s2=%.3f, v2f=%.3f, v2r=%.3f", q(7), q(8), q(9), q(10), v2f, v2r);
-	    ROS_INFO_THROTTLE(0.2,"v3: x3=%.3f, y3=%.3f, thetav3=%.3f, s3=%.3f, v3f=%.3f, v3r=%.3f", q(11), q(12), q(13), q(14), v3f, v3r);
-        ROS_INFO_THROTTLE(0.2,"velca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
-        ROS_INFO_THROTTLE(0.2,"velv1: phiR1=%.3f, varphiR1=%.3f, phiF1=%.3f, varphiF1=%.3f", qdot(15), qdot(16), qdot(17), qdot(18));
-	    ROS_INFO_THROTTLE(0.2,"velv2: phiR2=%.3f, varphiR2=%.3f, phiF2=%.3f, varphiF2=%.3f", qdot(19), qdot(20), qdot(21), qdot(22));
-	    ROS_INFO_THROTTLE(0.2,"velv3: phiR3=%.3f, varphiR3=%.3f, phiF3=%.3f, varphiF3=%.3f", qdot(23), qdot(24), qdot(25), qdot(26));
+        ROS_INFO_THROTTLE(0.2,"q:ca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
+        ROS_INFO_THROTTLE(0.2,"q:v1: x1=%.3f, y1=%.3f, thetav1=%.3f, s1=%.3f, v1f=%.3f, v1r=%.3f", q(3), q(4), q(5), q(6), v1f, v1r);
+	    ROS_INFO_THROTTLE(0.2,"q:v2: x2=%.3f, y2=%.3f, thetav2=%.3f, s2=%.3f, v2f=%.3f, v2r=%.3f", q(7), q(8), q(9), q(10), v2f, v2r);
+	    ROS_INFO_THROTTLE(0.2,"q:v3: x3=%.3f, y3=%.3f, thetav3=%.3f, s3=%.3f, v3f=%.3f, v3r=%.3f", q(11), q(12), q(13), q(14), v3f, v3r);
+        ROS_INFO_THROTTLE(0.2,"q_dot:velca: x1=%.3f, y0=%.3f, theta0=%.3f", q(0), q(1), q(2));
+        ROS_INFO_THROTTLE(0.2,"q_dot:velv1: phiR1=%.3f, varphiR1=%.3f, phiF1=%.3f, varphiF1=%.3f", qdot(15), qdot(16), qdot(17), qdot(18));
+	    ROS_INFO_THROTTLE(0.2,"q_dot:velv2: phiR2=%.3f, varphiR2=%.3f, phiF2=%.3f, varphiF2=%.3f", qdot(19), qdot(20), qdot(21), qdot(22));
+	    ROS_INFO_THROTTLE(0.2,"q_dot:velv3: phiR3=%.3f, varphiR3=%.3f, phiF3=%.3f, varphiF3=%.3f", qdot(23), qdot(24), qdot(25), qdot(26));
 
         asd =         Xalpha(0);
         athetap4d =   Xalpha(10);
@@ -294,9 +294,9 @@ void DynamicsIntegrator::step(
       int idx_varphiR2 =5;
       int idx_varphiR3 =9;
 
-      ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f",Q_rhs(idx_varphiR1),Q_const(idx_varphiR1),Q_total(idx_varphiR1));
-      ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f",Q_rhs(idx_varphiR2),Q_const(idx_varphiR2),Q_total(idx_varphiR2));
-      ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f\n\n",Q_rhs(idx_varphiR3),Q_const(idx_varphiR3),Q_total(idx_varphiR3));
+      ROS_INFO_THROTTLE(0.2,"v1 varphiR1: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f | varphif1: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f",Q_rhs(1),Q_const(1),Q_total(1), Q_rhs(3),Q_const(3),Q_total(3));
+      ROS_INFO_THROTTLE(0.2,"v2 varphiR2: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f | varphif2: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f",Q_rhs(5),Q_const(5),Q_total(5), Q_rhs(7),Q_const(7),Q_total(7));
+      ROS_INFO_THROTTLE(0.2,"v3 varphiR3: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f | varphif3: rhs=%.3f, A*lambda_vec=%.3f, total=%.3f\n\n",Q_rhs(9),Q_const(9),Q_total(9) ,Q_rhs(11),Q_const(11),Q_total(11));
      
      
      

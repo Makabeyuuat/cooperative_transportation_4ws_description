@@ -53,9 +53,9 @@ void jointStateCallback(const sensor_msgs::JointState::ConstPtr& msg)
 {
     for (size_t i = 0; i < msg->name.size(); ++i) {
         const auto& joint = msg->name[i];
-        double pos = msg->position[i];  // [m] for prismatic
-        double vel = msg->velocity[i];
-        if (i < msg->velocity.size()) vel = msg->velocity[i]; else vel = 0;
+            
+        double pos = (i < msg->position.size()) ? msg->position[i] : 0.0;
+        double vel = (i < msg->velocity.size()) ? msg->velocity[i] : 0.0;
 
         // — プリズマティックジョイントの変位を delta_pos に格納 —
         if (joint == "linkage_point_to_v1") {
@@ -293,7 +293,7 @@ void trueCarrierCallback(const nav_msgs::Odometry::ConstPtr& msg)
     qdot_twist[2] = msg->twist.twist.angular.z;
     x_d[1] = qdot_twist[0];
     x_d[2] = qdot_twist[1];
-    x_d[3] = qdot_twist[2];
+    x_d[5] = qdot_twist[2];
 
     got_body_pos = true;
 
@@ -334,9 +334,7 @@ void trueV1BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
     qdot_twist[3] = msg->twist.twist.linear.x;
     qdot_twist[4] = msg->twist.twist.linear.y;
     qdot_twist[5] = msg->twist.twist.angular.z;
-    x_d[3] = qdot_twist[3];
-    x_d[4] = qdot_twist[4];
-    x_d[5] = qdot_twist[5];
+    x_d[11] = qdot_twist[5];
     
 //     ROS_INFO("True position of [linkage_point1] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
 //              linkage_point1_pose.pose.position.x,
@@ -376,9 +374,7 @@ void trueV2BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
     qdot_twist[7] = msg->twist.twist.linear.x;
     qdot_twist[8] = msg->twist.twist.linear.y;
     qdot_twist[9] = msg->twist.twist.angular.z;
-    x_d[11] = qdot_twist[7];
-    x_d[12] = qdot_twist[8];
-    x_d[13] = qdot_twist[9];
+    x_d[17] = qdot_twist[9];
     
     // ROS_INFO("True position of [linkage_point2] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
     //          linkage_point2_pose.pose.position.x,
@@ -415,9 +411,7 @@ void trueV3BodyCallback(const nav_msgs::Odometry::ConstPtr& msg)
     qdot_twist[11] = msg->twist.twist.linear.x;
     qdot_twist[12] = msg->twist.twist.linear.y;
     qdot_twist[13] = msg->twist.twist.angular.z;
-    x_d[19] = qdot_twist[11];
-    x_d[20] = qdot_twist[12];
-    x_d[21] = qdot_twist[13];
+    x_d[23] = qdot_twist[13];
     
     // ROS_INFO("True position of [linkage_point3] (world): x=%f, y=%f, z=%f | Orientation: roll=%f, pitch=%f, yaw=%f",
     //          linkage_point3_pose.pose.position.x,
