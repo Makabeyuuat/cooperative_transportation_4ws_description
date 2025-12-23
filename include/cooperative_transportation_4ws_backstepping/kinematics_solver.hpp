@@ -27,6 +27,8 @@ public:
 
 
   // --- 仮想リンク関係 ---
+  Eigen::Matrix<double,6,1>  ALPHA4_vec();
+  Eigen::Matrix<double,6,1>  ALPHA5_vec();
   Eigen::Matrix<double,6,1>  ALPHA6_vec();
   Eigen::Matrix<double,4,1>  K2_vec();
   Eigen::Matrix<double,4,1>  K3_vec();
@@ -64,6 +66,8 @@ public:
   //inline double pdud(size_t i) { return (this->*pdud_tbl[i])(); }
   inline double aqd(size_t i) { return (this->*aqd_tbl[i])(); }
   
+  inline double ALPHA4(size_t i) { return (this->*ALPHA4_tbl[i])(); }
+  inline double ALPHA5(size_t i) { return (this->*ALPHA5_tbl[i])(); }
   inline double ALPHA6(size_t i) { return (this->*ALPHA6_tbl[i])(); }
   inline double K2(size_t i) { return (this->*K2_tbl[i])(); }
   inline double K3(size_t i) { return (this->*K3_tbl[i])(); }
@@ -436,12 +440,21 @@ inline static constexpr Mfn udpdX_tbl[12][23] = {
     &KinematicsSolver::calc_aqd_17_, &KinematicsSolver::calc_aqd_18_, &KinematicsSolver::calc_aqd_19_, &KinematicsSolver::calc_aqd_20_,
     &KinematicsSolver::calc_aqd_21_, &KinematicsSolver::calc_aqd_22_, &KinematicsSolver::calc_aqd_23_, &KinematicsSolver::calc_aqd_24_,
     &KinematicsSolver::calc_aqd_25_, &KinematicsSolver::calc_aqd_26_, &KinematicsSolver::calc_aqd_27_};
-  //K2~K9
+  
+  //alpha4~6
+  inline static constexpr Mfn ALPHA4_tbl[6] = {
+    &KinematicsSolver::calc_alpha_4_1_, &KinematicsSolver::calc_alpha_4_2_, 
+    &KinematicsSolver::calc_alpha_4_3_, &KinematicsSolver::calc_alpha_4_4_, &KinematicsSolver::calc_alpha_4_5_, &KinematicsSolver::calc_alpha_4_6_};
+
+  inline static constexpr Mfn ALPHA5_tbl[6] = {
+    &KinematicsSolver::calc_alpha_5_1_, &KinematicsSolver::calc_alpha_5_2_, 
+    &KinematicsSolver::calc_alpha_5_3_, &KinematicsSolver::calc_alpha_5_4_, &KinematicsSolver::calc_alpha_5_5_, &KinematicsSolver::calc_alpha_5_6_};
 
   inline static constexpr Mfn ALPHA6_tbl[6] = {
     &KinematicsSolver::calc_alpha_6_1_, &KinematicsSolver::calc_alpha_6_2_, 
     &KinematicsSolver::calc_alpha_6_3_, &KinematicsSolver::calc_alpha_6_4_, &KinematicsSolver::calc_alpha_6_5_, &KinematicsSolver::calc_alpha_6_6_};
 
+  //K2~K9
   inline static constexpr Mfn K2_tbl[4] = {
     &KinematicsSolver::calc_K2_1_1_, &KinematicsSolver::calc_K2_2_1_, 
     &KinematicsSolver::calc_K2_3_1_, &KinematicsSolver::calc_K2_4_1_};

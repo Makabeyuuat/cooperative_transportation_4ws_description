@@ -282,7 +282,7 @@ void trueCarrierCallback(const nav_msgs::Odometry::ConstPtr& msg)
     //X：x0,y0,theta0の座標
     x_old[1] = carrier_pose.pose.position.x;
     x_old[2] = carrier_pose.pose.position.y;
-    x_old[5] = yaw;//theta1
+    x_old[5] = yaw;
 
     //q：x0,y0,theta0の座標と速度
     q_twist[0] = carrier_pose.pose.position.x;

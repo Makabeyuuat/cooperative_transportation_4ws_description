@@ -7,6 +7,6 @@
 double KinematicsSolver::calc_dNHddotq_2_4_()
 {
 double ret;
-ret = wheelRadius*Cos(q_map(15) + q_map(5))*qdot_map(16);
+ret = -Cos(q_map(15) + q_map(5));
 return ret;
 }

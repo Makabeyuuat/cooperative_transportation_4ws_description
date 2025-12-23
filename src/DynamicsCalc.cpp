@@ -222,17 +222,17 @@ void DynamicsCalculator::computeCoefficients(const std::vector<double>& x) {
      v3f = v3;
 
      //後輪間中点速度
-     double a2t_pre = ai.a1t1 * cos(Theta2) + ai.a1n1 * sin(Theta2);
-     double a2n_pre = ai.a1t1 * sin(Theta2) - ai.a1n1 * cos(Theta2);
-     v1r = (a2t_pre - a2n_pre * tan(x[10])) * u1;
+     v1r = ai.a4t *  u1/cos(x[10]);
+     v2r = ai.a7t *  u1/cos(x[16]);
+     v3r = ai.a10t * u1/cos(x[22]);
 
-     double a5t_pre = ai.a1t2 * cos(Theta5) + ai.a1n2 * sin(Theta5);
-     double a5n_pre = ai.a1t2 * sin(Theta5) - ai.a1n2 * cos(Theta5);
-     v2r = (a5t_pre - a5n_pre * tan(x[16])) * u1;
+     double v1r_act = qdot_twist[16] *wheelRadius;
+     double v2r_act = qdot_twist[20] *wheelRadius;
+     double v3r_act = qdot_twist[24] *wheelRadius;
 
-     double a8t_pre = ai.a1t3 * cos(Theta8) + ai.a1n3 * sin(Theta8);
-     double a8n_pre = ai.a1t3 * sin(Theta8) - ai.a1n3 * cos(Theta8);
-     v3r = (a8t_pre - a8n_pre * tan(x[22])) * u1;
+     ROS_INFO_THROTTLE(0.04,"vr_act: v1r_act=%.3f, v2r_act=%.3f, v3r_act=%.3f ",v1r_act, v2r_act, v3r_act);
+
+
      // //デバッグ用ログ出力
 	// ROS_INFO_THROTTLE(0.1,"DynamicsCalc:v1=%.3f, v2=%.3f, v3=%.3f",
      //  v1, v2, v3);   
