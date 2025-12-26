@@ -89,50 +89,7 @@ int main(int argc, char** argv)
 
 	
 
-	//経路のQ分割
-	qs[0] = 0.0;
-	double dt = 1.0 / (Q_sample - 1);
-	for (int i = 1; i < Q_sample; ++i) {
-    	qs[i] = i * dt;
-	}
-
-	//曲率の値出力
-	for (int i = 0; i < Q_sample; i++) {
-		R[i][0] = Rx(Bx, qs, i);
-		R[i][1] = Ry(By, qs, i);
-		dRdq[i][0] = d1Rxdq1(Bx, qs, i);
-		dRdq[i][1] = d1Rydq1(By, qs, i);
-		d2Rdq2[i][0] = d2Rxdq2(Bx, qs, i);
-		d2Rdq2[i][1] = d2Rydq2(By, qs, i);
-		d3Rdq3[i][0] = d3Rxdq3(Bx, qs, i);
-		d3Rdq3[i][1] = d3Rydq3(By, qs, i);
-		d4Rdq4[i][0] = d4Rxdq4(Bx, qs, i);
-		d4Rdq4[i][1] = d4Rydq4(By, qs, i);
-
-		cs[i][0] = (-(d1Rydq1(By, qs, i) * d2Rxdq2(Bx, qs, i)) + d1Rxdq1(Bx, qs, i) * d2Rydq2(By, qs, i)) /
-			Power(Power(d1Rxdq1(Bx, qs, i), 2) + Power(d1Rydq1(By, qs, i), 2), 1.5);
-
-
-		cs[i][1] = (Power(d1Rydq1(By, qs, i), 2) * (3 * d2Rxdq2(Bx, qs, i) * d2Rydq2(By, qs, i) - d1Rydq1(By, qs, i) * d3Rxdq3(Bx, qs, i))
-			- Power(d1Rxdq1(Bx, qs, i), 2) * (3 * d2Rxdq2(Bx, qs, i) * d2Rydq2(By, qs, i) + d1Rydq1(By, qs, i) * d3Rxdq3(Bx, qs, i))
-			+ Power(d1Rxdq1(Bx, qs, i), 3) * d3Rydq3(By, qs, i) + d1Rxdq1(Bx, qs, i) * d1Rydq1(By, qs, i) * (3 * Power(d2Rxdq2(Bx, qs, i), 2)
-				- 3 * Power(d2Rydq2(By, qs, i), 2) + d1Rydq1(By, qs, i) * d3Rydq3(By, qs, i))) / Power(Power(d1Rxdq1(Bx, qs, i), 2) + Power(d1Rydq1(By, qs, i), 2), 3);
-
-		cs[i][2] = (-(Power(d1Rxdq1(Bx, qs, i), 4) * (4 * d2Rydq2(By, qs, i) * d3Rxdq3(Bx, qs, i)
-			+ 6 * d2Rxdq2(Bx, qs, i) * d3Rydq3(By, qs, i) + d1Rydq1(By, qs, i) * d4Rxdq4(Bx, qs, i)))
-			+ Power(d1Rxdq1(Bx, qs, i), 2) * d1Rydq1(By, qs, i) * (-15 * Power(d2Rxdq2(Bx, qs, i), 3)
-				+ d2Rxdq2(Bx, qs, i) * (39 * Power(d2Rydq2(By, qs, i), 2) - 2 * d1Rydq1(By, qs, i) * d3Rydq3(By, qs, i))
-				+ 2 * d1Rydq1(By, qs, i) * (d2Rydq2(By, qs, i) * d3Rxdq3(Bx, qs, i) - d1Rydq1(By, qs, i) * d4Rxdq4(Bx, qs, i)))
-			+ Power(d1Rydq1(By, qs, i), 3) * (3 * Power(d2Rxdq2(Bx, qs, i), 3) + d2Rxdq2(Bx, qs, i) * (-15 * Power(d2Rydq2(By, qs, i), 2)
-				+ 4 * d1Rydq1(By, qs, i) * d3Rydq3(By, qs, i)) + d1Rydq1(By, qs, i) * (6 * d2Rydq2(By, qs, i) * d3Rxdq3(Bx, qs, i)
-					- d1Rydq1(By, qs, i) * d4Rxdq4(Bx, qs, i))) + Power(d1Rxdq1(Bx, qs, i), 5) * d4Rydq4(By, qs, i)
-			+ d1Rxdq1(Bx, qs, i) * Power(d1Rydq1(By, qs, i), 2) * (-39 * Power(d2Rxdq2(Bx, qs, i), 2) * d2Rydq2(By, qs, i)
-				+ 15 * Power(d2Rydq2(By, qs, i), 3) + 10 * d1Rydq1(By, qs, i) * d2Rxdq2(Bx, qs, i) * d3Rxdq3(Bx, qs, i)
-				- 10 * d1Rydq1(By, qs, i) * d2Rydq2(By, qs, i) * d3Rydq3(By, qs, i) + Power(d1Rydq1(By, qs, i), 2) * d4Rydq4(By, qs, i))
-			+ Power(d1Rxdq1(Bx, qs, i), 3) * (15 * Power(d2Rxdq2(Bx, qs, i), 2) * d2Rydq2(By, qs, i) - 3 * Power(d2Rydq2(By, qs, i), 3)
-				+ 10 * d1Rydq1(By, qs, i) * d2Rxdq2(Bx, qs, i) * d3Rxdq3(Bx, qs, i) - 10 * d1Rydq1(By, qs, i) * d2Rydq2(By, qs, i) * d3Rydq3(By, qs, i)
-				+ 2 * Power(d1Rydq1(By, qs, i), 2) * d4Rydq4(By, qs, i))) / Power(Power(d1Rxdq1(Bx, qs, i), 2) + Power(d1Rydq1(By, qs, i), 2), 4.00000000005);
-	}
+	
 
 	double	h;
 	long	i, j, n, time;
@@ -226,27 +183,27 @@ int main(int argc, char** argv)
 		//dynamics_calc.computeCoefficients(x_old);
 	
 		//運動学モデル
-        // auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
-        // auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
-        // auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);
-		// // 各車両へ steering コマンドと車輪の回転速度コマンドを送信
-		// vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
-        // vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
-        // vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
-		// //vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
+        auto c1 = wheelkin::compute4ws_from_along(v1f, v1r, Phi[1], x_old[10], lv, lt, wheelRadius);
+        auto c2 = wheelkin::compute4ws_from_along(v2f, v2r, Phi[2], x_old[16], lv, lt, wheelRadius);
+        auto c3 = wheelkin::compute4ws_from_along(v3f, v3r, Phi[3], x_old[22], lv, lt, wheelRadius);
+		// 各車両へ steering コマンドと車輪の回転速度コマンドを送信
+		vehicle1.publishSteeringCommand(c1.delta_fl, c1.delta_fr, c1.delta_rl, c1.delta_rr);
+        vehicle2.publishSteeringCommand(c2.delta_fl, c2.delta_fr, c2.delta_rl, c2.delta_rr);
+        vehicle3.publishSteeringCommand(c3.delta_fl, c3.delta_fr, c3.delta_rl, c3.delta_rr);
+		//vehicle3.publishSteeringCommand(Phi[3], Phi[3], x_old[22], x_old[22]);
 
-        // vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
-        // vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
-        // vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
+        vehicle1.publishWheelCommand(c1.omega_fl, c1.omega_fr, c1.omega_rl, c1.omega_rr);
+        vehicle2.publishWheelCommand(c2.omega_fl, c2.omega_fr, c2.omega_rl, c2.omega_rr);
+        vehicle3.publishWheelCommand(c3.omega_fl, c3.omega_fr, c3.omega_rl, c3.omega_rr);
 
 		// //動力学モデル
 		//各車両へ steering コマンドと車輪の回転速度コマンドを送信
-		vehicle1.publishSteeringCommand(Q_phiFL1, Q_phiFR1, Q_phiRL1, Q_phiRR1);
-    	vehicle2.publishSteeringCommand(Q_phiFL2, Q_phiFR2, Q_phiRL2, Q_phiRR2);
-    	vehicle3.publishSteeringCommand(Q_phiFL3, Q_phiFR3, Q_phiRL3, Q_phiRR3);
-    	vehicle1.publishWheelCommand(v1_torque_front[0], v1_torque_front[1], v1_torque_rear[0], v1_torque_rear[1]);
-    	vehicle2.publishWheelCommand(v2_torque_front[0], v2_torque_front[1], v2_torque_rear[0], v2_torque_rear[1]);
-    	vehicle3.publishWheelCommand(v3_torque_front[0], v3_torque_front[1], v3_torque_rear[0], v3_torque_rear[1]);
+		// vehicle1.publishSteeringCommand(Q_phiFL1, Q_phiFR1, Q_phiRL1, Q_phiRR1);
+    	// vehicle2.publishSteeringCommand(Q_phiFL2, Q_phiFR2, Q_phiRL2, Q_phiRR2);
+    	// vehicle3.publishSteeringCommand(Q_phiFL3, Q_phiFR3, Q_phiRL3, Q_phiRR3);
+    	// vehicle1.publishWheelCommand(v1_torque_front[0], v1_torque_front[1], v1_torque_rear[0], v1_torque_rear[1]);
+    	// vehicle2.publishWheelCommand(v2_torque_front[0], v2_torque_front[1], v2_torque_rear[0], v2_torque_rear[1]);
+    	// vehicle3.publishWheelCommand(v3_torque_front[0], v3_torque_front[1], v3_torque_rear[0], v3_torque_rear[1]);
 
 		
 		logger.logData();
