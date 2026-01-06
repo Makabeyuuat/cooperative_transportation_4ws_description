@@ -65,37 +65,37 @@ void getInputValue::rungeKutta(std::vector<double>& x_old, int sr_j) {
     // --- 状態ベクトルの更新-kinematics ---
 	//荷台
     //t
-	//  x_old[0]=x_new[0];
-    // //theta0
-    // x_old[3]=x_new[3];
-    // //phi1
-    // x_old[4]=x_new[4];
-    // //第一車両
-    // //phi2
-	//  x_old[6]=x_new[6];
-    // //phi3
-	//  x_old[8]=x_new[8];
-    // //theta3
-	//  x_old[9]=x_new[9];
-    // //phi4
-	//  x_old[10]=x_new[10];
-    // //theta4
-	//  x_old[11]=x_new[11];
-    //  //第2車両
-	//  x_old[12]=x_new[12];
-	//  x_old[14]=x_new[14];
-	//  x_old[15]=x_new[15];
-	//  x_old[16]=x_new[16];
-	//  x_old[17]=x_new[17];
-    //  //第3車両
-	//  x_old[18]=x_new[18];
-	//  x_old[20]=x_new[20];
-	//  x_old[21]=x_new[21];
-	//  x_old[22]=x_new[22];
-	//  x_old[23]=x_new[23];
-	// Phi[1] = x_old[9] + x_old[8] - x_old[11];
-	// Phi[2] = x_old[15] + x_old[14] - x_old[17];
-	// Phi[3] = x_old[21] + x_old[20] - x_old[23];
+	 x_old[0]=x_new[0];
+    //theta0
+    x_old[3]=x_new[3];
+    //phi1
+    x_old[4]=x_new[4];
+    //第一車両
+    //phi2
+	 x_old[6]=x_new[6];
+    //phi3
+	 x_old[8]=x_new[8];
+    //theta3
+	 x_old[9]=x_new[9];
+    //phi4
+	 x_old[10]=x_new[10];
+    //theta4
+	 x_old[11]=x_new[11];
+     //第2車両
+	 x_old[12]=x_new[12];
+	 x_old[14]=x_new[14];
+	 x_old[15]=x_new[15];
+	 x_old[16]=x_new[16];
+	 x_old[17]=x_new[17];
+     //第3車両
+	 x_old[18]=x_new[18];
+	 x_old[20]=x_new[20];
+	 x_old[21]=x_new[21];
+	 x_old[22]=x_new[22];
+	 x_old[23]=x_new[23];
+	Phi[1] = x_old[9] + x_old[8] - x_old[11];
+	Phi[2] = x_old[15] + x_old[14] - x_old[17];
+	Phi[3] = x_old[21] + x_old[20] - x_old[23];
 
 
 
@@ -103,19 +103,19 @@ void getInputValue::rungeKutta(std::vector<double>& x_old, int sr_j) {
 	 // --- 状態ベクトルの更新-dynamics ---
     //仮想ステアリングのみ、rungeKuttaで更新
 	//荷台
-    //t
-	 x_old[0]=x_new[0];
-    //theta0
-    x_old[3]=x_new[3];
-    //phi1
-    x_old[4]=x_new[4];
-    //第1車両
-    //phi2
-	 x_old[6]=x_new[6];
-     //第2車両
-	 x_old[12]=x_new[12];
-     //第3車両
-	 x_old[18]=x_new[18];
+    // //t
+	//  x_old[0]=x_new[0];
+    // //theta0
+    // x_old[3]=x_new[3];
+    // //phi1
+    // x_old[4]=x_new[4];
+    // //第1車両
+    // //phi2
+	//  x_old[6]=x_new[6];
+    //  //第2車両
+	//  x_old[12]=x_new[12];
+    //  //第3車両
+	//  x_old[18]=x_new[18];
 
 
 
